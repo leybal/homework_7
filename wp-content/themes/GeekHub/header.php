@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>ДЗ №3</title>
+    <title> <?php the_title(); ?></title>
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url') ?>" />
     <?php wp_head(); ?>
 </head>
