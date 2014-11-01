@@ -3,7 +3,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title> <?php the_title(); ?></title>
-    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url') ?>" />
     <?php wp_head(); ?>
 </head>
 <body>
@@ -37,4 +36,6 @@
 
         </form>
         <img src="http://geekhub.ck.ua/images/splash.png" alt="splash" />
+        
+
     </div><!-- header -->
