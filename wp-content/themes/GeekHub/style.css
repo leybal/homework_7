@@ -1185,9 +1185,9 @@ body span.line
     cursor: pointer;
 }
 
-#content .details > ul > li {
+/*#content .details > ul > li {
     display: none;
-}
+}*/
 
 #content .details {
     overflow: hidden;

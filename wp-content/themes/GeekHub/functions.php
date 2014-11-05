@@ -16,6 +16,20 @@ add_theme_support('post-thumbnails'); /* 166 x 124*/
 
 
 /*Меню*/
-register_nav_menu('menu', 'Menu')
+register_nav_menu('menu', 'Menu');
+
+
+
+if ( function_exists('register_sidebars') )
+ register_sidebars(array(
+        'before_widget' => '',
+    	'after_widget' => '',
+ 		'before_title' => '<h2>',
+        'after_title' => '</h2>',
+    ));
+
+remove_filter( 'the_content', 'wpautop' ); // Отключаем автоформатирование в полном посте
+remove_filter( 'the_excerpt', 'wpautop' ); // Отключаем автоформатирование в кратком(анонсе) посте
+remove_filter('comment_text', 'wpautop'); // Отключаем автоформатирование в комментариях
 
 ?>
