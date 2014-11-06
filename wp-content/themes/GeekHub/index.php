@@ -1,10 +1,4 @@
 <?php
-/*
-Template Name: Archives with Content
-*/
-?>
-
-<?php
     if (is_single() ) :
         get_header();
     elseif ( is_page()) :

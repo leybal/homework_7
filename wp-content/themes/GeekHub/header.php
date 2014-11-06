@@ -8,13 +8,13 @@
 <body>
 <div id="wrap">
     <div id="header">
-        <h1><a href="/wordpress/">GeekHub</a></h1>
+        <h1><a href="<?php bloginfo('url'); ?>/">GeekHub</a></h1>
         <ul class="nav">
-            <li class="active"><a href="/wordpress/">Головна</a></li>
-            <li><a href="/about.html">Про GeekHub</a></li>
-            <li><a href="/team.html">Команда</a></li>
-            <li><a href="/faq.html">FAQ</a></li>
-            <li><a href="/contacts.html">Зв'язок</a></li>
+            <li class="active"><a href="<?php bloginfo('url'); ?>/">Головна</a></li>
+            <li><a href="<?php bloginfo('url'); ?>/?page_id=321">Про GeekHub</a></li>
+            <li><a href="<?php bloginfo('url'); ?>/?page_id=325">Команда</a></li>
+            <li><a href="<?php bloginfo('url'); ?>/?page_id=328">FAQ</a></li>
+            <li><a href="<?php bloginfo('url'); ?>/?page_id=334">Зв'язок</a></li>
         </ul>
 
         <ul class="links">
