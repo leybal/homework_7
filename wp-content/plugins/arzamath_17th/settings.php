@@ -92,7 +92,7 @@ if(!class_exists('WP_Plugin_Template_Settings'))
             // Get the value of this setting
             $value = get_option($field);
             // echo a proper input type="text"
-            echo sprintf('<select name="%s" id="%s" value="%s" size="1"> <option>1</option><option>2</option> <option>some_text</option></select>', $field, $field, $value);
+            echo sprintf('<select name="%s" id="%s" size="1"> <option value="1">1</option><option value="2">2</option> <option value="some_text">some_text</option></select>', $field, $field, $value);
         } // END public function settings_field_input_select($args)
         
         /**

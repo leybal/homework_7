@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- –•–æ—Å—Ç: localhost
--- –í—Ä–µ–º—è —Å–æ–∑–¥–∞–Ω–∏—è: –ù–æ—è 22 2014 –≥., 17:31
+-- –í—Ä–µ–º—è —Å–æ–∑–¥–∞–Ω–∏—è: –ù–æ—è 30 2014 –≥., 13:57
 -- –í–µ—Ä—Å–∏—è —Å–µ—Ä–≤–µ—Ä–∞: 5.5.40-0ubuntu0.14.04.1
 -- –í–µ—Ä—Å–∏—è PHP: 5.5.9-1ubuntu4.5
 
@@ -90,6 +90,176 @@ INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `c
 -- --------------------------------------------------------
 
 --
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_dc_mv_calendars`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_dc_mv_calendars` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` text,
+  `permissions` text,
+  `owner` int(11) DEFAULT '0',
+  `ordering` int(11) NOT NULL DEFAULT '0',
+  `published` tinyint(1) NOT NULL DEFAULT '0',
+  `checked_out` int(11) NOT NULL DEFAULT '0',
+  `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- –î–∞–º–ø –¥–∞–Ω–Ω—ã—Ö —Ç–∞–±–ª–∏—Ü—ã `wp_dc_mv_calendars`
+--
+
+INSERT INTO `wp_dc_mv_calendars` (`id`, `title`, `permissions`, `owner`, `ordering`, `published`, `checked_out`, `checked_out_time`) VALUES
+(1, 'Calendar 1', NULL, 1, 0, 1, 0, '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_dc_mv_configuration`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_dc_mv_configuration` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `palettes` text,
+  `administration` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- –î–∞–º–ø –¥–∞–Ω–Ω—ã—Ö —Ç–∞–±–ª–∏—Ü—ã `wp_dc_mv_configuration`
+--
+
+INSERT INTO `wp_dc_mv_configuration` (`id`, `palettes`, `administration`) VALUES
+(1, 'a:2:{i:0;a:3:{s:4:"name";s:7:"Default";s:6:"colors";a:70:{i:0;s:3:"FFF";i:1;s:3:"FCC";i:2;s:3:"FC9";i:3;s:3:"FF9";i:4;s:3:"FFC";i:5;s:3:"9F9";i:6;s:3:"9FF";i:7;s:3:"CFF";i:8;s:3:"CCF";i:9;s:3:"FCF";i:10;s:3:"CCC";i:11;s:3:"F66";i:12;s:3:"F96";i:13;s:3:"FF6";i:14;s:3:"FF3";i:15;s:3:"6F9";i:16;s:3:"3FF";i:17;s:3:"6FF";i:18;s:3:"99F";i:19;s:3:"F9F";i:20;s:3:"BBB";i:21;s:3:"F00";i:22;s:3:"F90";i:23;s:3:"FC6";i:24;s:3:"FF0";i:25;s:3:"3F3";i:26;s:3:"6CC";i:27;s:3:"3CF";i:28;s:3:"66C";i:29;s:3:"C6C";i:30;s:3:"999";i:31;s:3:"C00";i:32;s:3:"F60";i:33;s:3:"FC3";i:34;s:3:"FC0";i:35;s:3:"3C0";i:36;s:3:"0CC";i:37;s:3:"36F";i:38;s:3:"63F";i:39;s:3:"C3C";i:40;s:3:"666";i:41;s:3:"900";i:42;s:3:"C60";i:43;s:3:"C93";i:44;s:3:"990";i:45;s:3:"090";i:46;s:3:"399";i:47;s:3:"33F";i:48;s:3:"60C";i:49;s:3:"939";i:50;s:3:"333";i:51;s:3:"600";i:52;s:3:"930";i:53;s:3:"963";i:54;s:3:"660";i:55;s:3:"060";i:56;s:3:"366";i:57;s:3:"009";i:58;s:3:"339";i:59;s:3:"636";i:60;s:3:"000";i:61;s:3:"300";i:62;s:3:"630";i:63;s:3:"633";i:64;s:3:"330";i:65;s:3:"030";i:66;s:3:"033";i:67;s:3:"006";i:68;s:3:"309";i:69;s:3:"303";}s:7:"default";s:3:"F00";}i:1;a:3:{s:4:"name";s:9:"Semaphore";s:6:"colors";a:3:{i:0;s:3:"F00";i:1;s:3:"FF3";i:2;s:3:"3C0";}s:7:"default";s:3:"3C0";}}', 'a:15:{s:5:"views";a:4:{i:0;s:7:"viewDay";i:1;s:8:"viewWeek";i:2;s:9:"viewMonth";i:3;s:10:"viewNMonth";}s:11:"viewdefault";s:5:"month";s:8:"language";s:5:"en-GB";s:13:"start_weekday";s:1:"0";s:8:"cssStyle";s:9:"cupertino";s:12:"paletteColor";s:1:"0";s:6:"btoday";s:1:"1";s:11:"bnavigation";s:1:"1";s:8:"brefresh";s:1:"1";s:14:"numberOfMonths";s:2:"12";s:7:"sample0";N;s:7:"sample1";s:5:"click";s:7:"sample2";N;s:7:"sample3";s:0:"";s:7:"sample4";s:10:"new_window";}');
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_dc_mv_events`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_dc_mv_events` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `calid` int(10) unsigned DEFAULT NULL,
+  `starttime` datetime DEFAULT NULL,
+  `endtime` datetime DEFAULT NULL,
+  `title` varchar(250) DEFAULT NULL,
+  `location` varchar(250) DEFAULT NULL,
+  `rrule` varchar(255) DEFAULT NULL,
+  `exdate` text,
+  `uid` int(11) DEFAULT NULL,
+  `description` text,
+  `isalldayevent` tinyint(3) unsigned DEFAULT NULL,
+  `color` varchar(10) DEFAULT NULL,
+  `owner` int(11) DEFAULT NULL,
+  `published` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_dc_mv_views`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_dc_mv_views` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `calid` int(10) unsigned DEFAULT NULL,
+  `viewDay` text,
+  `viewWeek` text,
+  `viewMonth` text,
+  `viewNMonth` text,
+  `viewdefault` text,
+  `start_weekday` text,
+  `cssStyle` text,
+  `palette` text,
+  `edition` text,
+  `btoday` text,
+  `bnavigation` text,
+  `brefresh` text,
+  `numberOfMonths` text,
+  `showtooltip` text,
+  `tooltipon` text,
+  `shownavigate` text,
+  `url` text,
+  `target` text,
+  `otherparams` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_itsec_lockouts`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_itsec_lockouts` (
+  `lockout_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `lockout_type` varchar(20) NOT NULL,
+  `lockout_start` datetime NOT NULL,
+  `lockout_start_gmt` datetime NOT NULL,
+  `lockout_expire` datetime NOT NULL,
+  `lockout_expire_gmt` datetime NOT NULL,
+  `lockout_host` varchar(20) DEFAULT NULL,
+  `lockout_user` bigint(20) unsigned DEFAULT NULL,
+  `lockout_username` varchar(20) DEFAULT NULL,
+  `lockout_active` int(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`lockout_id`),
+  KEY `lockout_expire_gmt` (`lockout_expire_gmt`),
+  KEY `lockout_host` (`lockout_host`),
+  KEY `lockout_user` (`lockout_user`),
+  KEY `lockout_username` (`lockout_username`),
+  KEY `lockout_active` (`lockout_active`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_itsec_log`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_itsec_log` (
+  `log_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `log_type` varchar(20) NOT NULL DEFAULT '',
+  `log_function` varchar(255) NOT NULL DEFAULT '',
+  `log_priority` int(2) NOT NULL DEFAULT '1',
+  `log_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `log_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `log_host` varchar(20) DEFAULT NULL,
+  `log_username` varchar(20) DEFAULT NULL,
+  `log_user` bigint(20) unsigned DEFAULT NULL,
+  `log_url` varchar(255) DEFAULT NULL,
+  `log_referrer` varchar(255) DEFAULT NULL,
+  `log_data` longtext NOT NULL,
+  PRIMARY KEY (`log_id`),
+  KEY `log_type` (`log_type`),
+  KEY `log_date_gmt` (`log_date_gmt`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_itsec_temp`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_itsec_temp` (
+  `temp_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `temp_type` varchar(20) NOT NULL,
+  `temp_date` datetime NOT NULL,
+  `temp_date_gmt` datetime NOT NULL,
+  `temp_host` varchar(20) DEFAULT NULL,
+  `temp_user` bigint(20) unsigned DEFAULT NULL,
+  `temp_username` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`temp_id`),
+  KEY `temp_date_gmt` (`temp_date_gmt`),
+  KEY `temp_host` (`temp_host`),
+  KEY `temp_user` (`temp_user`),
+  KEY `temp_username` (`temp_username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_links`
 --
 
@@ -124,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `wp_options` (
   `autoload` varchar(20) NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=666 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=718 ;
 
 --
 -- –î–∞–º–ø –¥–∞–Ω–Ω—ã—Ö —Ç–∞–±–ª–∏—Ü—ã `wp_options`
@@ -163,7 +333,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (30, 'hack_file', '0', 'yes'),
 (31, 'blog_charset', 'UTF-8', 'yes'),
 (32, 'moderation_keys', '', 'no'),
-(33, 'active_plugins', 'a:2:{i:0;s:19:"akismet/akismet.php";i:1;s:31:"arzamath_17th/arzamath_17th.php";}', 'yes'),
+(33, 'active_plugins', 'a:5:{i:0;s:19:"akismet/akismet.php";i:1;s:31:"arzamath_17th/arzamath_17th.php";i:2;s:41:"better-wp-security/better-wp-security.php";i:3;s:49:"cp-multi-view-calendar/cp-multi-view-calendar.php";i:4;s:23:"wordfence/wordfence.php";}', 'yes'),
 (34, 'category_base', '', 'yes'),
 (35, 'ping_sites', 'http://rpc.pingomatic.com/', 'yes'),
 (36, 'advanced_edit', '0', 'yes'),
@@ -212,7 +382,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (79, 'widget_categories', 'a:2:{i:2;a:4:{s:5:"title";s:0:"";s:5:"count";i:0;s:12:"hierarchical";i:0;s:8:"dropdown";i:0;}s:12:"_multiwidget";i:1;}', 'yes'),
 (80, 'widget_text', 'a:4:{i:1;a:0:{}s:12:"_multiwidget";i:1;i:3;a:3:{s:5:"title";s:0:"";s:4:"text";s:0:"";s:6:"filter";b:0;}i:4;a:3:{s:5:"title";s:0:"";s:4:"text";s:0:"";s:6:"filter";b:0;}}', 'yes'),
 (81, 'widget_rss', 'a:3:{i:1;a:0:{}i:3;a:8:{s:5:"title";s:0:"";s:3:"url";s:0:"";s:4:"link";s:0:"";s:5:"items";i:10;s:5:"error";s:44:"WP HTTP Error: A valid URL was not provided.";s:12:"show_summary";i:0;s:11:"show_author";i:0;s:9:"show_date";i:0;}s:12:"_multiwidget";i:1;}', 'yes'),
-(82, 'uninstall_plugins', 'a:0:{}', 'no'),
+(82, 'uninstall_plugins', 'a:1:{s:41:"better-wp-security/better-wp-security.php";a:2:{i:0;s:10:"ITSEC_Core";i:1;s:12:"on_uninstall";}}', 'no'),
 (83, 'timezone_string', '', 'yes'),
 (84, 'page_for_posts', '77', 'yes'),
 (85, 'page_on_front', '0', 'yes'),
@@ -226,22 +396,22 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (93, 'widget_archives', 'a:2:{i:2;a:3:{s:5:"title";s:0:"";s:5:"count";i:0;s:8:"dropdown";i:0;}s:12:"_multiwidget";i:1;}', 'yes'),
 (94, 'widget_meta', 'a:3:{i:2;a:1:{s:5:"title";s:0:"";}i:3;a:1:{s:5:"title";s:5:"sddsf";}s:12:"_multiwidget";i:1;}', 'yes'),
 (95, 'sidebars_widgets', 'a:4:{s:18:"orphaned_widgets_1";a:6:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:10:"archives-2";i:4;s:12:"categories-2";i:5;s:6:"meta-2";}s:19:"wp_inactive_widgets";a:4:{i:0;s:6:"text-3";i:1;s:10:"calendar-4";i:2;s:6:"text-4";i:3;s:5:"rss-3";}s:9:"sidebar-1";a:1:{i:0;s:6:"meta-3";}s:13:"array_version";i:3;}', 'yes'),
-(96, 'cron', 'a:6:{i:1416670881;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1416685980;a:1:{s:20:"wp_maybe_auto_update";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1416691742;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1416691780;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1416732522;a:1:{s:24:"akismet_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
-(98, '_transient_random_seed', 'b229549365e165c8439e6f50b0ed3d8d', 'yes'),
-(99, '_site_transient_update_core', 'O:8:"stdClass":4:{s:7:"updates";a:2:{i:0;O:8:"stdClass":10:{s:8:"response";s:7:"upgrade";s:8:"download";s:59:"https://downloads.wordpress.org/release/wordpress-4.0.1.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:59:"https://downloads.wordpress.org/release/wordpress-4.0.1.zip";s:10:"no_content";s:70:"https://downloads.wordpress.org/release/wordpress-4.0.1-no-content.zip";s:11:"new_bundled";s:71:"https://downloads.wordpress.org/release/wordpress-4.0.1-new-bundled.zip";s:7:"partial";s:69:"https://downloads.wordpress.org/release/wordpress-4.0.1-partial-0.zip";s:8:"rollback";b:0;}s:7:"current";s:5:"4.0.1";s:7:"version";s:5:"4.0.1";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"3.8";s:15:"partial_version";s:3:"4.0";}i:1;O:8:"stdClass":12:{s:8:"response";s:10:"autoupdate";s:8:"download";s:59:"https://downloads.wordpress.org/release/wordpress-4.0.1.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:59:"https://downloads.wordpress.org/release/wordpress-4.0.1.zip";s:10:"no_content";s:70:"https://downloads.wordpress.org/release/wordpress-4.0.1-no-content.zip";s:11:"new_bundled";s:71:"https://downloads.wordpress.org/release/wordpress-4.0.1-new-bundled.zip";s:7:"partial";s:69:"https://downloads.wordpress.org/release/wordpress-4.0.1-partial-0.zip";s:8:"rollback";s:70:"https://downloads.wordpress.org/release/wordpress-4.0.1-rollback-0.zip";}s:7:"current";s:5:"4.0.1";s:7:"version";s:5:"4.0.1";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"3.8";s:15:"partial_version";s:3:"4.0";s:12:"notify_email";s:1:"1";s:13:"support_email";s:26:"updatehelp40@wordpress.org";}}s:12:"last_checked";i:1416669492;s:15:"version_checked";s:3:"4.0";s:12:"translations";a:0:{}}', 'yes'),
+(96, 'cron', 'a:16:{i:1417348830;a:1:{s:21:"wordfence_hourly_cron";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:6:"hourly";s:4:"args";a:0:{}s:8:"interval";i:3600;}}}i:1417362081;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1417377180;a:1:{s:20:"wp_maybe_auto_update";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1417378683;a:1:{s:30:"wordfence_start_scheduled_scan";a:1:{s:32:"6e281389d8fae55c6d9a8223b51b4a78";a:2:{s:8:"schedule";b:0;s:4:"args";a:1:{i:0;i:1417378683;}}}}i:1417382942;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1417382980;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1417423722;a:1:{s:24:"akismet_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1417430986;a:2:{s:16:"itsec_purge_logs";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}s:20:"itsec_purge_lockouts";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1417431629;a:1:{s:20:"wordfence_daily_cron";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1417464234;a:1:{s:30:"wordfence_start_scheduled_scan";a:1:{s:32:"4339400347532669b5c3ff9b8327e52c";a:2:{s:8:"schedule";b:0;s:4:"args";a:1:{i:0;i:1417464234;}}}}i:1417552459;a:1:{s:30:"wordfence_start_scheduled_scan";a:1:{s:32:"5f8d97339678a9dde0f3ae5ce390a34f";a:2:{s:8:"schedule";b:0;s:4:"args";a:1:{i:0;i:1417552459;}}}}i:1417639748;a:1:{s:30:"wordfence_start_scheduled_scan";a:1:{s:32:"cc244ba87778577fcfde093c37c45d5e";a:2:{s:8:"schedule";b:0;s:4:"args";a:1:{i:0;i:1417639748;}}}}i:1417726300;a:1:{s:30:"wordfence_start_scheduled_scan";a:1:{s:32:"37bb09f3b1dccc6cbcc4088fe0c07280";a:2:{s:8:"schedule";b:0;s:4:"args";a:1:{i:0;i:1417726300;}}}}i:1417812438;a:1:{s:30:"wordfence_start_scheduled_scan";a:1:{s:32:"55eddc781c54875aeb8ad40b533b1aa3";a:2:{s:8:"schedule";b:0;s:4:"args";a:1:{i:0;i:1417812438;}}}}i:1417896693;a:1:{s:30:"wordfence_start_scheduled_scan";a:1:{s:32:"fd5e470314e2b455b75db3339e03c89a";a:2:{s:8:"schedule";b:0;s:4:"args";a:1:{i:0;i:1417896693;}}}}s:7:"version";i:2;}', 'yes'),
+(98, '_transient_random_seed', '76f561138c21fdbbaca094c8d9afdc38', 'yes'),
+(99, '_site_transient_update_core', 'O:8:"stdClass":4:{s:7:"updates";a:2:{i:0;O:8:"stdClass":10:{s:8:"response";s:7:"upgrade";s:8:"download";s:59:"https://downloads.wordpress.org/release/wordpress-4.0.1.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:59:"https://downloads.wordpress.org/release/wordpress-4.0.1.zip";s:10:"no_content";s:70:"https://downloads.wordpress.org/release/wordpress-4.0.1-no-content.zip";s:11:"new_bundled";s:71:"https://downloads.wordpress.org/release/wordpress-4.0.1-new-bundled.zip";s:7:"partial";s:69:"https://downloads.wordpress.org/release/wordpress-4.0.1-partial-0.zip";s:8:"rollback";b:0;}s:7:"current";s:5:"4.0.1";s:7:"version";s:5:"4.0.1";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"3.8";s:15:"partial_version";s:3:"4.0";}i:1;O:8:"stdClass":12:{s:8:"response";s:10:"autoupdate";s:8:"download";s:59:"https://downloads.wordpress.org/release/wordpress-4.0.1.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:59:"https://downloads.wordpress.org/release/wordpress-4.0.1.zip";s:10:"no_content";s:70:"https://downloads.wordpress.org/release/wordpress-4.0.1-no-content.zip";s:11:"new_bundled";s:71:"https://downloads.wordpress.org/release/wordpress-4.0.1-new-bundled.zip";s:7:"partial";s:69:"https://downloads.wordpress.org/release/wordpress-4.0.1-partial-0.zip";s:8:"rollback";s:70:"https://downloads.wordpress.org/release/wordpress-4.0.1-rollback-0.zip";}s:7:"current";s:5:"4.0.1";s:7:"version";s:5:"4.0.1";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"3.8";s:15:"partial_version";s:3:"4.0";s:12:"notify_email";s:1:"1";s:13:"support_email";s:26:"updatehelp40@wordpress.org";}}s:12:"last_checked";i:1417343195;s:15:"version_checked";s:3:"4.0";s:12:"translations";a:0:{}}', 'yes'),
 (100, 'auth_key', ':i{d7hOMhg4M)VuX.=$`/xm~K`Y2bRFX$QA>!bZ40,Ik1qZDD/up,@](x%~:];Ee', 'yes'),
 (101, 'auth_salt', ' A,U7Ip?~@Romlg.Rx3Wv[jS@>RBqSgSJf,c%qC@b~m*lz826d_ed}a^xwh#AQ*8', 'yes'),
 (102, 'logged_in_key', '(~_|{,0sGv$qw1MbmV0[<}O)L@_{^gjvZ4J!$c[vIshOLt/8C|nwr=p~/JI9=nKi', 'yes'),
 (103, 'logged_in_salt', 'N}@w_CN>CZawZ z&nR,0^J+o^EK|i)5Dk^Y6(n|)|XovqXUY:7MlWe*$`W{s2pt?', 'yes'),
 (104, 'nonce_key', ' ;0UH`l&>RjGlFm Wt4*d.ac#T)>8)o6Mk}Ih#_jvX6lJ<pS#L4pO;?]12c8Z8+G', 'yes'),
 (107, 'nonce_salt', '~@Igu2t;eL/qIY`}RMQ58kfC|U~UEFE#DnIRvhKO@S|k^de23+|970>Us5.|BT}T', 'yes'),
-(110, '_site_transient_update_themes', 'O:8:"stdClass":4:{s:12:"last_checked";i:1416669501;s:7:"checked";a:4:{s:7:"GeekHub";s:0:"";s:14:"twentyfourteen";s:3:"1.2";s:14:"twentythirteen";s:3:"1.3";s:12:"twentytwelve";s:3:"1.5";}s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'yes'),
+(110, '_site_transient_update_themes', 'O:8:"stdClass":4:{s:12:"last_checked";i:1417343198;s:7:"checked";a:4:{s:7:"GeekHub";s:0:"";s:14:"twentyfourteen";s:3:"1.2";s:14:"twentythirteen";s:3:"1.3";s:12:"twentytwelve";s:3:"1.5";}s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'yes'),
 (113, 'can_compress_scripts', '0', 'yes'),
 (155, 'current_theme', '', 'yes'),
 (156, 'theme_mods_twentythirteen', 'a:3:{i:0;b:0;s:16:"header_textcolor";s:6:"8224e3";s:16:"sidebars_widgets";a:2:{s:4:"time";i:1414612695;s:4:"data";a:3:{s:19:"wp_inactive_widgets";a:5:{i:0;s:10:"calendar-3";i:1;s:10:"calendar-4";i:2;s:6:"text-3";i:3;s:6:"text-4";i:4;s:5:"rss-3";}s:9:"sidebar-1";a:6:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:10:"archives-2";i:4;s:12:"categories-2";i:5;s:6:"meta-2";}s:9:"sidebar-2";a:0:{}}}}', 'yes'),
 (157, 'theme_switched', '', 'yes'),
-(159, 'recently_activated', 'a:2:{s:47:"thumbnail-for-excerpts/thumbnailforexcerpts.php";i:1416669905;s:41:"wp_plugin_template/wp_plugin_template.php";i:1416480198;}', 'yes'),
-(162, 'ftp_credentials', 'a:3:{s:8:"hostname";s:18:"loc.home/wordpress";s:8:"username";s:5:"admin";s:15:"connection_type";s:3:"ftp";}', 'yes'),
+(159, 'recently_activated', 'a:1:{s:17:"asgard/asgard.php";i:1417344314;}', 'yes'),
+(162, 'ftp_credentials', 'a:3:{s:8:"hostname";s:19:"localhost/wordpress";s:8:"username";s:5:"admin";s:15:"connection_type";s:3:"ftp";}', 'yes'),
 (164, 'widget_pages', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
 (165, 'widget_calendar', 'a:3:{i:1;a:0:{}i:4;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
 (166, 'widget_tag_cloud', 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}', 'yes'),
@@ -263,8 +433,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (590, '_site_transient_wporg_theme_feature_list', 'a:4:{s:6:"Colors";a:15:{i:0;s:5:"black";i:1;s:4:"blue";i:2;s:5:"brown";i:3;s:4:"gray";i:4;s:5:"green";i:5;s:6:"orange";i:6;s:4:"pink";i:7;s:6:"purple";i:8;s:3:"red";i:9;s:6:"silver";i:10;s:3:"tan";i:11;s:5:"white";i:12;s:6:"yellow";i:13;s:4:"dark";i:14;s:5:"light";}s:6:"Layout";a:9:{i:0;s:12:"fixed-layout";i:1;s:12:"fluid-layout";i:2;s:17:"responsive-layout";i:3;s:10:"one-column";i:4;s:11:"two-columns";i:5;s:13:"three-columns";i:6;s:12:"four-columns";i:7;s:12:"left-sidebar";i:8;s:13:"right-sidebar";}s:8:"Features";a:20:{i:0;s:19:"accessibility-ready";i:1;s:8:"blavatar";i:2;s:10:"buddypress";i:3;s:17:"custom-background";i:4;s:13:"custom-colors";i:5;s:13:"custom-header";i:6;s:11:"custom-menu";i:7;s:12:"editor-style";i:8;s:21:"featured-image-header";i:9;s:15:"featured-images";i:10;s:15:"flexible-header";i:11;s:20:"front-page-post-form";i:12;s:19:"full-width-template";i:13;s:12:"microformats";i:14;s:12:"post-formats";i:15;s:20:"rtl-language-support";i:16;s:11:"sticky-post";i:17;s:13:"theme-options";i:18;s:17:"threaded-comments";i:19;s:17:"translation-ready";}s:7:"Subject";a:3:{i:0;s:7:"holiday";i:1;s:13:"photoblogging";i:2;s:8:"seasonal";}}', 'yes'),
 (615, '_site_transient_timeout_browser_6003f8532392ea83e3e32a7fb0de2027', '1417001256', 'yes'),
 (616, '_site_transient_browser_6003f8532392ea83e3e32a7fb0de2027', 'a:9:{s:8:"platform";s:5:"Linux";s:4:"name";s:7:"Firefox";s:7:"version";s:4:"33.0";s:10:"update_url";s:23:"http://www.firefox.com/";s:7:"img_src";s:50:"http://s.wordpress.org/images/browsers/firefox.png";s:11:"img_src_ssl";s:49:"https://wordpress.org/images/browsers/firefox.png";s:15:"current_version";s:2:"16";s:7:"upgrade";b:0;s:8:"insecure";b:0;}', 'yes'),
-(629, '_transient_timeout_plugin_slugs', '1416756622', 'no'),
-(630, '_transient_plugin_slugs', 'a:3:{i:0;s:19:"akismet/akismet.php";i:1;s:31:"arzamath_17th/arzamath_17th.php";i:2;s:9:"hello.php";}', 'no'),
+(629, '_transient_timeout_plugin_slugs', '1417433446', 'no'),
+(630, '_transient_plugin_slugs', 'a:7:{i:0;s:19:"akismet/akismet.php";i:1;s:31:"arzamath_17th/arzamath_17th.php";i:2;s:17:"asgard/asgard.php";i:3;s:49:"cp-multi-view-calendar/cp-multi-view-calendar.php";i:4;s:9:"hello.php";i:5;s:41:"better-wp-security/better-wp-security.php";i:6;s:23:"wordfence/wordfence.php";}', 'no'),
 (643, '_transient_timeout_feed_ac0b00fe65abe10e0c5b588f3ed8c7ca', '1416523000', 'no');
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
 (644, '_transient_feed_ac0b00fe65abe10e0c5b588f3ed8c7ca', 'a:4:{s:5:"child";a:1:{s:0:"";a:1:{s:3:"rss";a:1:{i:0;a:6:{s:4:"data";s:3:"\n\n\n";s:7:"attribs";a:1:{s:0:"";a:1:{s:7:"version";s:3:"2.0";}}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";s:5:"child";a:1:{s:0:"";a:1:{s:7:"channel";a:1:{i:0;a:6:{s:4:"data";s:51:"\n	\n	\n	\n	\n	\n	\n		\n		\n	\n	\n		\n		\n		\n		\n		\n		\n		\n		\n		\n	";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";s:5:"child";a:3:{s:0:"";a:7:{s:5:"title";a:1:{i:0;a:5:{s:4:"data";s:14:"WordPress News";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"link";a:1:{i:0;a:5:{s:4:"data";s:26:"https://wordpress.org/news";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:11:"description";a:1:{i:0;a:5:{s:4:"data";s:14:"WordPress News";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:13:"lastBuildDate";a:1:{i:0;a:5:{s:4:"data";s:31:"Fri, 14 Nov 2014 23:16:39 +0000";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"language";a:1:{i:0;a:5:{s:4:"data";s:5:"en-US";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:9:"generator";a:1:{i:0;a:5:{s:4:"data";s:33:"http://wordpress.org/?v=4.1-beta1";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"item";a:10:{i:0;a:6:{s:4:"data";s:48:"\n		\n		\n		\n		\n		\n				\n		\n		\n\n		\n		\n				\n			\n		\n		";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";s:5:"child";a:5:{s:0:"";a:7:{s:5:"title";a:1:{i:0;a:5:{s:4:"data";s:20:"WordPress 4.1 Beta 1";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"link";a:1:{i:0;a:5:{s:4:"data";s:56:"https://wordpress.org/news/2014/11/wordpress-4-1-beta-1/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:65:"https://wordpress.org/news/2014/11/wordpress-4-1-beta-1/#comments";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:7:"pubDate";a:1:{i:0;a:5:{s:4:"data";s:31:"Fri, 14 Nov 2014 22:35:34 +0000";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"category";a:3:{i:0;a:5:{s:4:"data";s:11:"Development";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}i:1;a:5:{s:4:"data";s:8:"Releases";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}i:2;a:5:{s:4:"data";s:4:"beta";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"guid";a:1:{i:0;a:5:{s:4:"data";s:33:"http://wordpress.org/news/?p=3352";s:7:"attribs";a:1:{s:0:"";a:1:{s:11:"isPermaLink";s:5:"false";}}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:11:"description";a:1:{i:0;a:5:{s:4:"data";s:346:"Welcome, everyone, to WordPress 4.1 Beta 1! This software is still in development, so we don‚Äôt recommend you run it on a production site. Consider setting up a test site just to play with the new version. To test WordPress 4.1, try the WordPress Beta Tester plugin (you&#8217;ll want &#8220;bleeding edge nightlies&#8221;). Or you can [&#8230;]";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:32:"http://purl.org/dc/elements/1.1/";a:1:{s:7:"creator";a:1:{i:0;a:5:{s:4:"data";s:15:"John Blackbourn";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:40:"http://purl.org/rss/1.0/modules/content/";a:1:{s:7:"encoded";a:1:{i:0;a:5:{s:4:"data";s:3409:"<p>Welcome, everyone, to WordPress 4.1 Beta 1!</p>\n<p><strong>This software is still in development,</strong> so we don‚Äôt recommend you run it on a production site. Consider setting up a test site just to play with the new version. To test WordPress 4.1, try the <a href="https://wordpress.org/plugins/wordpress-beta-tester/">WordPress Beta Tester</a> plugin (you&#8217;ll want &#8220;bleeding edge nightlies&#8221;). Or you can <a href="//wordpress.org/wordpress-4.1-beta1.zip">download the beta here</a> (zip).</p>\n<p>WordPress 4.1 is due for release next month, so we need your help with testing. Here are some¬†highlights of what to test:</p>\n<ul>\n<li>Our beautiful new default theme, <a href="https://make.wordpress.org/core/2014/09/09/twenty-fifteen/">Twenty Fifteen</a>. It&#8217;s a clean, mobile-first, blog-focused theme designed through simplicity.</li>\n<li>A new <a href="https://make.wordpress.org/core/2014/11/11/focus-v2-demo-video/">distraction-free writing mode for the editor</a>. It&#8217;s enabled by default for beta, and we&#8217;d love feedback on it.</li>\n<li>The ability to automatically install new language packs right from the General Settings screen (available as long as your site&#8217;s filesystem is writable).</li>\n<li>A new inline formatting toolbar for images embedded into posts.</li>\n</ul>\n<p>There have been a lot of changes for developers to test as well:</p>\n<ul>\n<li><a href="https://make.wordpress.org/core/2014/10/20/update-on-query-improvements-in-4-1/">Improvements to meta, date, comment, and taxonomy queries</a>, including complex (nested, multiple relation) queries; and querying comment types (<a href="https://core.trac.wordpress.org/ticket/12668">#12668</a>).</li>\n<li>A single term¬†shared across multiple¬†taxonomies is¬†now split into two when updated. For more,¬†<a href="https://make.wordpress.org/core/2014/11/12/an-update-on-the-taxonomy-roadmap/">see this post</a>,¬†<a href="https://core.trac.wordpress.org/ticket/5809">#5809</a>, and <a href="https://core.trac.wordpress.org/ticket/30335">#30335</a>.</li>\n<li>A new and better way for <a href="https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/">themes to handle title tags</a>.</li>\n<li>Several <a href="https://make.wordpress.org/core/2014/10/27/toward-a-complete-javascript-api-for-the-customizer/">improvements to the Customizer API</a>, including contextual panels and sections, and JavaScript templates for controls.</li>\n</ul>\n<p>If you want a more in-depth view of what changes have made it into 4.1, <a href="https://make.wordpress.org/core/tag/week-in-core/">check out the weekly review posts</a>¬†on the main development blog.</p>\n<p><strong>If you think you‚Äôve found a bug</strong>, you can post to the <a href="https://wordpress.org/support/forum/alphabeta">Alpha/Beta area</a> in the support forums. We‚Äôd love to hear from you! If you‚Äôre comfortable writing a reproducible bug report, <a href="https://make.wordpress.org/core/reports/">file one on the WordPress Trac</a>. There, you can also find <a href="https://core.trac.wordpress.org/tickets/major">a list of known bugs</a> and <a href="https://core.trac.wordpress.org/query?status=closed&amp;group=component&amp;milestone=4.1">everything we‚Äôve fixed</a> so far.</p>\n<p>Happy testing!</p>\n<p><em>Twenty Fifteen theme</em><br />\n<em> The beautiful face which hides</em><br />\n<em> Many improvements</em></p>\n";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:36:"http://wellformedweb.org/CommentAPI/";a:1:{s:10:"commentRss";a:1:{i:0;a:5:{s:4:"data";s:61:"https://wordpress.org/news/2014/11/wordpress-4-1-beta-1/feed/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:38:"http://purl.org/rss/1.0/modules/slash/";a:1:{s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:1:"0";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}}}i:1;a:6:{s:4:"data";s:45:"\n		\n		\n		\n		\n		\n				\n		\n\n		\n		\n				\n			\n		\n		";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";s:5:"child";a:5:{s:0:"";a:7:{s:5:"title";a:1:{i:0;a:5:{s:4:"data";s:39:"Watch WordCamp San Francisco Livestream";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"link";a:1:{i:0;a:5:{s:4:"data";s:51:"https://wordpress.org/news/2014/10/wcsf-livestream/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:60:"https://wordpress.org/news/2014/10/wcsf-livestream/#comments";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:7:"pubDate";a:1:{i:0;a:5:{s:4:"data";s:31:"Fri, 24 Oct 2014 20:18:43 +0000";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"category";a:2:{i:0;a:5:{s:4:"data";s:9:"Community";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}i:1;a:5:{s:4:"data";s:8:"WordCamp";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"guid";a:1:{i:0;a:5:{s:4:"data";s:33:"http://wordpress.org/news/?p=3341";s:7:"attribs";a:1:{s:0:"";a:1:{s:11:"isPermaLink";s:5:"false";}}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:11:"description";a:1:{i:0;a:5:{s:4:"data";s:381:"WordCamp San¬†Francisco is the official annual¬†WordPress conference,¬†gathering the community every year¬†since 2006. This is the time¬†when Matt Mullenweg addresses the community in his annual¬†State of the Word presentation ‚Äì a recap of ¬†the year in WordPress and giving us a glimpse into its future. This year the speaker lineup is stellar. There¬†will be talks by [&#8230;]";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:32:"http://purl.org/dc/elements/1.1/";a:1:{s:7:"creator";a:1:{i:0;a:5:{s:4:"data";s:17:"Nikolay Bachiyski";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:40:"http://purl.org/rss/1.0/modules/content/";a:1:{s:7:"encoded";a:1:{i:0;a:5:{s:4:"data";s:1975:"<p><a title="2014 edition" href="http://2014.sf.wordcamp.org">WordCamp San¬†Francisco</a> is the official annual¬†WordPress conference,¬†gathering the community every year¬†<a title="An old website for a WordPress long time ago" href="http://2006.sf.wordcamp.org">since 2006</a>. This is the time¬†when Matt Mullenweg addresses the community in his annual¬†<a href="http://wordpress.tv/?s=state+of+the+word">State of the Word</a> presentation ‚Äì a recap of ¬†the year in WordPress and giving us a glimpse into its future.</p>\n<p>This year the speaker lineup is stellar. There¬†will be talks by three of the lead WordPress developers: <a href="http://2014.sf.wordcamp.org/speakers/#wcorg-speaker-andrew-nacin">Andrew Nacin</a>, <a href="http://2014.sf.wordcamp.org/speakers/#wcorg-speaker-helen-hou-sandi">Helen Hou-Sand√≠</a>, and <a href="http://2014.sf.wordcamp.org/speakers/#wcorg-speaker-mark-jaquith">Mark Jaquith</a>. We‚Äôre also looking forward to speakers like¬†<a href="http://2014.sf.wordcamp.org/speakers/#wcorg-speaker-jenny-lawson">Jenny Lawson</a>, also known as The Bloggess, and <a href="http://2014.sf.wordcamp.org/speaker/chris-lema/">Chris Lema</a>. If you‚Äôre at all interested in the web, you will appreciate the appearance of <a href="http://2014.sf.wordcamp.org/speakers/#wcorg-speaker-jeff-veen">Jeff Veen</a> ‚Äì one of the¬†creators of Google Analytics and co-founder of Typekit.</p>\n<p>Even though San Francisco is far far away for most of you, you can still be part of the fun and watch all presentations in real-time via¬†livestream:</p>\n<p><a href="http://2014.sf.wordcamp.org/tickets/">Get a livestream ticket and watch all talks from WordCamp San Francisco live</a></p>\n<p>If you hurry, you can get one of the special livestream tickets, including a WordCamp San Francisco 2104 t-shirt. You can find all the technical details and start times <a href="http://2014.sf.wordcamp.org/live-stream/">at the WordCamp San Francisco website</a>.</p>\n";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:36:"http://wellformedweb.org/CommentAPI/";a:1:{s:10:"commentRss";a:1:{i:0;a:5:{s:4:"data";s:56:"https://wordpress.org/news/2014/10/wcsf-livestream/feed/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:38:"http://purl.org/rss/1.0/modules/slash/";a:1:{s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:1:"0";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}}}i:2;a:6:{s:4:"data";s:42:"\n		\n		\n		\n		\n		\n				\n\n		\n		\n				\n			\n		\n		";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";s:5:"child";a:5:{s:0:"";a:7:{s:5:"title";a:1:{i:0;a:5:{s:4:"data";s:25:"WordPress 4.0 ‚ÄúBenny‚Äù";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"link";a:1:{i:0;a:5:{s:4:"data";s:41:"https://wordpress.org/news/2014/09/benny/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:50:"https://wordpress.org/news/2014/09/benny/#comments";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:7:"pubDate";a:1:{i:0;a:5:{s:4:"data";s:31:"Thu, 04 Sep 2014 17:05:39 +0000";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"category";a:1:{i:0;a:5:{s:4:"data";s:8:"Releases";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"guid";a:1:{i:0;a:5:{s:4:"data";s:33:"http://wordpress.org/news/?p=3296";s:7:"attribs";a:1:{s:0:"";a:1:{s:11:"isPermaLink";s:5:"false";}}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:11:"description";a:1:{i:0;a:5:{s:4:"data";s:370:"Version 4.0 of WordPress, named ‚ÄúBenny‚Äù in honor of jazz clarinetist and bandleader Benny Goodman, is available¬†for download¬†or update in your WordPress dashboard.¬†While 4.0 is just another number for us after 3.9 and before 4.1, we feel we&#8217;ve put a little extra polish into it. This release brings you a smoother writing and management experience [&#8230;]";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:32:"http://purl.org/dc/elements/1.1/";a:1:{s:7:"creator";a:1:{i:0;a:5:{s:4:"data";s:14:"Matt Mullenweg";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:40:"http://purl.org/rss/1.0/modules/content/";a:1:{s:7:"encoded";a:1:{i:0;a:5:{s:4:"data";s:23538:"<p>Version 4.0 of WordPress, named ‚ÄúBenny‚Äù in honor of jazz clarinetist and bandleader <a href="http://en.wikipedia.org/wiki/Benny_Goodman">Benny Goodman</a>, is available¬†<a href="https://wordpress.org/download/">for download</a>¬†or update in your WordPress dashboard.¬†While 4.0 is just another number for us after 3.9 and before 4.1, we feel we&#8217;ve put a little extra polish into it. This release brings you a smoother writing and management experience we think you&#8217;ll enjoy.</p>\n<div id="v-bUdzKMro-1" class="video-player"><embed id="v-bUdzKMro-1-video" src="https://v0.wordpress.com/player.swf?v=1.03&amp;guid=bUdzKMro&amp;isDynamicSeeking=true" type="application/x-shockwave-flash" width="692" height="388" title="Introducing WordPress 4.0 &quot;Benny&quot;" wmode="direct" seamlesstabbing="true" allowfullscreen="true" allowscriptaccess="always" overstretch="true"></embed></div>\n<hr />\n<h2 style="text-align: center">Manage your media with style</h2>\n<p><img class="alignnone size-full wp-image-3316" src="https://wordpress.org/news/files/2014/09/media.jpg" alt="Media Library" width="1000" height="586" />Explore your uploads in a beautiful, endless grid. A new details preview makes viewing and editing any amount of media in sequence a snap.</p>\n<hr />\n<h2 style="text-align: center">Working with embeds has never been easier</h2>\n<div style="width: 632px; " class="wp-video"><!--[if lt IE 9]><script>document.createElement(''video'');</script><![endif]-->\n<video class="wp-video-shortcode" id="video-3296-1" width="632" height="445" autoplay="1" preload="metadata" controls="controls"><source type="video/mp4" src="//s.w.org/images/core/4.0/embed.mp4?_=1" /><source type="video/webm" src="//s.w.org/images/core/4.0/embed.webm?_=1" /><source type="video/ogg" src="//s.w.org/images/core/4.0/embed.ogv?_=1" /><a href="//s.w.org/images/core/4.0/embed.mp4">//s.w.org/images/core/4.0/embed.mp4</a></video></div>\n<p>Paste in a YouTube URL on a new line, and watch it magically become an embedded video. Now try it with a tweet. Oh yeah ‚Äî embedding has become a visual experience. The editor shows a true preview of your embedded content, saving you time and giving you confidence.</p>\n<p>We‚Äôve expanded the services supported by default, too ‚Äî you can embed videos from CollegeHumor, playlists from YouTube, and talks from TED.¬†<a href="https://codex.wordpress.org/Embeds">Check out all of the embeds</a> that WordPress supports.</p>\n<hr />\n<h2 style="text-align: center">Focus on your content</h2>\n<div style="width: 632px; " class="wp-video"><video class="wp-video-shortcode" id="video-3296-2" width="632" height="356" autoplay="1" preload="metadata" controls="controls"><source type="video/mp4" src="//s.w.org/images/core/4.0/focus.mp4?_=2" /><source type="video/webm" src="//s.w.org/images/core/4.0/focus.webm?_=2" /><source type="video/ogg" src="//s.w.org/images/core/4.0/focus.ogv?_=2" /><a href="//s.w.org/images/core/4.0/focus.mp4">//s.w.org/images/core/4.0/focus.mp4</a></video></div>\n<p>Writing and editing is smoother and more immersive with an editor that expands to fit your content as you write, and keeps the formatting tools available at all times.</p>\n<hr />\n<h2 style="text-align: center">Finding the right plugin</h2>\n<p><img class="aligncenter size-large wp-image-3309" src="https://wordpress.org/news/files/2014/09/add-plugin1-1024x600.png" alt="Add plugins" width="692" height="405" /></p>\n<p>There are more than 30,000 free and open source plugins in the WordPress plugin directory. WordPress 4.0 makes it easier to find the right one for your needs, with new metrics, improved search, and a more visual browsing experience.</p>\n<hr />\n<h2 style="text-align: center">The Ensemble</h2>\n<p>This release was led by <a href="http://helenhousandi.com">Helen Hou-Sand√≠</a>, with the help of these fine individuals. There are 275 contributors with props in this release, a new high. Pull up some Benny Goodman on your music service of choice, as a bandleader or in one of his turns as a classical clarinetist, and check out some of their profiles:</p>\n<p><a href="https://profiles.wordpress.org/aaroncampbell">Aaron D. Campbell</a>, <a href="https://profiles.wordpress.org/jorbin">Aaron Jorbin</a>, <a href="https://profiles.wordpress.org/adamsilverstein">Adam Silverstein</a>, <a href="https://profiles.wordpress.org/viper007bond">Alex Mills (Viper007Bond)</a>, <a href="https://profiles.wordpress.org/tellyworth">Alex Shiels</a>, <a href="https://profiles.wordpress.org/alexanderrohmann">Alexander Rohmann</a>, <a href="https://profiles.wordpress.org/aliso">Alison Barrett</a>, <a href="https://profiles.wordpress.org/collinsinternet">Allan Collins</a>, <a href="https://profiles.wordpress.org/amit">Amit Gupta</a>, <a href="https://profiles.wordpress.org/sabreuse">Amy Hendrix (sabreuse)</a>, <a href="https://profiles.wordpress.org/afercia">Andrea Fercia</a>, <a href="https://profiles.wordpress.org/andrezrv">Andres Villarreal</a>, <a href="https://profiles.wordpress.org/zamfeer">Andrew Mowe</a>, <a href="https://profiles.wordpress.org/sumobi">Andrew Munro (sumobi)</a>, <a href="https://profiles.wordpress.org/nacin">Andrew Nacin</a>, <a href="https://profiles.wordpress.org/azaozz">Andrew Ozz</a>, <a href="https://profiles.wordpress.org/andy">Andy Skelton</a>, <a href="https://profiles.wordpress.org/ankit-k-gupta">Ankit K Gupta</a>, <a href="https://profiles.wordpress.org/atimmer">Anton Timmermans</a>, <a href="https://profiles.wordpress.org/arnee">arnee</a>, <a href="https://profiles.wordpress.org/aubreypwd">Aubrey Portwood</a>, <a href="https://profiles.wordpress.org/filosofo">Austin Matzko</a>, <a href="https://profiles.wordpress.org/empireoflight">Ben Dunkle</a>, <a href="https://profiles.wordpress.org/kau-boy">Bernhard Kau</a>, <a href="https://profiles.wordpress.org/boonebgorges">Boone Gorges</a>, <a href="https://profiles.wordpress.org/bradyvercher">Brady Vercher</a>, <a href="https://profiles.wordpress.org/bramd">Bram Duvigneau</a>, <a href="https://profiles.wordpress.org/kraftbj">Brandon Kraft</a>, <a href="https://profiles.wordpress.org/brianlayman">Brian Layman</a>, <a href="https://profiles.wordpress.org/rzen">Brian Richards</a>, <a href="https://profiles.wordpress.org/camdensegal">Camden Segal</a>, <a href="https://profiles.wordpress.org/sixhours">Caroline Moore</a>, <a href="https://profiles.wordpress.org/mackensen">Charles Fulton</a>, <a href="https://profiles.wordpress.org/chouby">Chouby</a>, <a href="https://profiles.wordpress.org/chrico">ChriCo</a>, <a href="https://profiles.wordpress.org/c3mdigital">Chris Olbekson</a>, <a href="https://profiles.wordpress.org/chrisl27">chrisl27</a>, <a href="https://profiles.wordpress.org/caxelsson">Christian Axelsson</a>, <a href="https://profiles.wordpress.org/cfinke">Christopher Finke</a>, <a href="https://profiles.wordpress.org/boda1982">Christopher Spires</a>, <a href="https://profiles.wordpress.org/clifgriffin">Clifton Griffin</a>, <a href="https://profiles.wordpress.org/jupiterwise">Corey McKrill</a>, <a href="https://profiles.wordpress.org/corphi">Corphi</a>, <a href="https://profiles.wordpress.org/extendwings">Daisuke Takahashi</a>, <a href="https://profiles.wordpress.org/ghost1227">Dan Griffiths</a>, <a href="https://profiles.wordpress.org/danielbachhuber">Daniel Bachhuber</a>, <a href="https://profiles.wordpress.org/danielhuesken">Daniel Husken</a>, <a href="https://profiles.wordpress.org/redsweater">Daniel Jalkut (Red Sweater)</a>, <a href="https://profiles.wordpress.org/dannydehaan">Danny de Haan</a>, <a href="https://profiles.wordpress.org/dkotter">Darin Kotter</a>, <a href="https://profiles.wordpress.org/koop">Daryl Koopersmith</a>, <a href="https://profiles.wordpress.org/dllh">Daryl L. L. Houston (dllh)</a>, <a href="https://profiles.wordpress.org/davidakennedy">David A. Kennedy</a>, <a href="https://profiles.wordpress.org/dlh">David Herrera</a>, <a href="https://profiles.wordpress.org/dnaber-de">David Naber</a>, <a href="https://profiles.wordpress.org/davidthemachine">DavidTheMachine</a>, <a href="https://profiles.wordpress.org/debaat">DeBAAT</a>, <a href="https://profiles.wordpress.org/dd32">Dion Hulse</a>, <a href="https://profiles.wordpress.org/ocean90">Dominik Schilling</a>, <a href="https://profiles.wordpress.org/donncha">Donncha O Caoimh</a>, <a href="https://profiles.wordpress.org/drewapicture">Drew Jaynes</a>, <a href="https://profiles.wordpress.org/dustyn">Dustyn Doyle</a>, <a href="https://profiles.wordpress.org/eddiemoya">Eddie Moya</a>, <a href="https://profiles.wordpress.org/oso96_2000">Eduardo Reveles</a>, <a href="https://profiles.wordpress.org/edwin-at-studiojoyocom">Edwin Siebel</a>, <a href="https://profiles.wordpress.org/ehg">ehg</a>, <a href="https://profiles.wordpress.org/tmeister">Enrique Chavez</a>, <a href="https://profiles.wordpress.org/erayalakese">erayalakese</a>, <a href="https://profiles.wordpress.org/ericlewis">Eric Andrew Lewis</a>, <a href="https://profiles.wordpress.org/ebinnion">Eric Binnion</a>, <a href="https://profiles.wordpress.org/ericmann">Eric Mann</a>, <a href="https://profiles.wordpress.org/ejdanderson">Evan Anderson</a>, <a href="https://profiles.wordpress.org/eherman24">Evan Herman</a>, <a href="https://profiles.wordpress.org/fab1en">Fab1en</a>, <a href="https://profiles.wordpress.org/fahmiadib">Fahmi Adib</a>, <a href="https://profiles.wordpress.org/feedmeastraycat">feedmeastraycat</a>, <a href="https://profiles.wordpress.org/frank-klein">Frank Klein</a>, <a href="https://profiles.wordpress.org/garhdez">garhdez</a>, <a href="https://profiles.wordpress.org/garyc40">Gary Cao</a>, <a href="https://profiles.wordpress.org/garyj">Gary Jones</a>, <a href="https://profiles.wordpress.org/pento">Gary Pendergast</a>, <a href="https://profiles.wordpress.org/garza">garza</a>, <a href="https://profiles.wordpress.org/gauravmittal1995">gauravmittal1995</a>, <a href="https://profiles.wordpress.org/gavra">Gavrisimo</a>, <a href="https://profiles.wordpress.org/georgestephanis">George Stephanis</a>, <a href="https://profiles.wordpress.org/grahamarmfield">Graham Armfield</a>, <a href="https://profiles.wordpress.org/vancoder">Grant Mangham</a>, <a href="https://profiles.wordpress.org/gcorne">Gregory Cornelius</a>, <a href="https://profiles.wordpress.org/bordoni">Gustavo Bordoni</a>, <a href="https://profiles.wordpress.org/harrym">harrym</a>, <a href="https://profiles.wordpress.org/hebbet">hebbet</a>, <a href="https://profiles.wordpress.org/hinnerk">Hinnerk Altenburg</a>, <a href="https://profiles.wordpress.org/hlashbrooke">Hugh Lashbrooke</a>, <a href="https://profiles.wordpress.org/iljoja">iljoja</a>, <a href="https://profiles.wordpress.org/imath">imath</a>, <a href="https://profiles.wordpress.org/ipstenu">Ipstenu (Mika Epstein)</a>, <a href="https://profiles.wordpress.org/issuu">issuu</a>, <a href="https://profiles.wordpress.org/jdgrimes">J.D. Grimes</a>, <a href="https://profiles.wordpress.org/jacklenox">Jack Lenox</a>, <a href="https://profiles.wordpress.org/jackreichert">Jack Reichert</a>, <a href="https://profiles.wordpress.org/jacobdubail">Jacob Dubail</a>, <a href="https://profiles.wordpress.org/janhenkg">JanHenkG</a>, <a href="https://profiles.wordpress.org/avryl">Janneke Van Dorpe</a>, <a href="https://profiles.wordpress.org/jwenerd">Jared Wenerd</a>, <a href="https://profiles.wordpress.org/jaza613">Jaza613</a>, <a href="https://profiles.wordpress.org/jeffstieler">Jeff Stieler</a>, <a href="https://profiles.wordpress.org/jeremyfelt">Jeremy Felt</a>, <a href="https://profiles.wordpress.org/jpry">Jeremy Pry</a>, <a href="https://profiles.wordpress.org/slimndap">Jeroen Schmit</a>, <a href="https://profiles.wordpress.org/jerrysarcastic">Jerry Bates (jerrysarcastic)</a>, <a href="https://profiles.wordpress.org/jesin">Jesin A</a>, <a href="https://profiles.wordpress.org/jayjdk">Jesper Johansen (jayjdk)</a>, <a href="https://profiles.wordpress.org/engelen">Jesper van Engelen</a>, <a href="https://profiles.wordpress.org/jesper800">Jesper van Engelen</a>, <a href="https://profiles.wordpress.org/jessepollak">Jesse Pollak</a>, <a href="https://profiles.wordpress.org/jgadbois">jgadbois</a>, <a href="https://profiles.wordpress.org/jartes">Joan Artes</a>, <a href="https://profiles.wordpress.org/joedolson">Joe Dolson</a>, <a href="https://profiles.wordpress.org/joehoyle">Joe Hoyle</a>, <a href="https://profiles.wordpress.org/jkudish">Joey Kudish</a>, <a href="https://profiles.wordpress.org/johnbillion">John Blackbourn</a>, <a href="https://profiles.wordpress.org/johnjamesjacoby">John James Jacoby</a>, <a href="https://profiles.wordpress.org/johnzanussi">John Zanussi</a>, <a href="https://profiles.wordpress.org/duck_">Jon Cave</a>, <a href="https://profiles.wordpress.org/jonnyauk">jonnyauk</a>, <a href="https://profiles.wordpress.org/joostdevalk">Joost de Valk</a>, <a href="https://profiles.wordpress.org/softmodeling">Jordi Cabot</a>, <a href="https://profiles.wordpress.org/jjeaton">Josh Eaton</a>, <a href="https://profiles.wordpress.org/tai">JOTAKI Taisuke</a>, <a href="https://profiles.wordpress.org/juliobox">Julio Potier</a>, <a href="https://profiles.wordpress.org/justinsainton">Justin Sainton</a>, <a href="https://profiles.wordpress.org/jtsternberg">Justin Sternberg</a>, <a href="https://profiles.wordpress.org/greenshady">Justin Tadlock</a>, <a href="https://profiles.wordpress.org/kadamwhite">K.Adam White</a>, <a href="https://profiles.wordpress.org/trepmal">Kailey (trepmal)</a>, <a href="https://profiles.wordpress.org/ixkaito">Kaito</a>, <a href="https://profiles.wordpress.org/kapeels">kapeels</a>, <a href="https://profiles.wordpress.org/ryelle">Kelly Dwan</a>, <a href="https://profiles.wordpress.org/kevinlangleyjr">Kevin Langley</a>, <a href="https://profiles.wordpress.org/kworthington">Kevin Worthington</a>, <a href="https://profiles.wordpress.org/kpdesign">Kim Parsell</a>, <a href="https://profiles.wordpress.org/kwight">Kirk Wight</a>, <a href="https://profiles.wordpress.org/kitchin">kitchin</a>, <a href="https://profiles.wordpress.org/knutsp">Knut Sparhell</a>, <a href="https://profiles.wordpress.org/kovshenin">Konstantin Kovshenin</a>, <a href="https://profiles.wordpress.org/obenland">Konstantin Obenland</a>, <a href="https://profiles.wordpress.org/krogsgard">krogsgard</a>, <a href="https://profiles.wordpress.org/kurtpayne">Kurt Payne</a>, <a href="https://profiles.wordpress.org/lancewillett">Lance Willett</a>, <a href="https://profiles.wordpress.org/leewillis77">Lee Willis</a>, <a href="https://profiles.wordpress.org/lessbloat">lessbloat</a>, <a href="https://profiles.wordpress.org/layotte">Lew Ayotte</a>, <a href="https://profiles.wordpress.org/lritter">lritter</a>, <a href="https://profiles.wordpress.org/lukecarbis">Luke Carbis</a>, <a href="https://profiles.wordpress.org/lgedeon">Luke Gedeon</a>, <a href="https://profiles.wordpress.org/m_i_n">m_i_n</a>, <a href="https://profiles.wordpress.org/funkatronic">Manny Fleurmond</a>, <a href="https://profiles.wordpress.org/targz-1">Manuel Schmalstieg</a>, <a href="https://profiles.wordpress.org/clorith">Marius (Clorith)</a>, <a href="https://profiles.wordpress.org/markjaquith">Mark Jaquith</a>, <a href="https://profiles.wordpress.org/markoheijnen">Marko Heijnen</a>, <a href="https://profiles.wordpress.org/mjbanks">Matt Banks</a>, <a href="https://profiles.wordpress.org/sivel">Matt Martz</a>, <a href="https://profiles.wordpress.org/matt">Matt Mullenweg</a>, <a href="https://profiles.wordpress.org/mattwiebe">Matt Wiebe</a>, <a href="https://profiles.wordpress.org/mboynes">Matthew Boynes</a>, <a href="https://profiles.wordpress.org/mdbitz">Matthew Denton</a>, <a href="https://profiles.wordpress.org/mattheweppelsheimer">Matthew Eppelsheimer</a>, <a href="https://profiles.wordpress.org/mattheu">Matthew Haines-Young</a>, <a href="https://profiles.wordpress.org/mattyrob">mattyrob</a>, <a href="https://profiles.wordpress.org/meekyhwang">meekyhwang</a>, <a href="https://profiles.wordpress.org/melchoyce">Mel Choyce</a>, <a href="https://profiles.wordpress.org/mdawaffe">Michael Adams (mdawaffe)</a>, <a href="https://profiles.wordpress.org/michalzuber">michalzuber</a>, <a href="https://profiles.wordpress.org/midxcat">midxcat</a>, <a href="https://profiles.wordpress.org/mauteri">Mike Auteri</a>, <a href="https://profiles.wordpress.org/mikehansenme">Mike Hansen</a>, <a href="https://profiles.wordpress.org/mikejolley">Mike Jolley</a>, <a href="https://profiles.wordpress.org/mikelittle">Mike Little</a>, <a href="https://profiles.wordpress.org/mikemanger">Mike Manger</a>, <a href="https://profiles.wordpress.org/mnelson4">Mike Nelson</a>, <a href="https://profiles.wordpress.org/dh-shredder">Mike Schroder</a>, <a href="https://profiles.wordpress.org/mikeyarce">Mikey Arce</a>, <a href="https://profiles.wordpress.org/dimadin">Milan Dinic</a>, <a href="https://profiles.wordpress.org/morganestes">Morgan Estes</a>, <a href="https://profiles.wordpress.org/usermrpapa">Mr Papa</a>, <a href="https://profiles.wordpress.org/mrmist">mrmist</a>, <a href="https://profiles.wordpress.org/m_uysl">Mustafa Uysal</a>, <a href="https://profiles.wordpress.org/muvimotv">MuViMoTV</a>, <a href="https://profiles.wordpress.org/nabil_kadimi">nabil_kadimi</a>, <a href="https://profiles.wordpress.org/namibia">Namibia</a>, <a href="https://profiles.wordpress.org/alex-ye">Nashwan Doaqan</a>, <a href="https://profiles.wordpress.org/nd987">nd987</a>, <a href="https://profiles.wordpress.org/neil_pie">Neil Pie</a>, <a href="https://profiles.wordpress.org/niallkennedy">Niall Kennedy</a>, <a href="https://profiles.wordpress.org/celloexpressions">Nick Halsey</a>, <a href="https://profiles.wordpress.org/nbachiyski">Nikolay Bachiyski</a>, <a href="https://profiles.wordpress.org/schoenwaldnils">Nils Schonwald</a>, <a href="https://profiles.wordpress.org/ninos-ego">Ninos</a>, <a href="https://profiles.wordpress.org/nvwd">Nowell VanHoesen</a>, <a href="https://profiles.wordpress.org/compute">Patrick Hesselberg</a>, <a href="https://profiles.wordpress.org/pbearne">Paul Bearne</a>, <a href="https://profiles.wordpress.org/pdclark">Paul Clark</a>, <a href="https://profiles.wordpress.org/paulschreiber">Paul Schreiber</a>, <a href="https://profiles.wordpress.org/paulwilde">Paul Wilde</a>, <a href="https://profiles.wordpress.org/pavelevap">pavelevap</a>, <a href="https://profiles.wordpress.org/westi">Peter Westwood</a>, <a href="https://profiles.wordpress.org/philiparthurmoore">Philip Arthur Moore</a>, <a href="https://profiles.wordpress.org/philipjohn">Philip John</a>, <a href="https://profiles.wordpress.org/senlin">Piet Bos</a>, <a href="https://profiles.wordpress.org/psoluch">Piotr Soluch</a>, <a href="https://profiles.wordpress.org/mordauk">Pippin Williamson</a>, <a href="https://profiles.wordpress.org/purzlbaum">purzlbaum</a>, <a href="https://profiles.wordpress.org/rachelbaker">Rachel Baker</a>, <a href="https://profiles.wordpress.org/rclations">RC Lations</a>, <a href="https://profiles.wordpress.org/iamfriendly">Richard Tape</a>, <a href="https://profiles.wordpress.org/rickalee">Ricky Lee Whittemore</a>, <a href="https://profiles.wordpress.org/rob1n">rob1n</a>, <a href="https://profiles.wordpress.org/miqrogroove">Robert Chapin</a>, <a href="https://profiles.wordpress.org/rdall">Robert Dall</a>, <a href="https://profiles.wordpress.org/harmr">RobertHarm</a>, <a href="https://profiles.wordpress.org/rohan013">Rohan Rawat</a>, <a href="https://profiles.wordpress.org/rhurling">Rouven Hurling</a>, <a href="https://profiles.wordpress.org/ruudjoyo">Ruud Laan</a>, <a href="https://profiles.wordpress.org/ryan">Ryan Boren</a>, <a href="https://profiles.wordpress.org/rmccue">Ryan McCue</a>, <a href="https://profiles.wordpress.org/sammybeats">Sam Brodie</a>, <a href="https://profiles.wordpress.org/otto42">Samuel Wood (Otto)</a>, <a href="https://profiles.wordpress.org/sathishn">Sathish Nagarajan</a>, <a href="https://profiles.wordpress.org/coffee2code">Scott Reilly</a>, <a href="https://profiles.wordpress.org/wonderboymusic">Scott Taylor</a>, <a href="https://profiles.wordpress.org/greglone">ScreenfeedFr</a>, <a href="https://profiles.wordpress.org/scribu">scribu</a>, <a href="https://profiles.wordpress.org/seanchayes">Sean Hayes</a>, <a href="https://profiles.wordpress.org/nessworthy">Sean Nessworthy</a>, <a href="https://profiles.wordpress.org/sergejmueller">Sergej Muller</a>, <a href="https://profiles.wordpress.org/sergeybiryukov">Sergey Biryukov</a>, <a href="https://profiles.wordpress.org/shanebp">shanebp</a>, <a href="https://profiles.wordpress.org/sharonaustin">Sharon Austin</a>, <a href="https://profiles.wordpress.org/shaunandrews">Shaun Andrews</a>, <a href="https://profiles.wordpress.org/simonwheatley">Simon Wheatley</a>, <a href="https://profiles.wordpress.org/simonp303">simonp303</a>, <a href="https://profiles.wordpress.org/slobodanmanic">Slobodan Manic</a>, <a href="https://profiles.wordpress.org/solarissmoke">solarissmoke</a>, <a href="https://profiles.wordpress.org/sphoid">sphoid</a>, <a href="https://profiles.wordpress.org/stephdau">Stephane Daury</a>, <a href="https://profiles.wordpress.org/netweb">Stephen Edgar</a>, <a href="https://profiles.wordpress.org/stompweb">Steven Jones</a>, <a href="https://profiles.wordpress.org/strangerstudios">strangerstudios</a>, <a href="https://profiles.wordpress.org/5um17">Sumit Singh</a>, <a href="https://profiles.wordpress.org/t4k1s">t4k1s</a>, <a href="https://profiles.wordpress.org/iamtakashi">Takashi Irie</a>, <a href="https://profiles.wordpress.org/taylorde">Taylor Dewey</a>, <a href="https://profiles.wordpress.org/thomasvanderbeek">Thomas van der Beek</a>, <a href="https://profiles.wordpress.org/tillkruess">Till</a>, <a href="https://profiles.wordpress.org/codenameeli">Tim ''Eli'' Dalbey</a>, <a href="https://profiles.wordpress.org/tobiasbg">TobiasBg</a>, <a href="https://profiles.wordpress.org/tjnowell">Tom J Nowell</a>, <a href="https://profiles.wordpress.org/willmot">Tom Willmot</a>, <a href="https://profiles.wordpress.org/topher1kenobe">Topher</a>, <a href="https://profiles.wordpress.org/torresga">torresga</a>, <a href="https://profiles.wordpress.org/liljimmi">Tracy Levesque</a>, <a href="https://profiles.wordpress.org/wpsmith">Travis Smith</a>, <a href="https://profiles.wordpress.org/treyhunner">treyhunner</a>, <a href="https://profiles.wordpress.org/umeshsingla">Umesh Kumar</a>, <a href="https://profiles.wordpress.org/vinod-dalvi">Vinod Dalvi</a>, <a href="https://profiles.wordpress.org/vlajos">vlajos</a>, <a href="https://profiles.wordpress.org/voldemortensen">voldemortensen</a>, <a href="https://profiles.wordpress.org/westonruter">Weston Ruter</a>, <a href="https://profiles.wordpress.org/winterdev">winterDev</a>, <a href="https://profiles.wordpress.org/wojtekszkutnik">Wojtek Szkutnik</a>, <a href="https://profiles.wordpress.org/yoavf">Yoav Farhi</a>, <a href="https://profiles.wordpress.org/katzwebdesign">Zack Katz</a>, <a href="https://profiles.wordpress.org/tollmanz">Zack Tollman</a>, and <a href="https://profiles.wordpress.org/zoerooney">Zoe Rooney</a>.¬†Also thanks to <a href="http://michaelpick.wordpress.com/">Michael Pick</a> for producing the release video, and Helen with <a href="http://adriansandi.com">Adri√°n Sand√≠</a> for the music.</p>\n<p>If you want to follow along or help out, check out <a href="https://make.wordpress.org/">Make WordPress</a> and our <a href="https://make.wordpress.org/core/">core development blog</a>. Thanks for choosing WordPress. See you soon for version 4.1!</p>\n";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:36:"http://wellformedweb.org/CommentAPI/";a:1:{s:10:"commentRss";a:1:{i:0;a:5:{s:4:"data";s:46:"https://wordpress.org/news/2014/09/benny/feed/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:38:"http://purl.org/rss/1.0/modules/slash/";a:1:{s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:1:"0";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}}}i:3;a:6:{s:4:"data";s:45:"\n		\n		\n		\n		\n		\n				\n		\n\n		\n		\n				\n			\n		\n		";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";s:5:"child";a:5:{s:0:"";a:7:{s:5:"title";a:1:{i:0;a:5:{s:4:"data";s:31:"WordPress 4.0 Release Candidate";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"link";a:1:{i:0;a:5:{s:4:"data";s:67:"https://wordpress.org/news/2014/08/wordpress-4-0-release-candidate/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:76:"https://wordpress.org/news/2014/08/wordpress-4-0-release-candidate/#comments";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:7:"pubDate";a:1:{i:0;a:5:{s:4:"data";s:31:"Wed, 27 Aug 2014 12:20:37 +0000";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"category";a:2:{i:0;a:5:{s:4:"data";s:11:"Development";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}i:1;a:5:{s:4:"data";s:8:"Releases";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"guid";a:1:{i:0;a:5:{s:4:"data";s:33:"http://wordpress.org/news/?p=3287";s:7:"attribs";a:1:{s:0:"";a:1:{s:11:"isPermaLink";s:5:"false";}}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:11:"description";a:1:{i:0;a:5:{s:4:"data";s:321:"The first release candidate for WordPress 4.0 is now available! In RC 1, we‚Äôve made refinements to what we&#8217;ve been working on for this release. Check out the Beta 1 announcement post for more details on those features. We hope to ship WordPress 4.0 next week, but we need your help to get there.¬†If you [&#8230;]";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:32:"http://purl.org/dc/elements/1.1/";a:1:{s:7:"creator";a:1:{i:0;a:5:{s:4:"data";s:15:"Helen Hou-Sandi";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:40:"http://purl.org/rss/1.0/modules/content/";a:1:{s:7:"encoded";a:1:{i:0;a:5:{s:4:"data";s:2134:"<p>The first release candidate for WordPress 4.0 is now available!</p>\n<p>In RC 1, we‚Äôve made refinements to what we&#8217;ve been working on for this release. Check out the <a href="https://wordpress.org/news/2014/07/wordpress-4-0-beta-1/">Beta 1 announcement post</a> for more details on those features. We hope to ship WordPress 4.0 <em>next week</em>, but we need your help to get there.¬†If you haven‚Äôt tested 4.0 yet, there‚Äôs no time like the present. (Please, not on a production site, unless you‚Äôre adventurous.)</p>\n<p><strong>Think you‚Äôve found a bug?¬†</strong>Please post to the¬†<a href="https://wordpress.org/support/forum/alphabeta/">Alpha/Beta area in the support forums</a>. If any known issues come up, you‚Äôll be able to¬†<a href="https://core.trac.wordpress.org/report/5">find them here</a>.</p>\n<p>To test WordPress 4.0 RC1, try the¬†<a href="https://wordpress.org/extend/plugins/wordpress-beta-tester/">WordPress Beta Tester</a>¬†plugin (you‚Äôll want ‚Äúbleeding edge nightlies‚Äù). Or you can¬†<a href="https://wordpress.org/wordpress-4.0-RC1.zip">download the release candidate here</a>¬†(zip).¬†If you‚Äôd like to learn more about what‚Äôs new in WordPress 4.0, visit the awesome About screen in your dashboard (<strong><img src="https://i0.wp.com/core.svn.wordpress.org/branches/3.6/wp-content/themes/twentyten/images/wordpress.png?w=692" alt="" width="16" height="16" />¬†‚Üí About</strong>¬†in the toolbar).</p>\n<p><strong>Developers,</strong>¬†please test your plugins and themes against WordPress 4.0 and update your plugin&#8217;s <em>Tested up to</em> version in the readme to 4.0 before next week. If you find compatibility problems, please be sure to post any issues to the support forums so we can figure those out before the final release.¬†You also may want to <a href="https://make.wordpress.org/core/2014/08/21/introducing-plugin-icons-in-the-plugin-installer/">give your plugin an icon</a>, which we launched last week and will appear in the dashboard along with banners.</p>\n<p><em>It is almost time</em><br />\n<em> For the 4.0 release</em><br />\n<em> And its awesomeness</em></p>\n";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:36:"http://wellformedweb.org/CommentAPI/";a:1:{s:10:"commentRss";a:1:{i:0;a:5:{s:4:"data";s:72:"https://wordpress.org/news/2014/08/wordpress-4-0-release-candidate/feed/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:38:"http://purl.org/rss/1.0/modules/slash/";a:1:{s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:1:"0";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}}}i:4;a:6:{s:4:"data";s:45:"\n		\n		\n		\n		\n		\n				\n		\n\n		\n		\n				\n			\n		\n		";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";s:5:"child";a:5:{s:0:"";a:7:{s:5:"title";a:1:{i:0;a:5:{s:4:"data";s:20:"WordPress 4.0 Beta 4";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"link";a:1:{i:0;a:5:{s:4:"data";s:56:"https://wordpress.org/news/2014/08/wordpress-4-0-beta-4/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:65:"https://wordpress.org/news/2014/08/wordpress-4-0-beta-4/#comments";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:7:"pubDate";a:1:{i:0;a:5:{s:4:"data";s:31:"Fri, 15 Aug 2014 05:06:19 +0000";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"category";a:2:{i:0;a:5:{s:4:"data";s:11:"Development";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}i:1;a:5:{s:4:"data";s:8:"Releases";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"guid";a:1:{i:0;a:5:{s:4:"data";s:33:"http://wordpress.org/news/?p=3280";s:7:"attribs";a:1:{s:0:"";a:1:{s:11:"isPermaLink";s:5:"false";}}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:11:"description";a:1:{i:0;a:5:{s:4:"data";s:353:"The fourth and likely final beta for WordPress 4.0 is now available. We&#8217;ve made more than 250 changes in the past month, including: Further improvements to the editor scrolling experience, especially when it comes to the second column of boxes. Better handling of small screens in the media library modals. A separate bulk selection mode [&#8230;]";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:32:"http://purl.org/dc/elements/1.1/";a:1:{s:7:"creator";a:1:{i:0;a:5:{s:4:"data";s:15:"Helen Hou-Sandi";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:40:"http://purl.org/rss/1.0/modules/content/";a:1:{s:7:"encoded";a:1:{i:0;a:5:{s:4:"data";s:2003:"<p>The fourth and likely final beta for WordPress 4.0 is now available. We&#8217;ve made <a href="https://core.trac.wordpress.org/log?rev=29496&amp;stop_rev=29229&amp;limit=300">more than 250 changes</a> in the past month, including:</p>\n<ul>\n<li>Further improvements to the editor scrolling experience, especially when it comes to the second column of boxes.</li>\n<li>Better handling of small screens in the media library modals.</li>\n<li>A separate bulk selection mode for the media library grid view.</li>\n<li>Improvements to the installation language selector.</li>\n<li>Visual tweaks to plugin details and customizer panels.</li>\n</ul>\n<p><strong>We need your help</strong>.¬†We‚Äôre still aiming¬†for a release this month, which means the next week will be critical for¬†identifying and squashing bugs. If you‚Äôre just joining us, please see¬†<a href="https://wordpress.org/news/2014/07/wordpress-4-0-beta-1/">the Beta 1 announcement post</a>¬†for what to look out for.</p>\n<p><strong>If you think you‚Äôve found a bug</strong>, you can post to the¬†<a href="https://wordpress.org/support/forum/alphabeta">Alpha/Beta area</a>¬†in the support forums, where friendly moderators are standing by.¬†<b>Plugin developers</b><strong>,</strong> if you haven‚Äôt tested WordPress 4.0 yet, now is the time ‚Äî and be sure to update the ‚Äútested up to‚Äù version for your plugins so they‚Äôre listed as compatible with 4.0.</p>\n<p><strong>This software is still in development,</strong>¬†so we don‚Äôt recommend you run it on a production site. Consider setting up a test site just to play with the new version. To test WordPress 4.0, try the¬†<a href="https://wordpress.org/extend/plugins/wordpress-beta-tester/">WordPress Beta Tester</a>¬†plugin (you‚Äôll want ‚Äúbleeding edge nightlies‚Äù). Or you can¬†<a href="https://wordpress.org/wordpress-4.0-beta4.zip">download the beta here</a>¬†(zip).</p>\n<p><em>We are working hard</em><br />\n<em>To finish up 4.0<br />\n</em><em>Will you help us too?</em></p>\n";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:36:"http://wellformedweb.org/CommentAPI/";a:1:{s:10:"commentRss";a:1:{i:0;a:5:{s:4:"data";s:61:"https://wordpress.org/news/2014/08/wordpress-4-0-beta-4/feed/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:38:"http://purl.org/rss/1.0/modules/slash/";a:1:{s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:1:"0";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}}}i:5;a:6:{s:4:"data";s:45:"\n		\n		\n		\n		\n		\n				\n		\n\n		\n		\n				\n			\n		\n		";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";s:5:"child";a:5:{s:0:"";a:7:{s:5:"title";a:1:{i:0;a:5:{s:4:"data";s:32:"WordPress 3.9.2 Security Release";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"link";a:1:{i:0;a:5:{s:4:"data";s:51:"https://wordpress.org/news/2014/08/wordpress-3-9-2/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:60:"https://wordpress.org/news/2014/08/wordpress-3-9-2/#comments";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:7:"pubDate";a:1:{i:0;a:5:{s:4:"data";s:31:"Wed, 06 Aug 2014 19:04:27 +0000";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"category";a:2:{i:0;a:5:{s:4:"data";s:8:"Releases";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}i:1;a:5:{s:4:"data";s:8:"Security";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"guid";a:1:{i:0;a:5:{s:4:"data";s:33:"http://wordpress.org/news/?p=3269";s:7:"attribs";a:1:{s:0:"";a:1:{s:11:"isPermaLink";s:5:"false";}}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:11:"description";a:1:{i:0;a:5:{s:4:"data";s:377:"WordPress 3.9.2 is now available as a security release for all previous versions.¬†We strongly encourage you to update your sites immediately. This release fixes a possible denial of service issue in PHP&#8217;s XML processing, reported by Nir Goldshlager of the Salesforce.com Product Security Team. It¬†¬†was fixed by Michael Adams and Andrew Nacin of the WordPress [&#8230;]";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:32:"http://purl.org/dc/elements/1.1/";a:1:{s:7:"creator";a:1:{i:0;a:5:{s:4:"data";s:12:"Andrew Nacin";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:40:"http://purl.org/rss/1.0/modules/content/";a:1:{s:7:"encoded";a:1:{i:0;a:5:{s:4:"data";s:2353:"<p>WordPress 3.9.2 is now available as a security release for all previous versions.¬†We strongly encourage you to update your sites immediately.</p>\n<p>This release fixes a possible denial of service issue in PHP&#8217;s XML processing, reported by <a href="https://twitter.com/nirgoldshlager">Nir Goldshlager</a> of the Salesforce.com Product Security Team. It¬†¬†was fixed by Michael Adams and Andrew Nacin of the WordPress security team and¬†David Rothstein of the <a href="https://www.drupal.org/SA-CORE-2014-004">Drupal security team</a>. This is the first time our two projects have coordinated joint security releases.</p>\n<p>WordPress 3.9.2 also contains other security changes:</p>\n<ul>\n<li>Fixes a possible but unlikely code execution when processing widgets (WordPress is not affected by default), discovered by <a href="http://www.buayacorp.com/">Alex Concha</a> of the WordPress security team.</li>\n<li>Prevents information disclosure via XML entity attacks in the external GetID3 library, reported by <a href="http://onsec.ru/en/">Ivan Novikov</a>¬†of ONSec.</li>\n<li>Adds protections against brute attacks against CSRF tokens, reported by <a href="http://systemoverlord.com/">David Tomaschik</a> of the Google Security Team.</li>\n<li>Contains some additional security hardening, like preventing cross-site scripting that could be triggered only by administrators.</li>\n</ul>\n<p>We appreciated responsible disclosure of these issues directly to our security team. For more information, see the <a href="https://codex.wordpress.org/Version_3.9.2">release notes</a> or consult the <a href="https://core.trac.wordpress.org/log/branches/3.9?stop_rev=29383&amp;rev=29411">list of changes</a>.</p>\n<p><a href="https://wordpress.org/download/">Download WordPress 3.9.2</a> or venture over to <strong>Dashboard ‚Üí Updates</strong> and simply click &#8220;Update Now&#8221;.</p>\n<p>Sites that support automatic background updates will be updated to WordPress 3.9.2 within 12 hours. (If you are still on WordPress 3.8.3 or 3.7.3, you will also be updated to 3.8.4 or 3.7.4. We don&#8217;t support older versions, so please update to 3.9.2 for the latest and greatest.)</p>\n<p>Already testing WordPress 4.0? The third beta is <a href="https://wordpress.org/wordpress-4.0-beta3.zip">now available</a> (zip) and it contains these security fixes.</p>\n";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:36:"http://wellformedweb.org/CommentAPI/";a:1:{s:10:"commentRss";a:1:{i:0;a:5:{s:4:"data";s:56:"https://wordpress.org/news/2014/08/wordpress-3-9-2/feed/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:38:"http://purl.org/rss/1.0/modules/slash/";a:1:{s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:1:"0";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}}}i:6;a:6:{s:4:"data";s:45:"\n		\n		\n		\n		\n		\n				\n		\n\n		\n		\n				\n			\n		\n		";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";s:5:"child";a:5:{s:0:"";a:7:{s:5:"title";a:1:{i:0;a:5:{s:4:"data";s:20:"WordPress 4.0 Beta 2";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"link";a:1:{i:0;a:5:{s:4:"data";s:56:"https://wordpress.org/news/2014/07/wordpress-4-0-beta-2/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:65:"https://wordpress.org/news/2014/07/wordpress-4-0-beta-2/#comments";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:7:"pubDate";a:1:{i:0;a:5:{s:4:"data";s:31:"Fri, 18 Jul 2014 21:15:35 +0000";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"category";a:2:{i:0;a:5:{s:4:"data";s:11:"Development";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}i:1;a:5:{s:4:"data";s:8:"Releases";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"guid";a:1:{i:0;a:5:{s:4:"data";s:33:"http://wordpress.org/news/?p=3261";s:7:"attribs";a:1:{s:0:"";a:1:{s:11:"isPermaLink";s:5:"false";}}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:11:"description";a:1:{i:0;a:5:{s:4:"data";s:374:"WordPress 4.0 Beta 2 is now available for download and testing.¬†This is software still in development, so we¬†don‚Äôt recommend that you run it on a production site. To get the beta, try the¬†WordPress Beta Tester¬†plugin (you‚Äôll want ‚Äúbleeding edge nightlies‚Äù). Or you can¬†download the beta here¬†(zip). For more of what‚Äôs new in version 4.0,¬†check out [&#8230;]";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:32:"http://purl.org/dc/elements/1.1/";a:1:{s:7:"creator";a:1:{i:0;a:5:{s:4:"data";s:15:"Helen Hou-Sandi";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:40:"http://purl.org/rss/1.0/modules/content/";a:1:{s:7:"encoded";a:1:{i:0;a:5:{s:4:"data";s:1745:"<p>WordPress 4.0 Beta 2 is now available for download and testing.¬†This is software still in development, so we¬†don‚Äôt recommend that you run it on a production site. To get the beta, try the¬†<a href="https://wordpress.org/extend/plugins/wordpress-beta-tester/">WordPress Beta Tester</a>¬†plugin (you‚Äôll want ‚Äúbleeding edge nightlies‚Äù). Or you can¬†<a href="https://wordpress.org/wordpress-4.0-beta2.zip">download the beta here</a>¬†(zip).</p>\n<p>For more of what‚Äôs new in version 4.0,¬†<a href="https://wordpress.org/news/2014/07/wordpress-4-0-beta-1/">check out the Beta 1 blog post</a>. Some of the changes in Beta 2 include:</p>\n<ul>\n<li>Further refinements for the the plugin installation and media library experiences.</li>\n<li>Updated TinyMCE, which now includes better indentation for lists and the restoration of the color picker.</li>\n<li>Cookies are now tied to a session internally, so if you have trouble logging in, <a href="https://core.trac.wordpress.org/ticket/20276">#20276</a> may be the culprit.</li>\n<li>Various bug fixes (there were <a href="https://core.trac.wordpress.org/log?rev=29228&amp;stop_rev=29060&amp;limit=200">nearly 170¬†changes</a> since last week).</li>\n</ul>\n<p>If you think you‚Äôve found a bug, you can post to the¬†<a href="https://wordpress.org/support/forum/alphabeta">Alpha/Beta area</a>¬†in the support forums. Or, if you‚Äôre comfortable writing a bug report,¬†<a href="https://core.trac.wordpress.org/">file one on the WordPress Trac</a>. There, you can also find¬†<a href="https://core.trac.wordpress.org/tickets/major">a list of known bugs</a>¬†and¬†<a href="https://core.trac.wordpress.org/query?status=closed&amp;group=component&amp;milestone=4.0">everything we‚Äôve fixed</a>.</p>\n";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:36:"http://wellformedweb.org/CommentAPI/";a:1:{s:10:"commentRss";a:1:{i:0;a:5:{s:4:"data";s:61:"https://wordpress.org/news/2014/07/wordpress-4-0-beta-2/feed/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:38:"http://purl.org/rss/1.0/modules/slash/";a:1:{s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:1:"0";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}}}i:7;a:6:{s:4:"data";s:45:"\n		\n		\n		\n		\n		\n				\n		\n\n		\n		\n				\n			\n		\n		";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";s:5:"child";a:5:{s:0:"";a:7:{s:5:"title";a:1:{i:0;a:5:{s:4:"data";s:20:"WordPress 4.0 Beta 1";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"link";a:1:{i:0;a:5:{s:4:"data";s:56:"https://wordpress.org/news/2014/07/wordpress-4-0-beta-1/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:65:"https://wordpress.org/news/2014/07/wordpress-4-0-beta-1/#comments";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:7:"pubDate";a:1:{i:0;a:5:{s:4:"data";s:31:"Thu, 10 Jul 2014 10:17:41 +0000";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"category";a:2:{i:0;a:5:{s:4:"data";s:11:"Development";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}i:1;a:5:{s:4:"data";s:8:"Releases";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"guid";a:1:{i:0;a:5:{s:4:"data";s:33:"http://wordpress.org/news/?p=3248";s:7:"attribs";a:1:{s:0:"";a:1:{s:11:"isPermaLink";s:5:"false";}}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:11:"description";a:1:{i:0;a:5:{s:4:"data";s:329:"WordPress 4.0 Beta 1 is now available! This software is still in development, so we don‚Äôt recommend you run it on a production site. Consider setting up a test site just to play with the new version. To test WordPress 4.0, try the WordPress Beta Tester plugin (you‚Äôll want ‚Äúbleeding edge nightlies‚Äù). Or you can [&#8230;]";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:32:"http://purl.org/dc/elements/1.1/";a:1:{s:7:"creator";a:1:{i:0;a:5:{s:4:"data";s:15:"Helen Hou-Sandi";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:40:"http://purl.org/rss/1.0/modules/content/";a:1:{s:7:"encoded";a:1:{i:0;a:5:{s:4:"data";s:4031:"<p>WordPress 4.0 Beta 1 is now available!</p>\n<p><strong>This software is still in development,</strong> so we don‚Äôt recommend you run it on a production site. Consider setting up a test site just to play with the new version. To test WordPress 4.0, try the <a href="https://wordpress.org/plugins/wordpress-beta-tester/">WordPress Beta Tester</a> plugin (you‚Äôll want ‚Äúbleeding edge nightlies‚Äù). Or you can <a href="https://wordpress.org/wordpress-4.0-beta1.zip">download the beta here</a> (zip).</p>\n<p>4.0 is due out next month, but to get there, we need your help testing what we&#8217;ve been working on:</p>\n<ul>\n<li><strong>Previews of <a href="https://codex.wordpress.org/Embeds">embedding via URLs</a></strong> in the visual editor and the &#8220;Insert from URL&#8221; tab in the media modal. Try pasting a URL (such as a <a href="http://wordpress.tv/">WordPress.tv</a> or YouTube video) onto its own line in the visual editor. (<a href="https://core.trac.wordpress.org/ticket/28195">#28195</a>, <a href="https://core.trac.wordpress.org/ticket/15490">#15490</a>)</li>\n<li>The <strong>Media Library</strong> now has a &#8220;grid&#8221; view in addition to the existing list view. Clicking on an item takes you into a modal where you can see a larger preview and edit information about that attachment, and you can navigate between items right from the modal without closing it. (<a href="https://core.trac.wordpress.org/ticket/24716">#24716</a>)</li>\n<li>We&#8217;re freshening up the <strong>plugin install experience</strong>. You&#8217;ll see some early visual changes as well as more information when searching for plugins and viewing details. (<a href="https://core.trac.wordpress.org/ticket/28785">#28785</a>, <a href="https://core.trac.wordpress.org/ticket/27440">#27440</a>)</li>\n<li><strong>Selecting a language</strong> when you run the installation process. (<a href="https://core.trac.wordpress.org/ticket/28577">#28577</a>)</li>\n<li>The <strong>editor</strong> intelligently resizes and its top and bottom bars pin when needed. Browsers don&#8217;t like to agree on where to put things like cursors, so if you find a bug here, please also let us know your browser and operating system. (<a href="https://core.trac.wordpress.org/ticket/28328">#28328</a>)</li>\n<li>We&#8217;ve made some improvements to how your keyboard and cursor interact with <strong>TinyMCE views</strong> such as the gallery preview. Much like the editor resizing and scrolling improvements, knowing about your setup is particularly important for bug reports here. (<a href="https://core.trac.wordpress.org/ticket/28595">#28595</a>)</li>\n<li><strong>Widgets in the Customizer</strong> are now loaded in a separate panel. (<a href="https://core.trac.wordpress.org/ticket/27406">#27406</a>)</li>\n<li>We&#8217;ve also made some changes to some <strong>formatting</strong> functions, so if you see quotes curling in the wrong direction, please file a bug report.</li>\n</ul>\n<p><strong>If you think you‚Äôve found a bug</strong>, you can post to the <a href="https://wordpress.org/support/forum/alphabeta">Alpha/Beta area</a> in the support forums. We‚Äôd love to hear from you! If you‚Äôre comfortable writing a reproducible bug report, <a href="https://make.wordpress.org/core/reports/">file one on the WordPress Trac</a>. There, you can also find <a href="https://core.trac.wordpress.org/tickets/major">a list of known bugs</a> and <a href="https://core.trac.wordpress.org/query?status=closed&amp;group=component&amp;milestone=4.0">everything we‚Äôve fixed</a> so far.</p>\n<p><strong>Developers:</strong> Never fear, we haven&#8217;t forgotten you. There&#8217;s plenty for you, too &#8211; more on that in upcoming posts. In the meantime, check out the <a href="https://make.wordpress.org/core/2014/07/08/customizer-improvements-in-4-0/#customizer-panels">API for panels in the Customizer</a>.</p>\n<p>Happy testing!</p>\n<p><em>Plugins, editor</em><br />\n<em>Media, things in between</em><br />\n<em>Please help look for bugs</em></p>\n";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:36:"http://wellformedweb.org/CommentAPI/";a:1:{s:10:"commentRss";a:1:{i:0;a:5:{s:4:"data";s:61:"https://wordpress.org/news/2014/07/wordpress-4-0-beta-1/feed/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:38:"http://purl.org/rss/1.0/modules/slash/";a:1:{s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:1:"0";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}}}i:8;a:6:{s:4:"data";s:42:"\n		\n		\n		\n		\n		\n				\n\n		\n		\n				\n			\n		\n		";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";s:5:"child";a:5:{s:0:"";a:7:{s:5:"title";a:1:{i:0;a:5:{s:4:"data";s:35:"WordPress 3.9.1 Maintenance Release";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"link";a:1:{i:0;a:5:{s:4:"data";s:51:"https://wordpress.org/news/2014/05/wordpress-3-9-1/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:60:"https://wordpress.org/news/2014/05/wordpress-3-9-1/#comments";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:7:"pubDate";a:1:{i:0;a:5:{s:4:"data";s:31:"Thu, 08 May 2014 18:40:58 +0000";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"category";a:1:{i:0;a:5:{s:4:"data";s:8:"Releases";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"guid";a:1:{i:0;a:5:{s:4:"data";s:33:"http://wordpress.org/news/?p=3241";s:7:"attribs";a:1:{s:0:"";a:1:{s:11:"isPermaLink";s:5:"false";}}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:11:"description";a:1:{i:0;a:5:{s:4:"data";s:385:"After three weeks and more than 9 million downloads of WordPress 3.9, we&#8217;re pleased to announce that WordPress 3.9.1 is now available. This maintenance release fixes 34 bugs in 3.9, including numerous fixes for multisite networks, customizing widgets while previewing themes, and the updated visual editor. We&#8217;ve also made some improvements to the new audio/video [&#8230;]";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:32:"http://purl.org/dc/elements/1.1/";a:1:{s:7:"creator";a:1:{i:0;a:5:{s:4:"data";s:12:"Andrew Nacin";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:40:"http://purl.org/rss/1.0/modules/content/";a:1:{s:7:"encoded";a:1:{i:0;a:5:{s:4:"data";s:3106:"<p>After three weeks and more than 9 million downloads of <a title="WordPress 3.9 ‚ÄúSmith‚Äù" href="https://wordpress.org/news/2014/04/smith/">WordPress 3.9</a>, we&#8217;re pleased to announce that WordPress 3.9.1 is now available.</p>\n<p>This maintenance release fixes 34 bugs in 3.9, including numerous fixes for multisite networks, customizing widgets while previewing themes, and the updated visual editor. We&#8217;ve also made some improvements to the new audio/video playlists feature and made some adjustments to improve performance. For a full list of changes, consult the <a href="https://core.trac.wordpress.org/query?milestone=3.9.1">list of tickets</a> and the <a href="https://core.trac.wordpress.org/log/branches/3.9?rev=28353&amp;stop_rev=28154">changelog</a>.</p>\n<p>If you are one of the millions already running WordPress 3.9, we&#8217;ve started rolling out automatic background updates for 3.9.1. For sites¬†<a href="https://wordpress.org/plugins/background-update-tester/">that support them</a>, of course.</p>\n<p><a href="https://wordpress.org/download/">Download WordPress 3.9.1</a>¬†or venture over to¬†<strong>Dashboard ‚Üí Updates</strong>¬†and simply click &#8220;Update Now.&#8221;</p>\n<p>Thanks to all of these fine individuals for contributing to 3.9.1:¬†<a href="https://profiles.wordpress.org/jorbin">Aaron Jorbin</a>, <a href="https://profiles.wordpress.org/nacin">Andrew Nacin</a>, <a href="https://profiles.wordpress.org/azaozz">Andrew Ozz</a>, <a href="https://profiles.wordpress.org/rzen">Brian Richards</a>, <a href="https://profiles.wordpress.org/ehg">Chris Blower</a>, <a href="https://profiles.wordpress.org/jupiterwise">Corey McKrill</a>, <a href="https://profiles.wordpress.org/danielbachhuber">Daniel Bachhuber</a>, <a href="https://profiles.wordpress.org/ocean90">Dominik Schilling</a>, <a href="https://profiles.wordpress.org/feedmeastraycat">feedmeastraycat</a>, <a href="https://profiles.wordpress.org/gcorne">Gregory Cornelius</a>, <a href="https://profiles.wordpress.org/helen">Helen Hou-Sandi</a>, <a href="https://profiles.wordpress.org/imath">imath</a>, <a href="https://profiles.wordpress.org/avryl">Janneke Van Dorpe</a>, <a href="https://profiles.wordpress.org/jeremyfelt">Jeremy Felt</a>, <a href="https://profiles.wordpress.org/johnbillion">John Blackbourn</a>, <a href="https://profiles.wordpress.org/obenland">Konstantin Obenland</a>, <a href="https://profiles.wordpress.org/lancewillett">Lance Willett</a>, <a href="https://profiles.wordpress.org/m_i_n">m_i_n</a>, <a href="https://profiles.wordpress.org/clorith">Marius Jensen</a>, <a href="https://profiles.wordpress.org/markjaquith">Mark Jaquith</a>, <a href="https://profiles.wordpress.org/dimadin">Milan Diniƒá</a>, <a href="https://profiles.wordpress.org/celloexpressions">Nick Halsey</a>, <a href="https://profiles.wordpress.org/pavelevap">pavelevap</a>, <a href="https://profiles.wordpress.org/wonderboymusic">Scott Taylor</a>, <a href="https://profiles.wordpress.org/SergeyBiryukov">Sergey Biryukov</a>, and <a href="https://profiles.wordpress.org/westonruter">Weston Ruter</a>.</p>\n";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:36:"http://wellformedweb.org/CommentAPI/";a:1:{s:10:"commentRss";a:1:{i:0;a:5:{s:4:"data";s:56:"https://wordpress.org/news/2014/05/wordpress-3-9-1/feed/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:38:"http://purl.org/rss/1.0/modules/slash/";a:1:{s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:1:"0";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}}}i:9;a:6:{s:4:"data";s:42:"\n		\n		\n		\n		\n		\n				\n\n		\n		\n				\n			\n		\n		";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";s:5:"child";a:5:{s:0:"";a:7:{s:5:"title";a:1:{i:0;a:5:{s:4:"data";s:25:"WordPress 3.9 ‚ÄúSmith‚Äù";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"link";a:1:{i:0;a:5:{s:4:"data";s:41:"https://wordpress.org/news/2014/04/smith/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:50:"https://wordpress.org/news/2014/04/smith/#comments";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:7:"pubDate";a:1:{i:0;a:5:{s:4:"data";s:31:"Wed, 16 Apr 2014 18:33:44 +0000";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:8:"category";a:1:{i:0;a:5:{s:4:"data";s:8:"Releases";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:4:"guid";a:1:{i:0;a:5:{s:4:"data";s:33:"http://wordpress.org/news/?p=3154";s:7:"attribs";a:1:{s:0:"";a:1:{s:11:"isPermaLink";s:5:"false";}}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:11:"description";a:1:{i:0;a:5:{s:4:"data";s:411:"Version 3.9 of WordPress, named &#8220;Smith&#8221; in honor of jazz organist¬†Jimmy Smith, is available¬†for download¬†or update in your WordPress dashboard. This release features a number of refinements that we hope you&#8217;ll love. A smoother media editing¬†experience Improved visual editing The updated visual editor has improved speed, accessibility, and mobile support. You can paste into the [&#8230;]";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:32:"http://purl.org/dc/elements/1.1/";a:1:{s:7:"creator";a:1:{i:0;a:5:{s:4:"data";s:14:"Matt Mullenweg";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:40:"http://purl.org/rss/1.0/modules/content/";a:1:{s:7:"encoded";a:1:{i:0;a:5:{s:4:"data";s:23556:"<p>Version 3.9 of WordPress, named &#8220;Smith&#8221; in honor of jazz organist¬†<a href="http://en.wikipedia.org/wiki/Jimmy_Smith_(musician)">Jimmy Smith</a>, is available¬†<a href="https://wordpress.org/download/">for download</a>¬†or update in your WordPress dashboard. This release features a number of refinements that we hope you&#8217;ll love.</p>\n<div id="v-sAiXhCfV-1" class="video-player"><embed id="v-sAiXhCfV-1-video" src="https://v0.wordpress.com/player.swf?v=1.03&amp;guid=sAiXhCfV&amp;isDynamicSeeking=true" type="application/x-shockwave-flash" width="692" height="388" wmode="direct" seamlesstabbing="true" allowfullscreen="true" allowscriptaccess="always" overstretch="true"></embed></div>\n<h2 class="about-headline-callout" style="text-align: center">A smoother media editing¬†experience</h2>\n<div>\n<p><img class="alignright wp-image-3168" src="//wordpress.org/news/files/2014/04/editor1-300x233.jpg" alt="editor" width="228" height="177" /></p>\n<h3>Improved visual editing</h3>\n<p>The updated visual editor has improved speed, accessibility, and mobile support. You can paste into the visual editor from your word processor without wasting time to clean up messy styling. (Yeah, we‚Äôre talking about you, Microsoft Word.)</p>\n</div>\n<div style="clear: both"></div>\n<div>\n<p><img class="alignright wp-image-3170" src="//wordpress.org/news/files/2014/04/image1-300x233.jpg" alt="image" width="228" height="178" /></p>\n<h3>Edit images easily</h3>\n<p>With quicker access to crop and rotation tools, it‚Äôs now much easier to edit your images while editing posts. You can also scale images directly in the editor to find just the right fit.</p>\n</div>\n<div style="clear: both"></div>\n<div>\n<p><img class="alignright wp-image-3187" src="//wordpress.org/news/files/2014/04/dragdrop1-300x233.jpg" alt="dragdrop" width="228" height="178" /></p>\n<h3>Drag and drop your images</h3>\n<p>Uploading your images is easier than ever. Just grab them from your desktop and drop them in the editor.</p>\n</div>\n<div style="clear: both"></div>\n<hr />\n<h2 style="text-align: center">Gallery previews</h2>\n<p><img class="aligncenter size-full wp-image-3169" src="//wordpress.org/news/files/2014/04/gallery1.jpg" alt="gallery" width="980" height="550" /></p>\n<p>Galleries display a beautiful grid of images right in the editor, just like they do in your published post.</p>\n<hr />\n<h2 style="text-align: center">Do more with audio and video</h2>\n\n<a href=''https://wordpress.org/news/files/2014/04/AintMisbehavin.mp3''>Ain''t Misbehavin''</a>\n<a href=''https://wordpress.org/news/files/2014/04/DavenportBlues.mp3''>Davenport Blues</a>\n<a href=''https://wordpress.org/news/files/2014/04/JellyRollMorton-BuddyBoldensBlues.mp3''>Buddy Bolden''s Blues</a>\n<a href=''https://wordpress.org/news/files/2014/04/Johnny_Hodges_Orchestra-Squaty_Roo-1941.mp3''>Squaty Roo</a>\n<a href=''https://wordpress.org/news/files/2014/04/Louisiana_Five-Dixie_Blues-1919.mp3''>Dixie Blues</a>\n<a href=''https://wordpress.org/news/files/2014/04/WolverineBlues.mp3''>Wolverine Blues</a>\n\n<p>Images have galleries; now we‚Äôve added simple audio and video playlists, so you can showcase your music and clips.</p>\n<hr />\n<h2 style="text-align: center">Live widget and header previews</h2>\n<div style="width: 692px; " class="wp-video"><video class="wp-video-shortcode" id="video-3154-3" width="692" height="448" preload="metadata" controls="controls"><source type="video/mp4" src="//wordpress.org/news/files/2014/04/widgets.mp4?_=3" /><a href="//wordpress.org/news/files/2014/04/widgets.mp4">//wordpress.org/news/files/2014/04/widgets.mp4</a></video></div>\n<p>Add, edit, and rearrange your site‚Äôs widgets right in the theme customizer. No ‚Äúsave and surprise‚Äù ‚Äî preview your changes live and only save them when you‚Äôre ready.</p>\n<p>The improved header image tool also lets you upload, crop, and manage headers while customizing your theme.</p>\n<hr />\n<h2 style="text-align: center">Stunning new theme browser</h2>\n<p><img class="aligncenter size-full wp-image-3172" src="//wordpress.org/news/files/2014/04/theme1.jpg" alt="theme" width="1003" height="558" /><br />\nLooking for a new theme should be easy and fun. Lose yourself in the boundless supply of free WordPress.org themes with the beautiful new theme browser.</p>\n<hr />\n<h2 style="text-align: center">The Crew</h2>\n<p>This release was led by <a href="http://nacin.com/">Andrew Nacin</a> and <a href="http://www.getsource.net/">Mike Schroder</a>, with the help of these fine individuals. There are 267 contributors with props in this release, a new high:</p>\n<p><a href="https://profiles.wordpress.org/aaroncampbell">Aaron D. Campbell</a>, <a href="https://profiles.wordpress.org/jorbin">Aaron Jorbin</a>, <a href="https://profiles.wordpress.org/kawauso">Adam Harley (Kawauso)</a>, <a href="https://profiles.wordpress.org/adamsilverstein">Adam Silverstein</a>, <a href="https://profiles.wordpress.org/adelval">adelval</a>, <a href="https://profiles.wordpress.org/ajay">Ajay</a>, <a href="https://profiles.wordpress.org/akeda">Akeda Bagus</a>, <a href="https://profiles.wordpress.org/xknown">Alex Concha</a>, <a href="https://profiles.wordpress.org/tellyworth">Alex Shiels</a>, <a href="https://profiles.wordpress.org/aliso">Alison Barrett</a>, <a href="https://profiles.wordpress.org/collinsinternet">Allan Collins</a>, <a href="https://profiles.wordpress.org/sabreuse">Amy Hendrix (sabreuse)</a>, <a href="https://profiles.wordpress.org/afercia">Andrea Fercia</a>, <a href="https://profiles.wordpress.org/nacin">Andrew Nacin</a>, <a href="https://profiles.wordpress.org/norcross">Andrew Norcross</a>, <a href="https://profiles.wordpress.org/azaozz">Andrew Ozz</a>, <a href="https://profiles.wordpress.org/rarst">Andrey "Rarst" Savchenko</a>, <a href="https://profiles.wordpress.org/andykeith">Andy Keith</a>, <a href="https://profiles.wordpress.org/andy">Andy Skelton</a>, <a href="https://profiles.wordpress.org/atimmer">Anton Timmermans</a>, <a href="https://profiles.wordpress.org/aubreypwd">Aubrey Portwood</a>, <a href="https://profiles.wordpress.org/barry">Barry</a>, <a href="https://profiles.wordpress.org/toszcze">Bartosz Romanowski</a>, <a href="https://profiles.wordpress.org/bassgang">bassgang</a>, <a href="https://profiles.wordpress.org/bcworkz">bcworkz</a>, <a href="https://profiles.wordpress.org/empireoflight">Ben Dunkle</a>, <a href="https://profiles.wordpress.org/neoxx">Bernhard Riedl</a>, <a href="https://profiles.wordpress.org/bigdawggi">bigdawggi</a>, <a href="https://profiles.wordpress.org/bobbravo2">Bob Gregor</a>, <a href="https://profiles.wordpress.org/bobbingwide">bobbingwide</a>, <a href="https://profiles.wordpress.org/bradt">Brad Touesnard</a>, <a href="https://profiles.wordpress.org/bradparbs">bradparbs</a>, <a href="https://profiles.wordpress.org/bramd">Bram Duvigneau</a>, <a href="https://profiles.wordpress.org/kraftbj">Brandon Kraft</a>, <a href="https://profiles.wordpress.org/brasofilo">brasofilo</a>, <a href="https://profiles.wordpress.org/bravokeyl">bravokeyl</a>, <a href="https://profiles.wordpress.org/bpetty">Bryan Petty</a>, <a href="https://profiles.wordpress.org/cgaffga">cgaffga</a>, <a href="https://profiles.wordpress.org/chiragswadia">Chirag Swadia</a>, <a href="https://profiles.wordpress.org/chouby">Chouby</a>, <a href="https://profiles.wordpress.org/ehg">Chris Blower</a>, <a href="https://profiles.wordpress.org/cmmarslender">Chris Marslender</a>, <a href="https://profiles.wordpress.org/c3mdigital">Chris Olbekson</a>, <a href="https://profiles.wordpress.org/chrisscott">Chris Scott</a>, <a href="https://profiles.wordpress.org/chriseverson">chriseverson</a>, <a href="https://profiles.wordpress.org/chrisguitarguy">chrisguitarguy</a>, <a href="https://profiles.wordpress.org/cfinke">Christopher Finke</a>, <a href="https://profiles.wordpress.org/ciantic">ciantic</a>, <a href="https://profiles.wordpress.org/antorome">Comparativa de Bancos</a>, <a href="https://profiles.wordpress.org/cojennin">Connor Jennings</a>, <a href="https://profiles.wordpress.org/corvannoorloos">Cor van Noorloos</a>, <a href="https://profiles.wordpress.org/corphi">Corphi</a>, <a href="https://profiles.wordpress.org/cramdesign">cramdesign</a>, <a href="https://profiles.wordpress.org/danielbachhuber">Daniel Bachhuber</a>, <a href="https://profiles.wordpress.org/redsweater">Daniel Jalkut (Red Sweater)</a>, <a href="https://profiles.wordpress.org/dannydehaan">Danny de Haan</a>, <a href="https://profiles.wordpress.org/koop">Daryl Koopersmith</a>, <a href="https://profiles.wordpress.org/eightface">Dave Kellam (eightface)</a>, <a href="https://profiles.wordpress.org/dpe415">DaveE</a>, <a href="https://profiles.wordpress.org/davidakennedy">David A. Kennedy</a>, <a href="https://profiles.wordpress.org/davidanderson">David Anderson</a>, <a href="https://profiles.wordpress.org/davidmarichal">David Marichal</a>, <a href="https://profiles.wordpress.org/denis-de-bernardy">Denis de Bernardy</a>, <a href="https://profiles.wordpress.org/dd32">Dion Hulse</a>, <a href="https://profiles.wordpress.org/ocean90">Dominik Schilling</a>, <a href="https://profiles.wordpress.org/dougwollison">Doug Wollison</a>, <a href="https://profiles.wordpress.org/drewapicture">Drew Jaynes</a>, <a href="https://profiles.wordpress.org/drprotocols">DrProtocols</a>, <a href="https://profiles.wordpress.org/dustyf">Dustin Filippini</a>, <a href="https://profiles.wordpress.org/eatingrules">eatingrules</a>, <a href="https://profiles.wordpress.org/plocha">edik</a>, <a href="https://profiles.wordpress.org/oso96_2000">Eduardo Reveles</a>, <a href="https://profiles.wordpress.org/eliorivero">Elio Rivero</a>, <a href="https://profiles.wordpress.org/enej">enej</a>, <a href="https://profiles.wordpress.org/ericlewis">Eric Lewis</a>, <a href="https://profiles.wordpress.org/ericmann">Eric Mann</a>, <a href="https://profiles.wordpress.org/evarlese">Erica Varlese</a>, <a href="https://profiles.wordpress.org/ethitter">Erick Hitter</a>, <a href="https://profiles.wordpress.org/ejdanderson">Evan Anderson</a>, <a href="https://profiles.wordpress.org/fahmiadib">Fahmi Adib</a>, <a href="https://profiles.wordpress.org/fboender">fboender</a>, <a href="https://profiles.wordpress.org/frank-klein">Frank Klein</a>, <a href="https://profiles.wordpress.org/garyc40">Gary Cao</a>, <a href="https://profiles.wordpress.org/garyj">Gary Jones</a>, <a href="https://profiles.wordpress.org/pento">Gary Pendergast</a>, <a href="https://profiles.wordpress.org/genkisan">genkisan</a>, <a href="https://profiles.wordpress.org/soulseekah">Gennady Kovshenin</a>, <a href="https://profiles.wordpress.org/georgestephanis">George Stephanis</a>, <a href="https://profiles.wordpress.org/grahamarmfield">Graham Armfield</a>, <a href="https://profiles.wordpress.org/vancoder">Grant Mangham</a>, <a href="https://profiles.wordpress.org/gcorne">Gregory Cornelius</a>, <a href="https://profiles.wordpress.org/tivnet">Gregory Karpinsky (@tivnet)</a>, <a href="https://profiles.wordpress.org/hakre">hakre</a>, <a href="https://profiles.wordpress.org/hanni">hanni</a>, <a href="https://profiles.wordpress.org/helen">Helen Hou-Sand√≠</a>, <a href="https://profiles.wordpress.org/ippetkov">ippetkov</a>, <a href="https://profiles.wordpress.org/ipstenu">Ipstenu (Mika Epstein)</a>, <a href="https://profiles.wordpress.org/jdgrimes">J.D. Grimes</a>, <a href="https://profiles.wordpress.org/jackreichert">Jack Reichert</a>, <a href="https://profiles.wordpress.org/_jameslee">jameslee</a>, <a href="https://profiles.wordpress.org/avryl">Janneke Van Dorpe</a>, <a href="https://profiles.wordpress.org/janrenn">janrenn</a>, <a href="https://profiles.wordpress.org/jaycc">JayCC</a>, <a href="https://profiles.wordpress.org/jeffsebring">Jeff Sebring</a>, <a href="https://profiles.wordpress.org/jenmylo">Jen</a>, <a href="https://profiles.wordpress.org/jeremyfelt">Jeremy Felt</a>, <a href="https://profiles.wordpress.org/jesin">Jesin A</a>, <a href="https://profiles.wordpress.org/jayjdk">Jesper Johansen (jayjdk)</a>, <a href="https://profiles.wordpress.org/jnielsendotnet">jnielsendotnet</a>, <a href="https://profiles.wordpress.org/jartes">Joan Artes</a>, <a href="https://profiles.wordpress.org/joedolson">Joe Dolson</a>, <a href="https://profiles.wordpress.org/joehoyle">Joe Hoyle</a>, <a href="https://profiles.wordpress.org/johnbillion">John Blackbourn</a>, <a href="https://profiles.wordpress.org/johnjamesjacoby">John James Jacoby</a>, <a href="https://profiles.wordpress.org/johnpbloch">John P. Bloch</a>, <a href="https://profiles.wordpress.org/johnregan3">John Regan</a>, <a href="https://profiles.wordpress.org/duck_">Jon Cave</a>, <a href="https://profiles.wordpress.org/jond3r">Jonas Bolinder (jond3r)</a>, <a href="https://profiles.wordpress.org/joostdevalk">Joost de Valk</a>, <a href="https://profiles.wordpress.org/shelob9">Josh Pollock</a>, <a href="https://profiles.wordpress.org/joshuaabenazer">Joshua Abenazer</a>, <a href="https://profiles.wordpress.org/jstraitiff">jstraitiff</a>, <a href="https://profiles.wordpress.org/juliobox">Julio Potier</a>, <a href="https://profiles.wordpress.org/kopepasah">Justin Kopepasah</a>, <a href="https://profiles.wordpress.org/justinsainton">Justin Sainton</a>, <a href="https://profiles.wordpress.org/kadamwhite">K.Adam White</a>, <a href="https://profiles.wordpress.org/trepmal">Kailey (trepmal)</a>, <a href="https://profiles.wordpress.org/kasparsd">Kaspars</a>, <a href="https://profiles.wordpress.org/ryelle">Kelly Dwan</a>, <a href="https://profiles.wordpress.org/kerikae">kerikae</a>, <a href="https://profiles.wordpress.org/kworthington">Kevin Worthington</a>, <a href="https://profiles.wordpress.org/kpdesign">Kim Parsell</a>, <a href="https://profiles.wordpress.org/kwight">Kirk Wight</a>, <a href="https://profiles.wordpress.org/kitchin">kitchin</a>, <a href="https://profiles.wordpress.org/klihelp">klihelp</a>, <a href="https://profiles.wordpress.org/knutsp">Knut Sparhell</a>, <a href="https://profiles.wordpress.org/kovshenin">Konstantin Kovshenin</a>, <a href="https://profiles.wordpress.org/obenland">Konstantin Obenland</a>, <a href="https://profiles.wordpress.org/drozdz">Krzysiek Drozdz</a>, <a href="https://profiles.wordpress.org/lancewillett">Lance Willett</a>, <a href="https://profiles.wordpress.org/ldebrouwer">ldebrouwer</a>, <a href="https://profiles.wordpress.org/leewillis77">Lee Willis</a>, <a href="https://profiles.wordpress.org/lpointet">lpointet</a>, <a href="https://profiles.wordpress.org/spmlucas">Lucas Karpiuk</a>, <a href="https://profiles.wordpress.org/lkwdwrd">Luke Woodward</a>, <a href="https://profiles.wordpress.org/nofearinc">Mario Peshev</a>, <a href="https://profiles.wordpress.org/mark8barnes">Mark Barnes</a>, <a href="https://profiles.wordpress.org/markjaquith">Mark Jaquith</a>, <a href="https://profiles.wordpress.org/markoheijnen">Marko Heijnen</a>, <a href="https://profiles.wordpress.org/marventus">Marventus</a>, <a href="https://profiles.wordpress.org/iammattthomas">Matt (Thomas) Miklic</a>, <a href="https://profiles.wordpress.org/mjbanks">Matt Banks</a>, <a href="https://profiles.wordpress.org/matt">Matt Mullenweg</a>, <a href="https://profiles.wordpress.org/mboynes">Matthew Boynes</a>, <a href="https://profiles.wordpress.org/mdbitz">Matthew Denton</a>, <a href="https://profiles.wordpress.org/mattheu">Matthew Haines-Young</a>, <a href="https://profiles.wordpress.org/mattonomics">mattonomics</a>, <a href="https://profiles.wordpress.org/mattyrob">mattyrob</a>, <a href="https://profiles.wordpress.org/matveb">Mat√≠as Ventura</a>, <a href="https://profiles.wordpress.org/maxcutler">Max Cutler</a>, <a href="https://profiles.wordpress.org/mcadwell">mcadwell</a>, <a href="https://profiles.wordpress.org/melchoyce">Mel Choyce</a>, <a href="https://profiles.wordpress.org/meloniq">meloniq</a>, <a href="https://profiles.wordpress.org/michael-arestad">Michael Arestad</a>, <a href="https://profiles.wordpress.org/michelwppi">Michel - xiligroup dev</a>, <a href="https://profiles.wordpress.org/mcsf">Miguel Fonseca</a>, <a href="https://profiles.wordpress.org/gradyetc">Mike Burns</a>, <a href="https://profiles.wordpress.org/mikehansenme">Mike Hansen</a>, <a href="https://profiles.wordpress.org/mikemanger">Mike Manger</a>, <a href="https://profiles.wordpress.org/mikeschinkel">Mike Schinkel</a>, <a href="https://profiles.wordpress.org/dh-shredder">Mike Schroder</a>, <a href="https://profiles.wordpress.org/mikecorkum">mikecorkum</a>, <a href="https://profiles.wordpress.org/mitchoyoshitaka">mitcho (Michael Yoshitaka Erlewine)</a>, <a href="https://profiles.wordpress.org/batmoo">Mohammad Jangda</a>, <a href="https://profiles.wordpress.org/morganestes">Morgan Estes</a>, <a href="https://profiles.wordpress.org/mor10">Morten Rand-Hendriksen</a>, <a href="https://profiles.wordpress.org/Nao">Naoko Takano</a>, <a href="https://profiles.wordpress.org/alex-ye">Nashwan Doaqan</a>, <a href="https://profiles.wordpress.org/nendeb55">nendeb55</a>, <a href="https://profiles.wordpress.org/celloexpressions">Nick Halsey</a>, <a href="https://profiles.wordpress.org/nicolealleyinteractivecom">Nicole Arnold</a>, <a href="https://profiles.wordpress.org/nikv">Nikhil Vimal (NikV)</a>, <a href="https://profiles.wordpress.org/nivijah">Nivi Jah</a>, <a href="https://profiles.wordpress.org/nunomorgadinho">Nuno Morgadinho</a>, <a href="https://profiles.wordpress.org/olivm">olivM</a>, <a href="https://profiles.wordpress.org/jbkkd">Omer Korner</a>, <a href="https://profiles.wordpress.org/originalexe">OriginalEXE</a>, <a href="https://profiles.wordpress.org/patricknami">patricknami</a>, <a href="https://profiles.wordpress.org/pbearne">Paul Bearne</a>, <a href="https://profiles.wordpress.org/djpaul">Paul Gibbs</a>, <a href="https://profiles.wordpress.org/paulwilde">Paul Wilde</a>, <a href="https://profiles.wordpress.org/pavelevap">pavelevap</a>, <a href="https://profiles.wordpress.org/westi">Peter Westwood</a>, <a href="https://profiles.wordpress.org/philiparthurmoore">Philip Arthur Moore</a>, <a href="https://profiles.wordpress.org/mordauk">Pippin Williamson</a>, <a href="https://profiles.wordpress.org/nprasath002">Prasath Nadarajah</a>, <a href="https://profiles.wordpress.org/prettyboymp">prettyboymp</a>, <a href="https://profiles.wordpress.org/raamdev">Raam Dev</a>, <a href="https://profiles.wordpress.org/rachelbaker">Rachel Baker</a>, <a href="https://profiles.wordpress.org/mauryaratan">Ram Ratan Maurya</a>, <a href="https://profiles.wordpress.org/ramonchiara">ramonchiara</a>, <a href="https://profiles.wordpress.org/ounziw">Rescuework Support</a>, <a href="https://profiles.wordpress.org/rhyswynne">Rhys Wynne</a>, <a href="https://profiles.wordpress.org/ricardocorreia">Ricardo Correia</a>, <a href="https://profiles.wordpress.org/richard2222">Richard</a>, <a href="https://profiles.wordpress.org/theorboman">Richard Sweeney</a>, <a href="https://profiles.wordpress.org/iamfriendly">Richard Tape</a>, <a href="https://profiles.wordpress.org/rickalee">Ricky Lee Whittemore</a>, <a href="https://profiles.wordpress.org/miqrogroove">Robert Chapin</a>, <a href="https://profiles.wordpress.org/robmiller">robmiller</a>, <a href="https://profiles.wordpress.org/rodrigosprimo">Rodrigo Primo</a>, <a href="https://profiles.wordpress.org/romaimperator">romaimperator</a>, <a href="https://profiles.wordpress.org/roothorick">roothorick</a>, <a href="https://profiles.wordpress.org/ruudjoyo">Ruud Laan</a>, <a href="https://profiles.wordpress.org/ryan">Ryan Boren</a>, <a href="https://profiles.wordpress.org/rmccue">Ryan McCue</a>, <a href="https://profiles.wordpress.org/salcode">Sal Ferrarello</a>, <a href="https://profiles.wordpress.org/otto42">Samuel Wood (Otto)</a>, <a href="https://profiles.wordpress.org/sandyr">Sandeep</a>, <a href="https://profiles.wordpress.org/scottlee">Scott Lee</a>, <a href="https://profiles.wordpress.org/coffee2code">Scott Reilly</a>, <a href="https://profiles.wordpress.org/wonderboymusic">Scott Taylor</a>, <a href="https://profiles.wordpress.org/greglone">ScreenfeedFr</a>, <a href="https://profiles.wordpress.org/scribu">scribu</a>, <a href="https://profiles.wordpress.org/sdasse">sdasse</a>, <a href="https://profiles.wordpress.org/bootsz">Sean Butze</a>, <a href="https://profiles.wordpress.org/seanchayes">Sean Hayes</a>, <a href="https://profiles.wordpress.org/nessworthy">Sean Nessworthy</a>, <a href="https://profiles.wordpress.org/sergeybiryukov">Sergey Biryukov</a>, <a href="https://profiles.wordpress.org/shahpranaf">shahpranaf</a>, <a href="https://profiles.wordpress.org/shaunandrews">Shaun Andrews</a>, <a href="https://profiles.wordpress.org/shinichin">ShinichiN</a>, <a href="https://profiles.wordpress.org/pross">Simon Prosser</a>, <a href="https://profiles.wordpress.org/simonwheatley">Simon Wheatley</a>, <a href="https://profiles.wordpress.org/siobhan">Siobhan</a>, <a href="https://profiles.wordpress.org/siobhyb">Siobhan Bamber (siobhyb)</a>, <a href="https://profiles.wordpress.org/sirzooro">sirzooro</a>, <a href="https://profiles.wordpress.org/solarissmoke">solarissmoke</a>, <a href="https://profiles.wordpress.org/sonjanyc">sonjanyc</a>, <a href="https://profiles.wordpress.org/spencerfinnell">Spencer Finnell</a>, <a href="https://profiles.wordpress.org/piontkowski">Spencer Piontkowski</a>, <a href="https://profiles.wordpress.org/stephcook22">stephcook22</a>, <a href="https://profiles.wordpress.org/netweb">Stephen Edgar</a>, <a href="https://profiles.wordpress.org/stephenharris">Stephen Harris</a>, <a href="https://profiles.wordpress.org/sbruner">Steve Bruner</a>, <a href="https://profiles.wordpress.org/stevenkword">Steven Word</a>, <a href="https://profiles.wordpress.org/miyauchi">Takayuki Miyauchi</a>, <a href="https://profiles.wordpress.org/tanner-m">Tanner Moushey</a>, <a href="https://profiles.wordpress.org/tlovett1">Taylor Lovett</a>, <a href="https://profiles.wordpress.org/tbrams">tbrams</a>, <a href="https://profiles.wordpress.org/tobiasbg">TobiasBg</a>, <a href="https://profiles.wordpress.org/tomauger">Tom Auger</a>, <a href="https://profiles.wordpress.org/willmot">Tom Willmot</a>, <a href="https://profiles.wordpress.org/topher1kenobe">Topher</a>, <a href="https://profiles.wordpress.org/topquarky">topquarky</a>, <a href="https://profiles.wordpress.org/zodiac1978">Torsten Landsiedel</a>, <a href="https://profiles.wordpress.org/toru">Toru Miki</a>, <a href="https://profiles.wordpress.org/wpsmith">Travis Smith</a>, <a href="https://profiles.wordpress.org/umeshsingla">Umesh Kumar</a>, <a href="https://profiles.wordpress.org/undergroundnetwork">undergroundnetwork</a>, <a href="https://profiles.wordpress.org/varunagw">VarunAgw</a>, <a href="https://profiles.wordpress.org/wawco">wawco</a>, <a href="https://profiles.wordpress.org/westonruter">Weston Ruter</a>, <a href="https://profiles.wordpress.org/wokamoto">wokamoto</a>, <a href="https://profiles.wordpress.org/xsonic">xsonic</a>, <a href="https://profiles.wordpress.org/yoavf">Yoav Farhi</a>, <a href="https://profiles.wordpress.org/yurivictor">Yuri Victor</a>, <a href="https://profiles.wordpress.org/zbtirrell">Zach Tirrell</a>, and <a href="https://profiles.wordpress.org/vanillalounge">Ze Fontainhas</a>. Also thanks to <a href="http://michaelpick.wordpress.com/">Michael Pick</a> for producing the release video.</p>\n<p>If you want to follow along or help out, check out <a href="https://make.wordpress.org/">Make WordPress</a> and our <a href="https://make.wordpress.org/core/">core development blog</a>. Thanks for choosing WordPress. See you soon for version 4.0!</p>\n";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:36:"http://wellformedweb.org/CommentAPI/";a:1:{s:10:"commentRss";a:1:{i:0;a:5:{s:4:"data";s:46:"https://wordpress.org/news/2014/04/smith/feed/";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:38:"http://purl.org/rss/1.0/modules/slash/";a:1:{s:8:"comments";a:1:{i:0;a:5:{s:4:"data";s:1:"0";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}}}}}s:27:"http://www.w3.org/2005/Atom";a:1:{s:4:"link";a:1:{i:0;a:5:{s:4:"data";s:0:"";s:7:"attribs";a:1:{s:0:"";a:3:{s:4:"href";s:32:"https://wordpress.org/news/feed/";s:3:"rel";s:4:"self";s:4:"type";s:19:"application/rss+xml";}}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}s:44:"http://purl.org/rss/1.0/modules/syndication/";a:2:{s:12:"updatePeriod";a:1:{i:0;a:5:{s:4:"data";s:6:"hourly";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}s:15:"updateFrequency";a:1:{i:0;a:5:{s:4:"data";s:1:"1";s:7:"attribs";a:0:{}s:8:"xml_base";s:0:"";s:17:"xml_base_explicit";b:0;s:8:"xml_lang";s:0:"";}}}}}}}}}}}}s:4:"type";i:128;s:7:"headers";a:9:{s:6:"server";s:5:"nginx";s:4:"date";s:29:"Thu, 20 Nov 2014 08:36:43 GMT";s:12:"content-type";s:23:"text/xml; charset=UTF-8";s:10:"connection";s:5:"close";s:4:"vary";s:15:"Accept-Encoding";s:10:"x-pingback";s:37:"https://wordpress.org/news/xmlrpc.php";s:13:"last-modified";s:29:"Fri, 14 Nov 2014 23:16:39 GMT";s:15:"x-frame-options";s:10:"SAMEORIGIN";s:4:"x-nc";s:11:"HIT lax 249";}s:5:"build";s:14:"20130911040210";}', 'no');
@@ -283,10 +453,34 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (654, '_transient_feed_mod_b9388c83948825c1edaef0d856b7b109', '1416479803', 'no'),
 (655, '_transient_timeout_dash_4077549d03da2e451c8b5f002294ff51', '1416523003', 'no'),
 (656, '_transient_dash_4077549d03da2e451c8b5f002294ff51', '<div class="rss-widget"><ul><li><a class=''rsswidget'' href=''https://wordpress.org/news/2014/11/wordpress-4-1-beta-1/''>WordPress 4.1 Beta 1</a> <span class="rss-date">November 14, 2014</span><div class="rssSummary">Welcome, everyone, to WordPress 4.1 Beta 1! This software is still in development, so we don‚Äôt recommend you run it on a production site. Consider setting up a test site just to play with the new version. To test WordPress 4.1, try the WordPress Beta Tester plugin (you‚Äôll want ‚Äúbleeding edge nightlies‚Äù). Or you can [&hellip;]</div></li></ul></div><div class="rss-widget"><ul><li><a class=''rsswidget'' href=''http://wptavern.com/digitalocean-is-now-the-third-largest-hosting-provider-wordpress-droplets-account-for-23''>WPTavern: DigitalOcean Is Now the Third Largest Hosting Provider, WordPress Droplets Account for 23%</a></li><li><a class=''rsswidget'' href=''http://wptavern.com/dailybolt-its-like-wordpress-planet-for-the-genesis-framework''>WPTavern: Dailybolt ‚Äì It‚Äôs Like WordPress Planet For The Genesis Framework</a></li><li><a class=''rsswidget'' href=''http://wptavern.com/new-wordpress-plugin-boilerplate-generator-speeds-plugin-creation''>WPTavern: New WordPress Plugin Boilerplate Generator Speeds Plugin Creation</a></li></ul></div><div class="rss-widget"><ul><li class=''dashboard-news-plugin''><span>Popular Plugin:</span> <a href=''https://wordpress.org/plugins/woocommerce/'' class=''dashboard-news-plugin-link''>WooCommerce - excelling eCommerce</a>&nbsp;<span>(<a href=''plugin-install.php?tab=plugin-information&amp;plugin=woocommerce&amp;_wpnonce=9b4d87dd18&amp;TB_iframe=true&amp;width=600&amp;height=800'' class=''thickbox'' title=''WooCommerce - excelling eCommerce''>Install</a>)</span></li></ul></div>', 'no'),
-(662, '_site_transient_timeout_theme_roots', '1416671289', 'yes'),
-(663, '_site_transient_theme_roots', 'a:4:{s:7:"GeekHub";s:7:"/themes";s:14:"twentyfourteen";s:7:"/themes";s:14:"twentythirteen";s:7:"/themes";s:12:"twentytwelve";s:7:"/themes";}', 'yes'),
 (664, 'auto_core_update_notified', 'a:4:{s:4:"type";s:6:"manual";s:5:"email";s:13:"admin@wp.home";s:7:"version";s:5:"4.0.1";s:9:"timestamp";i:1416669492;}', 'yes'),
-(665, '_site_transient_update_plugins', 'O:8:"stdClass":5:{s:12:"last_checked";i:1416669678;s:7:"checked";a:5:{s:19:"akismet/akismet.php";s:5:"3.0.2";s:31:"arzamath_17th/arzamath_17th.php";s:3:"1.0";s:9:"hello.php";s:3:"1.6";s:47:"thumbnail-for-excerpts/thumbnailforexcerpts.php";s:3:"2.1";s:41:"wp_plugin_template/wp_plugin_template.php";s:3:"1.0";}s:8:"response";a:1:{s:19:"akismet/akismet.php";O:8:"stdClass":6:{s:2:"id";s:2:"15";s:4:"slug";s:7:"akismet";s:6:"plugin";s:19:"akismet/akismet.php";s:11:"new_version";s:5:"3.0.3";s:3:"url";s:38:"https://wordpress.org/plugins/akismet/";s:7:"package";s:56:"https://downloads.wordpress.org/plugin/akismet.3.0.3.zip";}}s:12:"translations";a:0:{}s:9:"no_update";a:2:{s:9:"hello.php";O:8:"stdClass":6:{s:2:"id";s:4:"3564";s:4:"slug";s:11:"hello-dolly";s:6:"plugin";s:9:"hello.php";s:11:"new_version";s:3:"1.6";s:3:"url";s:42:"https://wordpress.org/plugins/hello-dolly/";s:7:"package";s:58:"https://downloads.wordpress.org/plugin/hello-dolly.1.6.zip";}s:47:"thumbnail-for-excerpts/thumbnailforexcerpts.php";O:8:"stdClass":6:{s:2:"id";s:4:"4335";s:4:"slug";s:22:"thumbnail-for-excerpts";s:6:"plugin";s:47:"thumbnail-for-excerpts/thumbnailforexcerpts.php";s:11:"new_version";s:3:"2.1";s:3:"url";s:53:"https://wordpress.org/plugins/thumbnail-for-excerpts/";s:7:"package";s:69:"https://downloads.wordpress.org/plugin/thumbnail-for-excerpts.2.1.zip";}}}', 'yes');
+(670, '_site_transient_update_plugins', 'O:8:"stdClass":5:{s:12:"last_checked";i:1417347037;s:7:"checked";a:7:{s:19:"akismet/akismet.php";s:5:"3.0.2";s:31:"arzamath_17th/arzamath_17th.php";s:3:"1.0";s:17:"asgard/asgard.php";s:3:"0.4";s:49:"cp-multi-view-calendar/cp-multi-view-calendar.php";s:5:"1.0.2";s:9:"hello.php";s:3:"1.6";s:41:"better-wp-security/better-wp-security.php";s:6:"4.4.23";s:23:"wordfence/wordfence.php";s:5:"5.3.3";}s:8:"response";a:1:{s:19:"akismet/akismet.php";O:8:"stdClass":6:{s:2:"id";s:2:"15";s:4:"slug";s:7:"akismet";s:6:"plugin";s:19:"akismet/akismet.php";s:11:"new_version";s:5:"3.0.3";s:3:"url";s:38:"https://wordpress.org/plugins/akismet/";s:7:"package";s:56:"https://downloads.wordpress.org/plugin/akismet.3.0.3.zip";}}s:12:"translations";a:0:{}s:9:"no_update";a:5:{s:17:"asgard/asgard.php";O:8:"stdClass":6:{s:2:"id";s:5:"54330";s:4:"slug";s:6:"asgard";s:6:"plugin";s:17:"asgard/asgard.php";s:11:"new_version";s:3:"0.4";s:3:"url";s:37:"https://wordpress.org/plugins/asgard/";s:7:"package";s:53:"https://downloads.wordpress.org/plugin/asgard.0.4.zip";}s:49:"cp-multi-view-calendar/cp-multi-view-calendar.php";O:8:"stdClass":7:{s:2:"id";s:5:"41667";s:4:"slug";s:22:"cp-multi-view-calendar";s:6:"plugin";s:49:"cp-multi-view-calendar/cp-multi-view-calendar.php";s:11:"new_version";s:5:"1.0.2";s:14:"upgrade_notice";s:244:"Improved plugin security \n\n\nImportant note: If you are using the Professional version don&#039;t update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support";s:3:"url";s:53:"https://wordpress.org/plugins/cp-multi-view-calendar/";s:7:"package";s:65:"https://downloads.wordpress.org/plugin/cp-multi-view-calendar.zip";}s:9:"hello.php";O:8:"stdClass":6:{s:2:"id";s:4:"3564";s:4:"slug";s:11:"hello-dolly";s:6:"plugin";s:9:"hello.php";s:11:"new_version";s:3:"1.6";s:3:"url";s:42:"https://wordpress.org/plugins/hello-dolly/";s:7:"package";s:58:"https://downloads.wordpress.org/plugin/hello-dolly.1.6.zip";}s:41:"better-wp-security/better-wp-security.php";O:8:"stdClass":7:{s:2:"id";s:5:"18308";s:4:"slug";s:18:"better-wp-security";s:6:"plugin";s:41:"better-wp-security/better-wp-security.php";s:11:"new_version";s:6:"4.4.23";s:14:"upgrade_notice";s:75:"Version 4.4.23 contains a security update and is recommended for all users.";s:3:"url";s:49:"https://wordpress.org/plugins/better-wp-security/";s:7:"package";s:68:"https://downloads.wordpress.org/plugin/better-wp-security.4.4.23.zip";}s:23:"wordfence/wordfence.php";O:8:"stdClass":6:{s:2:"id";s:5:"25305";s:4:"slug";s:9:"wordfence";s:6:"plugin";s:23:"wordfence/wordfence.php";s:11:"new_version";s:5:"5.3.3";s:3:"url";s:40:"https://wordpress.org/plugins/wordfence/";s:7:"package";s:58:"https://downloads.wordpress.org/plugin/wordfence.5.3.3.zip";}}}', 'yes'),
+(671, 'setting_a', '', 'yes'),
+(672, 'setting_b', '1', 'yes'),
+(677, '_site_transient_timeout_poptags_40cd750bba9870f18aada2478b24840a', '1417354461', 'yes'),
+(678, '_site_transient_poptags_40cd750bba9870f18aada2478b24840a', 'a:40:{s:6:"widget";a:3:{s:4:"name";s:6:"widget";s:4:"slug";s:6:"widget";s:5:"count";s:4:"4690";}s:4:"post";a:3:{s:4:"name";s:4:"Post";s:4:"slug";s:4:"post";s:5:"count";s:4:"2907";}s:6:"plugin";a:3:{s:4:"name";s:6:"plugin";s:4:"slug";s:6:"plugin";s:5:"count";s:4:"2823";}s:5:"admin";a:3:{s:4:"name";s:5:"admin";s:4:"slug";s:5:"admin";s:5:"count";s:4:"2344";}s:5:"posts";a:3:{s:4:"name";s:5:"posts";s:4:"slug";s:5:"posts";s:5:"count";s:4:"2238";}s:7:"sidebar";a:3:{s:4:"name";s:7:"sidebar";s:4:"slug";s:7:"sidebar";s:5:"count";s:4:"1804";}s:6:"google";a:3:{s:4:"name";s:6:"google";s:4:"slug";s:6:"google";s:5:"count";s:4:"1619";}s:7:"twitter";a:3:{s:4:"name";s:7:"twitter";s:4:"slug";s:7:"twitter";s:5:"count";s:4:"1591";}s:6:"images";a:3:{s:4:"name";s:6:"images";s:4:"slug";s:6:"images";s:5:"count";s:4:"1569";}s:8:"comments";a:3:{s:4:"name";s:8:"comments";s:4:"slug";s:8:"comments";s:5:"count";s:4:"1533";}s:4:"page";a:3:{s:4:"name";s:4:"page";s:4:"slug";s:4:"page";s:5:"count";s:4:"1496";}s:9:"shortcode";a:3:{s:4:"name";s:9:"shortcode";s:4:"slug";s:9:"shortcode";s:5:"count";s:4:"1485";}s:5:"image";a:3:{s:4:"name";s:5:"image";s:4:"slug";s:5:"image";s:5:"count";s:4:"1403";}s:8:"facebook";a:3:{s:4:"name";s:8:"Facebook";s:4:"slug";s:8:"facebook";s:5:"count";s:4:"1236";}s:3:"seo";a:3:{s:4:"name";s:3:"seo";s:4:"slug";s:3:"seo";s:5:"count";s:4:"1183";}s:5:"links";a:3:{s:4:"name";s:5:"links";s:4:"slug";s:5:"links";s:5:"count";s:4:"1133";}s:9:"wordpress";a:3:{s:4:"name";s:9:"wordpress";s:4:"slug";s:9:"wordpress";s:5:"count";s:4:"1081";}s:7:"gallery";a:3:{s:4:"name";s:7:"gallery";s:4:"slug";s:7:"gallery";s:5:"count";s:4:"1027";}s:6:"social";a:3:{s:4:"name";s:6:"social";s:4:"slug";s:6:"social";s:5:"count";s:4:"1018";}s:7:"widgets";a:3:{s:4:"name";s:7:"widgets";s:4:"slug";s:7:"widgets";s:5:"count";s:3:"849";}s:5:"email";a:3:{s:4:"name";s:5:"email";s:4:"slug";s:5:"email";s:5:"count";s:3:"844";}s:5:"pages";a:3:{s:4:"name";s:5:"pages";s:4:"slug";s:5:"pages";s:5:"count";s:3:"838";}s:3:"rss";a:3:{s:4:"name";s:3:"rss";s:4:"slug";s:3:"rss";s:5:"count";s:3:"806";}s:6:"jquery";a:3:{s:4:"name";s:6:"jquery";s:4:"slug";s:6:"jquery";s:5:"count";s:3:"798";}s:5:"media";a:3:{s:4:"name";s:5:"media";s:4:"slug";s:5:"media";s:5:"count";s:3:"747";}s:5:"video";a:3:{s:4:"name";s:5:"video";s:4:"slug";s:5:"video";s:5:"count";s:3:"710";}s:4:"ajax";a:3:{s:4:"name";s:4:"AJAX";s:4:"slug";s:4:"ajax";s:5:"count";s:3:"709";}s:10:"javascript";a:3:{s:4:"name";s:10:"javascript";s:4:"slug";s:10:"javascript";s:5:"count";s:3:"673";}s:7:"content";a:3:{s:4:"name";s:7:"content";s:4:"slug";s:7:"content";s:5:"count";s:3:"663";}s:5:"login";a:3:{s:4:"name";s:5:"login";s:4:"slug";s:5:"login";s:5:"count";s:3:"631";}s:5:"photo";a:3:{s:4:"name";s:5:"photo";s:4:"slug";s:5:"photo";s:5:"count";s:3:"626";}s:10:"buddypress";a:3:{s:4:"name";s:10:"buddypress";s:4:"slug";s:10:"buddypress";s:5:"count";s:3:"623";}s:4:"feed";a:3:{s:4:"name";s:4:"feed";s:4:"slug";s:4:"feed";s:5:"count";s:3:"619";}s:4:"link";a:3:{s:4:"name";s:4:"link";s:4:"slug";s:4:"link";s:5:"count";s:3:"613";}s:6:"photos";a:3:{s:4:"name";s:6:"photos";s:4:"slug";s:6:"photos";s:5:"count";s:3:"600";}s:11:"woocommerce";a:3:{s:4:"name";s:11:"woocommerce";s:4:"slug";s:11:"woocommerce";s:5:"count";s:3:"572";}s:7:"youtube";a:3:{s:4:"name";s:7:"youtube";s:4:"slug";s:7:"youtube";s:5:"count";s:3:"564";}s:8:"category";a:3:{s:4:"name";s:8:"category";s:4:"slug";s:8:"category";s:5:"count";s:3:"561";}s:4:"spam";a:3:{s:4:"name";s:4:"spam";s:4:"slug";s:4:"spam";s:5:"count";s:3:"554";}s:5:"share";a:3:{s:4:"name";s:5:"Share";s:4:"slug";s:5:"share";s:5:"count";s:3:"553";}}', 'yes'),
+(679, 'wordfence_version', '5.3.3', 'yes'),
+(680, 'wordfenceActivated', '1', 'yes'),
+(683, '_site_transient_timeout_itsec_upload_dir', '1417430986', 'yes'),
+(684, '_site_transient_itsec_upload_dir', 'a:6:{s:4:"path";s:50:"/var/www/html/wordpress/wp-content/uploads/2014/11";s:3:"url";s:53:"http://localhost/wordpress/wp-content/uploads/2014/11";s:6:"subdir";s:8:"/2014/11";s:7:"basedir";s:42:"/var/www/html/wordpress/wp-content/uploads";s:7:"baseurl";s:45:"http://localhost/wordpress/wp-content/uploads";s:5:"error";b:0;}', 'yes'),
+(685, 'itsec_data', 'a:5:{s:5:"build";i:4034;s:20:"activation_timestamp";i:1417344586;s:17:"already_supported";b:0;s:15:"setup_completed";b:1;s:18:"tooltips_dismissed";b:1;}', 'yes'),
+(686, 'itsec_global', 'a:22:{s:18:"notification_email";a:1:{i:0;s:13:"admin@wp.home";}s:12:"backup_email";a:1:{i:0;s:13:"admin@wp.home";}s:15:"lockout_message";s:5:"error";s:20:"user_lockout_message";s:64:"You have been locked out due to too many invalid login attempts.";s:25:"community_lockout_message";s:77:"Your IP address has been flagged as a threat by the iThemes Security network.";s:9:"blacklist";b:1;s:15:"blacklist_count";i:3;s:16:"blacklist_period";i:7;s:14:"lockout_period";i:15;s:18:"lockout_white_list";a:0:{}s:19:"email_notifications";b:1;s:8:"log_type";i:0;s:12:"log_rotation";i:14;s:12:"log_location";s:64:"/var/www/html/wordpress/wp-content/uploads/ithemes-security/logs";s:11:"did_upgrade";b:0;s:14:"allow_tracking";b:0;s:11:"write_files";b:0;s:10:"nginx_file";s:34:"/var/www/html/wordpress/nginx.conf";s:24:"infinitewp_compatibility";b:0;s:8:"log_info";s:11:"homework-3-";s:9:"lock_file";b:0;s:12:"digest_email";b:0;}', 'yes'),
+(687, 'itsec_initials', 'a:3:{s:5:"login";b:0;s:5:"admin";b:0;s:11:"file_editor";b:0;}', 'yes'),
+(689, 'itsec_ipcheck', 'a:1:{s:7:"api_ban";b:0;}', 'yes'),
+(690, 'itsec_four_oh_four', 'a:5:{s:12:"check_period";i:5;s:15:"error_threshold";i:20;s:10:"white_list";a:9:{i:0;s:12:"/favicon.ico";i:1;s:11:"/robots.txt";i:2;s:21:"/apple-touch-icon.png";i:3;s:33:"/apple-touch-icon-precomposed.png";i:4;s:17:"/wp-content/cache";i:5;s:18:"/browserconfig.xml";i:6;s:16:"/crossdomain.xml";i:7;s:11:"/labels.rdf";i:8;s:27:"/trafficbasedsspsitemap.xml";}s:5:"types";a:5:{i:0;s:4:".jpg";i:1;s:5:".jpeg";i:2;s:4:".png";i:3;s:4:".gif";i:4;s:4:".css";}s:7:"enabled";b:0;}', 'yes'),
+(691, 'itsec_away_mode', 'a:4:{s:4:"type";i:1;s:7:"enabled";b:0;s:5:"start";i:1417392000;s:3:"end";i:1417500000;}', 'yes'),
+(692, 'itsec_ban_users', 'a:4:{s:9:"host_list";a:0:{}s:10:"agent_list";a:1:{i:0;s:0:"";}s:7:"enabled";b:0;s:7:"default";b:0;}', 'yes'),
+(694, 'itsec_brute_force', 'a:5:{s:7:"enabled";b:1;s:17:"max_attempts_host";i:5;s:17:"max_attempts_user";i:10;s:12:"check_period";i:5;s:14:"auto_ban_admin";b:0;}', 'yes'),
+(695, 'itsec_backup', 'a:9:{s:6:"method";i:1;s:8:"location";s:67:"/var/www/html/wordpress/wp-content/uploads/ithemes-security/backups";s:6:"retain";i:0;s:7:"exclude";a:3:{i:0;s:14:"itsec_lockouts";i:1;s:9:"itsec_log";i:2;s:10:"itsec_temp";}s:8:"interval";i:3;s:7:"enabled";b:0;s:9:"all_sites";b:0;s:8:"last_run";i:0;s:3:"zip";b:0;}', 'yes'),
+(696, 'itsec_file_change', 'a:9:{s:6:"method";b:1;s:9:"file_list";a:1:{i:0;s:0:"";}s:5:"types";a:6:{i:0;s:4:".jpg";i:1;s:5:".jpeg";i:2;s:4:".png";i:3;s:4:".log";i:4;s:3:".mo";i:5;s:3:".po";}s:5:"email";b:1;s:12:"notify_admin";b:1;s:7:"enabled";b:0;s:5:"split";b:0;s:10:"last_chunk";b:0;s:8:"last_run";i:1417260574;}', 'yes'),
+(697, 'itsec_hide_backend', 'a:7:{s:7:"enabled";b:0;s:12:"theme_compat";b:0;s:12:"show-tooltip";b:0;s:4:"slug";s:7:"wplogin";s:16:"post_logout_slug";s:0:"";s:8:"register";s:15:"wp-register.php";s:17:"theme_compat_slug";s:9:"not_found";}', 'yes'),
+(698, 'itsec_malware', 'a:2:{s:7:"api_key";s:0:"";s:7:"enabled";b:0;}', 'yes'),
+(699, 'itsec_ssl', 'a:3:{s:8:"frontend";i:0;s:5:"login";b:0;s:5:"admin";b:0;}', 'yes'),
+(701, 'itsec_strong_passwords', 'a:2:{s:4:"roll";s:13:"administrator";s:7:"enabled";b:0;}', 'yes'),
+(702, 'itsec_tweaks', 'a:22:{s:14:"disable_xmlrpc";i:0;s:13:"protect_files";b:0;s:18:"directory_browsing";b:0;s:15:"request_methods";b:0;s:24:"suspicious_query_strings";b:0;s:22:"non_english_characters";b:0;s:16:"long_url_strings";b:0;s:17:"write_permissions";b:0;s:13:"generator_tag";b:0;s:18:"wlwmanifest_header";b:0;s:14:"edituri_header";b:0;s:13:"theme_updates";b:0;s:14:"plugin_updates";b:0;s:12:"core_updates";b:0;s:12:"comment_spam";b:0;s:14:"random_version";b:0;s:11:"file_editor";b:0;s:11:"uploads_php";b:0;s:11:"safe_jquery";b:0;s:12:"login_errors";b:0;s:21:"force_unique_nicename";b:0;s:27:"disable_unused_author_pages";b:0;}', 'yes'),
+(706, 'wf_plugin_act_error', '', 'yes'),
+(712, '_site_transient_timeout_theme_roots', '1417347419', 'yes'),
+(713, '_site_transient_theme_roots', 'a:4:{s:7:"GeekHub";s:7:"/themes";s:14:"twentyfourteen";s:7:"/themes";s:14:"twentythirteen";s:7:"/themes";s:12:"twentytwelve";s:7:"/themes";}', 'yes');
 
 -- --------------------------------------------------------
 
@@ -360,21 +554,12 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (101, 60, '_wp_attachment_is_custom_background', 'twentyfourteen'),
 (102, 62, '_edit_lock', '1414054563:1'),
 (103, 62, '_edit_last', '2'),
-(104, 70, '_edit_lock', '1414613983:1'),
-(105, 70, '_edit_last', '1'),
-(106, 70, '_wp_trash_meta_status', 'draft'),
-(107, 70, '_wp_trash_meta_time', '1414613990'),
-(108, 72, '_edit_lock', '1414666500:1'),
-(109, 72, '_edit_last', '1'),
 (110, 74, '_edit_lock', '1415265367:1'),
 (111, 74, '_edit_last', '1'),
 (120, 77, '_edit_lock', '1415269946:1'),
 (121, 77, '_edit_last', '1'),
 (122, 77, '_wp_page_template', 'default'),
-(131, 72, '_wp_page_template', 'default'),
 (140, 74, '_wp_page_template', 'default'),
-(141, 72, '_wp_trash_meta_status', 'publish'),
-(142, 72, '_wp_trash_meta_time', '1414666648'),
 (143, 74, '_post_restored_from', 'a:3:{s:20:"restored_revision_id";i:130;s:16:"restored_by_user";i:1;s:13:"restored_time";i:1414680261;}'),
 (144, 150, '_edit_lock', '1415215731:1'),
 (145, 150, '_edit_last', '1'),
@@ -467,21 +652,9 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (283, 342, '_edit_last', '1'),
 (285, 342, '_wp_trash_meta_status', 'publish'),
 (286, 342, '_wp_trash_meta_time', '1416396762'),
-(287, 344, '_edit_lock', '1416403089:1'),
-(288, 347, '_edit_lock', '1416405916:1'),
-(289, 349, '_edit_lock', '1416406319:1'),
-(290, 350, '_edit_lock', '1416406407:1'),
-(291, 351, '_edit_lock', '1416406451:1'),
-(292, 352, '_edit_lock', '1416406515:1'),
-(293, 353, '_edit_lock', '1416406555:1'),
-(294, 354, '_edit_lock', '1416480070:1'),
-(295, 356, '_edit_lock', '1416480973:1'),
-(296, 357, '_edit_lock', '1416669565:1'),
+(296, 357, '_edit_lock', '1417347308:1'),
 (297, 357, '_edit_last', '1'),
-(300, 359, '_edit_lock', '1416481390:1'),
-(301, 360, '_edit_lock', '1416482272:1'),
-(302, 361, '_edit_lock', '1416482388:1'),
-(303, 362, '_edit_lock', '1416670231:1'),
+(303, 362, '_edit_lock', '1417347076:1'),
 (304, 362, '_edit_last', '1'),
 (305, 362, 'meta_a', '–º–µ—Ç–∞ –ê1'),
 (306, 362, 'meta_b', ''),
@@ -522,7 +695,7 @@ CREATE TABLE IF NOT EXISTS `wp_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=364 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=367 ;
 
 --
 -- –î–∞–º–ø –¥–∞–Ω–Ω—ã—Ö —Ç–∞–±–ª–∏—Ü—ã `wp_posts`
@@ -574,10 +747,6 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (63, 2, '2014-10-23 08:40:08', '2014-10-23 08:40:08', 'Its my first post.\r\n<blockquote>Auther1</blockquote>', 'My first post', '', 'inherit', 'open', 'open', '', '62-revision-v1', '', '', '2014-10-23 08:40:08', '2014-10-23 08:40:08', '', 62, 'http://localhost/wordpress/?p=63', 0, 'revision', '', 0),
 (64, 2, '2014-10-23 08:40:46', '2014-10-23 08:40:46', 'It''s my first post.\r\n<blockquote>Auther1</blockquote>', 'My first post', '', 'inherit', 'open', 'open', '', '62-revision-v1', '', '', '2014-10-23 08:40:46', '2014-10-23 08:40:46', '', 62, 'http://localhost/wordpress/?p=64', 0, 'revision', '', 0),
 (67, 1, '2014-10-23 08:51:58', '2014-10-23 08:51:58', 'It''s my first post.\r\n<blockquote>Auther1</blockquote>', 'My first post', '', 'inherit', 'open', 'open', '', '62-autosave-v1', '', '', '2014-10-23 08:51:58', '2014-10-23 08:51:58', '', 62, 'http://localhost/wordpress/?p=67', 0, 'revision', '', 0),
-(70, 1, '2014-10-29 20:19:30', '2014-10-29 20:19:30', 'asdasd', 'ewea', '', 'trash', 'open', 'open', '', 'ewea', '', '', '2014-10-29 20:19:50', '2014-10-29 20:19:50', '', 0, 'http://localhost/wordpress/?page_id=70', 0, 'page', '', 0),
-(71, 1, '2014-10-29 20:19:30', '2014-10-29 20:19:30', 'asdasd', 'ewea', '', 'inherit', 'open', 'open', '', '70-revision-v1', '', '', '2014-10-29 20:19:30', '2014-10-29 20:19:30', '', 70, 'http://localhost/wordpress/?p=71', 0, 'revision', '', 0),
-(72, 1, '2014-10-30 10:43:35', '2014-10-30 10:43:35', '–¶–µ–π –∫—É—Ä—Å –¥–æ–ø–æ–º–æ–∂–µ –≤–∞–º –Ω–∞–≤—á–∏—Ç–∏—Å—è —Å—Ç–≤–æ—Ä—é–≤–∞—Ç–∏ –≤–µ–± —Å–∞–π—Ç–∏ –Ω–∞ –æ—Å–Ω–æ–≤—ñ —Å–∏—Å—Ç–µ–º–∏ –∫–µ—Ä—É–≤–∞–Ω–Ω—è –∫–æ–Ω—Ç–µ–Ω—Ç–æ–º. –í—Å–µ, –≤—ñ–¥ —Å–∫—ñ–Ω—É–≤–∞–Ω–Ω—è –¥–∏–∑–∞–π–Ω—É –¥–æ –ø—ñ–¥–∫–ª—é—á–µ–Ω–Ω—è CMS. –¶–µ–π –∫—É—Ä—Å –¥–∞—Å—Ç—å –≤–∞–º —á—É–¥–æ–≤–∏–π —Å—Ç–∞—Ä—Ç –¥–ª—è —Ñ—Ä—ñ–ª–∞–Ω—Å–∞ –∞–±–æ —Ä–æ–±–æ—Ç–∏ –≤ –∫–æ–º–ø–∞–Ω—ñ—ó.', 'Frontend CMS', '', 'trash', 'open', 'open', '', 'frontend-cms-2', '', '', '2014-10-30 10:57:28', '2014-10-30 10:57:28', '', 0, 'http://localhost/wordpress/?page_id=72', 0, 'page', '', 0),
-(73, 1, '2014-10-30 09:41:52', '2014-10-30 09:41:52', '–¶–µ–π –∫—É—Ä—Å –¥–æ–ø–æ–º–æ–∂–µ –≤–∞–º –Ω–∞–≤—á–∏—Ç–∏—Å—è —Å—Ç–≤–æ—Ä—é–≤–∞—Ç–∏ –≤–µ–± —Å–∞–π—Ç–∏ –Ω–∞ –æ—Å–Ω–æ–≤—ñ —Å–∏—Å—Ç–µ–º–∏ –∫–µ—Ä—É–≤–∞–Ω–Ω—è –∫–æ–Ω—Ç–µ–Ω—Ç–æ–º. –í—Å–µ, –≤—ñ–¥ —Å–∫—ñ–Ω—É–≤–∞–Ω–Ω—è –¥–∏–∑–∞–π–Ω—É –¥–æ –ø—ñ–¥–∫–ª—é—á–µ–Ω–Ω—è CMS. –¶–µ–π –∫—É—Ä—Å –¥–∞—Å—Ç—å –≤–∞–º —á—É–¥–æ–≤–∏–π —Å—Ç–∞—Ä—Ç –¥–ª—è —Ñ—Ä—ñ–ª–∞–Ω—Å–∞ –∞–±–æ —Ä–æ–±–æ—Ç–∏ –≤ –∫–æ–º–ø–∞–Ω—ñ—ó.', 'Frontend CMS', '', 'inherit', 'open', 'open', '', '72-revision-v1', '', '', '2014-10-30 09:41:52', '2014-10-30 09:41:52', '', 72, 'http://localhost/wordpress/?p=73', 0, 'revision', '', 0),
 (74, 1, '2014-10-30 10:23:48', '2014-10-30 10:23:48', '   <div class="details">\r\n        <ul>\r\n            <li>\r\n                <img src="http://geekhub.ck.ua/images/icon-frontend.png" alt="frontend">\r\n                <h2>Frontend CMS</h2>\r\n                <p>–¶–µ–π –∫—É—Ä—Å –¥–æ–ø–æ–º–æ–∂–µ –≤–∞–º –Ω–∞–≤—á–∏—Ç–∏—Å—è —Å—Ç–≤–æ—Ä—é–≤–∞—Ç–∏ –≤–µ–± —Å–∞–π—Ç–∏ –Ω–∞ –æ—Å–Ω–æ–≤—ñ —Å–∏—Å—Ç–µ–º–∏ –∫–µ—Ä—É–≤–∞–Ω–Ω—è –∫–æ–Ω—Ç–µ–Ω—Ç–æ–º. –í—Å–µ, –≤—ñ–¥ —Å–∫—ñ–Ω—É–≤–∞–Ω–Ω—è –¥–∏–∑–∞–π–Ω—É –¥–æ –ø—ñ–¥–∫–ª—é—á–µ–Ω–Ω—è CMS. –¶–µ–π –∫—É—Ä—Å –¥–∞—Å—Ç—å –≤–∞–º —á—É–¥–æ–≤–∏–π —Å—Ç–∞—Ä—Ç –¥–ª—è —Ñ—Ä—ñ–ª–∞–Ω—Å–∞ –∞–±–æ —Ä–æ–±–æ—Ç–∏ –≤ –∫–æ–º–ø–∞–Ω—ñ—ó.</p>\r\n                <h3>–ö–æ–º–∞–Ω–¥–∞</h3>\r\n                <ul class="team">\r\n                    <li>\r\n                        <img src="http://geekhub.ck.ua/images/jack.png" />\r\n                        <h3>–Ñ–≤–≥–µ–Ω –ì—Ä–∏–≥–æ—Ä‚Äô—î–≤</h3>\r\n                        <p>–ü—Ä–∞—Ü—é—î –∑ —Ä—è–¥–æ–º —Ç–µ—Ö–Ω–æ–ª–æ–≥—ñ–π, –≤–∫–ª—é—á–∞—é—á–∏ Symfony, Drupal, jQuery, Compass CSS, HAML, etc. –ú–∞–π—Å—Ç–µ—Ä–Ω—ñ—Å—Ç—å –Ñ–≤–≥–µ–Ω–∞ —Å—Ç–æ—ó—Ç—å –∑–∞ —Ç–∞–∫–∏–º–∏ –ø—Ä–æ–µ–∫—Ç–∞–º–∏ —è–∫ Belvilla, Yes or No, Jongenvrij webshop, USGA —Ç–∞ –±–∞–≥–∞—Ç–æ —ñ–Ω—à–∏—Ö. –£ GeekHub –≤–∏–∫–ª–∞–¥–∞—î Frontend + CMS.</p>\r\n                    </li>\r\n                    <li>\r\n                        <img src="http://geekhub.ck.ua/images/alexander_tinyaev.png" />\r\n                        <h3>–û–ª–µ–∫—Å–∞–Ω–¥—Ä –¢—ñ–Ω—è—î–≤</h3>\r\n                        <p>–ê–ª–µ–∫—Å (–∞–±–æ –∂ –î—ñ–∫—Å, —è–∫ –π–æ–≥–æ –≤—Å—ñ –∫–ª–∏—á—É—Ç—å) –∑–∞–π–º–∞—î—Ç—å—Å—è Frontend, AngularJS, Sencha Touch —Ç–∞ Wordpress —Ä–æ–∑—Ä–æ–±–∫–æ—é –≤ N3w Normal LLC –≤–∂–µ –ø—Ä–æ—Ç—è–≥–æ–º –¥–≤–æ—Ö —Ä–æ–∫—ñ–≤. –£ GeekHub –≤–∏–∫–ª–∞–¥–∞—î Frontend + CMS.</p>\r\n                    </li>\r\n                    <li>\r\n                        <img src="http://geekhub.ck.ua/images/lavrenko_andriy.png" />\r\n                        <h3>–õ–∞–≤—Ä–µ–Ω–∫–æ –ê–Ω–¥—Ä—ñ–π</h3>\r\n                        <p>–ü—Ä–∞—Ü—é—î –∑ —Ä—è–¥–æ–º —Ç–µ—Ö–Ω–æ–ª–æ–≥—ñ–π, –≤–∫–ª—é—á–∞—é—á–∏ HTML5/CSS3, jQuery, SASS/SCSS/LESS, CoffeeScript, HAML, Twig, Require JS, Titanium SDK. –û–±–æ–∂–Ω—é—î "—á–∏—Å—Ç–∏–π" –∫–æ–¥. –£ GeekHub –≤–∏–∫–ª–∞–¥–∞—î Frontend + CMS.</p>\r\n                    </li>\r\n                </ul>\r\n\r\n                <h3>–¢–ï–ú–ò –ü–ò–¢–ê–ù–¨ –ù–ê –ï–ö–ó–ê–ú–ï–ùI</h3>\r\n                <ul class="questions">\r\n                    <li>–©–æ —Ç–∞–∫–µ HTML (Wikipedia)</li>\r\n                    <li>–©–æ —Ç–∞–∫–µ CSS (Wikipedia)</li>\r\n                    <li>- –û—Å–Ω–æ–≤–∏ —Ä–æ–±–æ—Ç–∏ —ñ–Ω—Ç–µ—Ä–Ω–µ—Ç—É (—Å–µ—Ä–≤–µ—Ä, –±—Ä–∞—É–∑–µ—Ä, –¥–æ–º–µ–Ω —ñ —Ç.–ø.). –ú–∞—Ç–µ—Ä—ñ–∞–ª –±—Ä–∞—Ç–∏ —Ç—É—Ç: <a href="https://vk.com/videos-30111409">https://vk.com/videos-30111409</a> (–£—Ä–æ–∫ 1-4)</li>\r\n                </ul>\r\n                <h3>–°–ª–æ–≤–æ –≤—ñ–¥ –≤–∏–∫–ª–∞–¥–∞—á—ñ–≤</h3>\r\n                <p>–ì—Ä—É–ø–æ–≤—ñ –∑–∞–Ω—è—Ç—Ç—è –ø—Ä–æ–≤–æ–¥–∏—Ç–∏–º—É—Ç—å—Å—è 1 —Ä–∞–∑ –≤ —Ç–∏–∂–¥–µ–Ω—å –≤–≤–µ—á–µ—Ä—ñ, –¥–æ–º–∞—à–Ω—î –∑–∞–≤–¥–∞–Ω–Ω—è –Ω–∞ –∫–æ–∂–µ–Ω —É—Ä–æ–∫ —Å–∫–ª–∞–¥–∞—Ç–∏–º–µ—Ç—å—Å—è –∑ 3 —á–∞—Å—Ç–∏–Ω (—â–æ –≤–∏–º–∞–≥–∞—Ç–∏–º–µ –≤—ñ–¥ —Å—Ç—É–¥–µ–Ω—Ç–∞ –º—ñ–Ω—ñ–º—É–º 3 —Ä–∞–∑–∏ –Ω–∞ —Ç–∏–∂–¥–µ–Ω—å –ø—Ä–∏–¥—ñ–ª—è—Ç–∏ —É–≤–∞–≥—É –∫—É—Ä—Å–∞–º –≤–¥–æ–º–∞).</p>\r\n                <a class="register" href="#">–ó–∞—Ä–µ—î—Å—Ç—Ä—É–≤–∞—Ç–∏—Å—è</a>\r\n            </li>\r\n        </ul>\r\n    \r\n</div>\r\n', 'Frontend CMS', '', 'publish', 'open', 'open', '', 'frontend-cms', '', '', '2014-11-05 19:25:58', '2014-11-05 19:25:58', '', 77, 'http://localhost/wordpress/?page_id=74', 0, 'page', '', 0),
 (75, 1, '2014-10-30 10:18:30', '2014-10-30 10:18:30', '<h2></h2>\r\n–¶–µ–π –∫—É—Ä—Å –¥–æ–ø–æ–º–æ–∂–µ –≤–∞–º –Ω–∞–≤—á–∏—Ç–∏—Å—è —Å—Ç–≤–æ—Ä—é–≤–∞—Ç–∏ –≤–µ–± —Å–∞–π—Ç–∏ –Ω–∞ –æ—Å–Ω–æ–≤—ñ —Å–∏—Å—Ç–µ–º–∏ –∫–µ—Ä—É–≤–∞–Ω–Ω—è –∫–æ–Ω—Ç–µ–Ω—Ç–æ–º. –í—Å–µ, –≤—ñ–¥ —Å–∫—ñ–Ω—É–≤–∞–Ω–Ω—è –¥–∏–∑–∞–π–Ω—É –¥–æ –ø—ñ–¥–∫–ª—é—á–µ–Ω–Ω—è CMS. –¶–µ–π –∫—É—Ä—Å –¥–∞—Å—Ç—å –≤–∞–º —á—É–¥–æ–≤–∏–π —Å—Ç–∞—Ä—Ç –¥–ª—è —Ñ—Ä—ñ–ª–∞–Ω—Å–∞ –∞–±–æ —Ä–æ–±–æ—Ç–∏ –≤ –∫–æ–º–ø–∞–Ω—ñ—ó.', 'Frontend CMS', '', 'inherit', 'open', 'open', '', '74-revision-v1', '', '', '2014-10-30 10:18:30', '2014-10-30 10:18:30', '', 74, 'http://localhost/wordpress/?p=75', 0, 'revision', '', 0),
 (77, 1, '2014-10-30 10:40:27', '2014-10-30 10:40:27', '<div id="content">\r\n    <div class="home">\r\n        <h2>–î–ï–¢–ê–õ–Ü –ö–£–†–°–Ü–í –¢–ê –†–ï–Ñ–°–¢–†–ê–¶–Ü–Ø</h2>\r\n        <ul class="types">\r\n            <li class="left-col"><img src="http://geekhub.ck.ua/images/icon-frontend.png" alt="" />\r\n                <a class="title" href="http://localhost/wordpress/?page_id=74">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=74">Frontend + CMS</a></h3>\r\n                <p>–¶–µ–π –∫—É—Ä—Å –¥–æ–ø–æ–º–æ–∂–µ –≤–∞–º –Ω–∞–≤—á–∏—Ç–∏—Å—è —Å—Ç–≤–æ—Ä—é–≤–∞—Ç–∏ –≤–µ–± —Å–∞–π—Ç–∏ –Ω–∞ –æ—Å–Ω–æ–≤—ñ —Å–∏—Å—Ç–µ–º–∏ –∫–µ—Ä—É–≤–∞–Ω–Ω—è –∫–æ–Ω—Ç–µ–Ω—Ç–æ–º. –í—Å–µ, –≤—ñ–¥ —Å–∫—ñ–Ω—É–≤–∞–Ω–Ω—è –¥–∏–∑–∞–π–Ω—É –¥–æ –ø—ñ–¥–∫–ª—é—á–µ–Ω–Ω—è CMS. –¶–µ–π –∫—É—Ä—Å –¥–∞—Å—Ç—å –≤–∞–º —á—É–¥–æ–≤–∏–π —Å—Ç–∞—Ä—Ç –¥–ª—è —Ñ—Ä—ñ–ª–∞–Ω—Å–∞ –∞–±–æ —Ä–æ–±–æ—Ç–∏ –≤ –∫–æ–º–ø–∞–Ω—ñ—ó.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=74">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-adv-cms.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=150">Advanced CMS</a></h3>\r\n                <p>–ö—É—Ä—Å –¥–ª—è —Ç–∏—Ö, —Ö—Ç–æ —Ö–æ—á–µ –Ω–∞–≤—á–∏—Ç–∏—Å—è —Å—Ç–≤–æ—Ä—é–≤–∞—Ç–∏ —Å–∞–π—Ç–∏ —Ä—ñ–∑–Ω–æ–≥–æ —Ä—ñ–≤–Ω—è —Å–∫–ª–∞–¥–Ω–æ—Å—Ç—ñ –∑–∞ –¥–æ–ø–æ–º–æ–≥–æ—é –ø–æ–ø—É–ª—è—Ä–Ω–∏—Ö CMS Wordpress —Ç–∞ Drupal. –Ø–∫—â–æ –≤–∏ —Ö–æ—á–µ—Ç–µ —Ä–æ–±–∏—Ç–∏ –≤–µ–±—Å–∞–π—Ç–∏ —è–∫ –ø—Ä–æ—Ñ–µ—Å—ñ–æ–Ω–∞–ª, —Ü–µ–π –∫—É—Ä—Å –¥–ª—è –≤–∞—Å. –û—Å–æ–±–ª–∏–≤–æ—Å—Ç—ñ —Ä—ñ–∑–Ω–∏—Ö CMS, –≤–∏–∫–æ—Ä–∏—Å—Ç–∞–Ω–Ω—è —Ç–∞ –Ω–∞–ø–∏—Å–∞–Ω–Ω—è –ø–ª–∞–≥—ñ–Ω—ñ–≤ —Ç–∞ –∫–æ–º–ø–æ–Ω–µ–Ω—Ç—ñ–≤, —ñ–Ω—Ç–µ–≥—Ä–∞—Ü—ñ—è —ñ–∑ —Å–æ—Ü—ñ–∞–ª—å–Ω–∏–º–∏ –º–µ—Ä–µ–∂–∞–º–∏ —Ç–∞ —Å—Ç–æ—Ä–æ–Ω–Ω—ñ–º–∏ —Å–µ—Ä–≤—ñ—Å–∞–º–∏.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=150">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-adv-php.png" alt="" />\r\n                <a class="title" href="http://localhost/wordpress/?page_id=175">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=175">Advanced PHP</a></h3>\r\n                <p>–î–ª—è —Ç–∏—Ö —Ö—Ç–æ —Ö–æ—á–µ —Ä–æ–∑–≤–∏–≤–∞—Ç–∏ —Å–≤–æ—ó –±–∞–∑–æ–≤—ñ –Ω–∞–≤–∏—á–∫–∏ –≤ PHP. –ö—É—Ä—Å –∑–∞–≥–ª–∏–±–ª—é—î—Ç—å—Å—è —É –≤–∏–≤—á–µ–Ω–Ω—è –û–û–ü, MVC —Ç–∞ –ø–∞—Ç—Ç–µ—Ä–Ωi–≤ –ø—Ä–æ–µ—Ç—É–≤–∞–Ω–Ω—è –Ω–∞ –±–∞–∑—ñ –Ω–∞–π–ø–æ–ø—É–ª—è—Ä–Ω—ñ—à–æ–≥–æ php —Ñ—Ä–µ–π–º–≤–æ—Ä–∫—É Symfony2.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=175">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li class="left-col"><img src="http://geekhub.ck.ua/images/icon-js.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=197">JavaScript</a></h3>\r\n                <p>–í—Å–µ –Ω–∞–π—Ü—ñ–∫–∞–≤—ñ—à–µ –≤—ñ–¥–±—É–≤–∞—î—Ç—å—Å—è –≤ –±—Ä–∞—É–∑–µ—Ä—ñ, –∞ –Ω–µ –Ω–∞ —Å–µ—Ä–≤–µ—Ä—ñ. Javascript - —Ü–µ —Ç–æ–π —ñ–Ω—Å—Ç—Ä—É–º–µ–Ω—Ç —è–∫–∏–π –¥–æ–ø–æ–º–æ–∂–µ –≤–∞–º —Å—Ç–≤–æ—Ä—é–≤–∞—Ç–∏ –¥—ñ–π—Å–Ω–æ –∑—Ä—É—á–Ω—ñ —Ç–∞ —à–≤–∏–¥–∫—ñ –≤–µ–± —Å—Ç–æ—Ä—ñ–Ω–∫–∏.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=197">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-ios.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=204">iOS</a></h3>\r\n                <p>–ö—É—Ä—Å –¥–ª—è —à–≤–∏–¥–∫–æ–≥–æ —Å—Ç–∞—Ä—Ç—É –≤ —Ä–æ–∑—Ä–æ–±—Ü—ñ –ø—Ä–æ–≥—Ä–∞–º–Ω–æ–≥–æ –∑–∞–±–µ–∑–ø–µ—á–µ–Ω–Ω—è –ø—ñ–¥ –ø–æ–ø—É–ª—è—Ä–Ω—É –º–æ–±—ñ–ª—å–Ω—É –ø–ª–∞—Ç—Ñ–æ—Ä–º—É iOS.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=204">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-android.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=222">Android</a></h3>\r\n                <p>Android - –Ω–∞–π–ø–æ–ø—É–ª—è—Ä–Ω—ñ—à–∞ –æ–ø–µ—Ä–∞—Ü—ñ–π–Ω–∞ —Å–∏—Å—Ç–µ–º–∞ –¥–ª—è —Å–º–∞—Ä—Ç—Ñ–æ–Ω—ñ–≤. –í —Ü—å–æ–º—É –∫—É—Ä—Å—ñ –º–∏ –æ—Ö–æ–ø–∏–º–æ –Ω–∞–π–≤–∞–∂–ª–∏–≤—ñ—à—ñ –µ–ª–µ–º–µ–Ω—Ç–∏ –ø–æ–±—É–¥–æ–≤–∏ –¥–æ–¥–∞—Ç–∫—ñ–≤ –¥–ª—è —Ü—ñ—î—ó –ø–ª–∞—Ç—Ñ–æ—Ä–º–∏. –û–∑–Ω–∞–π–æ–º–∏–º–æ—Å—è –∑ –æ—Å–Ω–æ–≤–Ω–∏–º–∏ –∫–æ–º–ø–æ–Ω–µ–Ω—Ç–∞–º–∏ UI —Ç–∞ UX. –ù–∞–≤—á–∏–º–æ—Å—è —ó—Ö –ø—Ä–∞–≤–∏–ª—å–Ω–æ –≤–∏–∫–æ—Ä–∏—Å—Ç–æ–≤—É–≤–∞—Ç–∏. –¢–∞–∫–æ–∂ –Ω–∞–≤—á–∏–º–æ—Å—è –ø—Ä–∞—Ü—é–≤–∞—Ç–∏ –≤ –∫–æ–º–∞–Ω–¥—ñ —Ç–∞ –ø–æ–±—É–¥—É—î–º–æ –∫–æ—Ä–∏—Å–Ω—ñ –¥–æ–¥–∞—Ç–∫–∏.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=222">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li class="left-col"><img src="http://geekhub.ck.ua/images/icon-ruby.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=215">Ruby on Rails</a></h3>\r\n                <p>–ö—É—Ä—Å –Ω–∞–≤—á–∏—Ç—å –í–∞—Å –ø—Ä–∞—Ü—é–≤–∞—Ç–∏ –∑ –ø–æ–ø—É–ª—è—Ä–Ω–∏–º —Ñ—Ä–µ–π–º–≤–æ—Ä–∫–æ–º –¥–ª—è —Ä–æ–∑—Ä–æ–±–∫–∏ –≤–µ–±-—Å–µ—Ä–≤—ñ—Å—ñ–≤ –Ω–∞ –º–æ–≤—ñ –ø—Ä–æ–≥—Ä–∞–º—É–≤–∞–Ω–Ω—è Ruby.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=215">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-grails.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=230">Groovy &amp; Grails</a></h3>\r\n                <p>–ü–æ–∑–Ω–∞–π–æ–º—Ç–µ—Å—å –∑ –æ–¥–Ω–∏–º –∑ –Ω–∞–π–ø–æ—Ç—É–∂–Ω—ñ—à–∏—Ö —Ñ—Ä–µ–π–º–≤–æ—Ä–∫—ñ–≤ –¥–ª—è —à–≤–∏–¥–∫–æ—ó —Ä–æ–∑—Ä–æ–±–∫–∏ –≤–µ–±-–¥–æ–¥–∞—Ç–∫—ñ–≤ Groovy &amp; Grails.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=230">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-java.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=238%20">Java for Web</a></h3>\r\n                <p>Java - —Ü–µ –æ—Å–Ω–æ–≤–∞ –µ–Ω—Ç–µ—Ä–ø—Ä–∞–π–∑ —Ç–µ—Ö–Ω–æ–ª–æ–≥—ñ–π. –í–∏ –æ–∑–Ω–∞–π–æ–º–∏—Ç–µ—Å—å —ñ–∑ –º–æ–≤–æ—é, –æ—Å–Ω–æ–≤–Ω–∏–º–∏ –∫–ª–∞—Å—Å–∞–º–∏ —ñ –ø–∞–∫–µ—Ç–∞–º–∏, –∞ —Ç–∞–∫–æ–∂ –Ω–∞–π–±—ñ–ª—å—à –ø–æ–ø—É–ª—è—Ä–Ω–∏–º–∏ —Ç–∞ –ø–æ—Ç—É–∂–Ω–∏–º–∏ —Ñ—Ä–µ–π–º–≤–æ—Ä–∫–∞–º–∏ –¥–ª—è —Ä–æ–∑—Ä–æ–±–∫–∏ –≤–µ–±-–¥–æ–¥–∞—Ç–∫—ñ–≤.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=238%20">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li class="left-col"><img src="http://geekhub.ck.ua/images/icon-pm.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=243">Project Management</a></h3>\r\n                <p>–©–æ–± —Å—Ç–∞—Ç–∏ –¥–æ—Å–≤—ñ–¥—á–µ–Ω–∏–º –º–µ–Ω–µ–¥–∂–µ—Ä–æ–º –ø—Ä–æ–µ–∫—Ç—ñ–≤ –ø–æ—Ç—Ä—ñ–±–Ω—ñ —Ä–æ–∫–∏ —Å–ø—Ä–æ–± —Ç–∞ –ø–æ–º–∏–ª–æ–∫. Geekhub –¥–∞—î –≤–∞–º –º–æ–∂–ª–∏–≤—ñ—Å—Ç—å –ø–æ—á–∞—Ç–∏ –Ω–∞–±—É–≤–∞—Ç–∏ –ø—Ä–∞–∫—Ç–∏—á–Ω—ñ –Ω–∞–≤–∏—á–∫–∏ –≤–∂–µ –∑–∞—Ä–∞–∑.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=243">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-qa.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=248">Quality Assurance</a></h3>\r\n                <p>–ö—É—Ä—Å –¥–ª—è —Ç–∏—Ö, —Ö—Ç–æ –≤–º—ñ—î –∫–æ–Ω—Å—Ç—Ä—É–∫—Ç–∏–≤–Ω–æ –∫—Ä–∏—Ç–∏–∫—É–≤–∞—Ç–∏ —Ç–∞ —Ö–æ—Ç—ñ–≤ –±–∏ –∑ —Ü—å–æ–≥–æ –Ω–∞–≤–∏–∫—É –∑—Ä–æ–±–∏—Ç–∏ —Ü—ñ–∫–∞–≤—É —ñ–Ω–Ω–æ–≤–∞—Ü—ñ–π–Ω—É –ø—Ä–æ—Ñ–µ—Å—ñ—é.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=248">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-english.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=252">Business English</a></h3>\r\n                <p>–Ø–∫—â–æ –≤–∏ –ª—ñ–¥–µ—Ä –∫–æ–º–∞–Ω–¥–∏ –∞–±–æ –º–µ–Ω–µ–¥–∂–µ—Ä –ø—Ä–æ–µ–∫—Ç—ñ–≤, Business English –¥–æ–ø–æ–º–æ–∂–µ –≤–∞–º –∑–¥–æ–±—É—Ç–∏ –∫–æ—Ä–∏—Å–Ω—ñ —ñ–Ω—Å—Ç—Ä—É–º–µ–Ω—Ç–∏ –¥–ª—è –µ—Ñ–µ–∫—Ç–∏–≤–Ω–∏—Ö –∫–æ–º—É–Ω—ñ–∫–∞—Ü—ñ–π —è–∫ –≤—Å–µ—Ä–µ–¥–∏–Ω—ñ –∫–æ–º–∞–Ω–¥–∏ —Ç–∞–∫ —ñ –∑ –∫–ª—ñ—î–Ω—Ç–∞–º–∏.</p>\r\n                <a href="http://localhost/wordpress/?page_id=252">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-webdesign.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=254">Web &amp; Mobile Design</a></h3>\r\n                <p>–¶–µ –¥–∏–Ω–∞–º—ñ—á–Ω–∏–π —Ç–∞ –Ω–∞—Å–∏—á–µ–Ω–Ω–∏–π –Ω–∞–≤—á–∞–ª—å–Ω–∏–π –∫—É—Ä—Å, —è–∫–∏–π –¥–∞—î –∑–º–æ–≥—É –æ—Ç—Ä–∏–º–∞—Ç–∏ –±–∞–∑–æ–≤—ñ –∑–Ω–∞–Ω–Ω—è –∑ –í–µ–± –¥–∏–∑–∞–π–Ω—É —Ç–∞ –¥–∏–∑–∞–π–Ω—É –º–æ–±—ñ–ª—å–Ω–∏—Ö –¥–æ–¥–∞—Ç–∫—ñ–≤. –í–∏ –¥—ñ–∑–Ω–∞—î—Ç–µ—Å—å —è–∫ –ø—Ä–æ–µ–∫—Ç—É–≤–∞—Ç–∏ —ñ–Ω—Ç–µ—Ä—Ñ–µ–π—Å–∏ —Ç–∞ —Ä–æ–±–∏—Ç–∏ —Å–∞–π—Ç–∏ –∑—Ä—É—á–Ω–∏–º–∏ –¥–ª—è –≤—ñ–¥–≤—ñ–¥—É–≤–∞—á—ñ–≤. –û—Ç—Ä–∏–º–∞—î—Ç–µ –±–∞–∑–æ–≤—ñ –∑–Ω–∞–Ω–Ω—è –ø–æ –∫–æ–º–ø–æ–∑–∏—Ü—ñ—ó, —Ñ—ñ—Ä–º–æ–≤–æ–º—É —Å—Ç–∏–ª—é, —à—Ä–∏—Ñ—Ç–∞–º —Ç–∞ —Ä–æ–±–æ—Ç—ñ –∑ –∫–æ–º''—é—Ç–µ—Ä–Ω–∏–º–∏ –ø—Ä–æ–≥—Ä–∞–º–∞–º–∏ –¥–ª—è –ø–æ–¥–∞–ª—å—à–æ–≥–æ —Ä–æ–∑–≤–∏—Ç–∫—É —É –≥–∞–ª—É–∑—ñ –¥–∏–∑–∞–π–Ω—É.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=254">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-gamedesign.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=257">Game Production</a></h3>\r\n                <p>–ß–∞—Å–∏, –∫–æ–ª–∏ —ñ–≥—Ä–∏ —Å—Ç–≤–æ—Ä—é–≤–∞–ª–∏ —Ñ–∞–Ω–∞—Ç–∏–∫–∏-–æ–¥–∏–Ω–∞–∫–∏ –¥–∞–≤–Ω–æ –ø–æ–∑–∞–¥—É. –°—å–æ–≥–æ–¥–Ω—ñ —à–∞–ª–µ–Ω–æ –∑—Ä–æ—Å—Ç–∞—é—á–∞ —ñ–Ω–¥—É—Å—Ç—Ä—ñ—è –≥–µ–π–º–¥–µ–≤—É –≤—ñ–¥–∫—Ä–∏–≤–∞—î –¥–≤–µ—Ä—ñ —à–∏—Ä–æ–∫–æ–º—É –∫–æ–ª—É —Å–ø–µ—Ü—ñ–∞–ª—ñ—Å—Ç—ñ–≤. –ö—É—Ä—Å Game Production –ø–æ–∑–Ω–∞–π–æ–º–∏—Ç—å —É—á–Ω—ñ–≤ —ñ–∑ –ø—Ä–æ—Ü–µ—Å—Å–æ–º —Å—Ç–≤–æ—Ä–µ–Ω–Ω—è –∫–æ–º–ø‚Äô—é—Ç–µ—Ä–Ω–∏—Ö —ñ–≥—Ä, –æ—Å–æ–±–ª–∏–≤–æ—Å—Ç—è–º–∏ –≤–µ–¥–µ–Ω–Ω—è GDD, –¥–æ–ø–æ–º–æ–∂–µ —Ä–æ–∑—ñ–±—Ä–∞—Ç–∏—Å—è –∑ —ñ–≥—Ä–æ–≤–∏–º–∏ –º–µ—Ö–∞–Ω—ñ–∫–∞–º–∏, –∂–∞–Ω—Ä–∞–º–∏, —Ç–µ–Ω–¥–µ–Ω—Ü—ñ—è–º–∏, —Ç–µ—Ä–º—ñ–Ω–æ–ª–æ–≥—ñ—î—é... –ê —â–µ, –Ω–∞–¥–∏—Ö–Ω–µ —Å–ø–æ—Å—Ç–µ—Ä—ñ–≥–∞—Ç–∏, –ø–æ–º—ñ—á–∞—Ç–∏, –ø—Ä–æ–±—É–≤–∞—Ç–∏, –≤–∏–≤—á–∞—Ç–∏ –∂–∏—Ç—Ç—è, –±–æ, —è–∫ –Ω–µ –¥–∏–≤–Ω–æ, —á–∞—Å—Ç–æ —Å–∞–º–µ —Ü–µ –≤–∏–∑–Ω–∞—á–∞—î —è–∫—ñ—Å–Ω–∏–π –≥–µ–π–º–¥–µ–≤ :)</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=257">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li></li>\r\n        </ul>\r\n        <ul class="social_share">\r\n            <li id="vk" style="height: 240px; width: 276px; background: none repeat scroll 0% 0% transparent;"><iframe id="vkwidget1" style="overflow: hidden; height: 240px;" src="http://vk.com/widget_community.php?app=0&amp;width=276px&amp;_ver=1&amp;‚Ä¶r3=&amp;height=240&amp;url=https://vk.com/geekhub/" name="fXD77c4f" width="276" height="200" frameborder="0" scrolling="no"></iframe>\r\n                <script type="text/javascript">// <![CDATA[\r\n                VK.Widgets.Group("vk", {mode: 0, width: "276", height: "240"}, 30111409);\r\n                // ]]></script></li>\r\n            <li class="sertificates_list">\r\n                <h4><a href="/certified-professionals.html">–°–µ—Ä—Ç–∏—Ñi–∫–æ–≤–∞–Ωi –ø—Ä–æ—Ñ–µ—Åi–æ–Ω–∞–ª–∏</a></h4>\r\n            </li>\r\n            <li>\r\n                <h4>–ù–∞—à—ñ –°–ø–æ–Ω—Å–æ—Ä–∏</h4>\r\n                <ul>\r\n                    <li class="de"><a href="http://povnahata.com">–î—ñ–º –Ñ–≤–∞–Ω–≥–µ–ª—ñ—è</a></li>\r\n                    <li class="moc"><a href="http://masterofcode.com">Masterofcode LTD</a></li>\r\n                    <li class="sergium"><a href="http://sergium.net">SerGium.net</a></li>\r\n                    <li class="clear left stuff"><a href="http://val.co.ua/">val.co.ua/</a></li>\r\n                    <li class="youthog"><a href="http://yothog.com">Youthog.com</a></li>\r\n                    <li class="jetbrains"><a href="http://jetbrains.com/">JetBrains.com</a></li>\r\n                    <li class="ucoz"><a href="http://rabota.ucoz.ua/">ucoz.ua</a></li>\r\n                    <li class="spd-ukraine"><a href="http://spd-ukraine.com/">SPD-Ukraine.com</a></li>\r\n                    <li class="ekreative"><a href="http://www.ekreative.com/">Ekreative.com</a></li>\r\n                    <li class="n3wnormal"><a href="http://n3wnormal.com/">n3wnormal.ua</a></li>\r\n                    <li class="in-ck-ua"><a href="http://in.ck.ua/">in.ck.ua</a></li>\r\n                </ul>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>\r\n<!-- content -->', 'GeekHub', '', 'publish', 'open', 'open', '', 'geekhub', '', '', '2014-11-05 18:36:48', '2014-11-05 18:36:48', '', 0, 'http://localhost/wordpress/?page_id=77', 0, 'page', '', 0),
@@ -840,28 +1009,14 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (338, 1, '2014-11-06 10:34:55', '2014-11-06 10:34:55', '<div id="content">\r\n    <div class="home">\r\n        <h2>–î–ï–¢–ê–õ–Ü –ö–£–†–°–Ü–í –¢–ê –†–ï–Ñ–°–¢–†–ê–¶–Ü–Ø</h2>\r\n        <ul class="types">\r\n            <li class="left-col"><img src="http://geekhub.ck.ua/images/icon-frontend.png" alt="" />\r\n                <a class="title" href="http://localhost/wordpress/?page_id=74">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=74">Frontend + CMS</a></h3>\r\n                <p>–¶–µ–π –∫—É—Ä—Å –¥–æ–ø–æ–º–æ–∂–µ –≤–∞–º –Ω–∞–≤—á–∏—Ç–∏—Å—è —Å—Ç–≤–æ—Ä—é–≤–∞—Ç–∏ –≤–µ–± —Å–∞–π—Ç–∏ –Ω–∞ –æ—Å–Ω–æ–≤—ñ —Å–∏—Å—Ç–µ–º–∏ –∫–µ—Ä—É–≤–∞–Ω–Ω—è –∫–æ–Ω—Ç–µ–Ω—Ç–æ–º. –í—Å–µ, –≤—ñ–¥ —Å–∫—ñ–Ω—É–≤–∞–Ω–Ω—è –¥–∏–∑–∞–π–Ω—É –¥–æ –ø—ñ–¥–∫–ª—é—á–µ–Ω–Ω—è CMS. –¶–µ–π –∫—É—Ä—Å –¥–∞—Å—Ç—å –≤–∞–º —á—É–¥–æ–≤–∏–π —Å—Ç–∞—Ä—Ç –¥–ª—è —Ñ—Ä—ñ–ª–∞–Ω—Å–∞ –∞–±–æ —Ä–æ–±–æ—Ç–∏ –≤ –∫–æ–º–ø–∞–Ω—ñ—ó.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=74">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-adv-cms.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=150">Advanced CMS</a></h3>\r\n                <p>–ö—É—Ä—Å –¥–ª—è —Ç–∏—Ö, —Ö—Ç–æ —Ö–æ—á–µ –Ω–∞–≤—á–∏—Ç–∏—Å—è —Å—Ç–≤–æ—Ä—é–≤–∞—Ç–∏ —Å–∞–π—Ç–∏ —Ä—ñ–∑–Ω–æ–≥–æ —Ä—ñ–≤–Ω—è —Å–∫–ª–∞–¥–Ω–æ—Å—Ç—ñ –∑–∞ –¥–æ–ø–æ–º–æ–≥–æ—é –ø–æ–ø—É–ª—è—Ä–Ω–∏—Ö CMS Wordpress —Ç–∞ Drupal. –Ø–∫—â–æ –≤–∏ —Ö–æ—á–µ—Ç–µ —Ä–æ–±–∏—Ç–∏ –≤–µ–±—Å–∞–π—Ç–∏ —è–∫ –ø—Ä–æ—Ñ–µ—Å—ñ–æ–Ω–∞–ª, —Ü–µ–π –∫—É—Ä—Å –¥–ª—è –≤–∞—Å. –û—Å–æ–±–ª–∏–≤–æ—Å—Ç—ñ —Ä—ñ–∑–Ω–∏—Ö CMS, –≤–∏–∫–æ—Ä–∏—Å—Ç–∞–Ω–Ω—è —Ç–∞ –Ω–∞–ø–∏—Å–∞–Ω–Ω—è –ø–ª–∞–≥—ñ–Ω—ñ–≤ —Ç–∞ –∫–æ–º–ø–æ–Ω–µ–Ω—Ç—ñ–≤, —ñ–Ω—Ç–µ–≥—Ä–∞—Ü—ñ—è —ñ–∑ —Å–æ—Ü—ñ–∞–ª—å–Ω–∏–º–∏ –º–µ—Ä–µ–∂–∞–º–∏ —Ç–∞ —Å—Ç–æ—Ä–æ–Ω–Ω—ñ–º–∏ —Å–µ—Ä–≤—ñ—Å–∞–º–∏.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=150">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-adv-php.png" alt="" />\r\n                <a class="title" href="http://localhost/wordpress/?page_id=175">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=175">Advanced PHP</a></h3>\r\n                <p>–î–ª—è —Ç–∏—Ö —Ö—Ç–æ —Ö–æ—á–µ —Ä–æ–∑–≤–∏–≤–∞—Ç–∏ —Å–≤–æ—ó –±–∞–∑–æ–≤—ñ –Ω–∞–≤–∏—á–∫–∏ –≤ PHP. –ö—É—Ä—Å –∑–∞–≥–ª–∏–±–ª—é—î—Ç—å—Å—è —É –≤–∏–≤—á–µ–Ω–Ω—è –û–û–ü, MVC —Ç–∞ –ø–∞—Ç—Ç–µ—Ä–Ωi–≤ –ø—Ä–æ–µ—Ç—É–≤–∞–Ω–Ω—è –Ω–∞ –±–∞–∑—ñ –Ω–∞–π–ø–æ–ø—É–ª—è—Ä–Ω—ñ—à–æ–≥–æ php —Ñ—Ä–µ–π–º–≤–æ—Ä–∫—É Symfony2.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=175">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li class="left-col"><img src="http://geekhub.ck.ua/images/icon-js.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=197">JavaScript</a></h3>\r\n                <p>–í—Å–µ –Ω–∞–π—Ü—ñ–∫–∞–≤—ñ—à–µ –≤—ñ–¥–±—É–≤–∞—î—Ç—å—Å—è –≤ –±—Ä–∞—É–∑–µ—Ä—ñ, –∞ –Ω–µ –Ω–∞ —Å–µ—Ä–≤–µ—Ä—ñ. Javascript - —Ü–µ —Ç–æ–π —ñ–Ω—Å—Ç—Ä—É–º–µ–Ω—Ç —è–∫–∏–π –¥–æ–ø–æ–º–æ–∂–µ –≤–∞–º —Å—Ç–≤–æ—Ä—é–≤–∞—Ç–∏ –¥—ñ–π—Å–Ω–æ –∑—Ä—É—á–Ω—ñ —Ç–∞ —à–≤–∏–¥–∫—ñ –≤–µ–± —Å—Ç–æ—Ä—ñ–Ω–∫–∏.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=197">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-ios.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=204">iOS</a></h3>\r\n                <p>–ö—É—Ä—Å –¥–ª—è —à–≤–∏–¥–∫–æ–≥–æ —Å—Ç–∞—Ä—Ç—É –≤ —Ä–æ–∑—Ä–æ–±—Ü—ñ –ø—Ä–æ–≥—Ä–∞–º–Ω–æ–≥–æ –∑–∞–±–µ–∑–ø–µ—á–µ–Ω–Ω—è –ø—ñ–¥ –ø–æ–ø—É–ª—è—Ä–Ω—É –º–æ–±—ñ–ª—å–Ω—É –ø–ª–∞—Ç—Ñ–æ—Ä–º—É iOS.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=204">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-android.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=222">Android</a></h3>\r\n                <p>Android - –Ω–∞–π–ø–æ–ø—É–ª—è—Ä–Ω—ñ—à–∞ –æ–ø–µ—Ä–∞—Ü—ñ–π–Ω–∞ —Å–∏—Å—Ç–µ–º–∞ –¥–ª—è —Å–º–∞—Ä—Ç—Ñ–æ–Ω—ñ–≤. –í —Ü—å–æ–º—É –∫—É—Ä—Å—ñ –º–∏ –æ—Ö–æ–ø–∏–º–æ –Ω–∞–π–≤–∞–∂–ª–∏–≤—ñ—à—ñ –µ–ª–µ–º–µ–Ω—Ç–∏ –ø–æ–±—É–¥–æ–≤–∏ –¥–æ–¥–∞—Ç–∫—ñ–≤ –¥–ª—è —Ü—ñ—î—ó –ø–ª–∞—Ç—Ñ–æ—Ä–º–∏. –û–∑–Ω–∞–π–æ–º–∏–º–æ—Å—è –∑ –æ—Å–Ω–æ–≤–Ω–∏–º–∏ –∫–æ–º–ø–æ–Ω–µ–Ω—Ç–∞–º–∏ UI —Ç–∞ UX. –ù–∞–≤—á–∏–º–æ—Å—è —ó—Ö –ø—Ä–∞–≤–∏–ª—å–Ω–æ –≤–∏–∫–æ—Ä–∏—Å—Ç–æ–≤—É–≤–∞—Ç–∏. –¢–∞–∫–æ–∂ –Ω–∞–≤—á–∏–º–æ—Å—è –ø—Ä–∞—Ü—é–≤–∞—Ç–∏ –≤ –∫–æ–º–∞–Ω–¥—ñ —Ç–∞ –ø–æ–±—É–¥—É—î–º–æ –∫–æ—Ä–∏—Å–Ω—ñ –¥–æ–¥–∞—Ç–∫–∏.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=222">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li class="left-col"><img src="http://geekhub.ck.ua/images/icon-ruby.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=215">Ruby on Rails</a></h3>\r\n                <p>–ö—É—Ä—Å –Ω–∞–≤—á–∏—Ç—å –í–∞—Å –ø—Ä–∞—Ü—é–≤–∞—Ç–∏ –∑ –ø–æ–ø—É–ª—è—Ä–Ω–∏–º —Ñ—Ä–µ–π–º–≤–æ—Ä–∫–æ–º –¥–ª—è —Ä–æ–∑—Ä–æ–±–∫–∏ –≤–µ–±-—Å–µ—Ä–≤—ñ—Å—ñ–≤ –Ω–∞ –º–æ–≤—ñ –ø—Ä–æ–≥—Ä–∞–º—É–≤–∞–Ω–Ω—è Ruby.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=215">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-grails.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=230">Groovy &amp; Grails</a></h3>\r\n                <p>–ü–æ–∑–Ω–∞–π–æ–º—Ç–µ—Å—å –∑ –æ–¥–Ω–∏–º –∑ –Ω–∞–π–ø–æ—Ç—É–∂–Ω—ñ—à–∏—Ö —Ñ—Ä–µ–π–º–≤–æ—Ä–∫—ñ–≤ –¥–ª—è —à–≤–∏–¥–∫–æ—ó —Ä–æ–∑—Ä–æ–±–∫–∏ –≤–µ–±-–¥–æ–¥–∞—Ç–∫—ñ–≤ Groovy &amp; Grails.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=230">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-java.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=238%20">Java for Web</a></h3>\r\n                <p>Java - —Ü–µ –æ—Å–Ω–æ–≤–∞ –µ–Ω—Ç–µ—Ä–ø—Ä–∞–π–∑ —Ç–µ—Ö–Ω–æ–ª–æ–≥—ñ–π. –í–∏ –æ–∑–Ω–∞–π–æ–º–∏—Ç–µ—Å—å —ñ–∑ –º–æ–≤–æ—é, –æ—Å–Ω–æ–≤–Ω–∏–º–∏ –∫–ª–∞—Å—Å–∞–º–∏ —ñ –ø–∞–∫–µ—Ç–∞–º–∏, –∞ —Ç–∞–∫–æ–∂ –Ω–∞–π–±—ñ–ª—å—à –ø–æ–ø—É–ª—è—Ä–Ω–∏–º–∏ —Ç–∞ –ø–æ—Ç—É–∂–Ω–∏–º–∏ —Ñ—Ä–µ–π–º–≤–æ—Ä–∫–∞–º–∏ –¥–ª—è —Ä–æ–∑—Ä–æ–±–∫–∏ –≤–µ–±-–¥–æ–¥–∞—Ç–∫—ñ–≤.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=238%20">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li class="left-col"><img src="http://geekhub.ck.ua/images/icon-pm.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=243">Project Management</a></h3>\r\n                <p>–©–æ–± —Å—Ç–∞—Ç–∏ –¥–æ—Å–≤—ñ–¥—á–µ–Ω–∏–º –º–µ–Ω–µ–¥–∂–µ—Ä–æ–º –ø—Ä–æ–µ–∫—Ç—ñ–≤ –ø–æ—Ç—Ä—ñ–±–Ω—ñ —Ä–æ–∫–∏ —Å–ø—Ä–æ–± —Ç–∞ –ø–æ–º–∏–ª–æ–∫. Geekhub –¥–∞—î –≤–∞–º –º–æ–∂–ª–∏–≤—ñ—Å—Ç—å –ø–æ—á–∞—Ç–∏ –Ω–∞–±—É–≤–∞—Ç–∏ –ø—Ä–∞–∫—Ç–∏—á–Ω—ñ –Ω–∞–≤–∏—á–∫–∏ –≤–∂–µ –∑–∞—Ä–∞–∑.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=243">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-qa.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=248">Quality Assurance</a></h3>\r\n                <p>–ö—É—Ä—Å –¥–ª—è —Ç–∏—Ö, —Ö—Ç–æ –≤–º—ñ—î –∫–æ–Ω—Å—Ç—Ä—É–∫—Ç–∏–≤–Ω–æ –∫—Ä–∏—Ç–∏–∫—É–≤–∞—Ç–∏ —Ç–∞ —Ö–æ—Ç—ñ–≤ –±–∏ –∑ —Ü—å–æ–≥–æ –Ω–∞–≤–∏–∫—É –∑—Ä–æ–±–∏—Ç–∏ —Ü—ñ–∫–∞–≤—É —ñ–Ω–Ω–æ–≤–∞—Ü—ñ–π–Ω—É –ø—Ä–æ—Ñ–µ—Å—ñ—é.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=248">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-english.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=252">Business English</a></h3>\r\n                <p>–Ø–∫—â–æ –≤–∏ –ª—ñ–¥–µ—Ä –∫–æ–º–∞–Ω–¥–∏ –∞–±–æ –º–µ–Ω–µ–¥–∂–µ—Ä –ø—Ä–æ–µ–∫—Ç—ñ–≤, Business English –¥–æ–ø–æ–º–æ–∂–µ –≤–∞–º –∑–¥–æ–±—É—Ç–∏ –∫–æ—Ä–∏—Å–Ω—ñ —ñ–Ω—Å—Ç—Ä—É–º–µ–Ω—Ç–∏ –¥–ª—è –µ—Ñ–µ–∫—Ç–∏–≤–Ω–∏—Ö –∫–æ–º—É–Ω—ñ–∫–∞—Ü—ñ–π —è–∫ –≤—Å–µ—Ä–µ–¥–∏–Ω—ñ –∫–æ–º–∞–Ω–¥–∏ —Ç–∞–∫ —ñ –∑ –∫–ª—ñ—î–Ω—Ç–∞–º–∏.</p>\r\n                <a href="http://localhost/wordpress/?page_id=252">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-webdesign.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=254">Web &amp; Mobile Design</a></h3>\r\n                <p>–¶–µ –¥–∏–Ω–∞–º—ñ—á–Ω–∏–π —Ç–∞ –Ω–∞—Å–∏—á–µ–Ω–Ω–∏–π –Ω–∞–≤—á–∞–ª—å–Ω–∏–π –∫—É—Ä—Å, —è–∫–∏–π –¥–∞—î –∑–º–æ–≥—É –æ—Ç—Ä–∏–º–∞—Ç–∏ –±–∞–∑–æ–≤—ñ –∑–Ω–∞–Ω–Ω—è –∑ –í–µ–± –¥–∏–∑–∞–π–Ω—É —Ç–∞ –¥–∏–∑–∞–π–Ω—É –º–æ–±—ñ–ª—å–Ω–∏—Ö –¥–æ–¥–∞—Ç–∫—ñ–≤. –í–∏ –¥—ñ–∑–Ω–∞—î—Ç–µ—Å—å —è–∫ –ø—Ä–æ–µ–∫—Ç—É–≤–∞—Ç–∏ —ñ–Ω—Ç–µ—Ä—Ñ–µ–π—Å–∏ —Ç–∞ —Ä–æ–±–∏—Ç–∏ —Å–∞–π—Ç–∏ –∑—Ä—É—á–Ω–∏–º–∏ –¥–ª—è –≤—ñ–¥–≤—ñ–¥—É–≤–∞—á—ñ–≤. –û—Ç—Ä–∏–º–∞—î—Ç–µ –±–∞–∑–æ–≤—ñ –∑–Ω–∞–Ω–Ω—è –ø–æ –∫–æ–º–ø–æ–∑–∏—Ü—ñ—ó, —Ñ—ñ—Ä–º–æ–≤–æ–º—É —Å—Ç–∏–ª—é, —à—Ä–∏—Ñ—Ç–∞–º —Ç–∞ —Ä–æ–±–æ—Ç—ñ –∑ –∫–æ–º''—é—Ç–µ—Ä–Ω–∏–º–∏ –ø—Ä–æ–≥—Ä–∞–º–∞–º–∏ –¥–ª—è –ø–æ–¥–∞–ª—å—à–æ–≥–æ —Ä–æ–∑–≤–∏—Ç–∫—É —É –≥–∞–ª—É–∑—ñ –¥–∏–∑–∞–π–Ω—É.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=254">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-gamedesign.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=257">Game Production</a></h3>\r\n                <p>–ß–∞—Å–∏, –∫–æ–ª–∏ —ñ–≥—Ä–∏ —Å—Ç–≤–æ—Ä—é–≤–∞–ª–∏ —Ñ–∞–Ω–∞—Ç–∏–∫–∏-–æ–¥–∏–Ω–∞–∫–∏ –¥–∞–≤–Ω–æ –ø–æ–∑–∞–¥—É. –°—å–æ–≥–æ–¥–Ω—ñ —à–∞–ª–µ–Ω–æ –∑—Ä–æ—Å—Ç–∞—é—á–∞ —ñ–Ω–¥—É—Å—Ç—Ä—ñ—è –≥–µ–π–º–¥–µ–≤—É –≤—ñ–¥–∫—Ä–∏–≤–∞—î –¥–≤–µ—Ä—ñ —à–∏—Ä–æ–∫–æ–º—É –∫–æ–ª—É —Å–ø–µ—Ü—ñ–∞–ª—ñ—Å—Ç—ñ–≤. –ö—É—Ä—Å Game Production –ø–æ–∑–Ω–∞–π–æ–º–∏—Ç—å —É—á–Ω—ñ–≤ —ñ–∑ –ø—Ä–æ—Ü–µ—Å—Å–æ–º —Å—Ç–≤–æ—Ä–µ–Ω–Ω—è –∫–æ–º–ø‚Äô—é—Ç–µ—Ä–Ω–∏—Ö —ñ–≥—Ä, –æ—Å–æ–±–ª–∏–≤–æ—Å—Ç—è–º–∏ –≤–µ–¥–µ–Ω–Ω—è GDD, –¥–æ–ø–æ–º–æ–∂–µ —Ä–æ–∑—ñ–±—Ä–∞—Ç–∏—Å—è –∑ —ñ–≥—Ä–æ–≤–∏–º–∏ –º–µ—Ö–∞–Ω—ñ–∫–∞–º–∏, –∂–∞–Ω—Ä–∞–º–∏, —Ç–µ–Ω–¥–µ–Ω—Ü—ñ—è–º–∏, —Ç–µ—Ä–º—ñ–Ω–æ–ª–æ–≥—ñ—î—é... –ê —â–µ, –Ω–∞–¥–∏—Ö–Ω–µ —Å–ø–æ—Å—Ç–µ—Ä—ñ–≥–∞—Ç–∏, –ø–æ–º—ñ—á–∞—Ç–∏, –ø—Ä–æ–±—É–≤–∞—Ç–∏, –≤–∏–≤—á–∞—Ç–∏ –∂–∏—Ç—Ç—è, –±–æ, —è–∫ –Ω–µ –¥–∏–≤–Ω–æ, —á–∞—Å—Ç–æ —Å–∞–º–µ —Ü–µ –≤–∏–∑–Ω–∞—á–∞—î —è–∫—ñ—Å–Ω–∏–π –≥–µ–π–º–¥–µ–≤ :)</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=257">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li></li>\r\n        </ul>\r\n        <ul class="social_share">\r\n            <li id="vk" style="height: 240px; width: 276px; background: none repeat scroll 0% 0% transparent;"><iframe id="vkwidget1" style="overflow: hidden; height: 240px;" src="http://vk.com/widget_community.php?app=0&amp;width=276px&amp;_ver=1&amp;‚Ä¶r3=&amp;height=240&amp;url=https://vk.com/geekhub/" name="fXD77c4f" width="276" height="200" frameborder="0" scrolling="no"></iframe>\r\n                <script type="text/javascript">// <![CDATA[\r\n                VK.Widgets.Group("vk", {mode: 0, width: "276", height: "240"}, 30111409);\r\n                // ]]></script></li>\r\n            <li class="sertificates_list">\r\n                <h4><a href="/certified-professionals.html">–°–µ—Ä—Ç–∏—Ñi–∫–æ–≤–∞–Ωi –ø—Ä–æ—Ñ–µ—Åi–æ–Ω–∞–ª–∏</a></h4>\r\n            </li>\r\n            <li>\r\n                <h4>–ù–∞—à—ñ –°–ø–æ–Ω—Å–æ—Ä–∏</h4>\r\n                <ul>\r\n                    <li class="de"><a href="http://povnahata.com">–î—ñ–º –Ñ–≤–∞–Ω–≥–µ–ª—ñ—è</a></li>\r\n                    <li class="moc"><a href="http://masterofcode.com">Masterofcode LTD</a></li>\r\n                    <li class="sergium"><a href="http://sergium.net">SerGium.net</a></li>\r\n                    <li class="clear left stuff"><a href="http://val.co.ua/">val.co.ua/</a></li>\r\n                    <li class="youthog"><a href="http://yothog.com">Youthog.com</a></li>\r\n                    <li class="jetbrains"><a href="http://jetbrains.com/">JetBrains.com</a></li>\r\n                    <li class="ucoz"><a href="http://rabota.ucoz.ua/">ucoz.ua</a></li>\r\n                    <li class="spd-ukraine"><a href="http://spd-ukraine.com/">SPD-Ukraine.com</a></li>\r\n                    <li class="ekreative"><a href="http://www.ekreative.com/">Ekreative.com</a></li>\r\n                    <li class="n3wnormal"><a href="http://n3wnormal.com/">n3wnormal.ua</a></li>\r\n                    <li class="in-ck-ua"><a href="http://in.ck.ua/">in.ck.ua</a></li>\r\n                </ul>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>\r\n<!-- content -->', 'GeekHub', '', 'inherit', 'open', 'open', '', '290-revision-v1', '', '', '2014-11-06 10:34:55', '2014-11-06 10:34:55', '', 290, 'http://localhost/wordpress/?p=338', 0, 'revision', '', 0),
 (339, 1, '2014-11-06 10:34:57', '2014-11-06 10:34:57', '<div id="content">\r\n    <div class="home">\r\n        <h2>–î–ï–¢–ê–õ–Ü –ö–£–†–°–Ü–í –¢–ê –†–ï–Ñ–°–¢–†–ê–¶–Ü–Ø</h2>\r\n        <ul class="types">\r\n            <li class="left-col"><img src="http://geekhub.ck.ua/images/icon-frontend.png" alt="" />\r\n                <a class="title" href="http://localhost/wordpress/?page_id=74">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=74">Frontend + CMS</a></h3>\r\n                <p>–¶–µ–π –∫—É—Ä—Å –¥–æ–ø–æ–º–æ–∂–µ –≤–∞–º –Ω–∞–≤—á–∏—Ç–∏—Å—è —Å—Ç–≤–æ—Ä—é–≤–∞—Ç–∏ –≤–µ–± —Å–∞–π—Ç–∏ –Ω–∞ –æ—Å–Ω–æ–≤—ñ —Å–∏—Å—Ç–µ–º–∏ –∫–µ—Ä—É–≤–∞–Ω–Ω—è –∫–æ–Ω—Ç–µ–Ω—Ç–æ–º. –í—Å–µ, –≤—ñ–¥ —Å–∫—ñ–Ω—É–≤–∞–Ω–Ω—è –¥–∏–∑–∞–π–Ω—É –¥–æ –ø—ñ–¥–∫–ª—é—á–µ–Ω–Ω—è CMS. –¶–µ–π –∫—É—Ä—Å –¥–∞—Å—Ç—å –≤–∞–º —á—É–¥–æ–≤–∏–π —Å—Ç–∞—Ä—Ç –¥–ª—è —Ñ—Ä—ñ–ª–∞–Ω—Å–∞ –∞–±–æ —Ä–æ–±–æ—Ç–∏ –≤ –∫–æ–º–ø–∞–Ω—ñ—ó.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=74">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-adv-cms.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=150">Advanced CMS</a></h3>\r\n                <p>–ö—É—Ä—Å –¥–ª—è —Ç–∏—Ö, —Ö—Ç–æ —Ö–æ—á–µ –Ω–∞–≤—á–∏—Ç–∏—Å—è —Å—Ç–≤–æ—Ä—é–≤–∞—Ç–∏ —Å–∞–π—Ç–∏ —Ä—ñ–∑–Ω–æ–≥–æ —Ä—ñ–≤–Ω—è —Å–∫–ª–∞–¥–Ω–æ—Å—Ç—ñ –∑–∞ –¥–æ–ø–æ–º–æ–≥–æ—é –ø–æ–ø—É–ª—è—Ä–Ω–∏—Ö CMS Wordpress —Ç–∞ Drupal. –Ø–∫—â–æ –≤–∏ —Ö–æ—á–µ—Ç–µ —Ä–æ–±–∏—Ç–∏ –≤–µ–±—Å–∞–π—Ç–∏ —è–∫ –ø—Ä–æ—Ñ–µ—Å—ñ–æ–Ω–∞–ª, —Ü–µ–π –∫—É—Ä—Å –¥–ª—è –≤–∞—Å. –û—Å–æ–±–ª–∏–≤–æ—Å—Ç—ñ —Ä—ñ–∑–Ω–∏—Ö CMS, –≤–∏–∫–æ—Ä–∏—Å—Ç–∞–Ω–Ω—è —Ç–∞ –Ω–∞–ø–∏—Å–∞–Ω–Ω—è –ø–ª–∞–≥—ñ–Ω—ñ–≤ —Ç–∞ –∫–æ–º–ø–æ–Ω–µ–Ω—Ç—ñ–≤, —ñ–Ω—Ç–µ–≥—Ä–∞—Ü—ñ—è —ñ–∑ —Å–æ—Ü—ñ–∞–ª—å–Ω–∏–º–∏ –º–µ—Ä–µ–∂–∞–º–∏ —Ç–∞ —Å—Ç–æ—Ä–æ–Ω–Ω—ñ–º–∏ —Å–µ—Ä–≤—ñ—Å–∞–º–∏.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=150">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-adv-php.png" alt="" />\r\n                <a class="title" href="http://localhost/wordpress/?page_id=175">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=175">Advanced PHP</a></h3>\r\n                <p>–î–ª—è —Ç–∏—Ö —Ö—Ç–æ —Ö–æ—á–µ —Ä–æ–∑–≤–∏–≤–∞—Ç–∏ —Å–≤–æ—ó –±–∞–∑–æ–≤—ñ –Ω–∞–≤–∏—á–∫–∏ –≤ PHP. –ö—É—Ä—Å –∑–∞–≥–ª–∏–±–ª—é—î—Ç—å—Å—è —É –≤–∏–≤—á–µ–Ω–Ω—è –û–û–ü, MVC —Ç–∞ –ø–∞—Ç—Ç–µ—Ä–Ωi–≤ –ø—Ä–æ–µ—Ç—É–≤–∞–Ω–Ω—è –Ω–∞ –±–∞–∑—ñ –Ω–∞–π–ø–æ–ø—É–ª—è—Ä–Ω—ñ—à–æ–≥–æ php —Ñ—Ä–µ–π–º–≤–æ—Ä–∫—É Symfony2.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=175">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li class="left-col"><img src="http://geekhub.ck.ua/images/icon-js.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=197">JavaScript</a></h3>\r\n                <p>–í—Å–µ –Ω–∞–π—Ü—ñ–∫–∞–≤—ñ—à–µ –≤—ñ–¥–±—É–≤–∞—î—Ç—å—Å—è –≤ –±—Ä–∞—É–∑–µ—Ä—ñ, –∞ –Ω–µ –Ω–∞ —Å–µ—Ä–≤–µ—Ä—ñ. Javascript - —Ü–µ —Ç–æ–π —ñ–Ω—Å—Ç—Ä—É–º–µ–Ω—Ç —è–∫–∏–π –¥–æ–ø–æ–º–æ–∂–µ –≤–∞–º —Å—Ç–≤–æ—Ä—é–≤–∞—Ç–∏ –¥—ñ–π—Å–Ω–æ –∑—Ä—É—á–Ω—ñ —Ç–∞ —à–≤–∏–¥–∫—ñ –≤–µ–± —Å—Ç–æ—Ä—ñ–Ω–∫–∏.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=197">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-ios.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=204">iOS</a></h3>\r\n                <p>–ö—É—Ä—Å –¥–ª—è —à–≤–∏–¥–∫–æ–≥–æ —Å—Ç–∞—Ä—Ç—É –≤ —Ä–æ–∑—Ä–æ–±—Ü—ñ –ø—Ä–æ–≥—Ä–∞–º–Ω–æ–≥–æ –∑–∞–±–µ–∑–ø–µ—á–µ–Ω–Ω—è –ø—ñ–¥ –ø–æ–ø—É–ª—è—Ä–Ω—É –º–æ–±—ñ–ª—å–Ω—É –ø–ª–∞—Ç—Ñ–æ—Ä–º—É iOS.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=204">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-android.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=222">Android</a></h3>\r\n                <p>Android - –Ω–∞–π–ø–æ–ø—É–ª—è—Ä–Ω—ñ—à–∞ –æ–ø–µ—Ä–∞—Ü—ñ–π–Ω–∞ —Å–∏—Å—Ç–µ–º–∞ –¥–ª—è —Å–º–∞—Ä—Ç—Ñ–æ–Ω—ñ–≤. –í —Ü—å–æ–º—É –∫—É—Ä—Å—ñ –º–∏ –æ—Ö–æ–ø–∏–º–æ –Ω–∞–π–≤–∞–∂–ª–∏–≤—ñ—à—ñ –µ–ª–µ–º–µ–Ω—Ç–∏ –ø–æ–±—É–¥–æ–≤–∏ –¥–æ–¥–∞—Ç–∫—ñ–≤ –¥–ª—è —Ü—ñ—î—ó –ø–ª–∞—Ç—Ñ–æ—Ä–º–∏. –û–∑–Ω–∞–π–æ–º–∏–º–æ—Å—è –∑ –æ—Å–Ω–æ–≤–Ω–∏–º–∏ –∫–æ–º–ø–æ–Ω–µ–Ω—Ç–∞–º–∏ UI —Ç–∞ UX. –ù–∞–≤—á–∏–º–æ—Å—è —ó—Ö –ø—Ä–∞–≤–∏–ª—å–Ω–æ –≤–∏–∫–æ—Ä–∏—Å—Ç–æ–≤—É–≤–∞—Ç–∏. –¢–∞–∫–æ–∂ –Ω–∞–≤—á–∏–º–æ—Å—è –ø—Ä–∞—Ü—é–≤–∞—Ç–∏ –≤ –∫–æ–º–∞–Ω–¥—ñ —Ç–∞ –ø–æ–±—É–¥—É—î–º–æ –∫–æ—Ä–∏—Å–Ω—ñ –¥–æ–¥–∞—Ç–∫–∏.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=222">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li class="left-col"><img src="http://geekhub.ck.ua/images/icon-ruby.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=215">Ruby on Rails</a></h3>\r\n                <p>–ö—É—Ä—Å –Ω–∞–≤—á–∏—Ç—å –í–∞—Å –ø—Ä–∞—Ü—é–≤–∞—Ç–∏ –∑ –ø–æ–ø—É–ª—è—Ä–Ω–∏–º —Ñ—Ä–µ–π–º–≤–æ—Ä–∫–æ–º –¥–ª—è —Ä–æ–∑—Ä–æ–±–∫–∏ –≤–µ–±-—Å–µ—Ä–≤—ñ—Å—ñ–≤ –Ω–∞ –º–æ–≤—ñ –ø—Ä–æ–≥—Ä–∞–º—É–≤–∞–Ω–Ω—è Ruby.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=215">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-grails.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=230">Groovy &amp; Grails</a></h3>\r\n                <p>–ü–æ–∑–Ω–∞–π–æ–º—Ç–µ—Å—å –∑ –æ–¥–Ω–∏–º –∑ –Ω–∞–π–ø–æ—Ç—É–∂–Ω—ñ—à–∏—Ö —Ñ—Ä–µ–π–º–≤–æ—Ä–∫—ñ–≤ –¥–ª—è —à–≤–∏–¥–∫–æ—ó —Ä–æ–∑—Ä–æ–±–∫–∏ –≤–µ–±-–¥–æ–¥–∞—Ç–∫—ñ–≤ Groovy &amp; Grails.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=230">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-java.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=238%20">Java for Web</a></h3>\r\n                <p>Java - —Ü–µ –æ—Å–Ω–æ–≤–∞ –µ–Ω—Ç–µ—Ä–ø—Ä–∞–π–∑ —Ç–µ—Ö–Ω–æ–ª–æ–≥—ñ–π. –í–∏ –æ–∑–Ω–∞–π–æ–º–∏—Ç–µ—Å—å —ñ–∑ –º–æ–≤–æ—é, –æ—Å–Ω–æ–≤–Ω–∏–º–∏ –∫–ª–∞—Å—Å–∞–º–∏ —ñ –ø–∞–∫–µ—Ç–∞–º–∏, –∞ —Ç–∞–∫–æ–∂ –Ω–∞–π–±—ñ–ª—å—à –ø–æ–ø—É–ª—è—Ä–Ω–∏–º–∏ —Ç–∞ –ø–æ—Ç—É–∂–Ω–∏–º–∏ —Ñ—Ä–µ–π–º–≤–æ—Ä–∫–∞–º–∏ –¥–ª—è —Ä–æ–∑—Ä–æ–±–∫–∏ –≤–µ–±-–¥–æ–¥–∞—Ç–∫—ñ–≤.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=238%20">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li class="left-col"><img src="http://geekhub.ck.ua/images/icon-pm.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=243">Project Management</a></h3>\r\n                <p>–©–æ–± —Å—Ç–∞—Ç–∏ –¥–æ—Å–≤—ñ–¥—á–µ–Ω–∏–º –º–µ–Ω–µ–¥–∂–µ—Ä–æ–º –ø—Ä–æ–µ–∫—Ç—ñ–≤ –ø–æ—Ç—Ä—ñ–±–Ω—ñ —Ä–æ–∫–∏ —Å–ø—Ä–æ–± —Ç–∞ –ø–æ–º–∏–ª–æ–∫. Geekhub –¥–∞—î –≤–∞–º –º–æ–∂–ª–∏–≤—ñ—Å—Ç—å –ø–æ—á–∞—Ç–∏ –Ω–∞–±—É–≤–∞—Ç–∏ –ø—Ä–∞–∫—Ç–∏—á–Ω—ñ –Ω–∞–≤–∏—á–∫–∏ –≤–∂–µ –∑–∞—Ä–∞–∑.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=243">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-qa.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=248">Quality Assurance</a></h3>\r\n                <p>–ö—É—Ä—Å –¥–ª—è —Ç–∏—Ö, —Ö—Ç–æ –≤–º—ñ—î –∫–æ–Ω—Å—Ç—Ä—É–∫—Ç–∏–≤–Ω–æ –∫—Ä–∏—Ç–∏–∫—É–≤–∞—Ç–∏ —Ç–∞ —Ö–æ—Ç—ñ–≤ –±–∏ –∑ —Ü—å–æ–≥–æ –Ω–∞–≤–∏–∫—É –∑—Ä–æ–±–∏—Ç–∏ —Ü—ñ–∫–∞–≤—É —ñ–Ω–Ω–æ–≤–∞—Ü—ñ–π–Ω—É –ø—Ä–æ—Ñ–µ—Å—ñ—é.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=248">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-english.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=252">Business English</a></h3>\r\n                <p>–Ø–∫—â–æ –≤–∏ –ª—ñ–¥–µ—Ä –∫–æ–º–∞–Ω–¥–∏ –∞–±–æ –º–µ–Ω–µ–¥–∂–µ—Ä –ø—Ä–æ–µ–∫—Ç—ñ–≤, Business English –¥–æ–ø–æ–º–æ–∂–µ –≤–∞–º –∑–¥–æ–±—É—Ç–∏ –∫–æ—Ä–∏—Å–Ω—ñ —ñ–Ω—Å—Ç—Ä—É–º–µ–Ω—Ç–∏ –¥–ª—è –µ—Ñ–µ–∫—Ç–∏–≤–Ω–∏—Ö –∫–æ–º—É–Ω—ñ–∫–∞—Ü—ñ–π —è–∫ –≤—Å–µ—Ä–µ–¥–∏–Ω—ñ –∫–æ–º–∞–Ω–¥–∏ —Ç–∞–∫ —ñ –∑ –∫–ª—ñ—î–Ω—Ç–∞–º–∏.</p>\r\n                <a href="http://localhost/wordpress/?page_id=252">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-webdesign.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=254">Web &amp; Mobile Design</a></h3>\r\n                <p>–¶–µ –¥–∏–Ω–∞–º—ñ—á–Ω–∏–π —Ç–∞ –Ω–∞—Å–∏—á–µ–Ω–Ω–∏–π –Ω–∞–≤—á–∞–ª—å–Ω–∏–π –∫—É—Ä—Å, —è–∫–∏–π –¥–∞—î –∑–º–æ–≥—É –æ—Ç—Ä–∏–º–∞—Ç–∏ –±–∞–∑–æ–≤—ñ –∑–Ω–∞–Ω–Ω—è –∑ –í–µ–± –¥–∏–∑–∞–π–Ω—É —Ç–∞ –¥–∏–∑–∞–π–Ω—É –º–æ–±—ñ–ª—å–Ω–∏—Ö –¥–æ–¥–∞—Ç–∫—ñ–≤. –í–∏ –¥—ñ–∑–Ω–∞—î—Ç–µ—Å—å —è–∫ –ø—Ä–æ–µ–∫—Ç—É–≤–∞—Ç–∏ —ñ–Ω—Ç–µ—Ä—Ñ–µ–π—Å–∏ —Ç–∞ —Ä–æ–±–∏—Ç–∏ —Å–∞–π—Ç–∏ –∑—Ä—É—á–Ω–∏–º–∏ –¥–ª—è –≤—ñ–¥–≤—ñ–¥—É–≤–∞—á—ñ–≤. –û—Ç—Ä–∏–º–∞—î—Ç–µ –±–∞–∑–æ–≤—ñ –∑–Ω–∞–Ω–Ω—è –ø–æ –∫–æ–º–ø–æ–∑–∏—Ü—ñ—ó, —Ñ—ñ—Ä–º–æ–≤–æ–º—É —Å—Ç–∏–ª—é, —à—Ä–∏—Ñ—Ç–∞–º —Ç–∞ —Ä–æ–±–æ—Ç—ñ –∑ –∫–æ–º''—é—Ç–µ—Ä–Ω–∏–º–∏ –ø—Ä–æ–≥—Ä–∞–º–∞–º–∏ –¥–ª—è –ø–æ–¥–∞–ª—å—à–æ–≥–æ —Ä–æ–∑–≤–∏—Ç–∫—É —É –≥–∞–ª—É–∑—ñ –¥–∏–∑–∞–π–Ω—É.</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=254">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li><img src="http://geekhub.ck.ua/images/icon-gamedesign.png" alt="" />\r\n                <a class="title" href="#">\r\n                </a>\r\n                <h3><a href="http://localhost/wordpress/?page_id=257">Game Production</a></h3>\r\n                <p>–ß–∞—Å–∏, –∫–æ–ª–∏ —ñ–≥—Ä–∏ —Å—Ç–≤–æ—Ä—é–≤–∞–ª–∏ —Ñ–∞–Ω–∞—Ç–∏–∫–∏-–æ–¥–∏–Ω–∞–∫–∏ –¥–∞–≤–Ω–æ –ø–æ–∑–∞–¥—É. –°—å–æ–≥–æ–¥–Ω—ñ —à–∞–ª–µ–Ω–æ –∑—Ä–æ—Å—Ç–∞—é—á–∞ —ñ–Ω–¥—É—Å—Ç—Ä—ñ—è –≥–µ–π–º–¥–µ–≤—É –≤—ñ–¥–∫—Ä–∏–≤–∞—î –¥–≤–µ—Ä—ñ —à–∏—Ä–æ–∫–æ–º—É –∫–æ–ª—É —Å–ø–µ—Ü—ñ–∞–ª—ñ—Å—Ç—ñ–≤. –ö—É—Ä—Å Game Production –ø–æ–∑–Ω–∞–π–æ–º–∏—Ç—å —É—á–Ω—ñ–≤ —ñ–∑ –ø—Ä–æ—Ü–µ—Å—Å–æ–º —Å—Ç–≤–æ—Ä–µ–Ω–Ω—è –∫–æ–º–ø‚Äô—é—Ç–µ—Ä–Ω–∏—Ö —ñ–≥—Ä, –æ—Å–æ–±–ª–∏–≤–æ—Å—Ç—è–º–∏ –≤–µ–¥–µ–Ω–Ω—è GDD, –¥–æ–ø–æ–º–æ–∂–µ —Ä–æ–∑—ñ–±—Ä–∞—Ç–∏—Å—è –∑ —ñ–≥—Ä–æ–≤–∏–º–∏ –º–µ—Ö–∞–Ω—ñ–∫–∞–º–∏, –∂–∞–Ω—Ä–∞–º–∏, —Ç–µ–Ω–¥–µ–Ω—Ü—ñ—è–º–∏, —Ç–µ—Ä–º—ñ–Ω–æ–ª–æ–≥—ñ—î—é... –ê —â–µ, –Ω–∞–¥–∏—Ö–Ω–µ —Å–ø–æ—Å—Ç–µ—Ä—ñ–≥–∞—Ç–∏, –ø–æ–º—ñ—á–∞—Ç–∏, –ø—Ä–æ–±—É–≤–∞—Ç–∏, –≤–∏–≤—á–∞—Ç–∏ –∂–∏—Ç—Ç—è, –±–æ, —è–∫ –Ω–µ –¥–∏–≤–Ω–æ, —á–∞—Å—Ç–æ —Å–∞–º–µ —Ü–µ –≤–∏–∑–Ω–∞—á–∞—î —è–∫—ñ—Å–Ω–∏–π –≥–µ–π–º–¥–µ–≤ :)</p>\r\n\r\n                <a href="http://localhost/wordpress/?page_id=257">–î–æ–∫–ª–∞–¥–Ω—ñ—à–µ + —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è</a></li>\r\n            <li></li>\r\n        </ul>\r\n        <ul class="social_share">\r\n            <li id="vk" style="height: 240px; width: 276px; background: none repeat scroll 0% 0% transparent;"><iframe id="vkwidget1" style="overflow: hidden; height: 240px;" src="http://vk.com/widget_community.php?app=0&amp;width=276px&amp;_ver=1&amp;‚Ä¶r3=&amp;height=240&amp;url=https://vk.com/geekhub/" name="fXD77c4f" width="276" height="200" frameborder="0" scrolling="no"></iframe>\r\n                <script type="text/javascript">// <![CDATA[\r\n                VK.Widgets.Group("vk", {mode: 0, width: "276", height: "240"}, 30111409);\r\n                // ]]></script></li>\r\n            <li class="sertificates_list">\r\n                <h4><a href="/certified-professionals.html">–°–µ—Ä—Ç–∏—Ñi–∫–æ–≤–∞–Ωi –ø—Ä–æ—Ñ–µ—Åi–æ–Ω–∞–ª–∏</a></h4>\r\n            </li>\r\n            <li>\r\n                <h4>–ù–∞—à—ñ –°–ø–æ–Ω—Å–æ—Ä–∏</h4>\r\n                <ul>\r\n                    <li class="de"><a href="http://povnahata.com">–î—ñ–º –Ñ–≤–∞–Ω–≥–µ–ª—ñ—è</a></li>\r\n                    <li class="moc"><a href="http://masterofcode.com">Masterofcode LTD</a></li>\r\n                    <li class="sergium"><a href="http://sergium.net">SerGium.net</a></li>\r\n                    <li class="clear left stuff"><a href="http://val.co.ua/">val.co.ua/</a></li>\r\n                    <li class="youthog"><a href="http://yothog.com">Youthog.com</a></li>\r\n                    <li class="jetbrains"><a href="http://jetbrains.com/">JetBrains.com</a></li>\r\n                    <li class="ucoz"><a href="http://rabota.ucoz.ua/">ucoz.ua</a></li>\r\n                    <li class="spd-ukraine"><a href="http://spd-ukraine.com/">SPD-Ukraine.com</a></li>\r\n                    <li class="ekreative"><a href="http://www.ekreative.com/">Ekreative.com</a></li>\r\n                    <li class="n3wnormal"><a href="http://n3wnormal.com/">n3wnormal.ua</a></li>\r\n                    <li class="in-ck-ua"><a href="http://in.ck.ua/">in.ck.ua</a></li>\r\n                </ul>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>\r\n<!-- content -->', 'GeekHub', '', 'inherit', 'open', 'open', '', '290-autosave-v1', '', '', '2014-11-06 10:34:57', '2014-11-06 10:34:57', '', 290, 'http://localhost/wordpress/?p=339', 0, 'revision', '', 0),
 (340, 1, '2014-11-06 10:45:19', '2014-11-06 10:45:19', '    <div class="about">\n        <h2>–Ø–∫ –≤—ñ–¥–±—É–≤–∞—î—Ç—å—Å—è —Ä–µ—î—Å—Ç—Ä–∞—Ü—ñ—è?</h2>\n        <ul>\n            <li class="imgs"><img alt="img" src="http://geekhub.ck.ua/images/about.png"/></li>\n            <li>\n                <h3>–ï—Ç–∞–ø–∏ –†–µ—î—Å—Ç—Ä–∞—Ü—ñ—ó</h3>\n                <p>–ó–∞—Ä–∞—Ö—É–≤–∞–Ω–Ω—è –Ω–∞ –∫—É—Ä—Å–∏ –ø—Ä–æ—Ö–æ–¥–∏—Ç—å —É 4 –µ—Ç–∞–ø–∏:\n\n                <table>\n                    <tr>\n                        <td width="150"><b>–¥–æ 16 –≤–µ—Ä–µ—Å–Ω—è</b></td>\n                        <td>–†–µ—î—Å—Ç—Ä–∞—Ü—ñ—è –Ω–∞ —Ü—å–æ–º—É –≤–µ–±-—Å–∞–π—Ç—ñ</td>\n                    </tr>\n                    <tr>\n                        <td><b>19 –≤–µ—Ä–µ—Å–Ω—è</b></td>\n                        <td>–í–≤–æ–¥–Ω–µ –∑—ñ–±—Ä–∞–Ω–Ω—è —Å–µ–∑–æ–Ω—É - 19:00, –æ–±–ª–∞—Å–Ω–∞ –§—ñ–ª–∞—Ä–º–æ–Ω—ñ—è</td>\n                    </tr>\n                    <tr>\n                        <td><b>27 –≤–µ—Ä–µ—Å–Ω—è</b></td>\n                        <td>–ê–≤—Ç–æ–º–∞—Ç–∏–∑–æ–≤–∞–Ω—ñ –µ–∫–∑–∞–º–µ–Ω–∏</td>\n                    </tr>\n                    <tr>\n                        <td><b>–∑ 4 –ø–æ 10 –∂–æ–≤—Ç–Ω—è</b></td>\n                        <td>–°–ø—ñ–≤–±–µ—Å—ñ–¥–∞ –¥–ª—è —Ç–∏—Ö —Ö—Ç–æ —É—Å–ø—ñ—à–Ω–æ –ø—Ä–æ–π—à–æ–≤ –∞–≤—Ç–æ–º–∞—Ç–∏–∑–æ–≤–∞–Ω—ñ –µ–∫–∑–∞–º–µ–Ω–∏</td>\n                    </tr>\n                    <tr>\n                        <td><b>13 –∂–æ–≤—Ç–Ω—è</b></td>\n                        <td>–ü–æ—á–∞—Ç–æ–∫ –∑–∞–Ω—è—Ç—å –¥–ª—è –∑–∞—Ä–∞—Ö–æ–≤–∞–Ω–∏—Ö —Å—Ç—É–¥–µ–Ω—Ç—ñ–≤</td>\n                    </tr>\n                </table>\n                </p>\n            </li>\n            <li>\n                <h3>–Ø–∫ –ø—ñ–¥–≥–æ—Ç—É–≤–∞—Ç–∏—Å—è –¥–æ –≤—Å—Ç—É–ø–Ω–∏—Ö –µ–∫–∑–∞–º–µ–Ω—ñ–≤?</h3>\n                <p>–ù–∞ –ø–æ—á–∞—Ç–∫—É –°–µ—Ä–ø–Ω—è –º–∏ –≤–∏–∫–ª–∞–¥–µ–º–æ –±–∞–∑–æ–≤—ñ —Ç–µ–º–∏ —è–∫—ñ –Ω–µ–æ–±—Ö—ñ–¥–Ω–æ –æ—Å–≤–æ—ó—Ç–∏ –¥–ª—è —Ç–æ–≥–æ —â–æ–± —Å–∫–ª–∞—Å—Ç–∏ –≤—Å—Ç—É–ø–Ω–∏–π —ñ—Å–ø–∏—Ç. –ö–æ–∂–µ–Ω –∫—É—Ä—Å –±—É–¥–µ –º–∞—Ç–∏ —Å–≤—ñ–π –Ω–∞–±—ñ—Ä —Ç–µ–º. –¢–∞–∫–∞ —Å–∏—Å—Ç–µ–º–∞ –Ω–∞–¥–∞—î –º–æ–∂–ª–∏–≤—ñ—Å—Ç—å –º–æ—Ç–∏–≤–æ–≤–∞–Ω–∏–º –ª—é–¥—è–º –ø—Ä–æ–π—Ç–∏ –Ω–∞ –∫—É—Ä—Å –±–µ–∑ –ø–æ–ø–µ—Ä–µ–¥–Ω—å–æ–≥–æ –¥–æ—Å–≤—ñ–¥—É —É —Ü—ñ–π —Å—Ñ–µ—Ä—ñ.</p>\n            </li>\n            <li>\n                <h3>–°–∫—ñ–ª—å–∫–∏ –∫–æ—à—Ç—É—é—Ç—å –∫—É—Ä—Å–∏?</h3>\n                <p>GeekHub -- —Ü–µ —Å–ø—ñ–ª—å–Ω–æ—Ç–∞, —Ç–æ–º—É –∫—É—Ä—Å–∏ –±–µ–∑–∫–æ—à—Ç–æ–≤–Ω—ñ. –í—ñ–¥ –ø–æ—Ç–µ–Ω—Ü—ñ–π–Ω–∏—Ö —Å—Ç—É–¥–µ–Ω—Ç—ñ–≤ –º–∏ –≤–∏–º–∞–≥–∞—î–º–æ –≤–∏—Å–æ–∫–æ–≥–æ —Ä—ñ–≤–Ω—è –º–æ—Ç–∏–≤–∞—Ü—ñ—ó —Ç–∞ –±–∞–≥–∞—Ç–æ —á–∞—Å—É —Ä–æ–±–æ—Ç–∏ –≤–¥–æ–º–∞.</p>\n            </li>\n            <li>\n                <h3>–ß–∏ –º–æ–∂–µ GeekHub –¥–æ–ø–æ–º–æ–≥—Ç–∏ –º–µ–Ω—ñ –∑ –ø—Ä–∞—Ü–µ–≤–ª–∞—à—Ç—É–≤–∞–Ω–Ω—è–º?</h3>\n                <p>–ú–∏ –Ω–µ –∑–∞–π–º–∞—î–º–æ—Å—å –ø—Ä–∞—Ü–µ–≤–ª–∞—à—Ç—É–≤–∞–Ω–Ω—è–º —Å—Ç—É–¥–µ–Ω—Ç—ñ–≤, —â–æ —É—Å–ø—ñ—à–Ω–æ –∑–∞–≤–µ—Ä—à–∏–ª–∏ –∫—É—Ä—Å. –ê–ª–µ —è–∫ —Å—Ç–æ—Ä–æ–Ω–Ω—ñ–π –µ—Ñ–µ–∫—Ç, –ß–µ—Ä–∫–∞—Å—å–∫—ñ –∫–æ–º–ø–∞–Ω—ñ—ó, –∑–Ω–∞—é—á–∏ –ø—Ä–æ —Ä—ñ–≤–µ–Ω—å –≤–∏–∫–ª–∞–¥–∞–Ω–Ω—è —ñ —Å–µ—Ä—Ç–∏—Ñ—ñ–∫–æ–≤–∞–Ω–∏—Ö —Å—Ç—É–¥–µ–Ω—Ç—ñ–≤ —á–∞—Å—Ç–æ –∑–≤–µ—Ä—Ç–∞—é—Ç—å—Å—è –¥–æ –Ω–∞—Å –∑–∞ —Ä–µ–∫–æ–º–µ–Ω–¥–∞—Ü—ñ—è–º–∏. –ó–∞ —Å—Ç–∞—Ç–∏—Å—Ç–∏–∫–æ—é –º–∏–Ω—É–ª–æ–≥–æ —Ä–æ–∫—É, –±—ñ–ª—å—à–µ 80 –ø—Ä–æ—Ü–µ–Ω—Ç—ñ–≤ —Å–µ—Ä—Ç–∏—Ñ—ñ–∫–æ–≤–∞–Ω–∏—Ö —Å—Ç—É–¥–µ–Ω—Ç—ñ–≤ –±—É–ª–∏ –∑–∞–ø—Ä–æ—à–µ–Ω—ñ –Ω–∞ —Ä–æ–±–æ—Ç—É.</p>\n            </li>\n            <li>\n                <h3>–Ø–∫–∏–π –∫—É—Ä—Å –º–µ–Ω—ñ –∫—Ä–∞—â–µ –æ–±—Ä–∞—Ç–∏, —è–∫—â–æ —è –Ω–µ –º–∞—é –∑–æ–≤—Å—ñ–º –Ω—ñ—è–∫–æ–≥–æ –¥–æ—Å–≤—ñ–¥—É —É web?</h3>\n                <p>Frontend + CMS</p>\n            </li>\n        </ul>\n\n</div><!-- content -->', '–Ü–Ω—Ñ–æ—Ä–º–∞—Ü—ñ—è –ø—Ä–æ GeekHub', '', 'inherit', 'open', 'open', '', '328-autosave-v1', '', '', '2014-11-06 10:45:19', '2014-11-06 10:45:19', '', 328, 'http://localhost/wordpress/?p=340', 0, 'revision', '', 0),
-(341, 1, '2014-11-19 11:27:36', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-19 11:27:36', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?p=341', 0, 'post', '', 0),
 (342, 1, '2014-11-19 11:28:17', '2014-11-19 11:28:17', 'Test_postTest_post', 'Test_post', '', 'trash', 'open', 'open', '', 'test_post', '', '', '2014-11-19 11:32:42', '2014-11-19 11:32:42', '', 0, 'http://localhost/wordpress/?p=342', 0, 'post', '', 0),
 (343, 1, '2014-11-19 11:28:17', '2014-11-19 11:28:17', 'Test_postTest_post', 'Test_post', '', 'inherit', 'open', 'open', '', '342-revision-v1', '', '', '2014-11-19 11:28:17', '2014-11-19 11:28:17', '', 342, 'http://localhost/wordpress/?p=343', 0, 'revision', '', 0),
-(344, 1, '2014-11-19 12:49:50', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-19 12:49:50', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?p=344', 0, 'post', '', 0),
-(345, 1, '2014-11-19 13:18:10', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-19 13:18:10', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?p=345', 0, 'post', '', 0),
-(346, 1, '2014-11-19 13:38:22', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-19 13:38:22', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&p=346', 0, 'post-type-template', '', 0),
-(347, 1, '2014-11-19 14:03:24', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-19 14:03:24', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?p=347', 0, 'post', '', 0),
-(348, 1, '2014-11-19 14:05:26', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-19 14:05:26', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&p=348', 0, 'post-type-template', '', 0),
-(349, 1, '2014-11-19 14:05:41', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-19 14:05:41', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&p=349', 0, 'post-type-template', '', 0),
-(350, 1, '2014-11-19 14:12:01', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-19 14:12:01', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&p=350', 0, 'post-type-template', '', 0),
-(351, 1, '2014-11-19 14:13:28', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-19 14:13:28', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&p=351', 0, 'post-type-template', '', 0),
-(352, 1, '2014-11-19 14:14:12', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-19 14:14:12', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&p=352', 0, 'post-type-template', '', 0),
-(353, 1, '2014-11-19 14:15:25', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-19 14:15:25', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&p=353', 0, 'post-type-template', '', 0),
-(354, 1, '2014-11-20 10:39:34', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-20 10:39:34', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&p=354', 0, 'post-type-template', '', 0),
-(355, 1, '2014-11-20 10:51:46', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-20 10:51:46', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&p=355', 0, 'post-type-template', '', 0),
-(356, 1, '2014-11-20 10:52:01', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-20 10:52:01', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&p=356', 0, 'post-type-template', '', 0),
-(357, 1, '2014-11-20 10:57:49', '0000-00-00 00:00:00', '<p class="hide-if-no-js"><a id="set-post-thumbnail" class="thickbox" title="Set featured image" href="http://localhost/wordpress/wp-admin/media-upload.php?post_id=357&amp;type=image&amp;TB_iframe=1"><img class="attachment-266x266" src="http://localhost/wordpress/wp-content/uploads/2014/10/JPEG_example_down-300x225.jpg" alt="JPEG_example_down" width="266" height="199" /></a></p>', '', '', 'draft', 'open', 'open', '', '', '', '', '2014-11-20 10:57:49', '2014-11-20 10:57:49', '', 0, 'http://localhost/wordpress/?p=357', 0, 'post', '', 0),
+(357, 1, '2014-11-30 11:37:19', '0000-00-00 00:00:00', '<box>CP Multi View Calendar</box>', '', '', 'draft', 'open', 'open', '', '', '', '', '2014-11-30 11:37:19', '2014-11-30 11:37:19', '', 0, 'http://localhost/wordpress/?p=357', 0, 'post', '', 0),
 (358, 1, '2014-11-20 10:57:17', '2014-11-20 10:57:17', '', 'Draft created on November 20, 2014 at 10:57 am', '', 'inherit', 'open', 'open', '', '357-revision-v1', '', '', '2014-11-20 10:57:17', '2014-11-20 10:57:17', '', 357, 'http://localhost/wordpress/?p=358', 0, 'revision', '', 0),
-(359, 1, '2014-11-20 10:58:54', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-20 10:58:54', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&p=359', 0, 'post-type-template', '', 0),
-(360, 1, '2014-11-20 11:17:05', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-20 11:17:05', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&p=360', 0, 'post-type-template', '', 0),
-(361, 1, '2014-11-20 11:18:02', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-11-20 11:18:02', '0000-00-00 00:00:00', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&p=361', 0, 'post-type-template', '', 0),
-(362, 1, '2014-11-20 11:21:37', '2014-11-20 11:21:37', 'Type templates1Type templates1', 'Type templates1', '', 'publish', 'closed', 'closed', '', 'type-templates1', '', '', '2014-11-22 15:27:13', '2014-11-22 15:27:13', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&#038;p=362', 0, 'post-type-template', '', 0);
+(362, 1, '2014-11-20 11:21:37', '2014-11-20 11:21:37', 'Type templates1Type templates1', 'Type templates1', '', 'publish', 'closed', 'closed', '', 'type-templates1', '', '', '2014-11-22 15:27:13', '2014-11-22 15:27:13', '', 0, 'http://localhost/wordpress/?post_type=post-type-template&#038;p=362', 0, 'post-type-template', '', 0),
+(364, 1, '2014-11-30 11:33:35', '2014-11-30 11:33:35', 'Type templates1Type templates1 CP Multi View Calendar', 'Type templates1', '', 'inherit', 'open', 'open', '', '362-autosave-v1', '', '', '2014-11-30 11:33:35', '2014-11-30 11:33:35', '', 362, 'http://localhost/wordpress/?p=364', 0, 'revision', '', 0),
+(365, 1, '2014-11-30 11:36:56', '2014-11-30 11:36:56', 'CP Multi View Calendar', '', '', 'inherit', 'open', 'open', '', '357-revision-v1', '', '', '2014-11-30 11:36:56', '2014-11-30 11:36:56', '', 357, 'http://localhost/wordpress/?p=365', 0, 'revision', '', 0),
+(366, 1, '2014-11-30 11:37:19', '2014-11-30 11:37:19', '<box>CP Multi View Calendar</box>', '', '', 'inherit', 'open', 'open', '', '357-revision-v1', '', '', '2014-11-30 11:37:19', '2014-11-30 11:37:19', '', 357, 'http://localhost/wordpress/?p=366', 0, 'revision', '', 0);
 
 -- --------------------------------------------------------
 
@@ -1007,8 +1162,8 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (12, 1, 'dismissed_wp_pointers', 'wp350_media,wp360_revisions,wp360_locks,wp390_widgets'),
 (13, 1, 'show_welcome_panel', '1'),
 (15, 1, 'wp_dashboard_quick_press_last_post_id', '341'),
-(17, 1, 'wp_user-settings', 'libraryContent=browse&editor=tinymce&dfw_width=496&mfold=o&hidetb=1&editor_expand=on'),
-(18, 1, 'wp_user-settings-time', '1416480971'),
+(17, 1, 'wp_user-settings', 'libraryContent=browse&editor=html&dfw_width=496&mfold=o&hidetb=1&editor_expand=on'),
+(18, 1, 'wp_user-settings-time', '1417347216'),
 (19, 1, 'closedpostboxes_page', 'a:0:{}'),
 (20, 1, 'metaboxhidden_page', 'a:4:{i:0;s:10:"postcustom";i:1;s:16:"commentstatusdiv";i:2;s:7:"slugdiv";i:3;s:9:"authordiv";}'),
 (21, 1, 'meta-box-order_page', 'a:3:{s:4:"side";s:36:"submitdiv,pageparentdiv,postimagediv";s:6:"normal";s:45:"postcustom,commentstatusdiv,slugdiv,authordiv";s:8:"advanced";s:0:"";}'),
@@ -1064,7 +1219,7 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (74, 1, 'screen_layout_post', '2'),
 (76, 1, 'closedpostboxes_post-type-template', 'a:0:{}'),
 (77, 1, 'metaboxhidden_post-type-template', 'a:2:{i:0;s:11:"postexcerpt";i:1;s:7:"slugdiv";}'),
-(78, 1, 'session_tokens', 'a:2:{s:64:"43146ba69c663de966de28a22c9d7f98403f6fe691433e567c0d1ce28a313a25";i:1416842295;s:64:"423d9ac781217b4512fe8f2c763d7befe61450b2aa1c7575f02f94a2e4bf2ba8";i:1416842307;}');
+(78, 1, 'session_tokens', 'a:2:{s:64:"94644ece49fdf78005af2443e31c8e8b858e52a9aabd410d4d4e3f20f2bd6a7d";i:1417516010;s:64:"c91ab8a39fd82d09eff9f2d5c6b75c5244cf4f4ce39f7e2a4cd5d1f1c71ca344";i:1417516013;}');
 
 -- --------------------------------------------------------
 
@@ -1097,6 +1252,2097 @@ INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_
 (2, 'Author1', '$P$Bhc9h8iQKRnvvonq8/mRBZa2nivspR1', 'author1', 'Author1@mail.com', '', '2014-10-23 08:38:35', '', 0, 'Author1'),
 (3, 'contributor1', '$P$BEWZzubjmyQDt69xL2WmCc5g1CjW6C/', 'contributor1', 'contributor1@mail.com', '', '2014-10-23 08:43:31', '', 0, 'contributor1'),
 (4, 'subscriber1', '$P$BEaNgWkwT2o8tayqpiwTA.pWXYekK9/', 'subscriber1', 'subscriber1@mail.com', '', '2014-10-23 08:44:08', '', 0, 'subscriber1');
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfBadLeechers`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfBadLeechers` (
+  `eMin` int(10) unsigned NOT NULL,
+  `IP` int(10) unsigned NOT NULL,
+  `hits` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`eMin`,`IP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfBlocks`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfBlocks` (
+  `IP` int(10) unsigned NOT NULL,
+  `blockedTime` bigint(20) NOT NULL,
+  `reason` varchar(255) NOT NULL,
+  `lastAttempt` int(10) unsigned DEFAULT '0',
+  `blockedHits` int(10) unsigned DEFAULT '0',
+  `wfsn` tinyint(3) unsigned DEFAULT '0',
+  `permanent` tinyint(3) unsigned DEFAULT '0',
+  PRIMARY KEY (`IP`),
+  KEY `k1` (`wfsn`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfBlocksAdv`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfBlocksAdv` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `blockType` char(2) NOT NULL,
+  `blockString` varchar(255) NOT NULL,
+  `ctime` int(10) unsigned NOT NULL,
+  `reason` varchar(255) NOT NULL,
+  `totalBlocked` int(10) unsigned DEFAULT '0',
+  `lastBlocked` int(10) unsigned DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfConfig`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfConfig` (
+  `name` varchar(100) NOT NULL,
+  `val` longblob,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- –î–∞–º–ø –¥–∞–Ω–Ω—ã—Ö —Ç–∞–±–ª–∏—Ü—ã `wp_wfConfig`
+--
+
+INSERT INTO `wp_wfConfig` (`name`, `val`) VALUES
+('actUpdateInterval', 0x32),
+('addCacheComment', 0x30),
+('advancedCommentScanning', 0x30),
+('alertEmails', ''),
+('alertOn_adminLogin', 0x30),
+('alertOn_block', 0x31),
+('alertOn_critical', 0x31),
+('alertOn_loginLockout', 0x30),
+('alertOn_lostPasswdForm', 0x30),
+('alertOn_nonAdminLogin', 0x30),
+('alertOn_throttle', 0x30),
+('alertOn_update', 0x30),
+('alertOn_warnings', 0x31),
+('alert_maxHourly', 0x30),
+('allowHTTPSCaching', 0x30),
+('apiKey', 0x33623463643736343138353163343536623262393533636436626436353731343432646561393562623639613635313037383037336164663632333165316130656639363139646161353230653831336131353332353532393333333863303334393930306464663461613165366134616564323236643138383362326661623831396335636461386466613661666364383833386637353939643761633833),
+('autoBlockScanners', 0x30),
+('autoUpdate', 0x30),
+('autoUpdateChoice', 0x31),
+('bannedURLs', ''),
+('blockedTime', 0x333030),
+('blockFakeBots', 0x30),
+('cbl_restOfSiteBlocked', 0x31),
+('checkSpamIP', 0x30),
+('currentCronKey', ''),
+('debugOn', 0x30),
+('deleteTablesOnDeact', 0x30),
+('disableConfigCaching', 0x30),
+('disableCookies', 0x30),
+('encKey', 0x32663336336663643738646531616632),
+('firewallEnabled', 0x30),
+('howGetIPs', ''),
+('lastScanCompleted', 0x6f6b),
+('liveTrafficEnabled', 0x30),
+('liveTraf_ignoreIPs', ''),
+('liveTraf_ignorePublishers', 0x30),
+('liveTraf_ignoreUA', ''),
+('liveTraf_ignoreUsers', ''),
+('loginSecurityEnabled', 0x30),
+('loginSec_blockAdminReg', 0x30),
+('loginSec_countFailMins', 0x35),
+('loginSec_disableAuthorScan', 0x30),
+('loginSec_lockInvalidUsers', 0x30),
+('loginSec_lockoutMins', 0x35),
+('loginSec_maskLoginErrors', 0x30),
+('loginSec_maxFailures', 0x3230),
+('loginSec_maxForgotPasswd', 0x3230),
+('loginSec_strongPasswds', 0x70756273),
+('loginSec_userBlacklist', ''),
+('max404Crawlers', 0x44495341424c4544),
+('max404Crawlers_action', 0x7468726f74746c65),
+('max404Humans', 0x44495341424c4544),
+('max404Humans_action', 0x7468726f74746c65),
+('maxExecutionTime', ''),
+('maxGlobalRequests', 0x44495341424c4544),
+('maxGlobalRequests_action', 0x7468726f74746c65),
+('maxMem', 0x323536),
+('maxRequestsCrawlers', 0x44495341424c4544),
+('maxRequestsCrawlers_action', 0x7468726f74746c65),
+('maxRequestsHumans', 0x44495341424c4544),
+('maxRequestsHumans_action', 0x7468726f74746c65),
+('maxScanHits', 0x44495341424c4544),
+('maxScanHits_action', 0x7468726f74746c65),
+('neverBlockBG', 0x6e65766572426c6f636b5665726966696564),
+('other_hideWPVersion', 0x31),
+('other_noAnonMemberComments', 0x31),
+('other_pwStrengthOnUpdate', 0x31),
+('other_scanComments', 0x31),
+('other_scanOutside', 0x30),
+('other_WFNet', 0x31),
+('scansEnabled_comments', 0x31),
+('scansEnabled_core', 0x31),
+('scansEnabled_diskSpace', 0x31),
+('scansEnabled_dns', 0x31),
+('scansEnabled_fileContents', 0x31),
+('scansEnabled_heartbleed', 0x31),
+('scansEnabled_highSense', 0x30),
+('scansEnabled_malware', 0x31),
+('scansEnabled_oldVersions', 0x31),
+('scansEnabled_options', 0x31),
+('scansEnabled_passwds', 0x31),
+('scansEnabled_plugins', 0x30),
+('scansEnabled_posts', 0x31),
+('scansEnabled_public', 0x30),
+('scansEnabled_scanImages', 0x30),
+('scansEnabled_themes', 0x30),
+('scan_exclude', ''),
+('schedScanArgs', 0x613a373a7b693a303b693a313431373337383638333b693a313b693a313431373436343233343b693a323b693a313431373535323435393b693a333b693a313431373633393734383b693a343b693a313431373732363330303b693a353b693a313431373831323433383b693a363b693a313431373839363639333b7d),
+('scheduledScansEnabled', 0x30),
+('securityLevel', 0x435553544f4d),
+('spamvertizeCheck', 0x30),
+('startScansRemotely', 0x30),
+('totalScansRun', 0x31),
+('tourClosed', 0x31),
+('vulnRegex', 0x2f283f3a776f726466656e63655f746573745f76756c6e5f6d617463687c5c2f74696d7468756d625c2e7068707c5c2f7468756d625c2e7068707c5c2f7468756d62735c2e7068707c5c2f7468756d626e61696c5c2e7068707c5c2f7468756d626e61696c735c2e7068707c5c2f7468756d6e61696c735c2e7068707c5c2f63726f707065725c2e7068707c5c2f70696373697a655c2e7068707c5c2f726573697a65725c2e7068707c636f6e6e6563746f72735c2f75706c6f6164746573745c2e68746d6c7c636f6e6e6563746f72735c2f746573745c2e68746d6c7c6d696e676c65666f72756d616374696f6e7c75706c6f61646966795c2e7068707c616c6c7765626d656e75732d776f726470726573732d6d656e752d706c7567696e7c77702d6379636c652d706c61796c6973747c636f756e742d7065722d6461797c77702d6175746f796f75747562657c7061792d776974682d74776565747c636f6d6d656e742d726174696e675c2f636b2d70726f636573736b61726d615c2e706870292f69),
+('wfKillRequested', 0x30),
+('wfPeakMemory', 0x3331313635303430),
+('wfsd_engine', ''),
+('wfStatusStartMsgs', 0x613a31333a7b693a303b733a303a22223b693a313b733a303a22223b693a323b733a303a22223b693a333b733a303a22223b693a343b733a303a22223b693a353b733a303a22223b693a363b733a303a22223b693a373b733a303a22223b693a383b733a303a22223b693a393b733a303a22223b693a31303b733a303a22223b693a31313b733a303a22223b693a31323b733a303a22223b7d),
+('wf_dnsA', 0x6c6f63616c686f737420706f696e747320746f203132372e302e302e31),
+('wf_dnsCNAME', ''),
+('wf_dnsLogged', 0x31),
+('wf_dnsMX', ''),
+('wf_scanRunning', ''),
+('wf_summaryItems', 0x613a31363a7b733a31303a22746f74616c5573657273223b693a343b733a31303a22746f74616c5061676573223b733a323a223235223b733a31303a22746f74616c506f737473223b733a323a223130223b733a31333a22746f74616c436f6d6d656e7473223b733a313a2233223b733a31353a22746f74616c43617465676f72696573223b733a313a2237223b733a31313a22746f74616c5461626c6573223b693a33333b733a393a22746f74616c526f7773223b693a323530343b733a31323a22746f74616c506c7567696e73223b693a353b733a31303a226c617374557064617465223b693a313431373334353639393b733a31313a22746f74616c5468656d6573223b693a343b733a393a22746f74616c44617461223b733a383a2232382e3739204d42223b733a31303a22746f74616c46696c6573223b693a313537313b733a393a22746f74616c44697273223b693a3539323b733a31303a226c696e65734f66504850223b693a3334383631343b733a31303a226c696e65734f664a4348223b693a3133393138393b733a383a227363616e54696d65223b643a313431373334353639392e363831343835393b7d),
+('whitelisted', '');
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfCrawlers`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfCrawlers` (
+  `IP` int(10) unsigned NOT NULL,
+  `patternSig` binary(16) NOT NULL,
+  `status` char(8) NOT NULL,
+  `lastUpdate` int(10) unsigned NOT NULL,
+  `PTR` varchar(255) DEFAULT '',
+  PRIMARY KEY (`IP`,`patternSig`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfFileMods`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfFileMods` (
+  `filenameMD5` binary(16) NOT NULL,
+  `filename` varchar(1000) NOT NULL,
+  `knownFile` tinyint(3) unsigned NOT NULL,
+  `oldMD5` binary(16) NOT NULL,
+  `newMD5` binary(16) NOT NULL,
+  PRIMARY KEY (`filenameMD5`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- –î–∞–º–ø –¥–∞–Ω–Ω—ã—Ö —Ç–∞–±–ª–∏—Ü—ã `wp_wfFileMods`
+--
+
+INSERT INTO `wp_wfFileMods` (`filenameMD5`, `filename`, `knownFile`, `oldMD5`, `newMD5`) VALUES
+('\0I	∑∞±Y¬Ø\Z', 'wp-content/plugins/better-wp-security/modules/free/backup/class-itsec-backup-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ï‰RÂ˜b%\0¬MDp?'),
+('\00ˆÒ#ä9˝ú¨Z4Œj$', 'wp-admin/network/user-edit.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '1Ås∂Ã∂>ÿ£–Öc√ˇ'),
+('\05g¿ÀœÍ´îcã0â"D', 'wp-includes/css/media-views-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '“ê“œR†lvŒYíî∞Ï'),
+('\0C_\nÏ¬jD®È@k', 'wp-admin/network/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Åìß&GÛb)›v/ˇU'),
+('\0`Y±œ≠rG¶¶îÑ', 'wp-includes/SimplePie/Restriction.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '*qhdÅsà;’y'),
+('\0«|9Ë◊uÖe‰Ò·ñ@Éµ', 'wp-admin/includes/image.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'p÷À˚Y∏= bÒı.Î'),
+('í§»Ñò7Ÿg‰b^I5', 'wp-content/themes/twentyfourteen/header.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'yóC…Û?)6Mƒ·#ã•e'),
+('NQû"*hz™r√w|\Z¯', 'wp-admin/images/media-button-other.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'è3ê§ﬁ¶!°a¢7C˙('),
+('s“R√¡∑Ü||(Wø!ë', 'wp-content/themes/twentythirteen/content-chat.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'C∂fyΩß–Ti;"•Ãp'),
+('Å%ø\\i\\jÌ?ôäx', 'wp-content/themes/twentythirteen/content-quote.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'v∏ß ≈ê‘UÕõ$ÄZF∞'),
+('ôTÍhÀ‘ÏzPü˘rÈ', 'wp-admin/widgets.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˜ú‘2#ÿÊÖ3í)è‘<x'),
+('ﬂ‚`»Ω∂c Ü)dú∏', 'wp-content/themes/twentyfourteen/content-image.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'pìläL%˛l™\Z>#“»Ó'),
+('t]ïŸüu√’u€¸Âj˚', 'wp-admin/images/menu-vs.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'sØ˚Ó>^:Ïöe{Oà˜'),
+('Ùç=¸qØ\rljA+', 'wp-admin/user/user-edit.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÛÙewZ¯∆¿‰€YÖòÛ'),
+('<)8T*.çSuS“ƒ∫ü', 'wp-includes/SimplePie/Cache/MySQL.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ËëŒﬂB Cô\ZH’xVá'),
+('<k…*=õÇ]Ôj<,Ö', 'wp-content/plugins/asgard/loading.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˚r1<ú“ˆÙ!#ÔíÉy$'),
+('HCÉÏ‹!Û´™"(à', 'wp-includes/js/tinymce/plugins/compat3x/css/dialog.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ó›Õï’\0Aå“ItˇdH'),
+('uﬁ«s∂õy6''v,™ﬁ=', 'wp-includes/js/tinymce/plugins/wordpress/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '.u∫6$-‹$,PCÅ`R'),
+('µÇ√¡>€n¡ëÂ', 'wp-content/plugins/better-wp-security/modules/free/admin-user/class-itsec-admin-user-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÃòTûîˆ¥%‹ù†/‡∂('),
+('òaˇÒ≈\nÇîÊ…t˘Ï', 'wp-content/plugins/better-wp-security/modules/free/backup/setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '±’Ò≤Ò`pÖP{±5/'),
+('ﬁî‰•Í7ô&áÚ»Ä', 'wp-includes/js/tinymce/skins/lightgray/content.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '?†ÁcÆtVVH)˙>CúFÒ'),
+('‡ºó!>#í@◊7W‹''', 'wp-content/themes/twentyfourteen/genericons/genericons.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ü¬ 4bâÿ-Ø+lëˆ'),
+('·;ŒúpneÇö√^@¥', 'wp-content/themes/twentyfourteen/rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '@¥π¥µh3>ó?iŒŒ'),
+('µG¬wù%œ¯ñr_ „', 'ChangeLog', 0, '!û¸6vÙﬂ∞P=Ï–Áï', '!û¸6vÙﬂ∞P=Ï–Áï'),
+('¯sÕ\Z”¯Ztê„c˙	È', 'wp-content/themes/twentyfourteen/sidebar-content.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ø£¸»É$—“\0DO¶±K'),
+('(øÄó—ôóç…⁄\0H<_', 'wp-admin/includes/nav-menu.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'èÁwSƒ7%ë{Ùç≥\0Ü'),
+('d4Ù@Á˘ªõê7J˝^ç', 'wp-content/uploads/2014/10/header-672x372.jpg', 0, '’‘"Î!Î6ÓHI®©uf3', '’‘"Î!Î6ÓHI®©uf3'),
+('gB/¸õÎY©“\0.Œ“–≤', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/ui-icons_888888_256x240.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '0*ÁßÆ’skg{68'),
+('iÙ¢P√ô˚ñld\0˙ë', 'wp-includes/css/jquery-ui-dialog.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ö∑õ‹‹\ZÉµ1Nπañ#Z'),
+('·/í˚»\ZCÎÇß¡…9-', 'wp-content/plugins/better-wp-security/modules/free/ssl/js/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('!õî»@|ò4´∞nù≠Ù', 'wp-includes/class-http.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '›F(|)Aπ°]§Wy'),
+('''⁄û\0;æø?√+V“™Œ', 'wp-admin/network/edit.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'r[1≤ÖYÙOR/~Y*|'),
+('6H6œ8îHÒY’∑’(h', 'wp-content/themes/twentythirteen/content-video.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Œ2(AÅ–ÂM)ﬂÏa'),
+('E¯&Ø—VNÆ≥ë"N', 'wp-admin/css/ie.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ﬂ∑G≥c‡–≈∑®∫⁄n¸'),
+('ÑlÛøg<–Îπ…=∆lâ', 'wp-content/plugins/akismet/class.akismet-widget.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¨/¬"Ÿk<)º«KÑ ±Ä'),
+('∆È™¬gZ®û!v“Ó«ÿ', 'README.md', 0, 'ãœ9&ó÷ÆÂ›Ef¨^®‘', 'ãœ9&ó÷ÆÂ›Ef¨^®‘'),
+('»ÑîŒ”xy®ÂÅıã÷', 'wp-includes/js/tinymce/skins/wordpress/images/embedded.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Vﬂ˘ÓI]s-˙@‚WsÕ'),
+('œ¥ 3P`#8^›÷Z', 'wp-admin/css/colors/coffee/colors.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'P\r÷:È~9ùΩlÓC◊.»'),
+('cBw˛k7Ç≈<]Z', 'wp-content/plugins/better-wp-security/lib/one-version/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¢&∆ﬁaÀæáO…¶1Ô˙~¸'),
+('"íüNﬂ¨jj)Öü\0åïN', 'wp-admin/images/menu-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '~≥ﬂ¢{‰ﬂ≥ZW¿ß›Á'),
+('tZQè•Yz0Ö˙ΩﬂË∑´', 'wp-admin/images/wordpress-logo.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∆∞˘yπÊo√8ÙÀ8S•`ä'),
+('ú˝ókí5SÅHÂ–Á–´', 'wp-includes/SimplePie/Author.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '4ÄqÌ_Aã%ñNw£1'),
+('¢ÿ¿eﬂbW¸A0œd', 'wp-admin/images/comment-grey-bubble.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'èYè*''¥â∞©t¿∂≤F'),
+('π29∑`Ì#0TRÙæ|üí', 'wp-content/themes/twentythirteen/content-status.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ïˆ◊Ã˝ß`>KZf2’ó'),
+('Û5í∂ˇùû_Ãˆƒ`ˇ…', 'wp-content/plugins/better-wp-security/modules/free/file-change/js/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('"—}≠%˘ïxR:F∑€Ó', 'wp-content/themes/twentyfourteen/featured-content.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\\¶\ZÔ˚˙õŒxìò¬–‰'),
+('Q° ∑‘(;ÿ†|~R8øb', 'wp-admin/includes/user.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '–3S\Z»,t=ˇràîl\\'),
+('zœS≤˙Õ¨Ä\\”/˘Íä', 'wp-content/themes/twentyfourteen/js/keyboard-image-navigation.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'gô£ﬁ«˛ÿ!≤⁄ò::ã'),
+('ìó¨%bQÒ£ìbM<÷x', 'wp-includes/js/imgareaselect/border-anim-h.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Z√ƒ,»ntZ^6∂{Lp°4'),
+('ó≈äÎ`ˆ7ß˛TÍ≥a', 'wp-content/plugins/wordfence/lib/menu_whois.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '&ñ:©ÑˇoèuÏ)/n6'),
+('—ßõ_É4a!¢F§Ò', 'wp-admin/css/ie.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '}K\r¿v1F:xqBœ'),
+('¸´i)33‹•—«s⁄*', 'wp-admin/includes/class-wp-ms-users-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˛⁄Gõ*ì∫_˚§ãìo-:'),
+('j´Êo§+à±s€7€8', 'wp-content/plugins/wordfence/css/iptraf.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '+	ŒÊÎ<ºdqÖ7^≥'),
+('ΩΩì#≠ê˘€	>˚7', 'wp-includes/js/tinymce/skins/wordpress/images/pagebreak.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '$TVâÊY]∆°(í)cs©'),
+('kòë≤–bÖ…gSà', 'wp-includes/js/tinymce/plugins/wplink/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ωü,n^¨©ÉÆ€Ÿ]'),
+('é‹£Ë¬⁄œLíôøm', 'wp-content/themes/twentythirteen/images/headers/diamond.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ':…¥íÁûÙ Õ¡Ââ7'),
+('¶±ñÎgÑ~“w\Z–hh', 'wp-admin/css/themes-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ä™¿”àÒ7kÕµΩ59÷Â'),
+('	QWØÔåà~- \0d≈', 'wp-includes/class-phpass.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Y@êπ›/1)¡vc,€'),
+('	?±œ‰ÜÊ€ôqôuM', 'wp-includes/js/mediaelement/mediaelementplayer.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '_Ãˇ√Âıª6Á†º%f'),
+('	,π©/’ïã!Áõgy˛d', 'wp-includes/js/media-editor.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '◊d¥êòØ¥ør¬4&—Ù2'),
+('	5˙''ÿ4¢ûë!â±•ˇu¯', 'wp-content/plugins/better-wp-security/modules/free/ssl/class-itsec-ssl-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/+ÙŸZ^Ü˘{·úüﬁ,J˚'),
+('	P=N>å®b"j:~[Q{·', 'wp-includes/js/tinymce/plugins/wpdialogs/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˜ÆÀ[ﬂ¢á9Ó†§ò—ZÅ'),
+('	XŒt\\4vNI5ÇÿjÀ¬', 'wp-admin/async-upload.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‚M\\ …äR`¿p`îN¿ˇ'),
+('	Å,ªC>Y_6Z%$&úâˇ', 'wp-content/plugins/better-wp-security/modules/free/hide-backend/js/admin-hide-backend.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '03øeH!N}YØÇëhg'),
+('	÷9ÑÉfﬁàUúfÚ˛Êú', 'wp-includes/js/tinymce/tinymce.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∂∆¯‘iıY`Â}\n&ä€6'),
+('	ÈÒœ€09ç˜-b±ÖÕ©W', 'wp-admin/network/users.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'c≤c2o∞-+Ugè¢óX‚'),
+('\nfùÜâY°∑4&¸L¶', 'wp-admin/images/se.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '÷»îB√`Ω⁄.}''7:'),
+('\nìµëb-”V¯:àÉ|mµˇ', 'wp-admin/edit-link-form.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'i-‹Eå◊''‰)^P˙'),
+('\n£‹NNMº‘€ë4;˙p–4', 'wp-includes/js/customize-models.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'OKÖ.Üq;ütêÁNËÇ\n'),
+('\nÙ\r£BÉ‰ÆpÃ≠', 'wp-admin/theme-install.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'nÿ@˚F@∆2…¬Â´Á	\n3'),
+('\nÙ∆~Cõ≈ÃiA?à Ï£', 'wp-content/uploads/2014/10/11-150x150.jpeg', 0, '›/\0wæow£	⁄fÃYâm', '›/\0wæow£	⁄fÃYâm'),
+('\nı|çsÏ®Sö´≠ùàN\n', 'wp-includes/js/jquery/ui/jquery.ui.tabs.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Æô·∆€ì—z‹Œr<F29'),
+('"w%‚_ÉÑK\\†·uÀ', 'wp-admin/images/wpspin_light.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'G¿ÿ°ÆZXAïw„\Z∂Æm'),
+('îà¶,H(bÊ_FîO', 'wp-admin/admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ç«˝¢ç®^∏QÔ3j\n¨™'),
+('ú´HV’•Ωdê‡≥p’Vp', 'wp-includes/images/media/spreadsheet.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ò¿†4‰Ò÷\0T¸ﬁÃá?≤'),
+('º«®ï`…r˜]õ™≤h', 'wp-content/themes/twentyfourteen/genericons/LICENSE.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≤4ÓMiı¸‰HjÄ˝ØJBc'),
+('Úc"mlè ˇ«û>o', 'wp-admin/images/wordpress-logo.svg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¥Aù/yDõeﬂÁn˘—Ë'),
+('\r(JGâh∆|ÑWû7h«·', 'wp-content/plugins/better-wp-security/core/class-itsec-dashboard-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'êºˆ±CTI\0õÆ1ôl'),
+('\rx›çÅ^¥ßø\Z†ÉΩ<;', 'wp-admin/my-sites.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'i0NÙêx©L\r˙∫ Y]'),
+('\rò“ßxOz‰‚Ü˜zÇêæh', 'wp-includes/class-wp-customize-panel.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '©9nHb≥Z`ÓE)3'),
+('\rúç:â:âÏıHH˘:d', 'wp-admin/css/edit.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'T¸Jñ¨dk˜ƒ©qÁÜ”À'),
+('\r√%€·„œ%ºyS˝`', 'wp-includes/js/crop/cropper.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ó≤ñŸH.s≈oøˆ®‚'),
+('\r—™1s1=¨°`(òy', 'wp-admin/options-head.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∫÷ï`^m∞N@\nTof~∑'),
+('#Áñ≠€≠™v"˛óMº', 'wp-content/plugins/wordfence/lib/wfAction.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '@‚í”_œÌ≠ÖÚµ…>js'),
+('XˇÊHÂ••(ª:»ZÌ©', 'wp-admin/admin-ajax.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'îòL/ƒçÄú:o%w´gØZ'),
+('go¨súV„£;Ì«ˇÖ\n$', 'wp-includes/js/tinymce/plugins/compat3x/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '=¥\\©-Ã≈«Ïe´øãU'),
+('Ã áÏ°C™YñéÒ', 'wp-includes/pomo/entry.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Îå}€Lñ«º∆¢“v¬.'),
+('Õ>ˇM“8∏ Ÿµ≠—|', 'wp-includes/images/crystal/archive.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˚™pôÎs‚‹Ï≥Úê3‡˙'),
+('◊pº˜ﬁí±◊èsnÍà', 'wp-content/plugins/better-wp-security/core/img/bb-ad.jpg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°m5Í◊ïúA8÷Ç’H'),
+('ÎÂ"\rJ\04∞π''i¥', 'wp-admin/js/password-strength-meter.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Më(FóVp…‚#*Ô{¥'),
+(';à&únb±ÀiﬁŸ∑©', 'wp-includes/js/mediaelement/silverlightmediaelement.xap', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/±º\Z—›Thöy¥œS¨'),
+('«›°=ΩΩNxºáK‘`*', 'wp-content/plugins/wordfence/lib/wordfenceClass.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'È´ß^o\n“¶‰•w’X0ﬂ'),
+('œâQåûY•á⁄:hTµ', 'wp-content/plugins/better-wp-security/modules/free/backup/js/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('\0ı™]¿avïîæCY', 'wp-includes/class-wp-walker.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Aÿ•£KÓ¨<\n–á	ˆîL"'),
+('5C⁄ŸƒùZÅº#xcÍ2', 'wp-content/plugins/better-wp-security/modules/free/ban-users/lists/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+(')èü_ÊˆíJØá◊ô‘', 'wp-includes/js/media-models.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'yÈ&U#£	|Û„4ol⁄Û'),
+('`ô&≠∏Èî•~K3/d', 'wp-admin/css/login.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∆:ä‘ Ö‚ÔPπv'),
+('ÄâäÕrâÈﬂ∫∫˚üU', 'wp-content/uploads/2014/10/3385130-small-dark-grey-diamond-pattern-background-150x150.jpg', 0, '"*T·ÇŒ“qºtQﬂ©(2', '"*T·ÇŒ“qºtQﬂ©(2'),
+('ê∏ú“ë-ËÃÙä\rä{,Ô', 'wp-content/plugins/wordfence/lib/wfCache.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'µ«™\0f™p-n[¯–+L'),
+('ì~ò‚L…Œ*ƒ,ƒ<:•', 'wp-admin/includes/theme-install.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÍóYè§<˚TÿØäU¥'),
+('ÆSx√ﬂ4Æ@o¡wÔN', 'wp-admin/js/widgets.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ';kâuËqD(˚í/∑R*'),
+('…ËÎ:m°∞[›¢Ø:#', 'wp-includes/l10n.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'BÌœIê*⁄Ïù≥EÓ'),
+('œI¢ÿ\\j∂¨—xÃÕÀg', 'wp-admin/images/date-button-2x.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '%;u	ßsû/S8¢üvæ°q'),
+('È·Êj7r[º,îÃ¸Z÷Ë', 'wp-admin/upgrade.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 't¢Ò¢öÓa˜Zˆ,î'),
+('Ó\r˜0Z≠Í|mˆ Zà˙', 'wp-content/uploads/2014/10/JPEG_example_down-150x150.jpg', 0, 'á¥äAA Äù„Tqy≥=ı', 'á¥äAA Äù„Tqy≥=ı'),
+('‰¸ËíŸSqf+Ø7r¨•', 'wp-content/themes/twentythirteen/content-gallery.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ';ä.’\Z_’ZªŒ''{ç:'),
+('D©8hFﬁõBViRÓ®', 'wp-admin/css/colors/blue/colors-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'q]STÊ,17êo¶Ò„ú'),
+('Ok¶∆≤÷Ú|áA.~À<®', 'wp-content/plugins/better-wp-security/modules/free/tweaks/class-itsec-tweaks-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'î·Í∑¢>x:B	·#ac«ï'),
+('j◊ª˝ÇÛq.ª*;ß·2', 'wp-admin/css/colors/sunrise/colors-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Å*‡Äå™ôÜS‡'),
+('îkxÄq—Úœ–i¨ÑàŒ)', 'wp-content/plugins/better-wp-security/modules/free/help/class-itsec-help-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '@ıQY™˝eJ˘üπáœcÃ'),
+('“ràWÍÆ3®ô„·•æV', 'wp-admin/css/color-picker-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\rOÇdÌÏªSÔ<6$®'),
+(':≤XêÊ2ÏM”˛÷~˚»', 'wp-includes/js/tinymce/skins/lightgray/fonts/tinymce-small.svg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'e›Áû∏ûò™çæg˙_Î¬'),
+('L÷ƒ¸˝8‡ÔÄı\\®›º+', 'wp-admin/images/imgedit-icons-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '"g[c√;nõ*cË@ÙJ'),
+('jî+=∫dõKCM±\ZÖ"', 'wp-content/themes/twentytwelve/functions.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¿iµ‡Ñ>£\n{È''Ó<◊'),
+('p€û‘2N<:Z•7ªrÇ', 'wp-includes/js/tw-sack.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'πâ•ΩÑˆÎÀ¡9>¿ÊÈë'),
+('uå)8FG9°C∞(ù∂ö', 'wp-includes/js/wp-ajax-response.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '…x…iò->∆\nà\\33r'),
+('∑óê^åïûÉ¥ÎïﬁÛ˝', 'wp-content/plugins/better-wp-security/modules/free/brute-force/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('∏∑·Clo¶∂±ñØÈ“', 'wp-admin/nav-menus.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'fÀpÛ.‰la≈∞Ω~÷£Få'),
+('7¡—@SX\ryG;,0X', 'wp-content/plugins/asgard/icons/google_safe_browsing.ico', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '£\0i7(ı •1¶àmõè8¬'),
+('É∂4rËà%ﬁ„”…j∏ûó', 'wp-includes/SimplePie/File.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Æ∫≠kUá6Í\nØ+Î)%∑'),
+('àﬁKS+°e◊éAÜ@ìä', 'wp-admin/css/colors/light/colors.scss', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' ®V{ßî)\\_~Ÿ‡q∑'),
+('õª†∆ÌFe±	57[È', 'wp-content/plugins/wordfence/lib/email_newIssues.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '`f2†B¶Î4R;‹ÈÌÖ'),
+('jºûˆ ''Òπc9ÖÅk', 'wp-content/themes/twentytwelve/screenshot.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '√†üm¶‹áæ‹-\n°Ößﬁ'),
+('ßÙYò%j!∂†õÂZ{∞', 'wp-content/plugins/asgard/icons/spamhaus_dbl.ico', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '=Ûo=¢w§;Ÿ@}Qù bK'),
+('Œ¢ÉSÀ™ƒ\n¥ñB·V"', 'wp-includes/fonts/dashicons.svg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˘íNÂlù¢X/∆YÍE'),
+('„°™…O_ﬁ±˜	∂Ê', 'wp-content/themes/GeekHub/home.php~', 0, '‘åŸè\0≤ÈÄ	òÏ¯B~', '‘åŸè\0≤ÈÄ	òÏ¯B~'),
+('òØ‹°9Óu_\\\n√9¡''', 'wp-admin/css/color-picker.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '√Å˘|ü‰w~ì±#Q'),
+('»KUıg0MUø/öˆ á', 'wp-admin/admin-functions.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '„Ûùga¢ÕŒcç3≠aqΩ'),
+('è€ﬁC\néó‰UæÑ¸', 'wp-admin/js/custom-header.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '2≥\0Xá§À`oÏ¿úufª'),
+('§ 0l±›j∆0+%Ú', 'wp-includes/SimplePie/Source.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'éÉª„‡S{≥*åñˇ'),
+('ÒﬁOÍÔÔ·¯£ﬂ/k∂', 'wp-content/plugins/better-wp-security/modules/free/history.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'æÔ(~Ó«Qì%:59+'),
+('˚˜ﬁÁ™í∑u£°\rZJW+', 'wp-content/plugins/wordfence/images/help.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '$N«¸;''˝áMœœ˘Ú Y'),
+('¸)ß£ôät\rÓ,ΩJ⁄º', 'wp-admin/options-permalink.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'U)úÔnŸ[rú\ZVDJ∑yó'),
+(',ÑÑÓFºoÑVìdYã', 'wp-content/themes/twentytwelve/page-templates/front-page.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '◊^ƒ¯«Ê&ÜŸ[ZÉ'),
+('WlÖÿy:œ\0Vn`Ñd\0ñ', 'wp-includes/js/tinymce/plugins/wpview/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '[>`#YŸ¯0cCq)®b'),
+('å,ê4#¢Ö(Á#', 'wp-signup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'AéÜå>BSÙ´Ì|áˆﬁ'),
+('wÀA…/	¢ˇ˛ªƒâ\\q', 'wp-content/plugins/wordfence/js/jquery.colorbox-min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '4?J«É≥G˝`í\n÷N xl'),
+('ù⁄Ræ N+`gVOé¶Z', 'wp-content/themes/twentyfourteen/single.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'N˛OG(v!$äuL˘ö‚a'),
+('©:8œIaˆπ√∏l’m', 'wp-admin/includes/class-ftp-pure.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ',˝\\.BàŒˆ≠€ÌÔ¯”'),
+('≤˛£≤KqMç√‰{É±ª', 'wp-admin/css/dashboard.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ès’aˆ≤94c•±ÍP–5'),
+('¬TBõ§O>ﬂv2ÌÓ}Ea', 'wp-includes/SimplePie/Locator.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Äs§∆⁄≥;áuvf^ıÍµ'),
+('”mÚâ‹jg›.ÿÂP±ÿ', 'wp-content/themes/twentyfourteen/content-page.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'f⁄”2"ŸzYl˙/ú∂É'),
+('π æNbatbl†Ì…Ñ≈', 'wp-content/plugins/better-wp-security/modules/free/file-change/setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°¨æ:Z°ºrÈ1æÇ˛∂∑«'),
+('1(ÆÑ˝∞:¸q(°˜ÆÚ', 'wp-content/plugins/better-wp-security/core/js/admin-whitelist.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '!±^•_“kû%Z)æ‹À∫'),
+(' ‹ﬁË87u´∂e&Œ', 'wp-content/plugins/better-wp-security/modules/free/malware/class-itsec-malware-log.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'J¢Í\nπõª-ñŒÏhµá\Z'),
+('LÓœçûÖV∂c¸ööõ', 'wp-content/plugins/better-wp-security/modules/free/brute-force/setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'qXq¢•y¿ÙÂa∂¶'),
+('MhÛÕ*\Z\\\Z∆[≠öe¸', 'wp-content/plugins/better-wp-security/core/js/tracking.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/˜Ã∞¢∑SÁøY™Yd\Z'),
+('ëºe}$Á@*¸„xÎ∑', 'wp-content/plugins/better-wp-security/modules/free/malware/class-ithemes-sync-verb-itsec-get-malware-scan-results.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°&Ø\0^ãÄT¡–(GnÚ?'),
+('Âº`1°û§‹˜o„Îx', 'wp-content/themes/twentyfourteen/functions.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'E`µ›yu–ˇ¯¥‘9«Íçî'),
+('˚≥>Ÿ/·°á_Û≥È√¿', 'wp-includes/js/tinymce/skins/lightgray/fonts/tinymce-small.eot', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'o/>⁄•ú\Zîæt–âqÓ'),
+('¸&UX\rËL4{ö‚—‘', 'wp-includes/js/utils.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'A˙9ºÔŒﬁ!π;Î	ú˙x◊'),
+('\ZZh≠\0iÔ„∏~ı&@0', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/directory.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˚”íöâ;z‡î\rH’3‡#'),
+('\Z±e\r÷Û‰j!^≤∏	„˜', 'wp-includes/js/mediaelement/bigplay.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'qd6˚=“ûk7›bŸRgj'),
+('\ZÎ„Ë¡°ï)qtsCI9', 'wp-includes/functions.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '8Ç≠NˆÂSÉ÷s†)=,'),
+('\ZÔyÇÑ8R#O¨yŒ∆', 'wp-admin/css/nav-menus-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'u4N®@ùËÎ¡6l@,'),
+('\Z˝UE‰s(Ó±˜û#Eˆp', 'wp-includes/images/smilies/icon_mrgreen.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '†¿{Dm¢ùÀ\nŸ·üΩ§'),
+('”w‰i¯hg$¢ïùÛ“', 'wp-content/themes/twentyfourteen/languages/twentyfourteen.pot', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'FÛ]ò¿¯ˆ˜c±1¬à'),
+('$Uö≠A“ˇ«ñb*', 'wp-content/plugins/better-wp-security/core/class-itsec-logger-all-logs.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'O√æÌ‡	öùÉÑö◊ˆ'),
+(')\0&·»FX÷6≠&óŒL', 'wp-includes/js/jquery/ui/jquery.ui.datepicker.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '6,Ku !Wè’ƒ2”/…ÒÈ'),
+('5k),°ö''!√ﬂ?ë>', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¸ä\Z‰SwÓﬁﬁ°Úî\n‰ö'),
+('ßy¥›⁄!°\0pZËà[A', 'wp-includes/js/mediaelement/mediaelement-and-player.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\0øHÈ≠˜vÔj5Áë∏U'),
+('÷ªE\nª<•BÑ[Ï,', 'wp-includes/class-wp-ajax-response.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '?Øá3∑Õú(~„˜•'),
+('ÊÖ*k''l?,W”üí', 'wp-content/themes/twentythirteen/author.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '-Âæ≠ÃrÎØÈ√·ëÑ'),
+('ÁäÛü€ª¢•BTŒâUU', 'wp-content/plugins/better-wp-security/core/class-itsec-lib.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'PIò…íÓúIaAóiNY'),
+('îmÅ«n9∆F±6∑', 'wp-admin/css/admin-menu-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '#Í¶ÎêÍ¬a‰°π5=ï'),
+(')˙MÊ»^∂√ªoz©', 'wp-admin/images/loading.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˚r1<ú“ˆÙ!#ÔíÉy$'),
+('4%∑IHƒOëã ∞“L', 'wp-includes/css/media-views.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '&\r ˜Ê‚Ç}º†a∏$±=–'),
+('<Bπ¢ ±ÌA51”±', 'wp-content/plugins/akismet/_inc/form.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '''◊4Œl*˙œ&ÇÁi'),
+('C/˘;)ü™ŸëÓ∞o', 'wp-admin/js/comment.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '£˛˚Iò≥ı4·D€O#]'),
+('Lo¶SX˜ëÛ9!r¿4Ç', 'wp-content/themes/twentyfourteen/genericons/COPYING.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'πB;ñÎa`G‘¢∑ﬁâ'),
+('TÀgslFÌ¢Ê û‡ıLy', 'wp-admin/js/set-post-thumbnail.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ã≈ ˙8¶’Ø!Å1z['),
+('vsù%¬z°Ô¥˙¯æF”', 'wp-admin/css/ie-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'A˘è^PŸ#eÆç·ª1±~'),
+('zò|*6ûS\\5∑„Ø3', 'wp-content/plugins/wordfence/lib/wordfenceScanner.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'EU|ÎRoÄà•/©éHˇ'),
+('ïij)Ä«ÒøõÙN§ßr', 'wp-content/themes/GeekHub/index.php', 0, 'π≠Ï˙oãMWÁœãO»–ø', 'π≠Ï˙oãMWÁœãO»–ø'),
+('ú\n$zﬂX£`Œ1Bw', 'wp-includes/js/tinymce/plugins/charmap/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'k˘Â!ú4räâ·‡©áÊ–'),
+('ù¥=b§6öﬁhsÄ™Êt', 'wp-admin/ms-themes.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'RπKï $ºIZ1∆i%ÿ'),
+('ü∏''˙èFEüAñvQMv', 'wp-content/plugins/wordfence/lib/Diff/Renderer/Abstract.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '>\r∞√5]xVI÷''åiµ'),
+('÷å∆?â◊OÙÒ˘¥B', 'wp-content/plugins/better-wp-security/core/class-itsec-lockout.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '”uk˝YöhÊl®≥ba'),
+('Í-=Q∞Cw‡tnL‡°#', 'wp-content/plugins/wordfence/lib/wfBrowscap.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ä‰Q?SXlÜµ4∂Zı>'),
+('\núﬂOÇ_ò´;]/^ôÁ', 'wp-includes/images/down_arrow.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '!Ìgtv÷\Z¡™≥y≠®'),
+('G_bc©.,]&Å≈Ë', 'wp-admin/js/image-edit.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ù⁄cÂ…∆ÊNgŸf)eØiÿ'),
+('fMxíÌ™πÆ	È+9ïUß', 'wp-admin/js/customize-widgets.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‰%;ç$#)ãÈM‰UŒz'),
+('ã%Ñ‰\\˘¬MAÇÌ“Ôˇ', 'wp-admin/images/wordpress-logo-white.svg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '·Øc=Y‹µòå¨ˇs∂ﬁÈˇ'),
+('éöÉ¨JÃ}F∑ﬂE\0ﬁ9≥', 'wp-content/themes/index.php', 0, 'gD,VÎß=\\∆bP', 'gD,VÎß=\\∆bP'),
+('æˇ*‘$ƒW,o\\Kıµ3', 'wp-content/uploads/2014/10/header-1038x400.jpg', 0, 'O‰îÑ˝êû_¶£æ¶', 'O‰îÑ˝êû_¶£æ¶'),
+('∆=≈}C„Ói‹HT', 'wp-admin/network/profile.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÿi&ßQ\\”¢•Á∂®'),
+('”gπõIÜ!Ÿ≠—«÷_∆', 'wp-includes/ms-blogs.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'T''TB¥≈ﬂsX”{D°'),
+('ﬂjÔ˝ﬁ<Sú◊lsõ∞', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/ruby.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'f“Ô¿[#GI.IIıd’'),
+('2u\0∑]*qSÅÜπpÛ\\', 'wp-content/themes/twentythirteen/sidebar-main.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '–ô≈X"_∑;ìs/Ú*x'),
+('|⁄&;år¢Ls5˘ä', 'wp-admin/includes/comment.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˝}4≈@\0ä†%G`˙aÎƒ'),
+('ãˆ¬Ye∏.0sñÇ', 'wp-admin/includes/class-wp-comments-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ã¶ÛKnm2:1$É˜… '),
+('°–''-Ùp⁄-œ˚Òf¢', 'wp-admin/css/l10n-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'SÂ»ÉzﬁÈ@¯WñÇBó¿'),
+('Ø˙ÙS⁄emˆBgÁêÄ', 'wp-content/plugins/better-wp-security/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'V‘Cóhgå”˘©Ò@˘D'),
+('Ën˙˜ﬂºˆçﬁÎg', 'wp-content/uploads/2014/10/cropped-header-672x240.jpg', 0, '….@ûr‚£óÍ÷kºo9ﬂ', '….@ûr‚£óÍ÷kºo9ﬂ'),
+('L‰ÂbPﬁ-I◊≠1fÄ', 'wp-includes/theme-compat/header.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¥xç™¢¸ÅàvY¢≤àå'),
+('◊}¸…◊V”ÚEÀ≠J∆', 'wp-content/plugins/better-wp-security/core/class-itsec-global-settings.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'æ˛–™û®—hÃÆà\\bZÈq'),
+(' *@AD“ìà=pu∞ò”E', 'wp-admin/user-new.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'À»€ i…7Œüm@õ+a'),
+(' .ÅjZË\\Cï¢	±‚ı', 'wp-content/plugins/better-wp-security/modules/free/backup/class-itsec-backup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ';#íÃ≠†PÆd>ü‚`Ÿ'),
+(' Qëi*Løê$“Ñ~ÈÛ', 'wp-content/themes/twentytwelve/author.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ŒÂ≈ß–ü#˛!&d%Ë3'),
+(' r◊8¸QZ«∞Ï46ßÔ', 'wp-content/themes/GeekHub/header.php', 0, '„õÍ+˚-6\n]æ*`‘Ñ', '„õÍ+˚-6\n]æ*`‘Ñ'),
+(' ‡ÙcÃ´)Iå\np,Õë´É', 'wp-includes/css/jquery-ui-dialog-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '	FÖ˛âBÀKl}»{Æ¢/'),
+(' ‚p(?QnÌà¨’aÅ€Z', 'wp-includes/js/plupload/plupload.silverlight.xap', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '<RGPTm·≥™≥oˆÆª'),
+('!oç\røÕAàév7‡‹e', 'wp-admin/update.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ZìÙ°''†hπ$Î®'),
+('!1b›Ö9†™*„¿ˇ\\·∆', 'wp-admin/admin-footer.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'BL¬™uy`''G&\ZπÖÑ’…'),
+('!_çüËºµp3pôn◊”L', 'wp-includes/images/smilies/icon_eek.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '`fd\0Íªx±zvõ‹‘⁄∞'),
+('!n3x™áX8]RHÂ”1 ¿', 'wp-content/uploads/2014/10/JPEG_example_down-800x576.jpg', 0, '¢S«+Láo/§®∏ï÷Ë', '¢S«+Láo/§®∏ï÷Ë'),
+('!’Rï·õp˚nL—w‚m7', 'wp-includes/js/tinymce/plugins/lists/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∂ä,Äã	z≠—L`Û¡'),
+('!Ùˇ∑ÌY0-z1‡dm>á', 'wp-admin/js/plugin-install.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÈvïlÎ∑∫Œ%äù,˙ç√'),
+('!˙›mÏÏπ¯Î>|X«ù', 'wp-content/themes/GeekHub/header-page.php', 0, '¶¸≤E∑<“VDK¨±', '¶¸≤E∑<“VDK¨±'),
+('"(}G≈≈rÁ	0óéV(', 'wp-admin/ms-options.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¢''é\0 }Ã˛:Å‘„ÜØ©'),
+('"IFn∫ß≠∏@˜a¬}í9', 'wp-admin/includes/class-wp-themes-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '{ªÁ¥}Ãu˙òª√tß'),
+('"°ûéæb9Æãe—|Æ_À', 'wp-includes/feed-atom-comments.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'c´D1;Å)Æì-äB?6s'),
+('"µÚ…‡…u>1–7˛éü', 'wp-includes/class-pop3.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '©K≤ô√S∑Â|üòêÍ/}'),
+('"¬·˚¬Ü≤cÑ¨Ã9–&', 'wp-includes/js/plupload/plupload.full.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ìIˆ6«G•ÈÉ\n∑!:D'),
+('"”ƒ6\r+K{◊\Z!a', 'wp-admin/comment.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'µ◊Ô%Yv«±∫!ûÿ¶&	'),
+('#\n¡Ù/Ü€PZ~hÑŒ¯', 'wp-content/plugins/wordfence/lib/email_genericAlert.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'v&Z8¿Z€å"∫jsq|8'),
+('#È ÕN_Ó¯{Åt≥hù∑¨', 'wp-content/plugins/better-wp-security/core/js/admin-global-settings.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Õw5Y”»¬u¬\n£3¬>'),
+('$IÛÇÙà¯eUäd»T€', 'wp-content/plugins/better-wp-security/modules/free/malware/setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'eõ€u;∏eä¢„¨∫'),
+('$íÑı≥0S\ròr˛Æ©', 'wp-includes/images/smilies/icon_redface.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '›Í¬}÷ÛãŒyÄ#¢Zf\n'),
+('$•ùÜµÊÁ˛Æ/Ü≤4œ', 'wp-content/themes/twentyfourteen/tag.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ')T ì6∂^‘ß{Ör'),
+('$π¡ºC¡Æ¿Û/º9π∏', 'wp-includes/class-wp.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ö¢	Ã•„l∏◊†é∑æ®'),
+('%Nåòkˇ˛‰€<÷m[Õ~', 'wp-content/themes/twentythirteen/author-bio.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Û7µ“Ñ!Á≠íÒî ‘!'),
+('%}vîõ‚ù[†K∞Wˇ', 'wp-includes/js/jquery/ui/jquery.ui.draggable.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/¥"ä^]|}ºU1uôPœ'),
+('%∫“‡Î8^úV<—tÀ', 'wp-admin/edit-tag-form.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '`Ø´qA(u!ÿˆ}U.'),
+('%÷ÑQ∆à*:~\0e"E´', 'wp-content/plugins/better-wp-security/modules/free/malware/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('&*É ƒdƒÜ÷∏è	÷H5', 'wp-admin/images/align-center.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '	Ÿ\Z›∂µ4yÊådY1Ÿeé'),
+('&=\ZΩ+tÌí"¢/k''\n', 'wp-includes/js/jquery/jquery.form.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '€√ÄÑsﬁŒE˛VM«-À'),
+('&eeÓ\n3KË‘„vZ¶ï', 'wp-admin/ms-delete-site.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'àÿÑó_FS∆Õ ÛÚ˚ '),
+('&t!0^gá€bJàc,>3', 'wp-admin/upload.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\Z‹QÓË	ïÀ$)'),
+('&¨ëïRw?~Ñj≠hJ§D', 'wp-includes/Text/Diff/Renderer/inline.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'à\nÂn5±P¥≤«ÈŸB''Ë'),
+('&∑?\Zw+$ﬁ˘#«,ı•ÙR', 'wp-content/plugins/better-wp-security/core/js/url.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'YìÉÑvg‚— Q©Y>“'),
+('&ºã]0WÒÏ\n)ˇ=íø', 'wp-includes/js/tinymce/plugins/directionality/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '$Ìµ‡(PÁR…¢Õƒ>'),
+('&¬ΩYï|@î∆¶Ω„', 'wp-content/plugins/better-wp-security/modules/free/ssl/setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'V\n!W´Ië\Zí˝ò¡ä∞'),
+('&…`◊OÀQ5ëQ’43ø', 'wp-admin/theme-editor.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ω˝ÑjM¯>Æ‰	É5LO'),
+('&ÀW[Gu™fQ\0¶y˚', 'wp-content/plugins/better-wp-security/modules/free/hide-backend/class-itsec-hide-backend-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'h¯\0Ü*⁄}‡ˆéª†„i'),
+('''C≈Ê’√*AÜ‚&hs@', 'wp-content/themes/twentytwelve/image.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'e‡_Èn	¢Ê@˜S≤¶0'),
+('''ã¸ªû òo»çÕSùä', 'wp-content/plugins/wordfence/images/icons/ajax3.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'mwﬂﬂ¥tÍçì''\n§ÒÌs'),
+('''≤•TÎ*<ú=`≤”ø', 'wp-content/themes/twentyfourteen/image.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '|\r€ØÆas\0''/Bç6ß◊'),
+('(à‘g%\0œ√4›€l>úç', 'wp-includes/js/jquery/jquery.schedule.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '&≥óT™k«fÿû§ƒΩ'),
+('(7+Ñ#’H“5:#í˛Kµ§', 'wp-content/plugins/better-wp-security/modules/free/strong-passwords/js/strong-passwords.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Òß7Ç˙lzTE˘‰úu‹'),
+('(?À‹◊>πÙS©NÊèöú&', 'wp-includes/images/media/default.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '-∂©ÊÕI“BñhŒ@‡ﬁÁb'),
+('([dâò˘∫±°◊ÔBQµã', 'wp-admin/js/updates.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '†o,õe]ÛµsÚéœ∆¡D'),
+('(x*J†˚Ö,ÖL√õnÁ<K', 'wp-content/plugins/wordfence/images/icons/arrow_refresh.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'kïwÑ`ˆ`™|Ù}$GÄß'),
+('(~6vqVÏ0Ù{Ü"', 'wp-includes/ID3/readme.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¸Qxpuç_∏@&‘^ö≠Ω-'),
+('(Å†Ôv|Tè‚Äî ¬•‘', 'wp-admin/includes/screen.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'WrR®˝Ëf:sÒ∫4ª«'),
+('(Ô^¶3NΩö©ìë¢3', 'wp-includes/wp-diff.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '4MÑ)ﬂ…ÊÏ •¿D'),
+(')|‰à˘;m8Z\rs‘p', 'wp-content/themes/twentythirteen/content-image.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'QxÔEƒÁúNb⁄Õ€K«~'),
+(')aÿm_‚?\ZWïÒ¥éK', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¬¡§bç\nõ9£r<_èb'),
+('){ÙjW-_ÄQ=?ÌGl“¢', 'wp-includes/media.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '»iÖ¯œYñ•fLë«ÅŒ'),
+(')|ˆx…√2@ìørà∆', 'wp-content/themes/twentytwelve/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'g„^—sà©!≤''Æéç£Ï'),
+(')æOz=úu©áÓ£ƒÀ∑', 'wp-includes/rewrite.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'jÑãj\0¸¡IP3~√∫'),
+(')ÃÉ’2±k’hØüÚ! ', 'wp-content/plugins/akismet/akismet.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'MÈ`mâ~ âÛ[ÅµZi'),
+('* aÿF≤Ã4ü∞u€vU', 'wp-admin/images/menu-vs-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°3O™»÷¸∏\0ÓÏLU\0'),
+('*Kû˘‹\rA\0»?ÿR>ı', 'wp-content/themes/twentythirteen/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '"ËtTÔüáúJ''Açé<'),
+('*t$™ﬂãv√—nÂÅ›sÒ', 'wp-includes/js/swfupload/swfupload.swf', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ΩZ%Ú5âe,§r‘·HO'),
+('*è€ª>WzìÔ}Ò∫ ', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'tKTfÚ=©‰OVÉæS'),
+('*Æ‰-3ˆu¨çE¬[’O#', 'wp-includes/images/down_arrow-2x.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'xJu\nãâ√AÇê‡¸´®'),
+('*—˛èLÌm&&2˝’\nb', 'wp-includes/js/tinymce/utils/form_utils.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '£-ºD{}–“wk¢Çk|'),
+('*Á\Z07—•1OÅ””Ÿé8', 'wp-includes/js/json2.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'tŸñÉÂªÍúÀuD§+ '),
+('+9Ö£å[BU˚Eñe', 'wp-admin/js/updates.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'zH¿›åÒ≠S"ê¸S`‰v'),
+('+≥ßG*#Ù±ÌÙ¶î˝f¥', 'wp-admin/network/site-info.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'U°F	t‹7pÑ¸j5 !^?'),
+('+ƒ„¯t®%R?“€ı¯†Ã', 'wp-admin/network/credits.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '8,ﬁ4,«ÏıXıéÙu'),
+(',<ì™ ﬂ?C]·0Aå', 'wp-includes/js/tinymce/plugins/colorpicker/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'iV◊z''GÏÅ)‡∆˜º˚Ì'),
+(',B⁄c≈›÷‘õZ˘4Y', 'wp-includes/js/swfupload/plugins/swfupload.speed.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'AZ7áÑk∂¬◊E`,*˚s¨'),
+(',FÜ[Su;Ú[œ–å¯}»', 'wp-content/plugins/better-wp-security/lib/icon-fonts/fonts/ithemes-icons.svg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÄÄKÔNÕ§Ä^oá˘2ZwØ'),
+(',Ü·‘@µöhj‰qrﬁíˇ', 'wp-includes/ID3/module.tag.id3v2.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'lÎ‰TÒ—ó“ÙPÔÕ‹o≤y'),
+(',äh…És?4B[À^’ù', 'wp-includes/SimplePie/Cache/DB.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'YøOU£ıí.‹bº˚ˆ'),
+(',Â˝Œ1`–¶ÙÖöq;“R|', 'wp-content/themes/twentyfourteen/inc/back-compat.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'á§≥¬''yŸ∑Ã¡`¸ïô'),
+('- Gm]Ÿ0Â∂Ëìù®¡Á', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/ui-icons_cd0a0a_256x240.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\\xX[Ä˚Ù4-!gJËúã'),
+('->˚Í]‘Õµ2j¥∑’', 'wp-content/plugins/wordfence/lib/menu_rangeBlocking.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≤ªiŒ‹Ø∑Î\Zí1ô°'),
+('-kdœØçë™Xﬂw\\7ü¿Ø', 'wp-includes/admin-bar.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'm¶]ßx¡)¸é}''qx˛'),
+('-≤Í—·«∏Ü%w=ı‚', 'wp-admin/css/colors/ocean/colors.scss', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\Z|[˝üØl«|Ÿ±f%h'),
+('-á∫)7¶5y∞8c⁄‚Wvÿ', 'wp-admin/about.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\0Œjø»¬5ª≈ÚP˝'),
+('-éf‚»4]€#"u∏≥l', 'wp-admin/css/colors/light/colors-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'õ^XÌ≥eîvïî\rig>'),
+('-úÁüËóÇ†áY{]nsÉ', 'wp-includes/css/wp-pointer.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Q∑UÒ–œÊ…|hq*y'),
+('-´fnÊËÛR‰∏®0˚@', 'wp-content/plugins/better-wp-security/modules/free/four-oh-four/js/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('. ”\0_oEˇ]Aµ_‘0PJ', 'wp-includes/js/tinymce/plugins/wpautoresize/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '— çé’Ÿ+˝Ï9]†‡ZI'),
+('.IhUúé‚3éø+B\ZÑº', 'wp-includes/images/admin-bar-sprite-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¯ká%=åj˚1óÓæFïß§'),
+('.î’˚±}“ÇlòÏK"', 'wp-content/plugins/better-wp-security/modules/free/tweaks/class-itsec-tweaks.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ã£cˇÀπf4·F•|Ù˛'),
+('.¶E«[Jıœlûxﬂ„', 'wp-content/plugins/wordfence/images/forward_disabled.jpg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'M_⁄÷Z?⁄N)∫“äÍ:‹5'),
+('/<ÿß^…ºf}ñ"◊¯˚$∏', 'wp-includes/images/media/document.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'vÂ4ô8ˆŒëyì6ﬁd£'),
+('/ï\\d•0∑Ù*vÅ8P', 'wp-content/plugins/better-wp-security/modules/free/file-change/class-itsec-file-change-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'dÂ‡Öˆ/¡\0Zæ⁄∫œ≥B˚'),
+('/ªsªµC4åò‡÷¿èÄû', 'wp-admin/network/setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÓœBm>n9z]â—ö‚'),
+('/À#˜\r3·ôû‘ÜNì;', 'wp-content/plugins/arzamath_17th/templates/settings.php', 0, '83;Deıç1I	•}ƒá±', '83;Deıç1I	•}ƒá±'),
+('/·Ò''Üpïi20å‹˜Ô	R', 'wp-content/themes/twentyfourteen/sidebar-footer.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‡´`È‹kt÷ôÛÃ|,6'),
+('/Èπ†ÏƒÔŒ∞1 iwáß', 'wp-includes/images/uploader-icons-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¡∞Ç˚/wÜ≤V,`óÍ]º'),
+('0<íŒ≈»ˇl⁄ø˛ˆJ≠‚', 'wp-includes/js/wp-backbone.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'µi‚ü¯˝H.Á^îV!'),
+('0]ÅqK''˚fòx¡ªœ„®', 'wp-includes/js/tinymce/plugins/compat3x/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Wò„“˚Ä©õã◊œréÆ'),
+('0§ÁÄ≈E\00åÇÅXœH', 'wp-includes/js/colorpicker.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '5\nıØêw¶-g∫·Û:OH¸'),
+('1TEΩ uø~—¢∞\\ﬂ◊', 'wp-content/plugins/better-wp-security/history.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '_’êø±0˛ëO∏~èıDl'),
+('1È⁄ú4/-T™]M:Ÿ', 'vulnerabilities.md', 0, '‘åŸè\0≤ÈÄ	òÏ¯B~', '‘åŸè\0≤ÈÄ	òÏ¯B~'),
+('1K*‘∑9Œù‹3U˘@˝m', 'wp-content/plugins/better-wp-security/modules/free/ban-users/class-itsec-ban-users.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‰4ƒH!c “«Q^“~èK'),
+('1s∏)6™”∂ôïØCßÖŒó', 'wp-admin/user/admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'çËÖ''˘$¥U˚mªxÚZ'),
+('1èW¯êy:h7V⁄≠Ïd', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/ui-bg_flat_75_ffffff_40x100.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '	Ìù¨∑-\r"?äs™q°Ö'),
+('1‹EfQ§v#)Û\nŸ0EkQ', 'wp-admin/images/media-button-image.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'b®J”‘“íÀÜÿ˜ê'),
+('1˘ŒXä/≤t60^“Ä!‹7', 'wp-includes/js/comment-reply.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ù¸≈\Z~àºi_'),
+('1˛Î˝„O˛*˘1≈3ò-', 'wp-content/plugins/better-wp-security/modules/free/malware/class-itsec-malware-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'jû£¡_4pˇó\r¡)&'),
+('2@‹jÂj\0°k”≤î°”ò', 'wp-admin/includes/template.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ŒÆÓÂô±·{V†ä>'),
+('2jˇL,√ŸﬁW\r∫ÆW$õÈ', 'wp-admin/css/colors/sunrise/colors-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'fflîâwï¬˛Â#‘@5F'),
+('2î9G:g‰øoiÊ”¯', 'wp-content/themes/twentytwelve/content-quote.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'qˆÿ‰P’πﬂVz9•-ä'),
+('2Ï^(¡˙ ≠‡-^xΩØ', 'wp-includes/SimplePie/Enclosure.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '.ÜBÎnŒçK˚s]'),
+('3köQít+™ˆ7‡KÏG', 'wp-content/plugins/better-wp-security/modules/free/ban-users/lists/hackrepair-nginx.inc', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '«‚A∑ì‘∆Å…Ò8∆…°Ã£'),
+('3Aˇ˝|Ç\0a\r¶S∞U<', 'wp-content/plugins/better-wp-security/modules/free/away-mode/js/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('3k≠®oWë5	k[mq', 'wp-admin/includes/continents-cities.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'KWŸõæãû3—Èè«ù'),
+('3é£æ€nˆfª1', 'wp-content/themes/GeekHub/404.php~', 0, 'á°Œˇ\Zì4˙ˆQz∂}', 'á°Œˇ\Zì4˙ˆQz∂}'),
+('3€’È''∫∞¡RKöBf˝', 'wp-includes/js/tinymce/plugins/wpdialogs/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Í˚±GâÅ„7ò(tt‚@∏'),
+('3‚…fQ3‡h5[¿£Wπ<', 'wp-includes/Text/Diff/Renderer.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Îæ˙àÜ‡¡Öä¢Ëè®)'),
+('4"^uÔYu≠DÿÊ€óCA#', 'wp-content/themes/twentyfourteen/style.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∂''i7›F—ÄiÁSª\r)'),
+('48≤Vt‘∫ö+^XÙ', 'wp-includes/pomo/mo.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ˆ>WÅ/Ãº∑≤Á\r|N”_Î'),
+('4AIén09àÜ7c`', 'wp-includes/js/tinymce/utils/validate.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'hfÂò\n[ôŸ∫ÌÌV∆}4'),
+('4a‰˛[I∫}Áÿ‹Hˇm)', 'wp-admin/css/deprecated-media.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '√¥íŒRsi¿Á˝b\n1@6'),
+('4ú@xù(”/Yä¥G}Ò', 'wp-content/themes/twentythirteen/images/dotted-line-light.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '3Ø∂¥<á(Ç»{IWª'),
+('4⁄ÇúŸL$º,K[úuÃ‚Ñ', 'xmlrpc.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'õ§∑\Zu¯wæ˜n∆ª1˜Ú'),
+('5Í?âÅyòƒ<Ÿ2Ã', 'wp-admin/css/dashboard-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '`Mp.\nCÜÁº∏≤y¥:'),
+('58Ád·`S61K>€ÆÜv', 'wp-admin/css/colors/blue/colors-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'àkª`¬†RΩŒcÏü∂ qä'),
+('5?Îﬂ∆◊áRR|E^ﬁf*', 'wp-content/themes/twentythirteen/images/headers/star-thumbnail.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '7äÖæ¶\nöONîx\ZZC'),
+('5CÇ)\nWuæÍΩù/F“cK', 'wp-includes/js/plupload/wp-plupload.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•™^îñ\ZyValµ1à£ù~'),
+('5Z¨Ã‰‡SŒº„vŸ`6ó9', 'wp-includes/version.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '_\nˇ,a‡5&fÆ£∂ø'),
+('5\\h>ÛŒw	ùóáNÀ', 'wp-includes/registration.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'qòœçH^ç‹≤≥ªI¶–i⁄'),
+('5`‡]\\Õ≠i\0•ﬂÌ\ZJÅT', 'wp-includes/class-wp-embed.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '(˙gów{N˛∏fhëÚ√õ'),
+('5p4\nË!‘T*ÊÓ4', 'wp-content/plugins/arzamath_17th/settings.php', 0, 'ÛáüÀG‘ã∞®˝eÇ<è', 'ÛáüÀG‘ã∞®˝eÇ<è'),
+('5∫«WB¶Æ$£ìÓìlÄ', 'wp-content/themes/twentyfourteen/content-link.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∞(îäI∂ﬁc2x'),
+('6€⁄ﬂ®X/ÄøHL', 'wp-includes/js/mediaelement/wp-playlist.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '…òY8@vÂ''Ÿø≥'),
+('6*Ùƒó`òƒíı˛¢w˛«z', 'wp-content/plugins/better-wp-security/modules/free/content-directory/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('61uˆ0π˛‹ä0[mw:', 'wp-content/uploads/ithemes-security/backups/.htaccess', 0, ' ñ4ª8pLHt√]aZÂû', ' ñ4ª8pLHt√]aZÂû'),
+('6;I(÷H≤m…%¨√f∫', 'wp-admin/css/farbtastic-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'èâˇªq‡@!!µEk¬'),
+('6[f¿9∏?Üì _«', 'wp-content/plugins/wordfence/images/icons/bullet_yellow.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'J&˚ﬁ”…åä˝ÏÓ‘îQ<'),
+('6Ç]j‡vŸWπk\r3-Á', 'wp-admin/load-scripts.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‡Z2$öÔ]ÁKp“j)®Æ'),
+('6∆¥8Ë˛ö! ˇŒ√µÁ%', 'wp-content/plugins/better-wp-security/modules/free/core/img/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('6Ã†,ı¯_êãÏqÚÍ˘uÖ', 'wp-admin/includes/class-wp-filesystem-ftpext.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Œ∞ûS''á®k∏"Í/"'),
+('6Êπ7–πj''ãÏ^Û,Tô', 'wp-content/plugins/better-wp-security/modules/free/file-change/images/redminus.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '´2∏DÂˆb3@ÊgËä°h'),
+('77‘óÁ§â‰ˆœ»cªGn√', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/css.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'x?[+˜>ùØyÿ8/'),
+('7|oOUõí˘z\0Efªú‰', 'wp-admin/network/update-core.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°"?}R2{8\\¨É?RÍ'),
+('7´%Wy~◊πP?´xÚÁ', 'wp-includes/js/tinymce/skins/wordpress/images/playlist-video.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•lzV6`wmZBsçœ÷'),
+('7µÿO+≤ªæóä«ã''n', 'wp-includes/js/mediaelement/bigplay.svg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Í	\rqm–^@$¬íÉÛ»ç\r'),
+('7¿c˜.$P!◊"åÚπöÜ', 'wp-content/plugins/wordfence/images/sort_desc.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '©<ÑÆ’jˇå_≥ÀäRù2'),
+('7È˘!¡~˛ô⁄ìDôÑã¡ú', 'wp-content/themes/twentytwelve/page-templates/full-width.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ôN‰’}œÆN~´é"≈Pat'),
+('82NGÙ@|ÕM‚ü8|\n', 'wp-content/themes/twentyfourteen/404.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'π±*<ÉS∆"ã£\n‰Ç˜s'),
+('8=¿IÂØÙa˜%úÉk“~Ø', 'wp-admin/js/editor.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ß¶Òº·ı…Ω—∞çï'),
+('8ûR6⁄DH∞äq£-{é:`', 'wp-admin/includes/translation-install.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ëπãy…ˇù“ˆ@B}C~D'),
+('8®ÏßåZÇ∫]Q0nÖ˝‚s', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/html.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¨·©@0I¶“¸/S∫Ï'),
+('8©@)˝±6yg[yÂsQR', 'wp-admin/css/deprecated-media-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Æ¡AÍpE~ê‘-ﬁÖJYW'),
+('8√õZEëQ$}UPˆT£‡', 'wp-content/plugins/wordfence/lib/wfCrawl.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '5˘ÆÑH;Ñ\Zj\Z¨‡TÓ'),
+('8ˇ\n1nî!QD÷Ô†‰;é©', 'wp-content/themes/twentythirteen/genericons/font/genericons-regular-webfont.eot', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≠ì±Ïr9¿8e®zÊ÷`'),
+('9∫\r5''X˘˝∆>?í', 'wp-includes/js/customize-preview-widgets.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '†ºz{Ï¥Y}q”yº⁄¥æ'),
+('9œà[ü1d{ƒÙÓ@', 'wp-includes/class.wp-styles.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‘¢A8y=fPèjı„öÉãl'),
+('9:˘ódØo\nëp`Ry®¢', 'wp-includes/js/tinymce/langs/wp-langs-en.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¡€ÓÕ''D}ê¸*åXXj”'),
+('9Ä.ÄÀqek™¥Ü<≤', 'wp-content/uploads/2014/10/1024px-Mo√°is-150x150.jpg', 0, 'zÏÅIõpƒ;ﬁÿ·¯Ù9˚', 'zÏÅIõpƒ;ﬁÿ·¯Ù9˚'),
+('9ã€9?tˆ$@¨3Mª0^', 'wp-content/plugins/better-wp-security/modules/free/four-oh-four/class-itsec-four-oh-four-log.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ke0wN!oö+òQvc†∂m'),
+('9ó} B^ø≤?	Îù"Î', 'wp-includes/script-loader.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÿ(vª¢el1°UV‹¬n'),
+('9óËô84U∆∆Ù˚¶)ç∆', 'wp-content/plugins/better-wp-security/core/js/admin-modal.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '*Èê•X”ïá¸ŒÎXE'),
+('9üÿ|£à°íˇ(AÈ4ª¶', 'wp-content/plugins/better-wp-security/modules/free/away-mode/class-ithemes-sync-verb-itsec-override-away-mode.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '›"º’°·⁄^ÊΩˆÉ∂tÀ'),
+('9’ç“¢’Ï9ÒÎd\rÎäY', 'wp-includes/ID3/license.commercial.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\n;gñ¸JÄg≠≤∆ŸxAé'),
+('9ÌâÊs¥3ŸSZ,pÈ8g', 'wp-includes/images/media/text.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'zπásÊ‰0˜»ùüQÄK'),
+(':{√‚Ï{7 9∞âü', 'wp-admin/link.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'c≠˝◊Na‡b·°‰”d'),
+(':Æ|L˚H6(ŒﬂcµgÇ÷', 'wp-includes/ID3/module.audio.ogg.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Y™Ï£:XeOY»r'),
+(':7g‚ΩFÃ)%\rî¿§', 'wp-content/plugins/better-wp-security/readme.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '√¬º¶zœ≥éÆ¢u·åÙ'),
+(':<∑$éÕ0,w"&e({', 'wp-includes/class-feed.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'È«ÿ‚n§LIäjÈZ<U'),
+(':mwvK\rˇûîëÇZâå~', 'wp-content/plugins/wordfence/images/wordfence-logo-16x16.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ù\Zy3zä Rº≥¯09H'),
+(':åäÂ%H`!¨˚·\rËÄZ', 'wp-admin/js/media-gallery.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '2ñ—˙ “í∞ª°êÒ∫n'),
+(':ÔXq›ùØJ\\¶5PÚ∂4', 'wp-includes/images/spinner.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '#öO-)ê|•úr>Å¡Ël'),
+(':˘nÃ£RMÎti#öı=', 'wp-includes/images/media/audio.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÜtaCAÒæ≈˛≤.∑ÁZﬂ¿'),
+(';ﬁb≠f»ñ0ˇñ¶≠x', 'wp-admin/css/colors/midnight/colors.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'IïÇG∏iG(g´jùn'),
+(';1—ã#¡Y_NÑ•t˜', 'wp-settings.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ƒÉ9YÈ=ìh£WÂ,W∆P'),
+(';RﬁyhõÎü–RxKç\r', 'wp-admin/js/farbtastic.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ß:ÛT†2Aq]Üò˛Í4í'),
+(';ÒWct‘”Á*+˜¨Br ', 'wp-includes/images/smilies/icon_surprised.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '€\rã» ƒˇè≠ Óê‘='),
+('<FÈÎÔPzÃ22£á~', 'wp-includes/js/imgareaselect/imgareaselect.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '}( Ÿ()≥÷3†áµÛµïØ'),
+('<èâ9˛u˛j≥ÆˇÑ!¡$', 'wp-admin/css/install.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¨Íèˇ0"2WI EÄZ›a'),
+('<£oJÁ.≥≠Û≈£*î§¡-', 'wp-content/plugins/better-wp-security/modules/free/ssl/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('<Êhjÿ	é4Ωªò4a–2ˆ', 'wp-includes/js/utils.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∑¯ñø£o˛‡üo,√ä'),
+('<ÔŒuÍøñ\Z‹úµ«Y‘^', 'wp-includes/js/tinymce/plugins/wpeditimage/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Áò∞µd˘®µ‡kòŒÄµÈ'),
+('=vóÅ>1õfpïEÇî', 'wp-content/themes/twentytwelve/style.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ñøy∞42Z}ÓäÊZ∑x'),
+('=9)úë≠)¬\\’ñ', 'wp-content/plugins/wordfence/lib/wfGeoIP.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '£Jéù\\}ﬂﬁz›Y%ÅQ'),
+('=<«üïsÈ=;Ñrﬂzÿ\nZ', 'wp-content/themes/twentytwelve/comments.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '8*™À∏î^aõ∏Ù}6'),
+('=H\ZJ≤ÃàÂ∂(˜Fòœ', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/psd.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'xzñíNõNuÙãTÙÄ¢'),
+('=g›ﬂ‰<;˝°3åŒwà', 'wp-content/themes/twentyfourteen/genericons/font/genericons-regular-webfont.eot', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≠ì±Ïr9¿8e®zÊ÷`'),
+('=ò”;‘8ëN◊.ÇíEÛ3¯', 'wp-content/plugins/wordfence/images/wordfenceFalconEngineSmall.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ñsü*Ìf&@7Ö=J'),
+('=∞äkò[4úì¢ ºê=Œ', 'wp-includes/comment-template.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∫P&˚>œ÷À{‡Ü÷∫'),
+('>Eƒı$''nª≤æF', 'wp-content/themes/twentythirteen/genericons/font/genericons-regular-webfont.woff', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '€zç≥g‰√Öëæm~óòv'),
+('>h–©ÏXX*ˇv1ï©π', 'wp-includes/theme-compat/comments.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¢,uÁﬁ‰LÅÖp∆ñI˙'),
+('>qlÓ+™m»\05ƒ¶"Ü^', 'wp-includes/js/customize-preview.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' =Z«ˇø1åF\Zƒ#bÊq'),
+('>©∆Xπ\r˝bıﬂ⁄üÆ$W', 'wp-includes/class-wp-image-editor-gd.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'À“5B¬œzµ*6F9'),
+('>≤≤©ã…KùW,⁄ñ', 'wp-content/plugins/better-wp-security/modules/free/away-mode/class-itsec-away-mode-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ôgÂ‡‘©æcFJRx_''2W'),
+('>‘$\\Œ§ÄŸía~A∞', 'wp-content/themes/twentythirteen/images/headers/star.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ˇ”ƒ9ºco56±üQ`'),
+('?Yvéq_Íóˇ≥€ÆXO', 'wp-content/plugins/wordfence/images/sort_both.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≈·%ŸB¨Qx¡SV.D'),
+('?[,è<2ÿUX¨V,ª}', 'wp-content/plugins/better-wp-security/modules/free/ipcheck/js/admin-ipcheck.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '#gäàçI1‚+ïfñI'),
+('?]˝P˚.£ò1ˇ¥ÉÃ2b', 'wp-includes/js/tinymce/plugins/textcolor/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'I±°D*T4í∫ì∂j’'),
+('@VÛ$ıK∆ÁÚ<ﬁ1*‡¨¿', 'wp-includes/css/jquery-ui-dialog.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '8IèSü@+EÄ!3‹∫›');
+INSERT INTO `wp_wfFileMods` (`filenameMD5`, `filename`, `knownFile`, `oldMD5`, `newMD5`) VALUES
+('@ÄûÃò9ä#ØL√y(–⁄', 'wp-includes/images/arrow-pointer-blue.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'wü¸b„Œá*L´≤√[ª˘'),
+('@≠)ﬂVrëaí''Á˚\0c»', 'wp-content/themes/twentythirteen/images/headers/circle-thumbnail.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ñ0(˝ßpCg^eÅ§˛¸'),
+('@∫XD\n√\nRNÜêtÎÕ”', 'wp-admin/images/menu.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'H∏¿’h∑$Í4◊R°&≥'),
+('@ﬁ;5ãXıÒV®îO∆Z', 'wp-admin/images/mask.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¸ˆìg~®"Ê“J˜≤‰©éô'),
+('@Ëmæ∑Î≈O≈›W', 'wp-admin/admin-header.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'v‡x)ªÔ‡ÚÃf6ˆ◊Ñ'),
+('@˜sçZˆî^ô•”Ëqçv', 'wp-admin/images/media-button-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '#€WIÂÖ\\∏–?»…'),
+('@¯ë+‚TŒÑ''∑∑è•Ÿ§', 'wp-includes/ID3/module.audio.flac.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ºÌ÷Hü∏‡’¡\\√ó†“ã'),
+('AE∂˚Ù[Ä`å∑Åï', 'wp-includes/js/thickbox/thickbox.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'H*é˚|r˚Ï˙)•	¢c'),
+('A§ê∆œl.c\nq~hœO⁄', 'wp-content/plugins/better-wp-security/modules/free/brute-force/class-itsec-brute-force.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Gx1Qàá‡^Á+( \\'),
+('Aa˜@Jß˜ÛÒ¬◊≈Å∑', 'wp-includes/js/tinymce/plugins/colorpicker/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'fÌ{Ôª''sVn—à·”π|ƒ'),
+('A{&œ ä¢V>Ï≤Œùs', 'wp-admin/css/login-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '…ºÔEœÃª/7<·é´'),
+('A˝∞â$h‹ı’ù`Q¯a', 'wp-content/plugins/akismet/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'œhïØ PÎZÁ¿∫›¢`Ef'),
+('BÜ°jÑ)ﬂ–qºDäS', 'wp-admin/install-helper.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ƒA9-≈@∏;YHê9È°˛à'),
+('Bº	tÔ#‡{AÓë¬ÿù', 'wp-content/themes/twentyfourteen/genericons/example.html', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '§Ûè¢[¸\r#©%•UMã'),
+('BÁ•=Û˚(≈iÛ)´s°hÏ', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/film.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Z—%Ç„ êîs|=‘J^≤'),
+('C(«üﬂ…ã‘€ΩéIGÈ', 'wp-content/uploads/2014/10/1024px-Mo√°is-672x372.jpg', 0, 'ÏzèÆkªçÓ¬≠pOyÎ∫†', 'ÏzèÆkªçÓ¬≠pOyÎ∫†'),
+('C2}	∂˘2ÉÔÜ-∏câπ', 'wp-content/themes/twentyfourteen/js/slider.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'UMÕ>ßç£Ü?⁄V!Ì∑L'),
+('Dm∑\nªΩzóHÇ√SîÔÔ', 'wp-includes/images/crystal/document.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ']õ“∑¡¶ﬁL÷\r≤`pZ\rJ'),
+('D.˜Óàˆ:ï\0æ•S‘R8', 'wp-includes/ID3/module.audio-video.asf.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Û‡œØÀÀ1úÌÿD¬ò'),
+('D6mÀeér{pKËOí', 'wp-includes/locale.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'w<Ës÷V€ ∞ñ¢pÕT'),
+('Dí…Òæ’)baÎk⁄≈{ÀÀ', 'wp-admin/includes/admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'æT"ARÚ¥Ïhyˇ€∫CQ)'),
+('D’πÔ⁄¯ªÂÿ$Oa™£ÈÙ', 'wp-admin/css/colors/ectoplasm/colors-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'UÕ§9N+πÊ≈ﬂÁVZÉ˚'),
+('DÔ≤÷5\n''Â\\•√~Wìâ', 'wp-includes/category.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Z˛j%m¯F''Åœ04æÃ'),
+('E#Õ’Á-v37Ÿ6Î≈§', 'wp-content/plugins/wordfence/wordfence.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Gf<ÌzVä°Ùí&2œÕe?'),
+('E4Ì◊fu\r#R:k!jgh', 'wp-includes/js/wp-list-revisions.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¥œOByæÜMKÿ/ƒl'),
+('Eh˚°∞À˝ÌπÏ–@aqªå', 'wp-includes/session.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ﬁ–{yà3^–‰\nf	\Z'),
+('EÑª(˝zRA1;eN«qD3', 'wp-content/plugins/wordfence/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '2¡Ëeÿ¬¬™≠Î\\∆¡og'),
+('E∏V‡Û˜,’%¶◊,SM=', 'wp-admin/ms-edit.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‘/ˆƒ¶√Ωî∫:EÇ'),
+('FñH»ùlÎeì…#›', 'wp-includes/js/tinymce/skins/wordpress/images/more-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '”Ò÷Ó&§çáŸ°64'),
+('F‡ËO€£†ˇ‘ˇÁÎgê', 'wp-content/plugins/wordfence/images/wordfence-logo-32x32.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¶∂˚·÷y•wäZ¿„%?¸'),
+('FFêvåëV;v8/û\rµè', 'wp-includes/SimplePie/Misc.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ŒÕÊy∆-’ÿ“^Œ\ZKâ'),
+('FHåéº30mè:Ω∏sõ∂', 'wp-includes/js/tinymce/skins/wordpress/images/dashicon-edit.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'rüjÌcv]8á18%∑ñ'),
+('F{H<\Z*˙£™õö’â”', 'wp-includes/js/jquery/ui/jquery.ui.accordion.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'k!\\_s:[ Kõ⁄˘Ù'),
+('F¡Ù¨√É\\üOÁ°fgÓ', 'wp-includes/js/tinymce/skins/wordpress/images/gallery-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' Ó1ÏùÌıvïäR'),
+('F–''£B§/Ì4{JÕ{w', 'wp-admin/js/edit-comments.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '·÷M@#˛¨’^·`P°_'),
+('FÓ.≈<i"\\eçáI¸ˇ)', 'wp-content/uploads/2014/10/11-672x372.jpeg', 0, 'yP5˜W9MÚºzæ∫éÖg', 'yP5˜W9MÚºzæ∫éÖg'),
+('FÛ¬Ô?ÊâC;$åÈH\r\r', 'wp-admin/css/color-picker.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'µÑ§”Qè¢Óÿ¢Ê$Äx'),
+('G6UÊ2\01R¸∏ìç¢œJ', 'wp-admin/js/theme.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Å®÷;í≤7°@j¸Ÿ'),
+('Gmπô:ÜMƒæV¿ëL–â', 'wp-includes/js/tinymce/utils/editable_selects.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'y´À\0!Åeÿf¿Ö'),
+('Gq‹@Ø¸›”gmÂ±™', 'wp-includes/js/mediaelement/controls.svg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '@ıoZsm§Ô˛∑êŒ€äR'),
+('Guµ^®/1∆‘’ÅSÒé7', 'wp-includes/atomlib.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'óe∫.ÄÑÏ[Íä\0\nf¡A'),
+('GÄ9qÛÒÎ= •[3?aË', 'wp-admin/images/bubble_bg-2x.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'R=[˘Ôÿ ;íÁcﬂ≈'),
+('Gñ7\ZûÊ≤I&:Ìx', 'wp-admin/edit-form-comment.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'î:=¢ÉEı¨Í˜4/ú∆„'),
+('H+ÄE~ô}ß1Q€ΩÆŸ', 'wp-includes/js/wp-util.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '9 f1éˆbQ\nÎ ≠&2'),
+('Há`Hç«õÔO.∫ÎViC', 'wp-content/plugins/wordfence/lib/menu_countryBlocking.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ªÓ\ZM2 \0◊i1‹¡Hy»_'),
+('H√ΩÕÒiÌZæU,HªL', 'wp-admin/includes/meta-boxes.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ö8◊\n÷∑‘˘öT;<ªÑ◊Û'),
+('If@nΩÕ»Ê;c>ñ8', 'wp-includes/js/tinymce/wp-mce-help.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '0/^ù>\\CføKN¨'),
+('Iïƒ:Bsﬁ#◊Áˇﬁ@◊', 'wp-blog-header.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '_ÅÂn:»Îıû·5¬S∏5ÿ'),
+('IÒV/íµ6§s„√¯', 'wp-admin/js/editor-expand.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '2ƒû £E†Ò∑m!åhL'),
+('Jf∏3?ˆìá_r€Cë', 'wp-admin/images/w-logo-white.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ø*·¶,K€Ïi˛lá∆<≠'),
+('J·∑Gúm[{fBÂ+wë', 'wp-includes/js/jquery/ui/jquery.ui.widget.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'jˆ©*Î“j‹§Æ"√–îaˆ'),
+('J˛âE[•7U“”\ZÔ~', 'wp-includes/js/plupload/handlers.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'óòDKó#;≥A±ü7OÖ¡'),
+('Jâ≠(Ä∞˝\\OâÅ≤Ó0', 'wp-includes/js/tinymce/skins/wordpress/images/dashicon-no-alt.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'è,–zé»ŸˇíuƒQï'),
+('J{£÷πZi^√πxïI', 'wp-admin/media-new.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\nG¬ısGQ◊rã/(%lÚ"'),
+('JÚæÅ¨¥ Oh”˝–sDÿæ', 'wp-includes/js/zxcvbn.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°L’;–’uc¡©∂<Æ¯'),
+('K\0S–åzQÕ2”GãCm∑', 'wp-includes/js/jquery/ui/jquery.ui.effect-highlight.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≠q¸‘I˛éÕ9\Zê‹MË‡'),
+('KÓﬂ¢©ÿ…,ØﬁS»Û¡GØ', 'wp-content/themes/twentyfourteen/search.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'WfsàCuáöŒ⁄Ô`}£Ù‡'),
+('K˙⁄Wˇ&\0\0Kµ\06ÇGÙ', 'wp-admin/js/set-post-thumbnail.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '+QSWmÓ@˚~ŸÂÉQ'),
+('L<#≥ÛÜ\Z“·º”‹}', 'wp-includes/js/tinymce/skins/lightgray/img/loader.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '9KØ√ÃM˚:‰åTfï9'),
+('L#÷¨/€∞*Ã¯3Ú“Ï\r', 'wp-admin/includes/class-wp-terms-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¬Â|«o^`≠ø˜0w¶ÔF'),
+('L( ˝¢n¯9[2¿C6Âö', 'wp-includes/js/zxcvbn-async.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '1ñÈ∂p9	·9Œ~ö˝'),
+('LR7Qº‰ToG|ƒ{', 'wp-content/plugins/wordfence/lib/viewFullActivityLog.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¸ÿ§Ω=¯…Ò™≥ol'),
+('Ls–á≈õ\n≤c}>ˇKóá', 'wp-includes/css/editor.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ºßœ/j	ë§⁄|≠{Ÿ¿'),
+('L¬äe°t"pc(	íe«', 'wp-includes/wp-db.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¶=¬ÌUÚ?^îlÜÈ\r≤•'),
+('LÊø\r°Ü»¶:’ËnÚh''', 'wp-content/plugins/akismet/_inc/akismet.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '€¡%T5Ó√Uã2≥⁄sº'),
+('LÒ>tôıöNˇàÜã›', 'wp-admin/css/colors/blue/colors.scss', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ÿ–5I◊îÑg,)Z≠YM≥'),
+('L˜Ö)—Ÿa$≠D-Ô”Æ™J', 'wp-includes/js/tinymce/plugins/wplink/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'W¸z!—ﬂ,LºO∞m‘;‹∆'),
+('M?,5ÿ*ÓÛ…˙‹K*≈f', 'wp-admin/js/post.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '´˛<%lbø¨ÍVŒ'),
+('MWÄ	Â¶æ:…‰òŸä', 'wp-admin/images/align-none.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ò≠eqd2†°⁄uë•¬Ò\r'),
+('M©û˘Fe•√érÎù÷†', 'wp-content/plugins/better-wp-security/core/lib/class-itsec-wp-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≠¥Óv°s©Sµ†‡3jN'),
+('M–†\0öAü™ª9Qﬁ+†Õ', 'wp-includes/js/admin-bar.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '=≈x‘±K⁄0Àœ*|'),
+('M¸ê¡IÇM‘Ô¸¿rDêı-', 'wp-includes/post-template.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'g}V†''À6E¸Ÿ¬Í\0\r'),
+('N|˛¬áJ–≤™zn◊ˆsw', 'wp-includes/pluggable-deprecated.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÔñtóDbµ èQø¶'),
+('Nè3›j@pu5ì´∂ø^õÜ', 'wp-includes/js/tinymce/skins/wordpress/images/more.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '`q£/UGô˝†ˆÆ› ˘'),
+('NÆ±ì¥≤ŒﬂF_	Ï£√', 'wp-content/plugins/better-wp-security/modules/free/backup/css/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('Nœ‹''`ec`÷≈x∏Œ[', 'wp-content/plugins/better-wp-security/modules/free/backup/css/multi-select.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'É§Iy]ÖRÇó€ˇ'),
+('NÒ„˛HV˚Æ’ı}∂4G', 'wp-admin/css/customize-widgets-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'w\rƒ*€wz¥\nt˙l[#Ñ'),
+('O	á“S†˝ï«#≈ˇYiÚv', 'wp-admin/includes/class-wp-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'fäœ\nJ∆ÓJ⁄,ˇ)}¬é'),
+('OlqCc€é–Ô÷ „œÃ–Õ', 'wp-admin/css/forms-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Cì∑R∏©\\›ZåœÃ˘åo'),
+('Oê˚\\©¢µP5—”ˇ{æRÆ', 'wp-admin/plugins.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°∫p@˙ëı\rq2h*¯j¿'),
+('OßÉµ‡&¬rÅËìèïÍ ', 'wp-admin/freedoms.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‰ ß÷¬öÛ≤[√3Ïñ¶m'),
+('O¨¨˙≥RØræ©£ËDï?ó', 'wp-admin/js/postbox.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ã#⁄˚$è-ã!i>'),
+('OÔ3àÖ}ÄPÛv±/5’', 'wp-includes/js/jquery/ui/jquery.ui.sortable.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'vWp¬ëã—ëÂ›∂ÜuÃdl'),
+('O˛hu≤GØ˝·≤&\0ÔLˇ', 'wp-includes/Text/Diff/Engine/native.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Â≠''*Çæ„√ﬂ*Ëx'),
+('PE€´Ω7r|oI±6ˇ>', 'wp-includes/js/backbone.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'mk∆‘"c¬ˇ–¥∂R4\0≈'),
+('P''É(µÙÎ?+ãz¥ì$°', 'wp-admin/js/postbox.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'á†å®o%Óôzb|‰®é√Y'),
+('P73oË©	ßÎ\0Ê=·ä“', 'wp-admin/js/word-count.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'f%iï@Q•˘1°¡N'),
+('PMè‰. =˛F≠˘ÔøGI', 'wp-content/plugins/better-wp-security/modules/free/admin-user/js/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('PZçÀ˜˝" µ$Î\\ÿk*', 'wp-content/plugins/better-wp-security/modules/free/core/img/video.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∫º€¡\0nQ¬Iø√b,'),
+('Pä≈iz°tÓaÈ}‘a', 'wp-admin/users.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' )]n!ÿ*6P9\Z˜£øh'),
+('Pﬁ1$∂âÛ\\*ÂC', 'wp-admin/images/stars-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ıÍAîßú#ÊS≤Me.^'),
+('P„ÖÒ0πÅaãºR”z= ', 'wp-includes/js/tinymce/skins/lightgray/fonts/tinymce.ttf', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '“g;“›òÂ5õs?WÓ<Gx'),
+('QBáåQP6*JÃøÈÌåc;', 'wp-content/themes/twentyfourteen/content-video.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'â;˜X∫>\nbL’• éØ'),
+('QT´ÒÚ*èf◊PÑÂ•.ø', 'wp-admin/includes/file.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '5´E¸\0≤xJßË†®o1'),
+('QYóÍ1TlíπVr<', 'wp-includes/js/customize-views.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≠í;ΩzúØ	èYMë#y»'),
+('QuoPXÿÿ\0´∏S⁄û', 'wp-admin/images/bubble_bg.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'IŒG—OÒ6õ1[r˙(È'),
+('Q∑`∫ˆ‰8˛M∏8', 'wp-admin/press-this.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '_í:ó2–~CÍi¸1'),
+('Q˝©Éœ€¡lÍùg¥-ƒÛ', 'wp-admin/js/comment.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '8ˇi/y£Â}˘π*ûC¥Í'),
+('R3∏UsÎ3√»}TÍú€¡', 'wp-includes/js/autosave.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '±JR\\nëSŒ™qÎEa¨Yë'),
+('RBã∑‹ÚeL†ò¬±´{›', 'wp-content/themes/twentyfourteen/archive.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'å˘!ŸŸ$ˇgBiΩÉ˘\\n'),
+('RQ˜b7fß» |~€ìÜ(', 'wp-admin/js/widgets.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ë?†/N/≠j))NÙÉF'),
+('Réµ˙1?ô˚àY”VDtª', 'wp-content/plugins/wordfence/lib/.htaccess', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∑I†z~“i∂,LûˇË'),
+('RñxÆ4Mp@∞9u\n÷ä p', 'wp-includes/images/wpspin.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'G¿ÿ°ÆZXAïw„\Z∂Æm'),
+('Róß|Rx/„bzn9\0*—J', 'wp-admin/includes/plugin-install.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ß?{«ÍUüdÖë‹üß¸º'),
+('R§W>£Øpﬁ	\\ˆ⁄', 'wp-content/themes/twentythirteen/js/functions.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˙ü	ï~÷”\r_ÂPy<ü°'),
+('RØ\\SCØ|ju”9µøA', 'wp-includes/js/media-grid.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∞N”}Ω`º6c≠®ê’ØÊ'),
+('R¬•¯≤ÆÕ Le˝q	&‘', 'wp-admin/js/user-suggest.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '3)˙ã()›∞4}\nì'),
+('S	"¨iÁóü|›‘H8I', 'wp-content/plugins/better-wp-security/core/class-ithemes-sync-verb-itsec-get-everything.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'í\\â… dÀ ’˛hEà+'),
+('S.F»´AæjÆˇ‰(†:', 'wp-includes/js/hoverIntent.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'o\0tÒÚ—C"º<	P¨/'),
+('SX+7 ˚1?≈ıœÓ-', 'wp-includes/js/jcrop/Jcrop.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Zã˝7eΩØºÚÕQ∞%K'),
+('Sàˇ˜‹pÿ>Ÿ›WrΩYE', 'wp-comments-post.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '*º\n°πd≤‹ﬁ!õæ¯h'),
+('S“\\0|	™;Åí—', 'wp-content/themes/twentytwelve/js/theme-customizer.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ÿw≈´7í”≠Rêî?@Ï'),
+('S€ &Îaz8ˆJÿ∂9ß', 'wp-includes/widgets.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'œàøÕÕf~Î@˛^˝⁄ñ'),
+('SÙúÆ''¿ù©èÉ‰°ùOﬂ', 'wp-content/plugins/better-wp-security/modules/free/ban-users/class-itsec-ban-users-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ªW3ckˆ—j∑NSPºπ'),
+('T›j˛Åö„≤‹Ø¨8µÒ', 'wp-content/plugins/better-wp-security/modules/free/four-oh-four/js/admin-four-oh-four.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Eµ¨kÑKñÓÂP\nmÿx'),
+('T^Ih≥áÙ≈ÃŒéπ§Í(', 'wp-includes/js/tinymce/plugins/wpfullscreen/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'u+¬()ÏVáWVJòc{õ'),
+('Tá.o@Œ®2ˇwıvéüXπ', 'wp-includes/js/jcrop/jquery.Jcrop.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/a´òLru«4ˇ\Z¡'),
+('Tåä≥vm?,≥aﬁÈ„T4Í', 'wp-includes/ID3/module.audio-video.quicktime.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '(≠ˆHõáÅ≤?zt'),
+('Tü¬¨(ÆnπÿTRQw£ä', 'wp-content/plugins/better-wp-security/core/img/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‘åŸè\0≤ÈÄ	òÏ¯B~'),
+('U\\p{J˛òO√QÀ&', 'wp-includes/SimplePie/Cache/Base.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'îCÌ°âªŸ2]ú]#|j'),
+('U	›∑UﬁèOèﬂ©p', 'wp-content/uploads/2014/10/11-300x214.jpeg', 0, 'Œ∫‰∫4AŒ(d◊ÙÙ“QÀ', 'Œ∫‰∫4AŒ(d◊ÙÙ“QÀ'),
+('U√Â‡$i"u¬ &ÀÙ∏9', 'wp-includes/images/crystal/video.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'î€˝él•â⁄§∏;ı='),
+('UÂ—:ÓÜvxn°?Tõ¥', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '©≠f-øÎ¬4Cb˝ÔæÑ'),
+('V\n’…U`Ω_ö5˙ò≠8', 'wp-includes/js/customize-base.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '›ìótxÚ#L“/ù\ZP¯'),
+('VL6›7G^l%D5z3»Ë', 'wp-includes/default-widgets.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ƒåu23xëò»+Êk›™'),
+('Vhóﬁ§+F„Ë4§≠', 'wp-content/themes/twentythirteen/images/headers/circle.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '†‘INßÎ#°O\\/ä}Í'),
+('Vne! z0u1?¨ø', 'wp-includes/shortcodes.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Æ‹£Põjµ¨^ø„|–‹'),
+('VrmëKEßpºj◊‰6ó', 'wp-admin/images/w-logo-blue.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˝[N∞W¢_p‡wÆ0'),
+('VûÖÔÇôÎåè$ÿÔåäx', 'wp-admin/js/post.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‘æµ+''s3≥ãı?†s	Òí'),
+('VÓ ´q˝RÏYÀÅÜÎ–‹', 'wp-content/plugins/better-wp-security/lib/icon-fonts/icon-fonts.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¶<≈ÈD›Più‘~ª'),
+('W(q≠∑ù≈ËÙ≥ØÈÆ§', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/ui-icons_454545_256x240.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'k)„bY\Z‚p≥<O√ˆ|≤'),
+('W{∞g- XÚÈ˚''=n8', 'wp-admin/moderation.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'TB¢ìÄYR†‚"4ùo©'),
+('W})”ñ7£åÍeÁ}5Ê9,', 'wp-admin/load-styles.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‰˛EÖø0VO¯’r†•Í¬'),
+('W’À%·µ;ä6 6êHÿŒ', 'wp-content/plugins/better-wp-security/core/class-itsec-core.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '®X]Ÿ¸ cù}+˜«Æ{‘¯'),
+('Xk7∏ΩôAm¢uQD;©w', 'wp-content/themes/twentythirteen/taxonomy-post_format.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∂≤''ıh∞øç≤kñ“∏¸'),
+('X,ÁEıCj$_É¨8IßÇ0', 'wp-includes/images/smilies/icon_cool.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'XA7DbÜåövg8µ’ºÈ˝'),
+('Xáï!à¸í	8•‚˚¶', 'wp-includes/js/jquery/ui/jquery.ui.menu.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '2ôŒå«Ñp4Â∏TP'),
+('Xó:8+Àì2>V]¨À8‡', 'wp-admin/images/sort-2x.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '1	Â∑∑ÙB¡∞°¶W'),
+('Xæ…-V\rú$¡Û)`àÌ_', 'wp-content/themes/twentytwelve/editor-style.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '”∑‹’rvIB\Z˘vØ'),
+('X¬◊ﬂG∞¶ìˆïÂzÑX', 'wp-admin/includes/class-wp-upgrader.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ö⁄‘Å…ﬁ;iè¿í"ƒÇ¢Ø'),
+('Y›OTå…—Ûƒ(›“d', 'wp-content/themes/twentythirteen/images/dotted-line.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '÷√l˙·∆8.˘ö—;’íi÷'),
+('YÖLaÿÄµh–(', 'wp-admin/edit.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ïú‰•ZYî√[a›ƒ‹”ê'),
+('Yà,êeÍAıºw¿`è·ƒ', 'wp-includes/images/media/archive.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '9“ÓﬂÚh˚\0⁄”√¨ëu'),
+('Y†68‘H;%,π_c\nÄ', 'wp-includes/css/wp-auth-check.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '£{;∞%É	zJP-Ò◊ÂÀ%'),
+('Y†‚™nÔZŸùΩ…:◊/ó', 'wp-content/plugins/better-wp-security/core/class-ithemes-sync-verb-itsec-release-lockout.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'dW•H®¯ˇÓ^†ÎSÏÀcû'),
+('Y÷ùÅªU™Ä’œ}√r/', 'wp-includes/SimplePie/Cache.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'y¸ê¢:ÉoMh˜vLß4'),
+('Z4<n?eòÒ≤çè', 'wp-content/plugins/wordfence/lib/wfConfig.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 't[‰"-V—F«„jÂ/å•'),
+('Z“å£[º¯\nv‚À‚	F', 'wp-includes/SimplePie/gzdecode.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≈8‚ºÜaó€alÑ4‘'),
+('Z¨ç Ëƒ %/ªZøz9˝Ï', 'wp-admin/includes/taxonomy.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ë‚‡aÎ%ú!''›#ô∑'),
+('Z±\0ÉúYà≥í≥ √¶fg', 'wp-includes/js/crop/marqueeVert.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÆöÃÒ\0§πì9≠ˇR‘‹«'),
+('Z˙áÜ—ñêﬂHà›TD¯{', 'wp-content/plugins/better-wp-security/lang/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'V‘Cóhgå”˘©Ò@˘D'),
+('[@ëãåº|¬∞Í]è>)', 'wp-content/themes/twentytwelve/inc/custom-header.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¥%èÇ?Ê˙ﬁ˚Rg6®'),
+('[BØbQ`¯íöŒ¸w9Ø´', 'wp-includes/js/jquery/ui/jquery.ui.droppable.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '»j"≈„m∞¯áŒ]ÊwáÈ'),
+('[å√#‹ß\Z>]øÅ<¶', 'wp-admin/css/colors/ectoplasm/colors.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∆‡0o¨8À[û]€û_Ú'),
+('[èŒ≈uPEå¢¥Úx{æ', 'wp-content/themes/twentyfourteen/screenshot.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Î‘P∑∑:˘9Lˇ$ú¸='),
+('[±Ä‡1∂YAdkˆ,', 'wp-includes/SimplePie/Sanitize.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Bÿ∏¿œFµÿ•‡ÆH∏èu'),
+('[∫M\0H\0ôã”5ÿ:9»', 'wp-content/themes/GeekHub/sidebar.php', 0, '§ÄS˛MâÜÖˆ+Wh±5', '§ÄS˛MâÜÖˆ+Wh±5'),
+('[”¨Zí4‘Ï·„1ãóˇ', 'wp-content/plugins/better-wp-security/modules/free/away-mode/class-itsec-away-mode.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '(Ü*U=UZPùùK…”'),
+('[Í†èÊ|KÚo €åb7', 'wp-admin/user/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ï˝\rúGyá˛’Ëh8å'),
+('\\‹‹Öïå9áÉ∑»Ã˜', 'wp-admin/ms-upgrade-network.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '|¥í&"ÓSÅmñæ8hæm'),
+('\\[ÊÌi%Õ∞<˙òeì>©', 'wp-includes/css/wp-pointer-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '—Fú‘ò2Ñù≠&dÍvZ@'),
+('\\ö—Çí?$ÄÕÑ8¿í°Ê', 'wp-admin/includes/dashboard.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '3ad•ÖR\n\nœö/®§Ø'),
+('\\”\0ı£>¶+¢≥¡Fb–Ì', 'wp-admin/revision.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ΩÉƒÚ›ªÁÊ+≠á∞—gp'),
+('](R™&!‚∆1;ô3òÍ', 'wp-includes/js/wp-ajax-response.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '1m∆®äı\r˜æ‡úHPË'),
+(']B#Õ2Ëz⁄Ï˙bUú…/', 'wp-includes/Text/Diff.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '%˛ùgkj@b¿%∆ﬂ‹\0Ÿ'),
+(']•ÇP∑øÓTkvtä∫8A', 'wp-admin/network/menu.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Kî›‘+——h‚`?)Õj{'),
+(']•§ *Ö§èÖˇèJñ', 'wp-content/plugins/wordfence/images/icons/email_go.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∫™jÃŸE¸¥H)´.ΩÌ'),
+(']ßüã‚˘"}[íY‹R⁄', 'wp-admin/css/edit-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¸hªà˚·ó_,k©8ñ‰'),
+('^,‹@nÃ•$à	≥&◊ ', 'wp-includes/js/jquery/ui/jquery.ui.slider.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'l*9Á"ı“ßPÓ3?“≈'),
+('^9(-(≈≤≈y â˜ 0q*', 'wp-admin/user/about.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ôÏ\0⁄çëKN˝ ò£‰Næ-'),
+('^@’≤{''´©_Ë‚õ92', 'wp-admin/upgrade-functions.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '^ˆﬂÿÏuP‡qX\\eé¸'),
+('^yG=⁄úFg;3ë√°©', 'wp-content/plugins/wordfence/images/button-grad-grey.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ïƒRCÏø Ty’˝?ﬁ'),
+('^ÂÉ√êØàØ+Öy|–', 'wp-includes/images/crystal/spreadsheet.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∞µﬂB,…0`Jzq∞l'),
+('^áwï‘*øAƒ,Ëˇÿ«f∑', 'wp-content/themes/twentytwelve/content-link.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Úp>–%‘/Nã◊É‰’Ã„'),
+('^À®_™æÒáR…6√”+6', 'wp-content/themes/twentythirteen/screenshot.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '«¿Cä”Õa¡ æA¥Ñˇ‘¬'),
+('_∞\0ﬂ≈d ïMP~€ÎD', 'wp-includes/revision.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '·8oêå¿£õˇô”'),
+('_*ƒ‚ΩûLˇ0‚>\r', 'wp-includes/feed-rss2.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ê˜ñnThs(0—-«XÂ'),
+('_jıá_±®/‘Ã÷y”±', 'wp-includes/load.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '´{|X\\ê9Õ÷&êø‘['),
+('_÷|úØT¢M^ÓΩıƒJ', 'wp-includes/css/editor.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'øÛﬁ5πf¯◊0N⁄·F'),
+('_÷‡Å4‰Å3ìÕÀ=éì', 'wp-includes/images/uploader-icons.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¥ì\\Mœˇ¿˘ùmñÄ'),
+('_Óë(ÌCòå¬M6ò9…', 'wp-admin/includes/class-wp-links-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ò/_ˇäuQ2˙oFm§î'),
+('_ı¥Ô˝·8}Ãﬂú?Âé', 'wp-includes/css/media-views-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '—p=ˇW»ßù \n<ÿg·£'),
+('`Q$pôÈÓˆ\0“p(ö-', 'wp-content/plugins/better-wp-security/core/css/ithemes.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'L‹÷ﬂﬁÌq®}ÿ¡çj1'),
+('`Œ˛«Sî`NIã^GÔ', 'wp-includes/js/tinymce/skins/lightgray/fonts/tinymce-small.ttf', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '⁄•.(øÿè_µXÂ\Z%'),
+('`%≠÷Ω·jÆ±''á“P˘¥', 'wp-admin/js/edit-comments.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Zü—≈+ê´=*˚™o-œd'),
+('`≤X§ì;ø@¶ˇ4¯À\r', 'wp-content/plugins/better-wp-security/lib/one-version/class-itsec-one-version.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '£/˘œ-A9ÿLËÃ^h–˛%'),
+('`ªc0ØûŸ\\˘‚Îï3Êç', 'wp-content/plugins/wordfence/lib/Diff/SequenceMatcher.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'çﬂ∆ÒËúìæB.£xP@'),
+('`ˆ¶î;†"≠-πˇ»+~;', 'wp-includes/js/tinymce/plugins/media/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' AgŒôjÊÛZ¯rçI'),
+('a\Z»cüù≥¸rï2‰Ù¨', 'wp-content/plugins/wordfence/js/jquery.tmpl.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ä\\}√"£Üã7⁄∑íïDZ'),
+('a)ûTMW·∏Ooà∏Qî|‹', 'wp-admin/images/media-button.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≤∂√„6@pËíz^yeÛŒ'),
+('aZë—∆≈`Ï ◊˝ya$º', 'wp-includes/js/jquery/ui/jquery.ui.spinner.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '„ÏÒ]ÃˇÏˇ#Î(¡æwØ'),
+('a\\c,I"5TÕ±#Ãã˛', 'wp-admin/images/media-button-music.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ëƒFqèsMﬁ)IJoú<'),
+('anñ‹®´5M¬ìgU{ƒ', 'wp-content/themes/twentyfourteen/content-audio.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˝rà¨ñ„\Z1róÑí≈·∞p'),
+('a§Ñ,h”sN¬\n…⁄', 'wp-content/plugins/better-wp-security/modules/free/ipcheck/js/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('aß?£™_◊À¢æ–6j®ÏX', 'readme.html', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'U¸†_â)MŒÊææ¶J'),
+('a∆≈É…˚(m‡EB˝l…', 'wp-includes/media-template.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'bCN>œÇé+£„.Ûî+Á„'),
+('a…cµCH\rÖë=l@ƒ∏', 'wp-admin/plugin-editor.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'f˚[2IrmﬂÈ''!2`'),
+('aÀê5`›	ñÜG;òV¯Z', 'wp-content/plugins/better-wp-security/modules/free/core/img/backupbuddy-logo.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '~KTG5IÑ,œ\nºB¡iç'),
+('aÂ|\nÇ¸|@X\n∂úfM\rß', 'wp-content/plugins/wordfence/css/dt_table.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¢[°f˛Ê\Zô™}¡I+o'),
+('bY∆,•∞œ•Y™r€ù—;æ', 'wp-includes/js/crop/cropper.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ky5Ùni*M(Ìô'),
+('bgRle^K≠!‘U~A∞∂ç', 'wp-content/uploads/2014/10/JPEG_example_down-672x372.jpg', 0, '≈ï-¯[Oèçº3uË%ä', '≈ï-¯[Oèçº3uË%ä'),
+('bæ‹gL*%Máÿà¿·‹Å', 'wp-content/uploads/2014/10/header.jpg', 0, 'rBOÄ\\CÌπ''?áÕyë', 'rBOÄ\\CÌπ''?áÕyë'),
+('b •ÒHzfWò†Ö≠gwõ', 'wp-content/plugins/wordfence/lib/wfSchema.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '3yˆüp#-x¥˘P®˛$'),
+('b‡î˚øî“å &È?¨{', 'wp-includes/js/customize-loader.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '±}OÆÓ—ÙﬁÛ£b,?_€Ñ'),
+('c,ΩÖ∞[xﬁ´Ù3•\n˘@', 'wp-includes/js/jquery/jquery.masonry.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'íä‹ÌÕR∏(Âû¬ëe^'),
+('cA¨k‹¶ÙÀoµ	ü&ê1Ó', 'wp-content/plugins/better-wp-security/modules/free/malware/js/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('c≥R‘+ãÏ°VZê’W∫?', 'wp-content/themes/GeekHub/style.css', 0, '7æpñûHô38æˆç≤\n≈', '7æpñûHô38æˆç≤\n≈'),
+('cÚ>˝q˝Dé1	_h\0b', 'wp-content/themes/twentytwelve/css/ie.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ò»ﬁÅˇUKﬂ¨J5⁄_⁄„©'),
+('dıÂ:w§Ó–OÕ–Ü', 'wp-includes/ID3/getid3.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '<"C(H\nzÌ\07Ø<"2®'),
+('d„Ï≠1ÌÏµì-Ö;Oòˆ', 'wp-admin/js/custom-background.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Új˜)N‡π†Àà¬®iv#'),
+('d#èªu=kßfÓõ''\0≤÷', 'wp-content/themes/twentyfourteen/js/customizer.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'e›5‚èŒü4Iëg'),
+('dF=˙àœjà≤Hcˇ†Çêñ', 'wp-content/plugins/akismet/wrapper.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '}æ÷\\ÏË2—_1‚m'),
+('d’(ƒ»%JÈ˘ﬁ@ıGÜ', 'wp-admin/options.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ';%y:‡/≠ﬁÓ)π√◊'),
+('d‡éıa''ågCM~uº’Nd', 'wp-content/themes/twentythirteen/rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '<o˛$k)¢≤û_-l'),
+('d‚∫hƒß{q4á2˜K"ﬂ', 'wp-includes/SimplePie/Rating.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '=p§m	«K„ÿØat˚'),
+('dË4èj‡2U¬Vé∑$ˆP', 'wp-admin/css/wp-admin.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ˇ7§H“;§Ï¿ùöò⁄G'),
+('e.P»¥NBáSx[€&¡º', 'wp-admin/includes/class-wp-plugin-install-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ó2\0ç*•*åÌÄ˝ôô'),
+('eÆ‰__Û%˜ËÆxà¿€', 'wp-includes/class-snoopy.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‹À“mMzËMrí;vûñ'),
+('e±€bŒ,éXLùuÆçõHø', 'wp-includes/js/jquery/ui/jquery.ui.effect-fold.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Æ8ﬁmıØ£æ‹B%Œpñ'),
+('eΩ^#|€ç¢T–©íàz', 'wp-includes/Text/Diff/Engine/xdiff.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '÷π»bät≠X8öGX'),
+('e÷\\f&÷¶:Ω{#YÁ∞', 'wp-includes/js/jquery/ui/jquery.ui.tooltip.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '.^™{Ê2»cE&éË¡˛k'),
+('fÖu3\n∏M\\¡}6*0Ìû', 'wp-includes/class-wp-customize-setting.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\n∂››^Â ò,Í;s»ØCj'),
+('f†Èú∞fÿü|h˚πUíL', 'wp-admin/includes/ms.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'XK°âx+∆s‚"ëbk'),
+('fŒ‰†Ÿ˝¬e´™Rπ)⁄', 'wp-includes/SimplePie/Item.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'E‚!˙CzÏ\0éc<‹ß'),
+('go∂t-äÃ\\* 	¨…·', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/xls.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'scÀv0—‘¥A3E˝Æb'),
+('g#È,vMëˇéãóﬂ:ı‰', 'wp-includes/js/jquery/jquery.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '%«nc,‚Ú“Rí∑*Ã‘'),
+('g+yrâ‰–qÑÄˆÄD©¥/', 'wp-includes/vars.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ë”· QF&b≥ØEêS¢pN'),
+('gî$G\\æÎ±;©rƒƒœ1X', 'wp-includes/images/wpicons.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'm=M+[2Í.ÁoSj§E'),
+('góÊ∏∫ÃÁä_mç«˘r', 'wp-content/plugins/better-wp-security/lang/better-wp-security.pot', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '2îÛÒ“yÑ\nœÁ€	A∂'),
+('gÈÈ9K√È)™≥d/7?L', 'wp-includes/js/jquery/ui/jquery.ui.effect-slide.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'fª≤ı”‡&\0¬è«»Y∞^'),
+('gı‰]bR%à Zç€E∫', 'wp-includes/js/shortcode.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∫X2\0`yÛºΩÎL8…*ﬂ'),
+('hÒá¬Ä-ú∑∫?§Ú+´', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/code.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∆_≠ÆZ¬@\Z\0ÊoQè'),
+('h\ZOhl¯Á_¯ÕLm/Â∑', 'wp-includes/class-wp-customize-manager.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '"FpÏ‹µkÆSƒTœ˝¢2'),
+('h d—íÍªÖ2ˆ√_¿r', 'wp-includes/functions.wp-styles.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '''Vç¢·œAîü¬[8˜'),
+('h0X-»iˇª’·ç^ÃG`8', 'wp-includes/pluggable.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Õ}^‚c¥b⁄b»'),
+('h4¨ãÚ#3«`é-›à®"¢', 'wp-admin/profile.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ëÑÂ?ñ∫ﬁ>zÁÕ©Ìﬂz&'),
+('h@Z…%èRÎïFﬂ;ti\\m', 'wp-admin/css/login-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'h~«1à4:SÑ\ZõãO'),
+('h[]¬\0pΩ˙mè	qc', 'wp-content/plugins/better-wp-security/core/js/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('h|hEààf:∆±2öÇ~', 'wp-admin/network/theme-install.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '&’∑Õ1Up–%‡û1=$‰'),
+('hª<≤]ìîÏOpNC∆¥Ê', 'wp-content/plugins/wordfence/lib/wordfenceURLHoover.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ºaNUkåp§%‚Ú'' 7'),
+('hÎ˚‡\raˆv6XF„aÀà', 'wp-content/plugins/better-wp-security/modules/free/hide-backend/js/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('iAh{ãœ„M(Ç|J,◊Á', 'wp-admin/js/wp-fullscreen.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '±kSà∫¸3Xé€ˆÿßÿ92'),
+('iõØUñ}¥ﬁYß‚“', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/ui-bg_glass_65_ffffff_1x400.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°1;ód§^\\kt≠òMç'),
+('i≤-ˇ–X±8V[~E˚', 'wp-admin/css/install-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ö≈ΩK˝⁄R¥πÌ!˜Ù∫#ÿ'),
+('i¿\\¥ØÅõ=XÔh$', 'wp-admin/js/language-chooser.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '	‚P«V0◊ètJªJ'),
+('j±≠›ˇ&ö\\≥Uæû’⁄Ü', 'wp-content/themes/twentythirteen/content-link.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ì˘cÓ~ñô™U´gÿ'),
+('j&∫V1ô¨Æ6ì4™ØÎ‚', 'wp-content/plugins/wordfence/images/icons/ajaxWhite32x32.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'æÌÈrâ¡9 è#è”{Ö'),
+('jQ˚ıóe˜ä¯;‚e', 'wp-includes/css/wp-pointer-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '^AMß√>RËÓSÆ Ã,;ÿ'),
+('jmE§—AX›uwõ>‹Ü', 'wp-admin/css/colors/ectoplasm/colors-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '{vV≤ÚsUÓgE≤ç‚'),
+('jÅ‰±ãπø·%à›√]Ä', 'wp-includes/class-wp-xmlrpc-server.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '7ÅFë>5qèI,ówØ$'''),
+('jêó£…ˇ5F+∏ØÌo', 'wp-includes/images/crystal/interactive.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'SHrŒ4-''æ¬\Z$£…`Í'),
+('j⁄ø¥tÿ¡1u©¨Ü}£ßæ', 'wp-content/plugins/wordfence/images/wordfence-logo-64x64.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÿ]$“bd˘+NY'),
+('kÇà∏$6O≥“-NÖx†', 'wp-includes/js/tinymce/plugins/charmap/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'YØ FªH~''¬ﬂíœñ'),
+('kMœ¸ñú¶öÓÃôYsp', 'wp-admin/credits.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '8¯Æ¨`\ZnùôXQ“Ö_'),
+('kôT‰˛Y∏Ç¨U.äÄÌ˚', 'wp-content/themes/twentythirteen/search.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '√úAÆd°pn˘˝Êƒº∞	+'),
+('kΩ˙BÀû„b=yÜ⁄', 'wp-includes/user.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'P§fÇ©íyà\\`Ù’\0Ú#-'),
+('mDí∆Témsë∑ÚA©}', 'wp-includes/certificates/ca-bundle.crt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'óâv«ª˙π!öo\näf§⁄o'),
+('mAÁY∑‡ ¿ÆRb|ﬁSé', 'wp-includes/ms-default-constants.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'NMìÌ¢®¿ä÷9Òàb¸%'),
+('mY∑¡ìö}…ΩÎÖ?', 'wp-includes/js/jquery/jquery.ui.touch-punch.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'L»mƒQ4÷Éè„à]±'),
+('mèK°gt^x}(˝/à', 'wp-content/plugins/better-wp-security/core/class-itsec-files.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'u$!éN-ã”£]ıÂ›,›ˆ'),
+('n]˚j7<3ISsQﬂ', 'wp-admin/images/post-formats32-vs.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∂…ç%PÄÃf—UˆvQ˜'),
+('n#©t=ï''Öí¡ﬁıb]{Ò', 'wp-includes/js/tinymce/themes/modern/theme.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '*—A“]aµ˛µ·å”æ$î'),
+('nZ/1T:{&^Ñ/nø˝Ü', 'wp-admin/js/media-gallery.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '|Ú∏fíßÑˆ8˜}+&'),
+('nì∆Ìƒ@íßAé˘F¥', 'wp-admin/network/sites.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '["±Ù€´/íÃ∆ú`ZÖÛÂ'),
+('n·§gk©‹ÜõtÊb!ŒÅ', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'LP67ŸN¡«Em|≈Â·q'),
+('o7≤QÙ≠	É4◊≈õ\Z≠', 'wp-content/plugins/better-wp-security/modules/free/content-directory/class-itsec-content-directory-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ö$®F˜éæ~∏\0ˇÉÃ™'),
+('oPZ\n…%„o2X!·''^', 'wp-content/themes/twentyfourteen/page-templates/contributors.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '*¢êx/>7ˇeáãÈCµ'),
+('oP˚côáÅÏo©.‰r', 'wp-includes/js/tinymce/skins/lightgray/img/object.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÛrdP◊E}u\n/MîA«Ó '),
+('oZ0Üö˜˘—ÿ‘<cÕ0', 'wp-includes/SimplePie/IRI.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'nˇ ”ÊÜíœ;a{á_6ı'),
+('o–Âa»Êw5hﬁ@+w\rº', 'wp-content/plugins/wordfence/css/main.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '''ÛV†¥Åö‡<”\\ñH”Ø'),
+('o„Æö-◊;?X:è˚p“°', 'wp-trackback.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ã≠$Qıõ[ëªT†jlπ˝'),
+('oÌì[¨–n3uÇ» πüP5', 'wp-admin/options-general.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '?Ù∞¸˛,¸/Œ\r‡Ö…«u'),
+('psÎ0ò‰‚¬ë‡ÏcÎó', 'wp-content/plugins/better-wp-security/modules/free/content-directory/js/admin-content_directory.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '_Å‚~>:zˇ˛i¥≠Bå™'),
+('pUy¸a	ÍbØ‡vaÑ;°8', 'wp-includes/js/comment-reply.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '”\n–(e=N¨(ZMV{Ω'),
+('pmßŸóÀ·±B—Ff˘˘•È', 'wp-content/plugins/better-wp-security/modules/free/database-prefix/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('pÑ\\Û’#Ûã:~CF‚Qñ', 'wp-content/themes/twentytwelve/header.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‹$U»“ŸçŸë0ôt£gù'),
+('pï¥.–∞îÛÅ[√çD°', 'wp-includes/deprecated.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'T∂Kk¥πv2''{Ù<Ù∫'),
+('p˘¿ˆób•~ÉoBkÃZ', 'wp-content/plugins/akismet/class.akismet.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\\π‹ÁßÛ˙¨∏S*Èº›'),
+('p˙¢u¸w®úSâ…¥0ø', 'wp-content/plugins/hello.php', 0, 'RßÛbAoìöt!_~Ω', 'RßÛbAoìöt!_~Ω'),
+('q"çcoÎﬁ£>´2RhÈ]', 'wp-admin/includes/plugin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '^¶1øxHç	/dUM˛óá'),
+('qhˇ665óy|Ú=Ô?S	', 'wp-includes/js/jquery/jquery.serialize-object.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '—\\)°çü˙ãõJËl<˙"'),
+('qÜYÅ•∂Y=)àìÏµ§', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/pdf.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '^·XCU@—''6@OçD:'),
+('qãÄ\Zp?«ãæ78gtµ†', 'wp-content/themes/twentytwelve/search.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '9±∆g0«\raìZkñ…2+·'),
+('rîÆhí≈vÜœLk/Öˆ', 'wp-admin/network/upgrade.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ö¡}`|ßà”˝…Ëyo¥'),
+('r+zk;ª 4ØÊWI', 'wp-includes/js/tinymce/themes/modern/theme.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/åá˝&H\0T˝ËA˜À'),
+('r>Í}¿ˆüˇ◊a√˛>lH', 'wp-content/plugins/better-wp-security/lang/better-wp-security-es.ES.po', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ûº™#ÏpÏS>QŒ–í»'),
+('riπvûƒ4,è!$Ó‘¬⁄±', 'wp-content/themes/twentytwelve/footer.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '@\rÆ;hoè1≠ßB'),
+('râ(n’ûê®ÛjÁóﬂb"', 'wp-admin/js/media.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ãwF¯ëx¸∫/Ñ∑Ù›)Uq'),
+('rÈ_Ë/ôÕHG=Õ%ó<∫', 'wp-includes/images/arrow-pointer-blue-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ãoR∂\\§’Ä[fÿΩ8'),
+('rÈˆrá(JØg˜(®y≠t', 'wp-includes/js/mce-view.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '`p%à≠∑HœZüm'),
+('r˘Œ\nó€b∞ï#©È', 'wp-admin/css/media-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Iái\\/›ÂRπr:z#Î3§'),
+('s8PôŒ\Z%?z›úG‚©Îz', 'wp-content/themes/twentytwelve/rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '#ã°ÃG;ıGµàü≤Ò©'),
+('s¶Ï”£Jˆ≥≈~íÁk', 'wp-content/plugins/akismet/views/stats.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'DëÈ—E≈ax˛t/©ZT '),
+('s≠õ 6{õyv⁄Q=^ìc', 'wp-content/plugins/better-wp-security/modules/free/ssl/class-itsec-ssl.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '''»◊u”smÚŒ,c‚◊3á'),
+('sﬁ≈èU''˜Ï¿e@°dã', 'wp-includes/js/tinymce/plugins/fullscreen/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ï˚ß∂cÿ,æœº»m¥¶I'),
+('sˇC4Mæ*µæ*B´)µ', 'wp-includes/css/wp-pointer.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'É˛˛ÍWÜT^w_%îH-'),
+('tL5∞j∏û¨(Â…1$E	', 'wp-content/plugins/better-wp-security/modules/free/brute-force/js/admin-brute-force.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¯‘nQ¸¿G/∏Äâüµ'),
+('t6∑ÓûO¨\raçå»ÜÎf', 'wp-admin/js/plugin-install.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '.-Î$ÉZ_lRYi\rwZ#$'),
+('t8å¿–ÔpØÃã’z{jDp', 'wp-includes/css/buttons-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≠ÛµÏ˛Nf‚†–éîDD'),
+('tU“/Ds§I⁄§‹st„', 'wp-includes/js/wp-auth-check.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∑©R%K[D◊⁄l@˛Óq'),
+('tm6€ó¿q∫ˇé.ê£=j', 'wp-admin/css/colors/blue/colors.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'øÛñmn⁄ÙãÔ‡!ƒ+'),
+('u''À¸u:K√Ô∆Càd=»', 'wp-content/plugins/better-wp-security/modules/free/backup/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('uKÄõn>©D®rüÀ ‡', 'wp-includes/js/jquery/ui/jquery.ui.effect.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ñÒÊΩùù''âŸ∏Úó·ˇË'),
+('ueˆ,"\n	Óh∏g.', 'wp-admin/css/colors/_mixins.scss', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'S‚_ÀÏëÂ|ë''4.o''6Ó'),
+('u}ˆ|4Á\r1È€t∂<\nÆ', 'wp1.sql', 0, '&ÜîäíïF¢›6Xa', '&ÜîäíïF¢›6Xa'),
+('uø‹3!pA≥fÖ)RØM€', 'wp-includes/js/tinymce/plugins/wpgallery/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'M7F^ìÖ\\,…∆m⁄hú'),
+('u√ˇ˙ì}ã¨›euƒ∆Ω0q', 'wp-content/themes/twentythirteen/images/search-icon.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '7£œé=]Ù\0,Uÿà4¢î–'),
+('u·qg\Z\0á8âh‘≠˚\0', 'wp-admin/custom-header.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∫]0ï^7kÎ—·4ÉHÎ'),
+('v⁄¥°Â«÷VπΩÿKµ˙P', 'wp-includes/js/tinymce/skins/lightgray/fonts/tinymce.eot', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '$èlØayÍl@5∑ÍÏ~›n'),
+('v@Ø¶£2ﬂ≠^qÅ∆†WW', 'wp-content/themes/twentytwelve/single.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ú¶kè∑ù∞›`‘ññ6'),
+('vK;@—s∫aU1;©	^©', 'wp-config.php', 0, 'ª\Z–RDƒÎS~ÙùuÌÓ¸', 'ª\Z–RDƒÎS~ÙùuÌÓ¸'),
+('vwŸ—@àH …zñF¶', 'wp-admin/ms-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ö¥ó@ﬂÕØEÖb6‰'),
+('v]øzã‘Âö√3ªtB', 'wp-admin/includes/class-wp-importer.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ñ·(Ω—ÊVHˇtÂn0<'),
+('v°ñﬁ£„˚RÔ', 'wp-includes/js/jquery/jquery-migrate.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ê‚7’5πX˛ØQNÚz'),
+('v‚\rÛˆ\nL∞l	ózöV', 'wp-content/plugins/better-wp-security/modules/free/strong-passwords/class-itsec-strong-passwords-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¯k\rú)±Ü÷§–ñ˝DC'),
+('v‚GÇ.¬g∑Aı∆#ırÈ', 'wp-admin/images/align-right-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'hÉlΩ>r∫]£lW∆¿x'),
+('vÊ¸·‚4›|>Ì<¥ˇ¿®', 'wp-admin/js/xfn.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‚÷ÓÀ◊tØ+±°n¡(k'),
+('v{#øπlöìb\0}”„B', 'wp-admin/css/colors/light/colors.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '4yDÜü&ªΩ9‰fe+„'),
+('v˙“∏);èD∞ç~J"‡èq', 'wp-includes/js/jquery/jquery.form.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÂØÿ‰.¬,ì+åŸ\nq'),
+('wuËöl|Âıpò Q', 'wp-includes/js/autosave.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‰•o$	√?ñ“œÆ“#Ê'),
+('wO∂Z]4ØrJ{”)∂5', 'wp-content/plugins/better-wp-security/core/js/admin-dashboard-footer.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '—ÍÅ•ò∂pÕòoéb‡'),
+('w£§ÔL˝Í£0úÔ]r.', 'wp-includes/images/crystal/code.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '`Ô1≤œ˙Ô∞ı1Æ9'),
+('w˝˙⁄Ú· :}VπºP', 'wp-admin/js/common.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '(0√SÕêŒ7ÏF‚ù‹'),
+('x	G!N‰∑$•.ödéTbÔ', 'wp-includes/ID3/module.audio-video.flv.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¸p€‡HÍØß:∫3}Gµ‰‰'),
+('xGâˇd≠C©Â1xM¨pﬁ', 'wp-content/themes/twentytwelve/content-status.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'õ∆8\\∆Z™ª®07&4'),
+('xIHﬁ.î9îY√‡BO', 'wp-admin/css/colors/coffee/colors.scss', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '9~8 ≤z#C0…^%aŒ'),
+('xyó!‡¯Ùq¡)ˆ.Àâ"', 'wp-content/plugins/wordfence/images/sort_desc_disabled.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ŒméÑÜïÕü ‰r—÷ 9'),
+('xñ^m›]Ã≤ö/ı≈L4vU', 'wp-admin/includes/revision.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/–°ÚbC¸zOí≥H¿u0'),
+('xµ BîchVﬂÎÔ¯ÖZ≤', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/jqueryFileTree.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '`ÛïÕ Y|	æ¢¸W-=M'),
+('xÎçÇÇü@}Y«åiÀ+', 'wp-includes/js/tinymce/plugins/tabfocus/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Cpº\0{Ÿ@≤K§:©–'),
+('xÚ-)æöØ‡⁄ÒW^Úsd', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/animated-overlay.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '+ë/|S\0å¢é∫Õ§ê%Á'),
+('yä≠Å1â‚-ËÜ/fI◊†', 'wp-content/plugins/wordfence/lib/Diff/Renderer/Html/Array.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '(©/FIç2πßLXG˜\\ë.'),
+('y¥Ì›EêaÃÛ:ç[\0', 'wp-includes/class.wp-dependencies.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'EØiIe…A∫–…Õ…\Z∑7ó'),
+('yÍé‰Gï\\`ò·˘¢MRî', 'wp-admin/network/site-new.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '…w:»<äB/~z⁄wJh'),
+('zÁüÍ)‘Ì+◊8Ó©ë~', 'wp-content/plugins/better-wp-security/modules/free/file-change/js/admin-file-change.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'cìâ`Á¯b9w\0.Y'),
+('zª#Fc>Ø⁄	ÃﬁRÓ∞', 'wp-content/plugins/better-wp-security/modules/free/four-oh-four/class-itsec-four-oh-four.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'fZ•g^ØüÌ˛jP|ëª¬('),
+('z;j2WD∫6≤å[°V', 'wp-admin/js/accordion.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'E\rRˇiB\0Mtû’ùä'),
+('zFxMıjå?`h≈◊ù6.\0', 'wp-content/plugins/better-wp-security/modules/free/brute-force/class-itsec-brute-force-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÿ+míä’»Ó|∑iÚ…'),
+('zR3.á{/$vÊæ¢nª8‚', 'wp-includes/js/jquery/ui/jquery.ui.core.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'G¢''yŸwSCˆÀ,óî\Z'),
+('zî3®4*y˝ΩΩÂ‘Çü', 'wp-includes/js/jquery/ui/jquery.ui.effect-clip.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '8ﬂ!À®Ì\0A[")√?\n1'),
+('z¢5∑*\ZADZCk¨·jÆí', 'wp-content/plugins/wordfence/images/icons/magnifier.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '®ßçuOÆ{:qcV„Ó'''),
+('z¨ˆ’ÔJX‘w{!\rF´¿∫', 'wp-admin/includes/class-wp-upgrader-skins.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ì]AÂÑ¸ç≥ø(ä''`⁄Ω»'),
+('{√ÍôaÈùt—\n">™«S', 'wp-includes/js/mediaelement/flashmediaelement.swf', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'X+†\rz8y[∫≥1¶Ò'),
+('{N§à»2ÌQÆu‘ﬁ=	ú', 'wp-admin/network/theme-editor.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÄOöF©„dmÉ˘≈”j'),
+('{%>@¬;¨N¥ô{Nq;p„', 'wp-content/plugins/better-wp-security/core/class-itsec-setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ')XÜÕÊH	´Oƒµ°-'),
+('{c¡≈%Á<ß’∆ﬁ˘ZI9q', 'wp-content/uploads/2014/10/header-150x150.jpg', 0, '¸î0ãVi$PávüKJ∞', '¸î0ãVi$PávüKJ∞'),
+('{t»E~™ÃP€A¥1¯†', 'wp-admin/js/tags.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'L∆BfÒ≥ZÜ∆<¡≤ƒ/s'),
+('{ü)◊4e4p:±fWá', 'wp-includes/js/jquery/jquery.query.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ';ÃXzÚ«∞∆˚…¿wC'),
+('{ÔRCº⁄\Zè.*"¢Q', 'wp-includes/feed.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'æ“‚B‚l&®·iWç!('),
+('{ÙÔ∞P8±∞¡5x˛º-Ä', 'wp-includes/js/tinymce/plugins/wpfullscreen/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Û®¨„nƒ‡báKâ÷ﬂ›ﬁÇ'),
+('{ıáê?Ï—’¸\rí⁄\n''', 'wp-admin/images/imgedit-icons.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'EÀÀòë÷ºøynP˚ja€'),
+('|~ ÈBxÉiÕÊ®7', 'wp-content/plugins/better-wp-security/core/img/return-to-top.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ge¬@Zﬂ˛zmŒ[Htc√q'),
+('|j™ïx7«(Q}é0¿''', 'wp-admin/css/list-tables.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ºç·„™s}ödP˙RØS¸©'),
+('|/⁄íÎ\0[*4ìˇx¸„', 'wp-includes/js/admin-bar.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '	} ∞.©,ëÍÂòÁ'),
+('|;ù?ÁÏÎ†1◊ˆ2', 'wp-content/themes/twentyfourteen/css/ie.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '⁄«é?¬nûÙOj‹„eA'),
+('|çt|ìAy•É\rAŒÎ˚íÅ', 'wp-content/themes/twentyfourteen/content-none.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'á	„]X&2Á˛_'),
+('|˛ªYå>‡Ä–	˘∆Üƒ', 'wp-admin/link-add.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'uóGÔçD≈/≠œ•ƒWÛÚÉ'),
+('}ƒâ=ït©≠Úëª§π', 'wp-includes/images/toggle-arrow-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'F · \\¯ÉÙ…CDrÔ'),
+('}aÛÉ˚Ãé•o˙ÂΩ˝', 'wp-includes/js/jquery/ui/jquery.ui.effect-shake.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'àëQ®OËn8+∑ü˛ñ'),
+('}`∆“g"P…2Æ¬VΩá', 'wp-includes/images/spinner-2x.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' ´''hEÎÕl˚Òp˚ÇË Ò'),
+('}Æ¬È>/\Z˘» +i∏V', 'wp-admin/js/wp-fullscreen.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '54‰ÏN˜Mjç™˙"\\…'),
+('}¡7 ﬁòÊDHD⁄Pl', 'wp-includes/SimplePie/Registry.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '»¢Ê¿µ›1v9çd\0Ÿ∏'),
+('}√5ˆQÕ˜uﬁg©†ﬂ›', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/java.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¨F~¯ﬁ¸bk^∏\r Gº∑'),
+('}‚¿çΩÊÃ›“ƒê$Ò', 'wp-content/themes/twentythirteen/images/dotted-line-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'åƒvLÍ…‘◊sFwßı'),
+('}Ô»êÊä\\L¸Ø`äß‰i)', 'wp-includes/ID3/license.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'üÃı÷yöùxÁˆßB∑ïá„'),
+('}˝÷À{R“¢‘‡ç¢"', 'wp-includes/default-constants.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' ÏØè™˙Èœ\rmkAüì'),
+('~?°JºI÷b*◊∫ÍeËC', 'wp-admin/images/resize.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'â~íË/k¬#x6Y…#@∂'),
+('~F£Ã„´é>dyÏ–jã', 'wp-includes/css/jquery-ui-dialog-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÀÍg´Ë©Èj£˝⁄ÏøÓ'),
+('~UCg7π˝M†£ÒU\rv', 'wp-content/uploads/2014/10/cropped-cropped-header-1024x195.jpg', 0, '˘±Ó’Î#lÑª^„´', '˘±Ó’Î#lÑª^„´'),
+('~Ü‘‰é˘º \ZVÃı©nB', 'wp-includes/js/jquery/ui/jquery.ui.dialog.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '§ˇÔYCt¨÷3ágòˇÍKë'),
+('~°,t¡»…€∑ä|jhº…ô', 'wp-content/plugins/better-wp-security/modules/free/admin-user/js/admin-admin-user.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ÿo<d∞µ	»Ú=ñ4Òµ'),
+('~πÀB‹‹•M‹™öˇg', 'wp-content/plugins/better-wp-security/modules/free/backup/js/admin-backup.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Œ∞¥H©úb‰ËÜ#è°'),
+('~≈•œs\0Ã1yÏ$ëL}h', 'wp-config-sample.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¥√emû%·›å}ır•'),
+('~”§√wÏJÃºÑø°.˘', 'wp-content/plugins/wordfence/lib/schedWeekEntry.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'D‘1øD1üü≈Êπ‰ .V'),
+('1ƒ*Ù’ÁP	XÂ', 'wp-content/themes/twentythirteen/inc/back-compat.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '“áπi…´∏s®ê˚}8'),
+('^kø÷™Dv6óRê', 'wp-content/plugins/wordfence/lib/wfRate.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '”≤¨À:•''_˛ŸG'),
+('j&Ü¬^˚Ã¯åb≥Ùåò', 'wp-includes/ms-settings.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'äçsvµ…Çhz®* e¯ì'),
+('«’jöÖ)tPÂÎ@)Øs', 'wp-content/themes/twentythirteen/404.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'SƒüRîÆ$“yj◊;Ç€T'),
+('€K˚Q}U&;&òÔÿQ', 'wp-includes/meta.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ãÛlrSv¡·Lº‡Øê6˘G'),
+('Ä2ƒ…¬pCb‰Û¯ï¡', 'wp-content/uploads/2014/10/cropped-header-150x150.jpg', 0, 'ûSc˛¡X-ïΩœbü¸U', 'ûSc˛¡X-ïΩœbü¸U'),
+('ÄRƒ*≥∏™£ı˜à§›Ã¬', '.htaccess', 0, '"¸<:Û5Üà!M:¡íÕä', '"¸<:Û5Üà!M:¡íÕä'),
+('Ä©ÚSP”;^∆≠zêﬂI', 'wp-content/plugins/wordfence/lib/conntest.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ZÖ,©<&“Æ¯Ku∆srË\n'),
+('Ä≤æ ∑ˆ»Œ,ƒêm%÷Ò', 'wp-includes/js/jquery/ui/jquery.ui.effect-drop.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '!0[DÂÿœπ‹Eå>ó'),
+('Ä”⁄∫Ëuè∂øMó…˜[\r', 'wp-admin/images/wpspin_light-2x.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ERΩÜfz£¿Çµä'),
+('ÄÊÒ+¬„®0¶±«ÿ∆1', 'wp-content/plugins/wordfence/lib/menu_blockedIPs.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‘D\nÆ6y!XˆT	Æ⁄&P'),
+('ÄÎ‡`WÒø˜;&˛+Fçæ3', 'wp-content/plugins/better-wp-security/core/css/itsec_notice.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∆&”ØÂπ#_4÷ÀﬁkU2'),
+('Ä˜ÍˇeÿÊ97„aJS', 'wp-includes/images/smilies/icon_smile.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ø˝S[y÷ãö/¢∫V€“ÍV'),
+('Å@h’¶¢∞„}¸Çµ9∞\r', 'wp-content/themes/twentythirteen/images/search-icon-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'uQ+óŸ00‡û\\ü5(€˝'),
+('Åel˜5èsòòEÔ√∫Q‚', 'wp-admin/js/media-upload.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'aÍpö3∫ \nà^$e&z¢'),
+('ÅÖ,CUUÓËú˙9i-', 'wp-includes/css/wp-auth-check.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˛–úõk‚7¿˚K•¿Fã∑Ó'),
+('Å∆∂Òóì‹]]∑]å¡à', 'wp-content/plugins/better-wp-security/modules/free/brute-force/js/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('Å»âV?	›ﬁ]∆)A', 'wp-includes/js/media-views.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¶2ÊÙmÒüŒ˙&‰Ê‡Í≥'),
+('Å’X˘‚œ‡-ü4§J¸_É3', 'wp-content/plugins/wordfence/lib/wordfenceHash.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ó≈Ò\0r¶øÊ≠Ã◊k›/'),
+('Å÷ÑÀ''>·[ΩûŒá˜', 'wp-admin/js/user-profile.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '+hálëTNùÇ•E@ëqFè'),
+('Å‚∑`ÊWâ‰©˝Ÿ[m—R7', 'wp-content/plugins/better-wp-security/modules/free/file-change/js/admin-file-change-warning.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '—P7Gj”‘™†d˝ótqtµ');
+INSERT INTO `wp_wfFileMods` (`filenameMD5`, `filename`, `knownFile`, `oldMD5`, `newMD5`) VALUES
+('Ç3§ñ∆áe«(√∫9˘', 'wp-includes/js/jquery/suggest.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '!ßûﬁ˙^È~k€€•øÈ'),
+('Ç˝\\œ(ÂŸwBÍƒI„ù', 'wp-admin/network/update.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∫E†^Ã!å´u¥’)ˇu˜'),
+('Ç(tTlDŒ¨7&á≥MP.¿', 'wp-includes/js/tinymce/tiny_mce_popup.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '8€ÃíU)6àı¬˚À8ñ'),
+('ÇB“ÛŸá»v<SvÁ®≥', 'wp-includes/SimplePie/Parse/Date.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ö\n2m0åH†¯õ”Œn''`'),
+('ÇFâ ÂGJŒ÷BÏàs7µ', 'wp-includes/js/media-models.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∂éé~Ö‹sAÙ"i¬(Ê'),
+('Çé\0∏Ûº≤+OW+ù', 'index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∂%0;‡ıs¶πDm\\æ:['),
+('Çß¨„ÌAºŒÚå1\ZÖ;§', 'wp-includes/rss.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÅBp¡œÛâB iDπ_W<'),
+('Çπcû√Ñ˙ëÁñoñ~Ωâ', 'wp-content/plugins/better-wp-security/core/class-itsec-notify.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ﬁ†ˇfáWm,É‚ß)9UBﬂ'),
+('Ç˚A2¿$¨⁄ﬂ;ÁÃ3', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/db.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‚µd"K˚Xˇ êK⁄$@C'),
+('É\r5û¸Ω˛¶ñ‘[Wı', 'wp-content/plugins/better-wp-security/modules/free/ban-users/lists/hackrepair-apache.inc', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '£hVYKßﬂªÖƒ•\nÌâ'),
+('Éaâ≠bî1iLÆe¢ƒπ', 'wp-includes/js/jquery/ui/jquery.ui.autocomplete.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∫≠é^ﬁ‡î#œÈÓ{∏J'),
+('É®?Á¨⁄z6§ó€aDz', 'wp-content/plugins/wordfence/images/loading.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'K:˚Ñ≤∑ımôó£PΩ'),
+('É≥Úu°WÂ4”_˜2«,¿D', 'wp-content/plugins/better-wp-security/modules/free/file-change/images/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('É‚Ë Ü◊Èên•D„ÆñÀ(', 'wp-admin/css/install.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '£c‚r…˚€Ωë⁄Ûô∫'),
+('Ñ:+[ıπgæ¶CZ›ÿÛí', 'wp-includes/template-loader.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'sÇ~«π‡ãQ9¡Zl¢=Ù'),
+('Ño\Z≈‡EKÔsf.;ZD', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/ui-icons_2e83ff_256x240.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'vL7Ôøm¸kFo≠∆Ú '),
+('ÑƒùYE	»ÜŒ$ä”', 'wp-content/themes/twentyfourteen/taxonomy-post_format.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¢2£ÂÂ•¡≥ØÎÊ¸‚q'),
+('Ñ’‰c-à‘∏¡;í:~ØH', 'wp-content/uploads/ithemes-security/logs/.htaccess', 0, ' ñ4ª8pLHt√]aZÂû', ' ñ4ª8pLHt√]aZÂû'),
+('ÑÈ|g%ı¸QIt¬eœ‰S8', 'wp-content/plugins/better-wp-security/modules/free/ban-users/js/admin-ban_users.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¢\\y23Fg>¶≥˙ëÂ'),
+('Öer\n¸@¿Ú«/\nÑ', 'wp-content/plugins/better-wp-security/modules/free/core/img/security-ebook.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≤K~·(8?‘Ó]fV“'),
+('ÖB%v6ÕI"JbΩ«4”°T', 'wp-admin/link-manager.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ﬁˇKèeÙ∏⁄ù,‚á'),
+('ÖQ\\Á%@Iæ?EV‹E`î', 'wp-content/plugins/better-wp-security/modules/free/ipcheck/class-itsec-ipcheck.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ò\0\Zú∑úMñ$≥¿Ø˝äR£'),
+('Öπ>¡A‰B«7ÂSz!àe', 'wp-admin/includes/export.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '-( †''ËêKø%w‹¿ù'),
+('Ü0÷‰+-]∆ËÑ˘', 'wp-content/plugins/better-wp-security/modules/free/backup/css/admin-backup.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'íY˜Œ≥n¨Ö˛”U’q©'),
+('Ü1‰àeU¸ùMV˝∏^öô', 'wp-admin/includes/misc.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'T4 „á˘ÍÂ˜9ãX∫π'),
+('Üü\0¶>#ä—õ·≠z(', 'wp-includes/bookmark.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '$-}•AÌ†≤ùÀM´Cp'),
+('Ü™Q‹–¯∏iç≈\n∆ˆ', 'wp-content/themes/twentythirteen/footer.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∏+ıΩ>>¡ïä›™b‡∫ﬁ<'),
+('Ü≥¨∫√ÍÇ‚Î}ïÕ', 'wp-admin/media-upload.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'µÖK>µπÈÒ⁄áÏTN#'),
+('Ü˜?„°˚§Ó‰Á=ì6t', 'wp-content/uploads/2014/10/JPEG_example_down-300x225.jpg', 0, '\0É∆»zÅüΩ;Á|2ÆÄx', '\0É∆»zÅüΩ;Á|2ÆÄx'),
+('áÅÚPìw™©ç0‚hˇ9', 'wp-includes/js/tinymce/plugins/fullscreen/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '_"+)^0›bﬂ·`ò[ïÙï'),
+('áJº&_#πÒ3S‘q†ç≠', 'wp-admin/images/spinner-2x.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' ´''hEÎÕl˚Òp˚ÇË Ò'),
+('áé\\:‚√⁄à’Í)g,\\', 'wp-includes/images/smilies/icon_twisted.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'V÷=3_Ø+õpR˜»@Ñ'),
+('á¢®3v¥UÄ\Z3òP≈^O ', 'wp-admin/css/widgets-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ItE˝¨Ì:?t≠ö%.+ï∂'),
+('á´L ùUˇ’¿πfØ‡u‚<', 'wp-admin/images/icons32-vs.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '’®¡ï\Z !QÙc»Ÿ‘â'),
+('áµ`ö§kYL_Øºh%''', 'wp-includes/theme-compat/comments-popup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'lº∑…@⁄J\r\nﬁô/ˇNâ\n'),
+('á⁄yí¯/ÎˆdzÉQgîµ', 'wp-content/plugins/wordfence/js/tourTip.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '?Á{ÿË>VE◊ãó]⁄^'),
+('á¯¶t1¢—’ÑoóMJÁ#', 'wp-content/uploads/2014/10/cropped-header-300x57.jpg', 0, 'l¢E?I\Z%û7®Ù;∑"32', 'l¢E?I\Z%û7®Ù;∑"32'),
+('à:=è%∆Ã‚æ˘†M‘€µ', 'wp-includes/template.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≤8êé¶+{8Ù√D'),
+('àI›{ã?ªÜrÙ]Ø†7', 'wp-admin/images/resize-rtl.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ŸÇ∞Ñ[±∂{+-∑›Ä\\á7'),
+('àwî¡i.πwæ(M;0D', 'wp-content/plugins/akismet/.htaccess', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'OëeÜ•Tˇït˘).0*'),
+('â7*˚è¯"{ÏÛÉ\nçK<', 'wp-admin/includes/ms-deprecated.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÍãQ4ªab=@ñ˘©íaS'),
+('â?†8ùî˜ò—…Zœ–N¡', 'wp-includes/ID3/module.tag.lyrics3.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'zÌl\Z›£Xi¡º_¸p≠'),
+('âjÆ√IÓ‘”<Íüü≥ÜiU', 'wp-includes/category-template.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '†“\rR˙àcÃ√|Ñîaú'),
+('âºB]n»Ñ®8⁄7gòÛ', 'wp-includes/images/smilies/icon_rolleyes.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'â}ì–oq‹!gKüT]'),
+('âÙ¿´!%åƒÔxU[/…îü', 'wp-content/plugins/better-wp-security/modules/free/strong-passwords/js/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('ä4BÅi\01¥öÀŸ¯ƒ>/¡', 'wp-content/themes/twentyfourteen/content-aside.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' ^Ûò˘—MÙg;r€-'),
+('äJa±i©ãŸ%ƒ∆Àñ', 'wp-content/plugins/better-wp-security/modules/free/four-oh-four/class-itsec-four-oh-four-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÍÂëˆÓ=&«W∫±õœ‘™'),
+('äMj˜A’MôÒOﬁ"If', 'wp-includes/SimplePie/Net/IPv6.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Fy!jΩŸÄïîü∂¥'),
+('ä¡$°÷xM1>Ë≤_8P\0', 'wp-includes/js/swfupload/swfupload.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ô:ÈE%œÅz˙¶ s~'),
+('äÒÏ6ídı¢x«D…—', 'wp-includes/js/mediaelement/background.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'p<eûKıc†\\c8°r~\0l'),
+('ã5ª7]ŸF–TKu*=ò<å', 'wp-content/plugins/better-wp-security/core/history.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¯îc“Xù3π∑füÙL+'),
+('ãn97êI.O˙“ùﬁø∞', 'wp-includes/js/heartbeat.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ŒLAP!›EmèÊöŸ÷¶'),
+('ã∫∞≈h+π´BÃ∆Ú–', 'wp-includes/js/tw-sack.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°¡Ç''ÊÈ7òƒìÆŸnÊÃÑ'),
+('ã∫FË"˜Ëvh‚°$Lbéç', 'wp-includes/js/imgareaselect/border-anim-v.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' …z!ô<Ò7ÍŸ˝æÀƒ*®'),
+('ãÛyc‚0O∞g)œÅ≠Mf∏', 'wp-admin/network/site-settings.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÜÆ‹êEw\Zo-yij“'),
+('å?ö\n5¸¥H„?‚‡¡¿‡Ë', 'wp-admin/css/customize-controls.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ïdRRÜ⁄Â\r''+ÖLﬂu’'),
+('åùΩ¥ÜjuGCtO∆˛ÿ‚', 'wp-admin/css/colors/coffee/colors-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '*1…``ÎåõinêE]1’'),
+('åπê∑~ò‹ımZ$îÔb›9', 'wp-content/plugins/better-wp-security/core/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('åºuìëd*¯oZ>‚ùÈ', 'wp-content/themes/twentyfourteen/inc/widgets.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'l”	Wî0–˚ÅÓb£6ÿ'),
+('åÔÒ+µ?ô°±:˝ÊÚvà', 'wp-content/uploads/2014/10/cropped-header-1038x240.jpg', 0, 'óè¥9õ›≈fÑÿVÛƒ÷_', 'óè¥9õ›≈fÑÿVÛƒ÷_'),
+('çï“anùµˆV=Ty X‰', 'wp-includes/SimplePie/Copyright.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ΩøhπT©’	UÃÄç∑Àj'),
+('ç} çyTéÏZ›HÑcDJ', 'wp-admin/js/custom-background.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ç–#Y>Wà ±ü…˙≠e†'),
+('ç¨{ﬂ0l(∆≤u9,wSÿu', 'wp-includes/js/media-audiovideo.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'x%ÍCæ„	ƒDPXhkg<Ø'),
+('çŒ“=s‹yÅ‹€Œ”PÇ', 'wp-content/plugins/better-wp-security/modules/free/help/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('é ÈA$€§fCÅNˆô37', 'wp-includes/query.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '–∑ÎI∏†ÈÃµFk™'),
+('é(¢˚è◊îÔWÂh@=a', 'wp-includes/images/smilies/icon_mad.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '*Ÿ/ûƒ‹é‚S¬@öt'),
+('éRLSíf,˝@ïàL=Ï.', 'wp-content/plugins/wordfence/lib/menu_activity.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Jà’@k—Ç&`≈§´÷rt'),
+('éÑÉ˘v¸¥äœåÈåY9”', 'wp-includes/ID3/getid3.lib.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'sÚ` b9{AK—î⁄V'),
+('é∞÷ó]NRçºÔS{qv?Ö', 'wp-admin/css/wp-admin-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '£{}⁄˚-≠G´h’ñÿa}'),
+('éª4.∫lyô∆˚∏D¢˘', 'wp-content/plugins/better-wp-security/modules/free/tweaks/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('è$ùÅª¿™j∂Xû])D:', 'wp-load.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'À:j≤‘ô\n[.‚|p5·'),
+('èj%Mª…çÚ—p)Zâƒ', 'wp-admin/images/generic.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¯éïˇ''ä[#98!–'),
+('è‹;(Xp`“ô÷Ïëp›∑', 'wp-includes/js/plupload/handlers.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '·‘o´ú&òÂí0éÒºt'),
+('è˚t˜0√gÒªaÜ/≈˝û', 'wp-includes/js/tinymce/skins/lightgray/fonts/tinymce-small.woff', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Îœ7≈ˇ à§˛AËhf'),
+('ê\nôqo„qZVyXúø9', 'wp-admin/includes/menu.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'FI›“ñT∏ÛŸô˜¥F'),
+('êÅ·¥ßZ#5ËÈ9£gTK', 'wp-content/uploads/2014/10/cropped-cropped-header-672x240.jpg', 0, 'òA·ˆ}T„§i¶Ã;', 'òA·ˆ}T„§i¶Ã;'),
+('êßUÃõ	''C‘ªÒ∫œ⁄´\Z', 'wp-includes/images/admin-bar-sprite.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Sœ§ó:ÄW ≈”˛^'),
+('ê¡"ÍZ0\0ÿøeÖ‘¶pﬂ', 'wp-admin/css/admin-menu.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '<ñÛ¨µ<ÓË4ßìõâ'),
+('ê›ÚÆñx8[!>ÒX', 'wp-admin/includes/class-wp-users-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\n}òî¥“lÊì‹9∞É'),
+('ëSñ∆˜äKK2i…à', 'wp-includes/comment.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'õ£w<~ÊXMΩºàwÏmÈÃ'),
+('ëyﬂgãÌzaU"É	XKG', 'wp-includes/js/hoverIntent.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'EBäŸ„Äyt‹6·'),
+('ëÓ¬^~¬ÈãE≤‚˚ıt≠=', 'wp-content/themes/GeekHub/screenshot.png', 0, '(ƒW"né7kE¿¯Ÿ¢V<', '(ƒW"né7kE¿¯Ÿ¢V<'),
+('í\rº`¡ÇÛ≥ È7“¯xı', 'wp-content/plugins/akismet/views/strict.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'J§s»LU1YÈﬂVús´˚V'),
+('ío´/ dç4x`§ú', 'wp-content/plugins/akismet/readme.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∂ûî<UhÓ+˚Ó0cYÖ'),
+('ív{LˆJl≈çÄYz’`∞(', 'wp-includes/js/thickbox/thickbox.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'áΩ›·â≥*öFrÂ“fa'),
+('ìoû¨Á|?∂∑®ó⁄/', 'wp-content/plugins/arzamath_17th/readme.txt', 0, 't’õfù%˙Á5*	`c9', 't’õfù%˙Á5*	`c9'),
+('ìXËÅV◊òO|8}öÄÇ', 'wp-includes/theme.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'r(Lv……Â7F:iY-ó§ä'),
+('ìV}ªPîú±mï/Ø|I*Ÿ', 'wp-includes/js/customize-loader.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'x∫Ø∏◊"8≥«∆·0"'),
+('ìdΩôjW[¶“y€œäù', 'wp-content/themes/twentytwelve/content.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ïr¿õÕ2yÑ˘ƒ_8ë\ZY'),
+('ìà.èôv8-rJ≈ïÌqQ', 'wp-includes/js/wp-auth-check.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ò”È‚≤¿˛œ—bÉc\Z+'),
+('ìän‡™Ó4±€ÜƒxÚÄŒ', 'wp-content/plugins/wordfence/lib/menu_twoFactor.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'äµJãeS‚h[Å\Z]‘ä‘Ä'),
+('ì´7ã÷E#æw≈ßjØ≤≤', 'wp-admin/includes/image-edit.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Nnú›À˛QánnÕƒ•∑'),
+('ì´vÓ≠˘√|ﬂ-…', 'wp-includes/js/tinymce/plugins/tabfocus/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '—VÊŸ<ŸìÁYq˚aq,'),
+('îèõ{g…¡FM3ÇzßµÄ', 'wp-content/plugins/better-wp-security/core/class-itsec-sync.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÌeXÄLoìÏÃ|éE¨=Ò'),
+('îúx®‹?—≠nNñÌ£∆è', 'wp-content/plugins/better-wp-security/modules/free/strong-passwords/js/admin-strong-passwords.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'GàI«ZtÜjk⁄#õ'),
+('î!HUN&Ô"ã®”åz˜Ù', 'wp-admin/css/widgets.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' MóÊV¶ RB>S_Ù$'),
+('îa±tU⁄q∂^!‰0∆£lÅ', 'wp-includes/post-formats.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'EÛVÿIÏõïuE–y	Ç\nÃ'),
+('îkã•ózﬂ£Û‘Ï◊bo”R', 'wp-admin/post-new.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ç"Èn¬◊zÓe/y≥Y'),
+('îò@Üª{˜J§·´5‰∑¥X', 'wp-includes/js/tinymce/skins/wordpress/images/playlist-audio.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'U,˚:)¨†ÿã"≈QqY'),
+('î±¶ÆLÿ‚6	ÿ¿Ë◊≥', 'wp-includes/ID3/module.audio.ac3.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ì∑Í≤:F◊Á£''˘⁄õ''«∑'),
+('î…T≤¢V®ÌÙ™ì\\òó', 'wp-admin/import.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¶∫l˛ÏÌ@UR`‚1*ü'),
+('îœ kF∞>ıAuΩ6(£	∏', 'wp-content/plugins/asgard/icons/wot_web_of_trust.ico', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'qï∫|∞KVW≈Ú3Ÿ´}'),
+('î‹µ[“≤m%â6ÚS8:D', 'wp-includes/images/toggle-arrow.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'éê"˘éôÑE(8¯]w…('),
+('îÙ®ñ!ﬁ¨©ƒﬂ≥¬¡´p', 'wp-includes/images/crystal/default.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'AÚ>)*/æ‹!ÏÆ-Úõ∫'),
+('ï#\r1ëZ:gÁq"Ñ´‹', 'wp-includes/js/jquery/ui/jquery.ui.effect-bounce.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '!Ãh—mv''Z–Ç◊›≥·x'),
+('ïhèóâßëFuQeÒ™ Ó', 'wp-includes/images/wlw/wp-comments.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'L¬6]Pﬁﬁ√Ï.s®°‘'),
+('ïÃf0ŸÀÕ≠°⁄~∑)', 'wp-includes/fonts/dashicons.woff', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' Æﬁf˜H3lã4¯‹‚'),
+('ñ6∂|;æ;8≈Qπ4ôkÖˆ', 'wp-admin/install.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'FB?Ö)§âQC›∂#8'),
+('ñ9µe›E¯Äb›æl¥3¢', 'wp-includes/js/wp-lists.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'òt|rúé5“÷x≈áŸ“ë'),
+('ñé\Z5o÷›#R''/§¨l', 'wp-includes/fonts/dashicons.eot', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Q”XåÁvèç¨Hd*X'),
+('ñ¨◊©)Ú∫◊µÁg8ÀÛ’€', 'wp-content/themes/twentythirteen/images/dotted-line-light-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '<ŒΩq3xéwxr\\ 2'),
+('ñ¡ºôEò?∆å–Æ·æ†', 'wp-includes/js/media-views.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ºÉ±±xÎô>±"´‰/&t'),
+('ñ ÊΩgBVÛcﬂ=ØŒ', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/ui-bg_glass_75_dadada_1x400.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ô\râ1º_Ú"ÖØfõ~Eß '),
+('ñÃ∑i¡¢÷Y	¸ÿ8leÇ', 'wp-content/themes/twentythirteen/languages/twentythirteen.pot', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¶ÑÒQ2C‰«´]/*GN('),
+('ñ‚Cgø∏Òã}|«E˜˝', 'wp-admin/js/word-count.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '«ÃÆ∂E¥Á^ñ:Ïˇ/_∆'),
+('ó	væO.Ñ|ﬂ§“µÇ', 'wp-includes/js/tinymce/license.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ']·t"Ÿû3çß[útõ|'),
+('ó(Æ…w÷É¨˝ù«…´', 'wp-content/themes/twentythirteen/content.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '_Ù®ã1\n2t£’''n◊M'),
+('óÒb¶¸í¡ˇ£∫|e~Î', 'wp-admin/css/customize-widgets.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¨–>w™ÀWiG—Ã¶UD'),
+('ò\0hÓîKfïç\0¯', 'wp-content/plugins/wordfence/images/forward_enabled.jpg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'U\0/3e4eôœ◊Éﬁˆ'),
+('òX∏‘ÕÏg5˚Ùüº(ù=c', 'wp-includes/js/tinymce/skins/lightgray/img/trans.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'øû7I ﬁ1F¶GuÙj^'),
+('òpt_ Yá¡å 7L„Kt', 'wp-admin/css/deprecated-media-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '8\\nûu†èΩ(Gƒ\rr3'),
+('òç£˝TùπDâ¿F“K1«', 'wp-admin/css/media.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '$n[096‚Ä∫e6ÉrfY'),
+('òƒ/GŒû”∂[≠«úÓŸC', 'wp-admin/js/gallery.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÈK~¥l‹‰\ZËû'),
+('òÃ"r`˜QÚ=cπqWR§', 'wp-content/uploads/2014/10/331px-Mutation_and_selection_diagram.svg_-150x150.png', 0, 'é*..Ô·dJÏôŸMÄ>¡', 'é*..Ô·dJÏôŸMÄ>¡'),
+('òÕ…[≤/ù9}†`:wŸP', 'license.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Æ5›.p3}Ø…ı~Œ#˝'),
+('ô\0£˘µË†“.}•fwA', 'wp-includes/date.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ':∫ê6[¢OH^‘ª…‚˝'),
+('ô[ÇüÆQH"pS1»™Îc', 'wp-admin/images/arrows-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ó QÜ}ŒÒydb#6Ñ'),
+('ôò[ixT∫q‘√~Wv°e', 'wp-admin/network/plugin-editor.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '?µÕöπGMÑXZ\ri=Ã'),
+('ôπ®?¡eåpp/í…ñ‡', 'wp-content/themes/GeekHub/header-home.php~', 0, '˘hs` Ò|ÂF‹WÕòùJ', '˘hs` Ò|ÂF‹WÕòùJ'),
+('ô·EN0œ°ï‹6', 'wp-content/plugins/wordfence/js/jquery.dataTables.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'aGÃÓzÔù¿∆Îÿ◊≥˘'),
+('ôÏ¡ãƒ>8êπ°»Œ \\Ê', 'wp-content/themes/twentythirteen/css/editor-style.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÓN=2lX h•Öê,\r&L¿'),
+('ö\Z-Æîx7√˘(Aƒ4˘ªÁ', 'wp-includes/js/swfupload/license.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'À‡[∞`»^à-¿o˜QWz'),
+('ö1W;cü∂ö∏∞NÒ¿"Ôu', 'wp-includes/pomo/streams.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '+ˇõô≈SlQ~r≤—Úß1'),
+('öJûãBæGT≤;,l£¿T', 'wp-includes/images/smilies/icon_exclaim.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '=≠≠2Áªƒ◊!n;\0;’'),
+('ö•è7∏M3¬ö„$ÀÙå', 'wp-includes/images/smilies/icon_question.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ÿ≈¯1±ü≥''WÏá5÷·'),
+('ö™ôë2@Ôk‰¨w>Kî2', 'wp-includes/feed-atom.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '„q5BãòÛ4¨¬ÍD\nW'),
+('ö™Ù¢ÏH\0€ô¿ÆhôC¡˙', 'wp-admin/css/colors/ectoplasm/colors.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'éãâiN[J]§ja1!o'),
+('ö∞wtÚH©Î·-sì\0¬n', 'wp-includes/js/wplink.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÀFfm€TÀR ≈åRõr∞h'),
+('öƒ˛⁄=÷¨Hñ@-iòÔ', 'wp-includes/css/admin-bar-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '§Ë)]˚ø˚*<’ô™Io'),
+('ö”™˝\\B/Ó£~^ülù', 'wp-content/plugins/better-wp-security/modules/free/away-mode/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('öÍähãLçº≤JHˇX#0', 'wp-content/plugins/wordfence/lib/wfUnlockMsg.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˚Øx!eKVFy(+∞˛'),
+('öˇô^êè''Ωqà¬Ó0ÖÍ', 'wp-links-opml.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ƒc…«˛vûçIl⁄mfó'),
+('õvn∞\\˝í?<]h‰ˇ', 'wp-content/themes/twentythirteen/functions.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'B&≈äπ¡ÃÒj”≤»'),
+('õ%n©ÕTﬂí	^«gXŒ∞', 'wp-admin/js/inline-edit-post.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ì8≈èuP|å·\Z˝åP'),
+('õ:DÅ4à°≥„≈©◊Ú˚:', 'wp-content/plugins/better-wp-security/modules/free/ssl/js/admin-ssl.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ó(/¥.È˙nF5∫Àgı'),
+('ú05{jàl	`9/9]ˇ', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/flash.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '*PVÑÁ∑πPÍ)¿r+'),
+('ú5Ùá¨É‹\røÀk‘ƒ', 'wp-admin/js/color-picker.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '†.ëYã√•›NÉôÆ'),
+('ú8É©éÖ¶¨„P5aƒ®ù	', 'wp-includes/images/smilies/icon_wink.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'khzGª}Ÿ¥∫R#’ '),
+('úd˜ó[˛®ˇ8∆˘4†ky', 'wp-content/plugins/wordfence/images/wordfenceFalconSmall.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '>ú hèjµK∏wÛ~∫Ö'),
+('úzØÎôñÙmyÂY§ëé', 'wp-content/uploads/2014/10/1024px-Mo√°is-300x300.jpg', 0, ' -QØ.b¿hx^˜''v', ' -QØ.b¿hx^˜''v'),
+('úÖâä˛y85ıê‹√¶b÷', 'wp-admin/css/colors/sunrise/colors.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'mœŸµ¬üÜß3ã≥[P&¸\r'),
+('ú‘?Y~ r∆µ|ùÍŸPî', 'wp-content/themes/twentythirteen/header.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '”‡zÇj+ﬂ=ôBÃm∑ÀjÊ'),
+('ú’ãÄPQãE|E}7+', 'wp-admin/includes/class-wp-filesystem-ftpsockets.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '8Á√—_Ö◊GV^»‡38c'),
+('ú˛P\Zç≈/È¢Øl%°', 'wp-includes/js/jquery/jquery.hotkeys.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‚îÉ® &†›ã\rF∆∞¶È'),
+('ù\n%f[!aE´r“tgÄi', 'wp-includes/images/media/video.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ç‡ÈÒuÍhõÅ›€q†˜'),
+('ù#ıÙ>‰´Ìë“Ü√Kl', 'wp-content/plugins/wordfence/lib/pageTitle.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÂHhíIØÊç!SŸ??k'),
+('ù&áSÏßøo∏$Ê˜0¯n', 'wp-includes/author-template.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '«A	ƒ™ßÅC|Ìo}≤¨('),
+('ù''PÛ‰ôT]Ÿ	ˇ6ˇ~Ç', 'wp-content/plugins/akismet/_inc/img/logo-full-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '!MﬁpPî¯`-6òÅ¿˜'),
+('ùQ†≤¡Ã‘ÅÔ2ä7uÌ†L', 'wp-includes/js/tinymce/skins/lightgray/fonts/tinymce.svg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ûç”£œÉ¡$57◊|ô}'),
+('ùí—∫ü"ÃP5Ï”^UÅ\Zi', 'wp-admin/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÃÉP∏◊õ”∑ùÏàj\r"ÚË'),
+('ùßmÃú˝z4ËL‰Ø˙K', 'wp-admin/images/xit.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '√ˇÕ\nË{\ne‹%S‡ˇ€'),
+('ùÂpXîI}∑››æy´', 'wp-content/themes/twentyfourteen/footer.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'õ≠%¯Ô…oïëÄ''µ'),
+('ù˙ã5îKÙkˆí •⁄B', 'wp-content/themes/twentythirteen/js/html5.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Zò®k\\¥åÛ8F2YŒA'),
+('ûx9r\r¯N˜w[ º≈Y', 'wp-content/plugins/better-wp-security/modules/free/backup/img/switch.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ßMdÁÃ¬ÒßSE§>±'),
+('û ¡nÄ$õáqàÔ^qf¥ß', 'wp-includes/images/smilies/icon_lol.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˛ùÌï—>Øe≥Éœ∂∑yÅ'),
+('û*TÒu\r¢Ì”÷†~™m', 'wp-admin/css/colors/ocean/colors.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Zõ\00ó¿6ÕñRπzÂã^'),
+('ûE-j‡ 1jÏ£ \rœEì', 'wp-includes/registration-functions.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '_?<∑∆—&TçxH›XìCL'),
+('ûÓp?E^¢@∑''å„PE≈', 'wp-admin/edit-comments.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•\n†\r4Æ‹û.÷å«G{˜'),
+('û˛Êla^|ãU∫ñëmZ‰', 'wp-content/plugins/better-wp-security/modules/free/core/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('ü<Ñ†(»Í¿â*A]éOÌ†', 'wp-admin/css/colors/ocean/colors-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Éë˙i^∏5‡‚…àÅ5öƒ'),
+('übvæ…EíÏ¥H’«„ŒÑ', 'wp-includes/js/wp-lists.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≈LÌ.Ç+#/*ÿ•ÛI08o'),
+('üõ∑˜ó—Ø[’ç‡Ôn8â', 'wp-includes/js/jquery/ui/jquery.ui.selectable.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'A-õ˚Qeà.ƒÓù w'),
+('üŒñ&ø¢N¬,ı•Ôå6P', 'wp-admin/images/icons32-vs-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Dá¡]C8ûà≥iH‚æÆ∑'),
+('†qÚ¨h¢ˆæBc¯92íÓ', 'wp-admin/network/site-themes.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ZØd‹¡Ej<÷µdùr '),
+('†Ñ∑îºYÁ¶∑x‡tÚ', '.gitignore', 0, '%;ﬂ∫FÊJA?‡˘4ñÇ', '%;ﬂ∫FÊJA?‡˘4ñÇ'),
+('†•d]\0F÷m≈≤p≤D', 'wp-includes/js/tinymce/plugins/media/moxieplayer.swf', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'NY”N˚-†π†3YjÖ‰±Ô'),
+('†∏ãá`%˙í{Õ¸“+õÛ', 'wp-content/plugins/wordfence/images/icons/error128.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '…:ﬁ%7˜!¡¥.—'),
+('†æévÜí\\Qú•¿-º ', 'wp-includes/js/tinymce/plugins/hr/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '›•*®pc¨[x⁄‰ÿØ§'),
+('†‡—ñ›q›‰SGKy(˛', 'wp-includes/kses.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'QÉÆ;±ßnó{•ï	Ó∆'),
+('°•2»è»^F—¢jx', 'wp-content/plugins/better-wp-security/modules/free/file-change/class-itsec-file-change.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'CW´;.s çÇGŒEû™'),
+('°[ˆHn[P÷.~ΩﬂFU|', 'wp-includes/nav-menu.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ïa¢KrÅ¿Ú¥Mq#œkq'),
+('°ãı∂˙M]€NOìèÉË', 'wp-content/plugins/better-wp-security/modules/free/core/img/sync-logo.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ﬁÙÌ÷FF:Î)æ∞ıª'),
+('°çª´ZÄ\ZxcyïdêÛ''', 'wp-admin/js/language-chooser.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'h"8Jq	t≠—‰FÖÅ'),
+('°ﬁ;„;/J√KmRˇó0ù', 'wp-content/plugins/akismet/views/start.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'WÈ÷0YõïHv÷∑Æ#'),
+('°ÍyÓ&aíA†7¬]Dm', 'wp-content/plugins/wordfence/images/icons/ajaxRed16.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¥œ‡%∫ª©B\ng†2Öâ;'),
+('¢ a"KwT’bc1S', 'wp-admin/css/revisions.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Öﬂ´åµ=‹\r)FhÌ»—'),
+('¢-J:ò2Œ=†Î=&®=!', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/ui-icons_222222_256x240.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°≥àzÜœëÚ<S¥”X_'),
+('¢4gÅåe ÿÈ>©Û”ﬂù', 'wp-admin/images/list-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'h’ªIS¬2˝”iÇgö'),
+('¢fkjí¬NâUei4=%√', 'wp-admin/js/tags.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/Iù@‘!{øhL’R\ZÀ'),
+('¢y%ÖÀ∆«∫~πne"V', 'wp-admin/css/list-tables-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '&Ú-f1Û9≠G`ÇÙ\r‡“'),
+('¢Î=ÔÊ4S3äÍ—y', 'wp-includes/js/jquery/ui/jquery.ui.effect-blind.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'áÄƒ"NáÄßÇøΩï0„'),
+('£1‡o%®¿q≈AµÄ', 'wp-admin/js/inline-edit-post.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '0kIƒrf≤sÜ\nFß¶öñ'),
+('£zR≤uΩùò˜üÔ¡	;', 'wp-content/plugins/wordfence/images/wordfenceFalcon.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'd''m_0ÚxZb-’Óƒ%'),
+('£‹F¶≤ôçò{êÏ¥˝A', 'wp-content/plugins/wordfence/lib/sysinfo.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'NÂ±Æ+ÅY_¢ãÂÙ€á'),
+('£·ÒÂÄΩ∑∂ä⁄ät’%ú', 'wp-content/themes/twentyfourteen/genericons/font/genericons-regular-webfont.woff', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '€zç≥g‰√Öëæm~óòv'),
+('£ÌëE‚‚Ìï¿Q?Ëﬁ	(ƒ', 'wp-includes/class-oembed.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'èQ%5uo’ÂﬁZ/¿¿‰'),
+('§.›ÅBæ¿xKëYå', 'wp-includes/ms-default-filters.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'l¨¿=5-K>◊\r÷©t¸Ìı'),
+('§*O-°LœÑ™¬‚\r[€u', 'wp-admin/css/about-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ìÿ∫ˆﬁ–œ¸÷ÑÜVèH”'),
+('§??nøÎÊÂ˝Â_2gê∑j', 'wp-includes/js/wp-util.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Räﬁ-–¢…û˙dAn˚'),
+('§è˚ƒz(ApŸL‘<#;∑', 'wp-content/uploads/2014/10/JPEG_example_down.jpg', 0, 'áåÏ≥'';’»Í3∑Ω…', 'áåÏ≥'';’»Í3∑Ω…'),
+('§ï±r·ÏòSXi”Ò', 'wp-content/themes/twentyfourteen/inc/customizer.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'LÀe·@V˛0wâDõb|'),
+('§¢´ÿH»o\\x6÷ÁŒéÏ©', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('•MŒ£`»†[—ÏÅÖb', 'wp-content/uploads/2014/10/3385130-small-dark-grey-diamond-pattern-background.jpg', 0, '¯^On•À4KµÁÑ]∑$', '¯^On•À4KµÁÑ]∑$'),
+('•R;lzOÈ8m<3îNie', 'wp-admin/user/freedoms.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¶Àπ‚©”ﬁ≥HôtíÌi.'),
+('•afh=FØ’ﬁT“:˛ì6∂', 'wp-admin/includes/class-ftp-sockets.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'TŸË[îƒÊ6àÖ+öÅ''<'),
+('•çŸÎÒß;~”∑R∑>û£', 'wp-includes/class.wp-scripts.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¡PËÍj7´ig—¡ˆ“¢o'),
+('•è¸nvp¨eÑÌ∆–Ó }Ë', 'wp-admin/js/customize-controls.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '3bﬂ}çf\r!ÂTBç¿'),
+('¶(º|n‰ï¡¥sARF‰+', 'wp-includes/js/crop/marqueeHoriz.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'åÃÆú∫˝∏;Ê‰‘Lo\n'),
+('¶Pm›Ò\0Â¸∏-Áq¨,', 'wp-content/plugins/better-wp-security/core/img/check16.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '	Í≥µ“H¥ ˘§N1L°ç'),
+('¶\\≥.2l>v+	Éï‰ä', 'wp-content/plugins/better-wp-security/lib/icon-fonts/fonts/ithemes-icons.ttf', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '68√óÌzﬁeGuJâfhË'),
+('¶íØ¸û:[&b˙[ÆhY©∏', 'wp-includes/images/smilies/icon_razz.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ä„°ÎckeX]£·+"P'),
+('ßã’Qˆà’◊B®Ö', 'wp-content/themes/twentytwelve/category.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Nêœˇ˝c7 h8∑ê:;j\n'),
+('ßc„ÜÃé¥à$\n''@õ\rÚË', 'wp-admin/setup-config.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'tüæ$∏“Ì\r‰Óe¬m'),
+('ß¢Œ£BgƒÇÃétïh%ÂË', 'wp-content/themes/twentythirteen/tag.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'w,2HÇV>ëÚy˙Ì⁄'),
+('ß”í?⁄ü£EøŒ∂$PF', 'wp-includes/pomo/translations.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'dîN"Qæ9M[¿≥µ7'),
+('ßË·˙∞6ëêbùg∑>_™', 'wp-includes/images/wlw/wp-watermark.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¡s∏è%v∞ÍQÆ¬¿;ÏK'),
+('®#◊?ÄôÔGc	¬Øl1e', 'wp-includes/class-wp-theme.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'E∫O´_mûYÙã5;úl'),
+('®Hä£ı¡úPw‡%8ñ¿', 'wp-includes/images/smilies/icon_sad.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'y?¢Æ|!Ω}∞Ä<''Ã£'),
+('®Q49„ÛLz”Jµ', 'wp-content/plugins/wordfence/lib/wfUtils.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '’¿ß+W†ÒÍ!—Ú™1'),
+('®[¬n≈G{√˘''æ¢q:õ', 'wp-includes/ms-deprecated.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≥˘Ÿ\0\Z5Î◊‡ÅÃ˚∞ÄÕ'),
+('®¨Ã»ÄÁ~_q⁄I∂ƒS°', 'wp-admin/js/password-strength-meter.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '1ÖÚ|è§=∑öm‡U…◊'),
+('®Øﬂ\\‡D ¸>¸F,µáÁ', 'wp-admin/menu.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Æó.[˛Ø≤ﬁÿ\r–Fv†`'),
+('®Ï§„\Zã†NwVlü/Ã∏', 'wp-content/themes/twentyfourteen/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'q3¯ÙÈ>z4†«∏⁄b'),
+('®´ÊR°éÉÿ€~Äy\Z≈‡', 'wp-content/themes/twentythirteen/genericons/font/genericons-regular-webfont.svg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '⁄f˜ù¶lıœ√ÃG{'),
+('®ÙÜW#^A˙ıÂ⁄ö∞HG', 'wp-content/plugins/arzamath_17th/post-types/post_type_template.php', 0, '.qœõ˜˙ˆzj+\ZúC¿', '.qœõ˜˙ˆzj+\ZúC¿'),
+('®˙‚ÈNî´	[Áˆz!E', 'wp-content/plugins/better-wp-security/better-wp-security.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'º8;âƒÿ+ÔÆaÂë¨'),
+('©ª˘W{&ÉV8i\\Vë', 'wp-content/themes/twentythirteen/archive.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '5õ	√ÍM:˙Ú^,ÃM'),
+('©¢=C—†‘Ê*TXÙπ¥4', 'wp-admin/css/colors/_variables.scss', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'vüw\Z??€hÂúúq∞ß∫´'),
+('©‹ ÕÁIt13&', 'wp-admin/js/nav-menu.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\Zƒ5ÒgÏúSúÙ·9¸öE'),
+('™;?2Ë·àS˝„ß\0˚öp', 'wp-admin/customize.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ˇú∆:UÀQØ˝É7è÷‹Ô'),
+('™X‡·@¡‘%Ω1CÑ¡i', 'wp-content/plugins/wordfence/images/lightbox-controls.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ùm]ºaí¨ï\\$…è'),
+('™]⁄.«1\rPXL©', 'wp-admin/includes/update.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'â¡ÓÀ?ë∫78˜Ü{Æ»Æ'),
+('™™ıŸÜò|Ü ≤Ω', 'wp-includes/js/masonry.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'l∏ª}M™—òê7„jé'),
+('™ÀŸv{C´¿∫Œ“ßÄé4I', 'wp-content/plugins/wordfence/lib/wfViewResult.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Û≥G›>"@–Æ´cÖüuu'),
+('™⁄p∫$^ÅÜÙçµdùZ', 'wp-admin/network/plugin-install.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'kΩÄOy_•©4ı)•\ZòÜø'),
+('™Ê[K∫ÓÊbéƒ⁄28∑', 'wp-includes/pomo/po.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÔÁË‡P§˜\Z˛´M[f|'),
+('´–ËXêí∞ÿJ†¸p', 'wp-content/plugins/wordfence/lib/wfBrowscapCache.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ˆ><±á≈|ÀrGˇ<g˝'),
+('´o¢˘†¥l>º‚x~I∞ ¬', 'wp-admin/network/about.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'È„=˘⁄©SVÊ⁄VàüÏ'),
+('´à∞0jàlµS”˝KÚ', 'wp-includes/post.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'fÓÈRÒMÕd ^ˇ”ìbL'),
+('´¬´¨‰ó-j=¥u∂N\\q''', 'wp-admin/css/farbtastic.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˘„8)∏˙Ì}{æ¯C˚h2U'),
+('´Ù˜·óèÿ3Ö-É´4∞', 'wp-admin/css/colors/midnight/colors-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ì[«\0JèkõO›ÎÇŸ◊ä'),
+('¨\Z∂ËU1[˛Ü©X⁄_', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('¨"⁄ïK[@âG«˚··9ë', 'wp-admin/includes/class-wp-theme-install-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '.6ﬁi˝Ù"2Ú∏∫ﬁp'),
+('¨3!9‰=Ë6ù›°', 'wp-admin/images/resize-rtl-2x.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '9°.Ïú-ïül¿°E•[ö'),
+('¨ûSıïZB˛◊{#‚”M', 'wp-content/plugins/better-wp-security/core/js/admin-logs.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¶¨Öeπ	Ü=Í‹X3˚Gô'),
+('≠)["JπHîÓ|Ájkä˚$', 'wp-admin/js/customize-widgets.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '0Åmfj\Z¿lÃßΩ3TX'),
+('≠JTV0D∑ÓoTAÔºª@°', 'wp-admin/options-discussion.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '_∞BF)Ì˘◊äë\\ÉØé@'),
+('≠ùöïS«hﬁÎ·S–%Tz¯', 'wp-includes/js/mediaelement/wp-mediaelement.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'UÁcﬁBdíÊäôèÃ« '),
+('≠Ã›"‹í≥˜”√nzD', 'wp-includes/SimplePie/Caption.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ω∫º‹ BjM≠ˆg[ƒƒÎÈ'),
+('≠——Wd˙;C\ræƒ‹OÆ', 'wp-content/plugins/akismet/views/notice.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ôR≈;ZÃ+^OUäè:Çì'),
+('≠‚Z\nu’oK∞ Ø∂T;e', 'wp-admin/images/list.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '>ñΩ*‚¿”≥—SÒ√'),
+('≠ÊháﬂÛ-≤¯˙f:§˛-', 'wp-content/themes/twentythirteen/content-none.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ªz~≈âà_ƒ-˜ºÉû\r'),
+('≠¯ØÂlU}D2Æâ»ı""', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('ÆÃ‰Uy/ˇ*%˛Â˝;', 'wp-admin/includes/update-core.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '5ﬁÎ(_Ö\\ê ZnkQù'),
+('Æ\rEˆ»Uœú¯ÕÑﬁŸ', 'wp-includes/images/wpspin-2x.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ERΩÜfz£¿Çµä'),
+('ÆÎç˛ß™Í‚spõ–‰e¸', 'wp-admin/includes/class-wp-ms-sites-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'bMÀ°∞RÉQhåta'),
+('Æ˜Ω‚˜·ô∞ì\nRZè˜', 'wp-content/plugins/asgard/asgard.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'AíÃ_†÷ZëW T?gj'),
+('ØûÃ-u”ôÃVæ i', 'wp-content/plugins/better-wp-security/modules/free/core/class-itsec-core-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'rd!ß≤hƒƒ`&‰í'),
+('Ø-18¸;ßTˆ/X‚©]', 'wp-admin/ms-sites.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ']b$ÎÙ›–ÒqúûÙ∏h'),
+('Ø-◊VW˘igM4|\rﬂC“B', 'wp-content/themes/twentythirteen/images/headers/diamond-thumbnail.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '#€gˆa´û˛2®ƒ*—{'),
+('ØDÏˆ‰∑ÜÜ´^r«◊.vM', 'wp-content/themes/twentytwelve/languages/twentytwelve.pot', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '4˘x-àÀv+¢LY¶ÛÉ¬'),
+('ØRv°‚íÆ5Øi€íq', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/picture.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '“4∫˝è•∑*≥{· '),
+('Ø`IªB=πçQñµ‘', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/script.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≠!X§àú&®Q˘õ&L\\'),
+('ØÉOã√|<C˙ŸwÕy®¢', 'wp-content/themes/twentythirteen/single.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'q4´Æ:Dwxjıàh*ﬁñ'),
+('ØŒ°~◊ﬂì˛:˝Ë‡¬¯eo', 'wp-content/plugins/wordfence/images/icons/tick128.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Âƒüã¯c∑h4"Ë›´'),
+('∞.Ì¥√!˘lŒ¶j∞', 'wp-content/plugins/arzamath_17th/arzamath_17th.php', 0, '˚Q{{3{˙“ZÑÓ˚!', '˚Q{{3{˙“ZÑÓ˚!'),
+('∞$ÂÕìôbHnÆÄ,\0-', 'wp-includes/images/smilies/icon_confused.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÙÁ1ë•Qa»eCyõ‹	Ω'),
+('±\0ª Mƒ\\€5ÃøÖÈc\0', 'wp-content/themes/twentyfourteen/js/featured-content-admin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' \0ÍÏˇPŸwp"£LK6€ÿ'),
+('±1™r≤I´ˇ1ÆèÖF˜ª', 'wp-content/plugins/better-wp-security/lib/icon-fonts/load.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'z6ÍÉ¯ΩΩ<u∞„Ê'),
+('±LÉíÖyEı{¶¯fì', 'wp-includes/css/dashicons.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∆Y€ÇüôtÊ#S\\˙'),
+('±k ULüÌ«°π$¡ò˙', 'wp-admin/ms-users.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'H#»f{# É≥˘	6GÂ¢'),
+('±ß©Ÿ{^éÜW»ÌËÛC±', 'wp-admin/css/colors/ocean/colors-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¯Ô≥.L˝«yb[˙≥Ô)ı'),
+('±Øãª¥∏W‰;yqjfê≥', 'wp-content/plugins/better-wp-security/modules/free/strong-passwords/setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ñ∂‚çg?v7±∏∂zÙ\Z'),
+('±˙≥ïÀÑòvÔÿ+πnG”', 'wp-content/plugins/wordfence/js/jquery.tools.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '—:-∑·E’†x°$‡∏B'),
+('≤_fÙÁ≤;w–aÀŸ⁄Å±', 'wp-includes/js/tinymce/skins/wordpress/images/gallery.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°_±üåPw˘¥PU€4'),
+('≤uÊÿ<eÁxõÆ@÷à¬à>', 'wp-includes/js/underscore.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '%!7”ù{∫YåØå˘M*Ï'),
+('≤ãq?%Õırp˛¯0˜7Ôq', 'wp-admin/css/colors/coffee/colors-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'väì&o<T≤O∞oOﬁ	¡'),
+('≤˝çBπ6[sèñM˜', 'wp-content/plugins/wordfence/lib/wfCountryMap.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ']hFì3«–¨k›;¥u'),
+('≤ˇ˛≠xƒ–ô“)DCáÃ<', 'wp-includes/js/customize-models.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‘ “∫˙zCpßOE≠aŸVÏ'),
+('≥~£öπ≠U˜"–&ê–', 'wp-includes/images/wpicons-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '›b]\ryD¡˚≤)ÙÒ»'),
+('≥ÃW2›ÿDÅÒGá7áV', 'wp-admin/css/common-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ë⁄ÕKÂ\Z‚ µ1‹—Mpi'),
+('≥6cI˚	@€ûoéÓÛ‰', 'wp-content/plugins/wordfence/lib/menu_scan.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'é''œ„:∆x(qÇ˜´∑æ'),
+('≥8n‘$ÿ12#Z˘≥ä∏', 'wp-content/uploads/2014/10/1024px-Mo√°is.jpg', 0, '¡S{˙	I™M«ΩÆÓvx', '¡S{˙	I™M«ΩÆÓvx'),
+('≥?IhZq_¿“c—dÄgæ', 'wp-content/themes/twentythirteen/genericons/example.html', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '§Ûè¢[¸\r#©%•UMã'),
+('≥Vb(ktàW"Ì6(;∆¥†', 'wp-admin/includes/class-wp-media-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '®õ!];√·¥0¬ÑG˙‚ò'),
+('≥b|Lv„Ÿ_´7ùéEá', 'wp-content/themes/twentyfourteen/content.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '“JnÛû#|`W…a§/\Z∑'),
+('≥tfF	÷r{ô‹á†_I≤x', 'wp-includes/SimplePie/Parser.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Rª.‰bÁ‰ß~˝«Îı+Ã'),
+('¥µﬂ≤;¯õ0ˇÇŸÀ', 'wp-includes/feed-rss2-comments.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∏h~›\0\0Üï◊6SÿÉ<a'),
+('¥bw˝¬˚¶_øR‚`', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/linux.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 's¬[_∑å∆êg\\‘°ÅÓ'),
+('¥É3†T.^ù∆ô<ﬁ˜¯', 'wp-mail.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'âˇR:Ôﬂ±5“$6âú'),
+('¥∑*Í¥∂ÜZÜ3∞\\˛f¬', 'wp-content/themes/twentyfourteen/genericons/font/genericons-regular-webfont.ttf', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¯?''˚˝ ÷K¢Æ>™Ù± '),
+('¥“K¥ÁÁO»ñ9◊3|<ç', 'wp-admin/maint/repair.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ';¢#\0Ê24P2õpe⁄4'),
+('¥I«Âÿ˚.$U0]''àS_', 'wp-admin/includes/widgets.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¡¥efn_ÁJx’öAu€ÂŸ'),
+('µÂµ+DûF‹øTZ[H7', 'wp-admin/images/post-formats-vs.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '$rjŒ§éõˇ¡tF8Ú—ˆf'),
+('µ\Z¥Ÿ≈vT)íF¿ä?3', 'wp-includes/js/jquery/ui/jquery.ui.effect-transfer.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/ÔüUbËD:§Éw+l‘'),
+('µGV\\z≤Ö#∞ˇÉ!;¢ƒ', 'wp-includes/js/media-audiovideo.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'A&Ü¯[’Q√O≤ß`¢'),
+('µOór#Ω‘˝T∫Gáø!', 'wp-includes/js/swfobject.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ü˝∫,ˇI}pÑe~2òqı'),
+('µl&ˆ*á©ıÒﬂı»&', 'wp-includes/SimplePie/Content/Type/Sniffer.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '|r√ÛiÖUbŸlwÏ·«€3'),
+('µÜª$(≠gã(¡Æ‘P⁄Á/', 'wp-admin/css/wp-admin-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'L+øO]–πÏïŸb•'),
+('µç¯ßÑ°…kM‘’? uX', 'wp-admin/css/ie-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˝}\r˜±n\0˝RåœanA$”'),
+('µ±„∑qÜK—U‘jÌ§', 'wp-includes/SimplePie/Category.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∫~»Ã?‘Ú.\n‹Ødª*'),
+('µ‘¶œZÎûV5ÂøÃfß^', 'wp-content/plugins/better-wp-security/modules/free/content-directory/js/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('µ„-Zº≥Ä:Eæ:', 'wp-admin/js/image-edit.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ﬂíT«(†u≥4U(™h5['),
+('∂∫§|èjXñ˘©ﬂ|Ífb', 'wp-admin/css/login.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '%—\0‰ÛΩˆ¢_Q5)‡À'),
+('∂+ìÄ§8xöt°ùƒ_', 'wp-content/plugins/better-wp-security/modules/free/admin-user/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('∂MR≤ÊlƒBúF•u', 'wp-includes/option.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'z‰u\ZBƒ`ë€ÔºÏ7ª'),
+('∂rÅ\\Ÿjî¥®Ú·A$Å', 'wp-includes/js/customize-base.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'gÅá˜Ò ‹∂JÕb…∏'),
+('∂w_XÀZ46êP≤Ò-\n®H', 'wp-content/plugins/asgard/readme.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'œ^j¬∆<‰‰ÚO*z@`]'),
+('∂ò¿„é∆"SŒ≠`t@', 'wp-admin/network/plugins.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Aìà|πÀMM0\0ΩÛø'),
+('∂¶‚\\‰∆.1∞€-úæ:', 'wp-admin/options-media.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˙$''M‡ÀóQ1Y¥úO%˚'),
+('∂∞ŒùH∫*∂·*.⁄ÅS', 'wp-admin/includes/bookmark.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '1ÿ_n"rö™\\‰R4`['),
+('∂–oxôñj/„{©:*j', 'wp-content/plugins/better-wp-security/modules/free/malware/js/admin-malware.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '^∫]≥wiƒæõ-\0oï‡'),
+('∂Ó§Ul1¿»ïD¸bmgÒØ', 'wp-includes/css/buttons-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '„ìµ¯BK»+NG~	‡'),
+('∑\nfv†8¶˜·1∑ìô-I', 'wp-includes/SimplePie/Exception.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '	K˝v&úüÃ<\\⁄è–S5'),
+('∑tU√däC\0é£êçÔ', 'wp-includes/js/jquery/ui/jquery.ui.position.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ô€≤¨|Ãª¡ho¯^Øpåø'),
+('∑õúZQ4«ÿ\\(Ç‹á', 'wp-admin/network/admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'NÖ‘5CsÃπ	õ'),
+('∑“èÏ>@%Ù9ÉÂA¯Ò', 'wp-content/plugins/arzamath_17th/templates/post-type-template_metabox.php', 0, 'Á)$‰îÿŸXd[#;ob˛', 'Á)$‰îÿŸXd[#;ob˛'),
+('∏\Z‰°ØlÓŒﬁ˘3»ä¬', 'wp-includes/js/tinymce/skins/lightgray/fonts/tinymce.woff', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Áa’ÊH6Ø´]%P£∏ﬂ'),
+('∏J|6}ÀPﬂ,\rŸõ', 'wp-admin/css/colors/_admin.scss', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'äÿÉ;`Iz≥L=¯ú°$x]'),
+('∏éîßú[Æè:Å∞óÑÖq', 'wp-admin/includes/class-wp-plugins-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∆ˆÙg§˝Ÿª˝W*™q'),
+('∏öÖPøOf;ˆôÕ/Û◊', 'wp-includes/SimplePie/Decode/HTML/Entities.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Eó^/œ\rBÜë•Z#î%/a'),
+('∏Ë´\\ ØîI—ª¡ªË,', 'wp-includes/class-simplepie.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ys‡râ	ÇmóæıD;é˜.'),
+('π/&ºé÷˚·2Æ—°\rgDs', 'wp-includes/http.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ωq{O›«ºN¬M}	Ru'),
+('πbúEáë3”g''cZ (ö˜', 'wp-content/plugins/akismet/views/get.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '-∆‘ì$”T$xì#Z˚<Óc'),
+('πå?É0|√ˆ‡5u∆°Éæ', 'wp-admin/custom-background.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'BEÒQ\n+[üÅ¢ÿ‡ªB'),
+('πÆÉqhÃnõJ˝jØ', 'wp-admin/css/nav-menus.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'NEäπAœ)—ï9âR''é'),
+('π√èuLÁ,Óü&«ëã\r1', 'wp-admin/media.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'rùèIRÜ	vÍ+/≈º\r'),
+('π˘$À<@„ô≈òaÙ´’c"', 'wp-includes/js/swfupload/plugins/swfupload.swfobject.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÃµqßV7€T\\™ÚÌûs'),
+('∫WMÌäÀ{h©¯⁄¿(ùû', 'wp-content/plugins/wordfence/lib/menu_options.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'A“˝rr∂™ÉÑ‚-¡ù¥'),
+('∫a…@oõˇ''ø…kbÌ˛˘', 'wp-includes/js/jquery/jquery-migrate.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Q+á\Z(0‰BYº<„4:¸–'),
+('∫nu#dÌ…éùäﬂªÖ9u', 'wp-content/plugins/better-wp-security/core/css/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('∫©¬„^[XíÊéi≥	Ì', 'wp-admin/themes.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Aq…HæÌáW˛®#µÛèË'),
+('∫º4T∏(‚\\9''å‰3±)', 'wp-admin/css/customize-widgets-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '''î“úh∑btö‘Qñhµ'),
+('∫Õk{ö‰&ÚÛªx\n∂¯', 'wp-includes/class-wp-error.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'é ›’‰¨IŸ§≠§¶êªÿ'),
+('∫¸ÊÜs·YXÕö¨„ûó', 'wp-content/plugins/wordfence/css/phpinfo.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '£<`Ã,7ë‹Ju\0ü'),
+('ª\0≤◊%3[$x\0Ë‚.∞é(', 'wp-admin/images/marker.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '3‹*O2/‘3I2ú˝Ë'),
+('ª“…4˛ôıâ˘=é∏', 'wp-content/plugins/wordfence/images/icons/ajaxScan.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ë ñ¥—¥≠˜~f˙˙ûi¡'),
+('ª	Ê„„Em[•¨≥«ÿl≈<', 'wp-includes/js/tinymce/plugins/image/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ':Äõ˙√}¸1Ô€‰âöêÙ'),
+('ªú5Z¥ëˇ¸Ãoóé“Æ<', 'wp-content/plugins/wordfence/css/fullLog.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '+∑›ÚÚWâjwÀÑ}ö‰'),
+('ª™π∂p¿ÆX€B#˜^ï', 'wp-content/plugins/better-wp-security/modules/free/file-change/css/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('º¨‡ƒÕÔ"¶R—≈ú', 'wp-includes/images/crystal/text.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'êÃ —≤™¸#ædˇ%„[µ'),
+('ºv%üîåS¥[øÃ™£—æ', 'wp-includes/ms-functions.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ')*aùÃi˛öÔ5x´˘â'),
+('ºxA¥ô.lÅñ|Oà–5KØ', 'wp-includes/js/jquery/ui/jquery.ui.resizable.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '„S	Ò∂s	ü=}lv¬'),
+('ºúEdí„{(‘˙!˙Ù', 'wp-content/plugins/better-wp-security/core/js/admin-dashboard.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'æœQç›æ‹=•%Ìÿƒ'),
+('ºõ¬X"Ø-{„ $48sx', 'wp-admin/css/deprecated-media.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ø∏‚¯4◊ùnG5ÒÈj€Ô_'),
+('Ω≤º\\Üì9∫—ïÅF†wÌ', 'wp-admin/js/revisions.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ˆ£{¡∂π«∑±v¡˘iØ'),
+('æÉóÒNÈƒı˛@Ω(∫3ó', 'wp-includes/ID3/module.audio.mp3.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Úku$˝K;3Ê˛´ú…úM¶'),
+('æâÂ»“µU\ZG„`´â#', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/zip.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '.∫gÄ¸}6cºDÄÑÄ∆Ωä'),
+('æäh¢›ﬂ)UG@»xñÃv	', 'wp-admin/edit-tags.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\n‚∆öZÃÜ˜ˆˇé·µÏ'),
+('æí(é[3?”H/á[∞e]', 'wp-includes/js/tinymce/skins/lightgray/fonts/readme.md', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'zdÄÛã+Ë”‹E@Ï1›'),
+('æ·2]hqu:ﬁT6E—U∂', 'wp-content/plugins/wordfence/lib/wfAPI.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'UàtÃs}Qﬁÿ%úˇ/Ç'),
+('ø“Y≤˚©é1óÿé$…ß', 'wp-content/themes/twentyfourteen/genericons/README.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'I#''yµ£F§@π¿«d"'),
+('ø#≤AuI.F™˘/ˆ†«', 'wp-includes/js/wp-pointer.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '5Àã8Ω.™r:ƒõ•Û'),
+('ø<{ë¡ªá,-Ã![MÄ˙', 'wp-includes/js/tinymce/skins/lightgray/skin.ie7.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∂î m_“ês‘•G'),
+('øvÈóFIóÀ2h¥œ¯§n¡', 'wp-content/plugins/wordfence/readme.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Â<j†¯’–ë˝Qoqk…'),
+('øô∏=V;¢ãÌÌ¬N.K', 'wp-includes/js/wp-list-revisions.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'GQ\ru`“*óLåÏn$ºΩ'),
+('øº≠«∑Æï¨µè˙µ\nÇHπ', 'wp-content/plugins/wordfence/lib/dashboard.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '"6Â6óxq}r£ü\\y3p'),
+('ø‡Œö,ÃQòaªgl∑ƒ\ZØ', 'wp-includes/class-smtp.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¨E†ÜŒ»,™Jä¿Xπ=ﬂ'),
+('øˇdA#ÖˆÕ*ÁÇ≈πo7', 'wp-admin/js/customize-controls.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '*˜ﬁí\Z†\Z$y ''9KKÜ'),
+('¿®Îˇ;ú®;3BÌVx', 'wp-content/themes/GeekHub/footer.php', 0, 'Û‰5!—•D{¥~^±''£', 'Û‰5!—•D{¥~^±''£'),
+('¿zµÉ\r=9ziR≤ea', 'wp-content/plugins/asgard/icons/yandex_safe_browsing.ico', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÕæOa§Qw™0dÎ\\Ô'),
+('¿qän+S4‡G\Z≤K(Á', 'wp-content/plugins/better-wp-security/lib/icon-fonts/history.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°1CÑÙŸ$+_˛ı£eG>˙'),
+('¿cC{ÅèƒÁû0¶Å@', 'wp-content/plugins/better-wp-security/core/class-itsec-logger.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ó:uŒ19Ô~!ï\\ÅŒ'),
+('¿d5æ¬wIèè–˘‰Î˝O2', 'wp-content/uploads/ithemes-security/.htaccess', 0, ' ñ4ª8pLHt√]aZÂû', ' ñ4ª8pLHt√]aZÂû'),
+('¿±3"¸(zŸaÄ4Ó8å', 'wp-includes/images/media/code.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '-oñ≠U ìÓ’U©U_'),
+('¿Ó-RÄX+=Çå,ÿ\n3', 'wp-content/plugins/better-wp-security/core/img/flag16-yellow.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'íÈßë±z≤Áéó$Qf'),
+('¡€Nz˚Ü;¶:?à¿', 'wp-content/plugins/better-wp-security/modules/free/file-change/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('¡≤Í|ô´U÷CêDÖπh', 'wp-content/themes/twentyfourteen/genericons/font/genericons-regular-webfont.svg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '⁄f˜ù¶lıœ√ÃG{'),
+('¡^Lÿ∞⁄çΩ2ÏEßtU#', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/ppt.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'å6l≠Ó<ÚòÜﬂLñx+'),
+('¡kHmÂ1”Û`0—πØñ_', 'wp-content/plugins/wordfence/lib/wordfenceConstants.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ó[ñˇ¸§ï@∂Ç,lÍ«âΩ'),
+('¡ØMN©=Z«œê‡Ω·e', 'wp-content/plugins/better-wp-security/lib/icon-fonts/init.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '⁄˘Ã…é”6ﬁøŸR=4˘Œ'),
+('¡ØíÔ˙Ü[˛[a‹3”<', 'wp-content/plugins/better-wp-security/modules/free/ban-users/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('¡Ÿµ\nh∂ÕJxµdvœ‘É]', 'wp-content/plugins/wordfence/lib/wf503.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'êè±D¯G±€\\4 *∆î'),
+('¡Í5ïÏ[,	jƒ(Í∆™∂', 'wp-includes/js/mediaelement/controls.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '$†"Ω”¨˝Üˇ¸?∆»§'),
+('¡˘¡2zsÒé˙4xŒEB', 'wp-includes/ID3/module.tag.id3v1.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'æÌØ&OÀC¥†p±•¨∑'),
+('¡˝Çø\Zt£Í…nj§6£', 'wp-content/plugins/better-wp-security/modules/free/away-mode/class-ithemes-sync-verb-itsec-get-away-mode.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '8WK¶•e(@πPÜ–]á'),
+('¬ObcÆ≥" Œ«€|J(', 'wp-includes/images/smilies/icon_evil.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '$#ìbı}<)vÄ!´ª'),
+('¬1®åWV(2üò6≤Ñ≥î', 'wp-admin/images/icons32.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '€5P/ﬁH‡Ü‚≈t»≠Æ'),
+('¬ii≠ñB‹e8.º≠8ù', 'wp-content/themes/twentyfourteen/author.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÊƒÚÿ2ùRÔÌÏ•P'),
+('¬¿1åí¡|∏}öî‚dQ', 'wp-admin/export.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '_D'';wT–ÕF ∏Ó :/'),
+('¬˝	1™ı–ê„ÄÖÅS:(', 'wp-includes/js/thickbox/loadingAnimation.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Œ"h\r“cÕÙˇ¬ˆ&∫'),
+('√C∂3ù!0QÚoïJøe `', 'wp-includes/js/plupload/plupload.flash.swf', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'p)ÎâØÿ-òE˜…<°ÀG'),
+('√_¥óßjSX‡2ŒQQ=', 'wp-includes/ms-load.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'T)¿°&''è∏∑ŸZÕ~•n'),
+('√ÕtnRüÿî¿·ØŒ∆%^Å', 'wp-admin/images/align-right.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'BÿÛ‚áOe#”l@:P+"v'),
+('√’≈5€V"Û∞$$Ó_ù˝', 'wp-admin/includes/post.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‹}ôe∏±_5»Ú9∂J€`'),
+('√·iYñêÜÖ\0\nR)ñÑ', 'wp-includes/post-thumbnail-template.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '(Y´π©·D ≠CdLª¬'),
+('√ÂuˇX€›º#Ç-∆¬¯™', 'wp-includes/class-wp-http-ixr-client.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ê.ÛÑƒèæ¥aŸsß&·”'),
+('ƒóUÂF ÷˝ˆï‘û', 'wp-content/themes/twentyfourteen/genericons/Genericons-Regular.otf', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '—1kê∂\ZNÿÿ+à>Ñ'),
+('ƒà^Aıö+lÜÆ¨o¯dâ“', 'wp-includes/js/tinymce/skins/wordpress/images/audio.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '7~!Êﬂ‡\0é˜∆‘˝"w'),
+('ƒî‘º¸›’pPàZ	Hê¥', 'wp-includes/images/smilies/icon_cry.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ']•~ﬁW0‚⁄˙ËŸb'),
+('ƒ‡ ô\0}ÙﬂÁî†Kõˆ.ˇ', 'wp-includes/js/jquery/jquery.color.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ˇ-∏€ÒEŒGÛÅÓÛ>vJ'),
+('ƒÚÚTG€É˝…g]`ñí}∏', 'wp-content/themes/twentytwelve/editor-style-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'aÿÔÕa.ﬂ€=Ã±Ùù‘%-'),
+('≈™{A∏Ímm˘ﬂ*ùK', 'wp-includes/nav-menu-template.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'vO€a∂˙FDÒ:üïßIs¬'),
+('≈Î’Î‚ˇ{÷üZ*k«˛E', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/doc.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '8Ø)S’π\nÓ0›\r!&§');
+INSERT INTO `wp_wfFileMods` (`filenameMD5`, `filename`, `knownFile`, `oldMD5`, `newMD5`) VALUES
+('≈`#„ÿGñbØC–Â÷äŒ', 'wp-includes/js/swfupload/handlers.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ñY,k?≠X‡Nº0GÔ;'),
+('≈iŒ˜wüä˙e˝3CJ\nÈ', 'wp-content/themes/twentytwelve/404.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '_;∑ƒ∏‹öÍ‰ëÈ÷'),
+('≈Õ-ÜpìlE∆ÛÿkÜ/ˆ', 'wp-includes/js/jquery/jquery.hotkeys.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '„S!}EU´\\b≥gæhâÅ='),
+('∆+í†Õg‘æ¬q6•^\0Ë', 'wp-admin/images/wheel.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Vã6ã<]˛{gz\Z√”)'),
+('∆Öéêãá|_Ài/y°“	', 'wp-includes/js/tinymce/plugins/media/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˚Ä€Ùwm/ÖÕ†≠≥ì'),
+('∆ä\0!`_£\n˜Ïh.±à;ø', 'wp-content/uploads/2014/10/cropped-cropped-header.jpg', 0, ';\ZﬁôπÚ*È–eﬁ)ñÃ»á', ';\ZﬁôπÚ*È–eﬁ)ñÃ»á'),
+('∆¨+\Zñº IÛd^i <\0', 'wp-includes/js/jquery/suggest.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'øUÛ¥k™7*Ìó∏Hﬁû'),
+('«`YhzÁ∞ú!ÔH$M◊Z™', 'wp-content/plugins/better-wp-security/modules/free/hide-backend/class-itsec-hide-backend.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Î|™zÏ: ∫uæå'),
+('«Ç-i)ˆ.¯\\ŒËÊzÑ^a', 'wp-includes/Text/Diff/Engine/shell.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'u´A‹ëÕ~J™^t•˘ÊÓ∫'),
+('«Ö˙9†Ÿ9:†˜§\Z˛', 'wp-includes/cache.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Nùà≤~ß{√πeê≥à&≠'),
+('«§>z±‘Ñüù!J]>', 'wp-includes/css/wp-auth-check-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¸˜ç˙¥"Ωå¸π_qm~Ç'),
+('«´…=≈Ëmë/‡¡ú^', 'wp-admin/includes/schema.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'j¸Q‚mZπ¡ög€§µiÖ˛'),
+('«≥\\™›_L-YÄ≈å%$', 'wp-includes/ID3/module.audio.dts.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'à¨Á^›ŸzzF•ƒlxc≠'),
+('»\Z{g›¸?—3g⁄¢\ZΩ', 'wp-admin/images/icons32-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'töV˙ÈaAˇWkπú@7ÎŸ'),
+('»"u@û≥T¨ÖSõÒ5Ú', 'wp-includes/images/smilies/icon_idea.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '»Ì7£ˆ◊o›ú‰bˆ§'),
+('»Y$''´ªæöoë„Ï', 'wp-includes/css/wp-auth-check-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'UkPGeù-∞ﬂüÉ4'),
+('»çPû√ È3ƒÔ—Ä\nîÕ', 'wp-includes/class-wp-customize-control.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'i≤≈◊•§I)U*Yúå´E'),
+('…•É€–~\r\ZK4(#„≈', 'wp-admin/user/credits.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ÿ ¥˚‚¬«Ä[K}ÂZ'),
+('…A7®''·C#ûwäS˚sé', 'wp-admin/css/about.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '-‡¸‘˙Ê7¬¨©†÷∫∏öÂ'),
+('…Rûo¶à1âæÃ|ˆñAì', 'wp-content/plugins/better-wp-security/modules/free/ban-users/js/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('…lXîw¡ÛBı*XßWÒ', 'wp-content/plugins/wordfence/images/sort_asc_disabled.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'O…ß≈˛Õ*“Xˇ≤€9e'),
+('…pG*_¬-5ë_7\nD∞dÌ', 'wp-content/plugins/better-wp-security/core/img/alert16.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'éw*h3ó#ŒœÇπp'),
+('…“∞Üì2D¥i‹eΩ', 'wp-admin/css/l10n.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'A≠{I*RÎÒÃr◊‘Úˆ›-'),
+(' (ÜqÇ4PË}˝5Oz¸k', 'wp-admin/js/inline-edit-tax.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'úèÄZI=ãSÉg\nÿú'),
+(' R±≠Ÿ—àÈ∞ﬁøæ0', 'wp-admin/css/themes.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Çè]”D<Yv''CÁ|≠Ù'),
+(' hFM<@`%q-„Ê', 'wp-admin/includes/class-wp-filesystem-direct.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ﬁÄ√û:ﬂçÊø5∫já'),
+(' xjP’ˆº®Ÿ!c»x', 'wp-admin/plugin-install.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¢æ¨¯ŒdMŒﬂ„Q{À¬'),
+(' ⁄‹ÔÀL÷Ãˆ=∑Ωøp	', 'wp-content/plugins/better-wp-security/core/content/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('À!Å¢#Ú∞’I|èÇ€FÈ', 'wp-includes/js/tinymce/plugins/directionality/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '*è«V†Öö ¨ù Hyı'),
+('À6†<• CÍÔÆøπV:(r', 'wp-includes/js/tinymce/plugins/wpeditimage/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˝’tøçî”£’UNç'),
+('À?7OAn\Zr<n‘Á', 'wp-content/plugins/better-wp-security/modules/free/brute-force/class-itsec-brute-force-log.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'S ldD˙€T°$÷WπîÄq'),
+('ÀU<›?Y,ıœÅßÿª(', 'wp-admin/js/svg-painter.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ç∑Ú¨≤¬∑fuÃŒä'),
+('ÀçÂG‰ØÄoe∑ˇÔoú', 'wp-includes/js/shortcode.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'E|"/<&KhÎÀÈà‡Ôø'),
+('À¢ΩµÕLúN ¡+ëé', 'wp-content/plugins/better-wp-security/lib/icon-fonts/fonts/ithemes-icons.woff', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'IDçÆ°≠K•’<ƒ9≤Ás'),
+('À§Ü†+.m,⁄¥•À4\r', 'wp-content/plugins/better-wp-security/modules/free/ipcheck/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('À„(zëœ¨“oRÊÚs˘ﬂ', 'wp-content/plugins/asgard/style.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‘úß±Sb%—¬Aî?ê.Iﬁ'),
+('ÀÔvÌE,ø-O‰{œ∫ñ', 'wp-includes/link-template.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'CY∏Ë·AŸªwI⁄='),
+('Ã!ÈLT·3ïüiŸÍx≈', 'wp-admin/update-core.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ω+èùªÑy%ﬂNwkÁ_'),
+('Ã9®›ñœ≈Ägô≤K≈*F', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('ÃMœTq&[?˝˘>ÏπäÂ\n', 'wp-admin/css/colors/ectoplasm/colors.scss', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'îq—9+ÿ"©—+ëï'),
+('ÃVç⁄Æôú∆ÍMØÈj”Å', 'wp-includes/js/plupload/license.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'u&\n©TIüz∫´™à+æ'),
+('ÃΩÛ ˛òüXô$oBπ', 'wp-content/plugins/akismet/_inc/akismet.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'u\n\0œ≠L5ÌõuÖa∆'),
+('Ã√ä5ffÕ;,G!''ˆÛ''-', 'wp-admin/css/colors/ocean/colors.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ';?c ∞ÌÜØ{E)§'),
+('Ã«ä∑E¡vñc,ÓÿµyS^', 'wp-includes/images/crystal/license.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ']µLc„iGõfQì\rœÁ'),
+('ÃﬂóÍI@T–/z^Q|ºy', 'wp-content/plugins/better-wp-security/modules/free/hide-backend/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('Õ©ˇ·áp˜j÷õ`í»w', 'wp-admin/css/customize-controls-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'VQ≈ÎiM-:©¡≥⁄ßH˚'),
+('Õd›Í„lPëOÍí˘IÑ', 'wp-admin/network.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'í≥‚B1 ÙÇ∂◊ÆNR'),
+('Õ¿¨c®ÂÜ''6z≥…I', 'wp-content/themes/twentyfourteen/page-templates/full-width.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ce"ı∆m∫¸∂\0oÇs„'),
+('Õ)ƒ≈‰Ú\0üeá_‘5=´', 'wp-content/plugins/wordfence/lib/diffResult.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '$∂ÍÇ}§UÅQ	åÒ–È|'),
+('Õ`nN¶rπuïÑﬁ‹,›', 'wp-content/plugins/better-wp-security/modules/free/malware/class-itsec-malware.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '1k\0%;tS$3SÛÿ«'),
+('Õwˇ9=ü_"h%í◊v', 'wp-admin/css/install-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ì4\n¬– ú\ZË|ù\nî'),
+('ÕìﬂY·36æÈlÁÄY´∞', 'wp-includes/js/tinymce/plugins/textcolor/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '–)ôdâù7.±•j_ï'),
+('ÕΩ3¬ËÅ=£°O¡Gƒ|~ß', 'wp-includes/SimplePie/Credit.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ö‰°MÁåã*>\nÍ|'),
+('Õ¯âªj(g˘Ä~jU#∑÷', 'wp-admin/includes/class-wp-filesystem-ssh2.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'úZÚª"Çl„p»°0•'),
+('Œ_)-™]ÌÀåkO	√˜√', 'wp-includes/ID3/module.tag.apetag.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ß¢ 3Ö«\0éΩ6\ZIX:ó'),
+('Œ≈ì˛˙˙œîÚ=ü∫#6', 'wp-admin/images/post-formats32.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˚º¯\Z+lÁÈ‰˚cöä*$'),
+('œpÊ¡ÃyÙ0lß3Î‰0', 'wp-content/themes/GeekHub/single.php~', 0, '‘åŸè\0≤ÈÄ	òÏ¯B~', '‘åŸè\0≤ÈÄ	òÏ¯B~'),
+('œ):eÿº–›‚û2Ï¯', 'wp-config.php~', 0, 'ª\Z–RDƒÎS~ÙùuÌÓ¸', 'ª\Z–RDƒÎS~ÙùuÌÓ¸'),
+('œ-”+ée∆·‘mÒu"∂√x', 'wp-admin/css/colors/sunrise/colors.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ä`_K¥èJn˙9îëT¡§'),
+('œk/âj)¶◊ãVÉ{Kî', 'wp-content/plugins/better-wp-security/lang/better-wp-security-es.ES.mo', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '†—≤{˛Y2÷]x5ÜT@V€'),
+('œuFÛ‚ë^G˙•E+à∂c', 'wp-admin/network/freedoms.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'û˙ì¿pâO~+¢~ú1'),
+('œÄçtG»©ù»¿ã§D', 'wp-includes/js/tinymce/plugins/image/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÿ⁄táüÙî?$_]¨RÒ'),
+('œ¬»≠¡H‘πÚ‹fÎk·', 'wp-includes/js/tinymce/wp-tinymce.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '7h>=⁄bHn<˜“™ŒZ'),
+('œ∆Í¨	Eå-ƒ:2Íˆë', 'wp-content/plugins/better-wp-security/modules/free/database-prefix/class-itsec-database-prefix-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˜D^5Q	ÿ§è_raMÓ'),
+('–/ô%*√*i≈ÓÏ', 'wp-content/themes/twentytwelve/js/html5.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Zò®k\\¥åÛ8F2YŒA'),
+('–>õsÀlõWD7ıM∞', 'wp-includes/bookmark-template.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‡Ò4v⁄^w⁄‚+h6ˇ'),
+('–¢íÌéπÇ|·é—‰ÿ@', 'wp-includes/images/smilies/icon_arrow.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ŸçıãÒﬁvtbAΩí¨$D'),
+('–ÿ^∫\\∂XËPvS¨\\˜{', 'wp-admin/js/media-upload.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '_f®åã‰b•fùµ\n£¢'),
+('—x‚}‘Zµ`.fÁ»B~', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/jqueryFileTree.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'XÀ{ñq‹|úÛï_\nŒ'),
+('—\Z˙ÏÌj>O9o‡ëí!\\)', 'wp-content/themes/twentythirteen/genericons/COPYING.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'πB;ñÎa`G‘¢∑ﬁâ'),
+('—Ap$—¸uŒ≤^€ß&*s', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/php.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'HÕ¢¢•J1˜¶fT|Ü,Á'),
+('—_\\c9mLävÈË£1â—¸', 'wp-includes/compat.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'd¢…µ€ñŸ˘ﬂø˛œù7+'),
+('—áùÓ•j=ÈdÂ£±', 'wp-content/themes/twentytwelve/js/navigation.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Nk‚‡ú''–=’±™cÌ'),
+('—∫†Í%|O≠ˆ¢º≥-''È', 'wp-content/themes/twentytwelve/content-image.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÃûÅu8^PC‹Ñ>Äæâ÷'),
+('—’ l¿\\Vh¸ëÜßÔÄ;@', 'wp-includes/js/jquery/ui/jquery.ui.effect-fade.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ˆ%•[GÔ˘.e-µì'),
+('“Jh|±î0ÁÉ`ZpòE', 'wp-admin/user-edit.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '´YΩ!◊gœÄãêoüYÍÚ©'),
+('“+qK(øeñ$kú\\≤£¥', 'wp-content/themes/twentyfourteen/content-gallery.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'v´3Ãÿ®ë,\\‡‘ô‡˝*G'),
+('“`âîÙ¸8ú"NÁT∏', 'wp-content/themes/twentythirteen/page.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '™ë¯¥oÔGiÆ∞sn)m'),
+('“vôΩä«ö\\˝p©üORò', 'wp-content/plugins/better-wp-security/modules/free/away-mode/setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '-◊\rÍÇ^Z¸-k6z¬Ö'),
+('“û≥Â˙Ï«üˆ	KsÕ◊–', 'wp-includes/images/icon-pointer-flag-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '©Â·¶2Ò≥πb‰ƒ&’ZÃr'),
+('“™*è„‘Hö™®\n;t≤˚', 'wp-admin/includes/ajax-actions.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '÷ç´%◊D<)4ôìgrı≥'),
+('“≤E5|“—µâCÇdÈóº', 'wp-admin/options-reading.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '.K˛++ƒÓœ6"8±ãu+'),
+('“’Lt593ñu^òÎ‰)Ÿ‘', 'wp-admin/images/comment-grey-bubble-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ùTY”≈ù2∂s,\rımÉø'),
+('”&)-√¢´\ZçŒôïp', 'wp-content/plugins/wordfence/lib/GeoIP.dat', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '©˜õ(<Ûr“HùÍ/™'),
+('”E#l¬L˛Ê_&‹™≥¬Ô', 'wp-admin/images/arrows.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '⁄ví$>à—ﬂŸ>øY'),
+('”js§ûw2˘ÏpÆ˝qS', 'wp-content/plugins/wordfence/lib/wfIssues.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Üñ,|q)c(¶d)au'),
+('”{⁄≠d3T˙XyΩëÒ–7;', 'wp-includes/css/admin-bar-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '§ıó-÷ıá◊–rì.óÌ'),
+('”éèÙ‰~y‰Ü?^Ø©(', 'wp-content/plugins/better-wp-security/core/img/flag16-red.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '	3ùÃº,äÎMRS¸mB'),
+('”©aäFGı„µ5ﬂ˘‹˚ëî', 'wp-content/themes/twentythirteen/genericons/font/genericons-regular-webfont.ttf', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¯?''˚˝ ÷K¢Æ>™Ù± '),
+('”‚≥>Zbµo&ê¬‘ç', 'wp-content/plugins/akismet/views/config.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ô\0-$ÖÎQ∫ÁÕ.l'),
+('‘ËÚˇÂùÕ0*ÓW«‘', 'wp-content/plugins/index.php', 0, 'gD,VÎß=\\∆bP', 'gD,VÎß=\\∆bP'),
+('‘].ıoo»¶M-n	á', 'wp-admin/images/align-none-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¯XCô)[◊∞õ-∫4Ω'),
+('‘´Ú$§Ô»gihe,', 'wp-content/plugins/better-wp-security/modules/free/hide-backend/setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'aÔkb_ŸÃ¥∞%xØ~.¢'),
+('‘»Üpü˛—]4Ã–LÒƒq¶', 'wp-includes/css/admin-bar.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '§3	tﬁOùﬁ$Ã·ƒb,'),
+('‘ pˇ˝Sïö`ﬂ]T]D»', 'wp-includes/css/dashicons.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Ãô1cÖR Âúpÿ˜v'),
+('’XÈØó$Ña≤‘B»“^', 'wp-admin/js/user-suggest.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‡âT\\◊¸ﬁ\\|◊\r„ß9·'),
+('’uyıV{ΩíŸΩ`-†À', 'wp-content/uploads/2014/10/11.jpeg', 0, '0YZ¸iõ\n”ÜHkWË', '0YZ¸iõ\n”ÜHkWË'),
+('’ˆº˙Õ§6È\0/˝ìk˙¿Ù', 'wp-includes/js/imgareaselect/jquery.imgareaselect.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\00‘∫LBùwm#¬„wuá:'),
+('÷P@öê&ë÷53KúI9', 'wp-content/plugins/better-wp-security/lib/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'V‘Cóhgå”˘©Ò@˘D'),
+('÷Z◊ˆ	r!ﬁèf’—æ	ﬁ', 'wp-includes/images/icon-pointer-flag.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∞”,áÚ≠ã¬E^øj`'''),
+('÷o“®*KÓÍoò7{É <', 'wp-includes/ID3/module.audio-video.matroska.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ª‰V„äŒD–¿"˝rutÅ'),
+('÷rYüSØxwDYÀöJô[', 'wp-includes/images/media/interactive.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'R◊¨ÀÇÆÒ¬√¥≈âh‹H'),
+('÷©ˆ„ºV§†8/åÌÌÏ', 'wp-content/plugins/better-wp-security/modules/free/backup/js/jquery.multi-select.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\Z\r”àvÏCã?ªìu"	'),
+('÷≥)ˆÿ˜úvkõ''à\ry5', 'wp-content/themes/twentythirteen/genericons/genericons.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ü¬ 4bâÿ-Ø+lëˆ'),
+('÷∂ÀÂ9ÿûf¯po3t', 'wp-includes/class-wp-admin-bar.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ò›„?ÌìŸ”–\Z^WäŒ®'),
+('÷œJÿ˚Ô!¨[W6›ßÈ˝', 'wp-content/plugins/wordfence/lib/IPTraf.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' ñ’Bb˙5s˛Ÿó”ØO'),
+('÷⁄≠N$É‘‹ƒ¶(àíyA', 'wp-content/plugins/better-wp-security/modules/free/ipcheck/class-itsec-ipcheck-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Is∑›≥›ﬂ6à@.«='),
+('÷ﬁÎ07∏eÔ	ı”ü\n£', 'wp-content/themes/twentythirteen/comments.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ü¬ﬂ…∫ÊÛÂÂ∫ñÉ4'),
+('◊\rn8#√î˙ÿ9í˙øˆ|', 'wp-content/themes/twentyfourteen/images/pattern-light.svg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ˇi¶˝øGp≥jàÄøS›®'),
+('◊%WúG”[°-w3\\&Ä', 'wp-content/plugins/better-wp-security/modules/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'V‘Cóhgå”˘©Ò@˘D'),
+('◊G»©ıÔø6î§≥»\0Y', 'wp-admin/includes/class-wp-posts-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≤=||ıß‘ûõjM§[\\ö'),
+('◊ûîyÑ7mE5ùÉÖO_¡', 'wp-admin/js/media.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\ZlÔ#§©˚ïï¡ô˛x'),
+('◊«j0ñ©ﬁw˛E}¬ÆRü', 'wp-admin/css/wp-admin.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¸Ó ó˙Ò$§bÿ·\Zõ˚P'),
+('◊‰^Àu©≠‚À}ùGª‘', 'wp-content/plugins/wordfence/lib/email_unlockRequest.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¿û˚ØPÕø≥é2.·Õd'),
+('ÿ¿\ZvåI:wm‰≤''~K-', 'wp-includes/ID3/module.audio-video.riff.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'óüs«W—´hﬂâOLËE'),
+('ÿ&„ZhÕ$õ√âoÇ', 'wp-includes/class-json.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'LÚSAëü⁄ÕÑ¨·‹%\Z'),
+('ÿ8/B±è$8êàœ`mú', 'wp-includes/js/imgareaselect/jquery.imgareaselect.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'U¶∑˚K(tó”¸0ëóŒ'),
+('ÿAØh)Ià\Z]GrﬁˆÉE', 'wp-admin/includes/import.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '9[o.ïI√R—˝⁄\rkH,ê'),
+('ÿM&è3\r‹¡3CMaQ{', 'wp-admin/images/yes.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ƒ+¯¢7‹âó\rqZËQk'),
+('ÿeO+ ]jqÚ’t"]', 'wp-content/themes/twentythirteen/genericons/Genericons-Regular.otf', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '—1kê∂\ZNÿÿ+à>Ñ'),
+('ÿo≈«£û	◊£·üf0øY', 'wp-includes/SimplePie/Core.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '§Æ©#∏êÚ‹˜‚‘˝\Z“'),
+('ÿêV\\=lS©ãløJö&', 'wp-content/plugins/wordfence/lib/menuHeader.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'vB©æp_0*´k8øoG'),
+('ÿ™w≠Êe€?ÕmBŒCu', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/file.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '£+ß‚fìÉ!9CG‚¶·'),
+('ÿÒM1P,—ní]Ø\r PNø', 'wp-content/plugins/better-wp-security/lib/icon-fonts/fonts/ithemes-icons.eot', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÄjS∏0ÚúN\Zí9äR3€Œ'),
+('Ÿ,(°i7:^Ã^Áâ#', 'wp-includes/js/tinymce/plugins/paste/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '⁄‹DXpò”ç*‘ÉÎÇÇ'),
+('Ÿ;Â:«ù\\¢4t„YB∑', 'wp-content/themes/twentythirteen/css/ie.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'X¢ØÆ…é:ø†aˆ‰'),
+('ŸD˛y]Ìn€Êë“PÊ’', 'wp-content/uploads/2014/10/1024px-Mo√°is-1024x576.jpg', 0, 'Ù˚b\\_1¸<Sﬁnb', 'Ù˚b\\_1¸<Sﬁnb'),
+('ŸJ‡Ôö^\Z7¸ïuGñk+', 'wp-content/plugins/wordfence/lib/wfDB.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'U|D—g\rπÑ°æ°E®'),
+('ŸkÔ€/yû≥©˝õ&âüG', 'wp-includes/images/rss-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '«Ya[†Q¡Êıó˝rjù'),
+('Ÿò›"P¥‹û˜∆,É©ÿ', 'wp-content/plugins/wordfence/images/icons/ajax24.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'K:˚Ñ≤∑ımôó£PΩ'),
+('Ÿ∆ÑˇvªÙ§∞ÿˆY∑$', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/images/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('ŸÎº!}Ò=ˆ`*ÑgZ=', 'wp-admin/network/themes.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'πºÅL©5(HEVKÜ…ñ‡'),
+('Ÿ˛>œ~‰!™g≈qãò', 'wp-includes/js/tinymce/skins/lightgray/skin.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ':í‡qÈ‹Ïó-IR…ªÈñ'),
+('⁄Üw˙=≈¢ƒO˙&πF ', 'wp-admin/css/colors/midnight/colors.scss', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '&‹ç™ƒ|DW∏º!EÙÜ4'),
+('⁄|¿#È‘∞#ù{ïƒ˛ü·', 'wp-admin/js/link.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˘ˇFîì0ì;ﬁ¬¡3≤%-'),
+('⁄}”∫¬É∑RáQ¡πïz', 'wp-content/plugins/better-wp-security/modules/free/tweaks/setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '^◊‘<C0GË}_PÚÁ†'),
+('⁄Ö∆Œ∑π+	v\rIùπ”', 'wp-content/themes/twentytwelve/sidebar.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '»AöÈñpk|qáàAºﬂ'),
+('⁄í›†#[<z!Êû', 'wp-content/themes/GeekHub/404.php', 0, '˛í˚o¿eâ!\0™∂', '˛í˚o¿eâ!\0™∂'),
+('⁄«Ù©zI˙S‰‹ôOe¬', 'wp-content/uploads/2014/10/cropped-cropped-header-150x150.jpg', 0, '>T,uÌäëØƒ¿\0‰÷', '>T,uÌäëØƒ¿\0‰÷'),
+('⁄˝!ß(tîÚâ<‘π', 'wp-includes/js/heartbeat.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ω≥v^d¬_é ‰wN‹ghÌ'),
+('€„é_\r¨JLË#Æ@BÃ÷', 'wp-admin/css/colors/midnight/colors.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¿úPÂîÜÛßÏB√"È)Ã'),
+('€ ÊIŸ_X≤”öº®?', 'wp-admin/js/gallery.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'òo„ù∫œm‚‹dOo'),
+('€T∏W«ø‘áØåÙÇCá~', 'wp-content/uploads/2014/10/cropped-cropped-header-300x57.jpg', 0, 'f⁄˜ﬂ¸ﬂVÉ<QBÊÙ◊', 'f⁄˜ﬂ¸ﬂVÉ<QBÊÙ◊'),
+('€ñJèBwÖCò°|MÙv', 'wp-content/plugins/wordfence/lib/Diff.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'R|–$π»ÏÁ©V;P‡ì‚Ÿ'),
+('€™ÚÍ˜	.Ê’∏ﬂ\\æÚØ', 'wp-includes/js/tinymce/skins/wordpress/wp-content.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'X|o‡<\0Zü/O ä˛œ'),
+('€»rÅöº¡µÿÅ=‘‘íÈ', 'wp-includes/images/rss.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•∞[ø(Úî∞.˝î*NZ∏'),
+('€ﬂ\np°Ò”Gnu:¢∏”', 'wp-includes/js/colorpicker.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ' V gÙÑ≤∂˘ü-Ø'),
+('€‰vPiZﬁ¥8W˘∞¸∞', 'wp-content/themes/twentyfourteen/js/html5.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Zò®k\\¥åÛ8F2YŒA'),
+('€˛¸ïﬁÁ•Iwª+BòÃe', 'wp-includes/js/jquery/ui/jquery.ui.effect-explode.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'lA¿&ÙŸN†jœS‚ó'),
+('‹»ºëÿü‹''\r`˘Ù Œ', 'wp-includes/feed-rdf.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ù]H˙≈lÑc0pxã°¶'),
+('‹)–⁄kˇB®Ú‘gıÕ˝E', 'wp-content/plugins/arzamath_17th/readme.txt~', 0, '‘åŸè\0≤ÈÄ	òÏ¯B~', '‘åŸè\0≤ÈÄ	òÏ¯B~'),
+('‹2G˝?¶_Ê¸\\Ë∆˙-B', 'wp-includes/canonical.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '4©◊è©áMã.á© ZÀÃ'),
+('‹F|\nµMN,8á›™™''È', 'wp-admin/css/press-this.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˝B]£ÏBïëRT˜4˜ç'),
+('‹U¡íF\\Ãáç∑Ü§', 'wp-content/plugins/better-wp-security/core/img/flag16-blue.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'û°k˝ë6ìÜõ¢Ó´¿©'),
+('‹á∏vnòdá="=Òî©ı{', 'wp-content/plugins/better-wp-security/modules/free/file-change/css/admin-file-change.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˛œ)œ@Ö,±ÕËˆŒ'),
+('›∫\r\0FJ»‰ñB·ﬁeÁ', 'wp-login.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'eoØ•€D‰õ¿Ê7'),
+('›J0œıß…j†Yg⁄h£', 'wp-includes/js/tinymce/plugins/lists/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÇdwV=};ÎóÈåe%î6æ'),
+('›[6ª5ÄÑ+»	·n9‰', 'wp-admin/images/sort.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'é/æø»óƒW™”‚N\Z'),
+('›fÖ„ùyé¸¨ƒßó*!', 'wp-admin/js/nav-menu.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≈0wXÁÕ•k∑!Í≠Eç∂'),
+('›{fZøµ¸ﬂ•õóø	‰KQ', 'wp-content/themes/twentyfourteen/images/pattern-dark.svg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∫EΩæ[˝.∆t5’·≠\0k'),
+('ﬁ3^ÎÀPMüYòÊÌHàDÿ', 'wp-includes/js/tinymce/skins/wordpress/images/video.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '–¬∂˜†B©=\rzªÉ3j¡'),
+('ﬁNƒ\\¸|Û`*∑,)@4', 'wp-includes/images/xit-2x.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≈¯1⁄Ë7π ÚêßÜm‹¶'),
+('ﬁ†äÆ˜±ó@w¬àÁc!ë', 'wp-content/themes/twentyfourteen/inc/custom-header.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¡ÄCT{F”ÿùé‡‰Ÿ'),
+('ﬁﬁã≥≠î1FÛ¯Î€aì', 'wp-content/plugins/wordfence/lib/wfArray.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˙⁄e¶my∏ÜVÙMº\Z¨∫'),
+('ﬁÈ''g!é:ñHôÓ),æ', 'wp-includes/SimplePie/XML/Declaration/Parser.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'è±⁄p(√ÖªùB…ˆs#b'),
+('ﬁ˙«(3Àh9◊ÒÑÖÏÿ', 'wp-content/uploads/2014/10/331px-Mutation_and_selection_diagram.svg_.png', 0, '#Ï#…Ê£»UX≠f®4', '#Ï#…Ê£»UX≠f®4'),
+('ﬂ‡“¡"âªñæÕc)j€"', 'wp-includes/js/wplink.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '}h@πë±1È’FúK?©∫'),
+('ﬂ:CòâûˆsˆÒ1ÍöSM', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/spinner.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'öÇiBcæJµ„Hp·'),
+('ﬂ=Fh3{DW}Á˚!bìﬁ', 'wp-content/themes/twentyfourteen/content-quote.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¸•gB^œü(!-†®\\f'),
+('ﬂqÇ˘úä%≈±ì m+', 'wp-admin/css/colors/light/colors-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ù*®õ8xB™≤,≠°≠0'),
+('ﬂåÚë(É©©â’€2Å·Ë', 'wp-includes/js/quicktags.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ç‘¬úfËVî∏µ_Ñâ#ä'),
+('ﬂñ/˝2•Zç¢{¨6ª‡', 'wp-content/themes/twentyfourteen/category.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Gmï˝Y≠”8ú8'),
+('ﬂóœQµ¶u‚!Ÿ∂xï[', 'wp-includes/js/wpdialog.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '“-ü•ª\0∫g\r®Fƒ°æ'),
+('‡‘»6Æ¥9&ìµÕ¯≈RÔ', 'wp-content/themes/twentyfourteen/css/editor-style.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ã¯1ùí]SÕIª◊£&'),
+('‡%Áèf\\+,ÖÊÕ\0\\Y', 'wp-admin/includes/class-wp-filesystem-base.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÉuìJG…wr@†ãFãê'),
+('‡|§ÛBø˝«È„5YìË', 'wp-content/plugins/wordfence/lib/menu_sitePerf.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Õø"é„x<Û%˘‚ì+ı4'),
+('·©^∫˚bRñÂSI·!”?', 'wp-includes/class-wp-image-editor-imagick.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'h›="X	Â˝ƒô´Q'),
+('·®3∂Ø·™d&\nNäyM', 'wp-content/plugins/better-wp-security/core/class-ithemes-sync-verb-itsec-get-lockouts.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '§Ô‚˛H˛≥àÜÎ[ŸßG'),
+('·A	!fêYÎj=	qQ|H', 'wp-content/plugins/wordfence/lib/menu_sitePerfStats.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÅVhgh(∆Ôç»àµ∞!'),
+('·Z±éÆ(>(™1bﬁ´îZÍ', 'wp-includes/js/tinymce/skins/lightgray/content.inline.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‰8±w9Áﬁ¢\r¶%≈Eê»='),
+('·qç@/ªπÍ¶ëŸû-MÀ', 'wp-admin/network/site-users.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‘ù''œÏ((É™œÂ©‘'),
+('·™Ó\nÜ≈f˘ﬂQzw$l{', 'wp-content/plugins/asgard/bootstrap.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '´˘!˛AØ8ÙºhﬂiÃ€'),
+('·¿@wBÎá\ZR⁄LG7¢	¬', 'wp-content/plugins/better-wp-security/core/lib/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('·Ò\\9√£>úüÑIz4ìc', 'wp-includes/js/tinymce/plugins/hr/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¥Ö<⁄<{LU798Ï€Ü'),
+('‚ *Òs\\·OìÈilÍ', 'wp-content/plugins/wordfence/lib/menu_scanSchedule.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'qy™bôÈ•Â·å1Ùàºs'),
+('‚L∂>ÅŸüâ#{6p}Y„Œ', 'wp-admin/options-writing.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Øeååc˛\Z\nï6˙PKñ.í'),
+('‚euﬂsˇó˘y(ô©5m', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/application.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¸Q}†-jd¶é_Íö]‰rÒ'),
+('‚‰ƒ∏:ﬂ,p¥1ø€Hr', 'wp-admin/js/dashboard.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‹ØOh|lR<‚’QR4˙•'),
+('„\0ºï◊ïoxi3%\r+]kg', 'wp-admin/images/post-formats.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‹Kˇ·—\0ì‰Ÿ%3®÷∫'),
+('„0ó;Í-,”AﬁEyÊ', 'wp-includes/theme-compat/sidebar.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '>\Zø•¸"}Wuo™ÜÑ.H'),
+('„a›Oj''˜≈ªD*÷ÅV4', 'wp-cron.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'œ*ÊdbøiD√xÏZ˘'),
+('„åhÜSd¨{ÏyΩSf', 'wp-includes/js/jquery/ui/jquery.ui.button.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Á∆A^ƒX>K1^XÏKx4'),
+('„·q’82Ω˙v¬&#M', 'wp-includes/js/tinymce/plugins/wpview/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ù.Ê≈ÈfÉ¡™øwƒy†tW'),
+('„ÏÛ<kUJv%Úç1Çá', 'wp-includes/fonts/dashicons.ttf', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∫ˆ¸Ìb®ºC¡»Pß('),
+('‰w¢Õ”÷V•–Îº!‹', 'wp-admin/includes/class-wp-ms-themes-list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '†¯Ä1‡ñ`SÜ¶ù€†´ÜÍ'),
+('‰ﬂÊ®ﬁzpKC≤{\\>ÇÛê', 'wp-admin/js/dashboard.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '9ˆsE°/Ø\Z<S…(ü≈üÜ'),
+('‰Íø1˛]√M|ÆK‘FZ', 'wp-content/plugins/wordfence/lib/wfBulkCountries.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '}⁄√ÏMÏä±¢≥Ú_#9'),
+('‰ˆ\00á˘qüƒäNy)î‘', 'wp-includes/plugin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '£[‡¿+â≈Ì|V˘™´q'),
+('ÂRÀ‰5?í- S£^Hó˝', 'wp-admin/js/editor-expand.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '@HïƒQÖìXf≈Î|0'),
+('Âf‹M%"$Õ	™ÃŒÛs·´', 'wp-content/themes/twentythirteen/category.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Zè·åòHÎî @µÒŸw'),
+('Ê\rÚb\\Òôâƒ…ç≤\ZƒÎ', 'wp-admin/edit-form-advanced.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'RÛú∞÷%ÓtH)—!rÜÌ'),
+('Ê.âÌ]Œzo_W~bt›', 'wp-includes/js/jquery/ui/jquery.ui.effect-pulsate.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˛è¢™M÷C™DÅuÄˇ'),
+('ÊGƒ≈5ÿ@ÊËŸ⁄07ï«', 'wp-includes/images/blank.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ò\nÉAFI|õ˚''˛«'),
+('Êhﬂ∂º2M†	ò25pä', 'wp-content/themes/twentythirteen/content-aside.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ßˆ''+[yonñ@‹'),
+('ÊjI˘!Wÿœ˘äåÏ*:GÑ', 'wp-content/themes/twentyfourteen/comments.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '“%ÏØ∑Ä)ÖM√r;6Ù'),
+('Êã≤îT^ıX…±P^ãï7', 'wp-content/plugins/better-wp-security/modules/free/four-oh-four/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('Êßò∫Ó7›^Ùªb≥"≥', 'wp-content/plugins/wordfence/images/back_disabled.jpg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'hŸ¬‘gÿ˙ÔiÓ„Ü>'),
+('ÊŒW˚Í√"˙⁄ÍSk:Õ', 'wp-admin/images/align-center-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ûæ≤-Ûrá5*J7°If'),
+('Ê›‡≈•ÊXŸØÁ‘Q⁄«', 'wp-content/themes/twentyfourteen/js/functions.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\0$j7µ`ƒÒ˙ä!ôh≠ƒ‹'),
+('Ê‚££ÙMÂO◊∫ÓÔÉUÆ', 'wp-admin/js/editor.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¢≈QÂ|«ZXóvÎ<'),
+('Á"’∆°Å¸ü7vs+ˆ', 'wp-admin/includes/class-pclzip.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '67(»CˇìÈkiÉŒ8Î¶'),
+('Áb`K¨''◊äÏªúèÁ‚K', 'wp-includes/functions.wp-scripts.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∏û‰HS	5‹√d	[EÁÆ'),
+('ÁîJ˙°—ëe˜\rXdî‘$›', 'wp-includes/class-wp-customize-widgets.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∑"ö!÷ˇ˘´{‡ﬂ∂iL,'),
+('Á†xu’ΩT?>I¨F^$À', 'wp-content/themes/twentytwelve/sidebar-front.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'køª,¯ûÅ·≥∫íﬂµ'),
+('Á©l⁄XNEM CgVsA:', 'wp-includes/js/swfupload/plugins/swfupload.queue.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ôSR/ΩJªˆ5©-vÕè'),
+('Á√’Kˇgõ–Âáo#Á0', 'wp-activate.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'pU»™ØNˆ‡©åÊ≥{eGô'),
+('Á≈â˚	i‡ˆêø/–≠', 'wp-includes/formatting.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '’?4»îª.‘èË¬ yÊW$'),
+('ÁœH‚∂«Õlˆ±{!D#Ø!', 'wp-admin/js/color-picker.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '^l≥Ë„wCAÙ®\ZÊÚ@∫'),
+('Á‡F¸ZYø—C8¿è3E', 'wp-admin/css/colors/blue/colors.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÃÉƒë¥⁄‹¥z©`V#Ö˚'),
+('Á„Ù¥WÆB§Ô\ràœ‹àk', 'wp-content/plugins/better-wp-security/modules/free/away-mode/css/smoothness/jquery-ui-1.10.4.custom.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'V„Dïöı§|µ-µ\\“ú'),
+('Ë[jÒr¢8xss›âôn˚\Z', 'wp-content/plugins/asgard/icon_small.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ñ\0Ï¬Æ5ˇsl;\n8/Æ'),
+('Ëfıiø`∏=@TµÁoŸ', 'wp-admin/images/spinner.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '#öO-)ê|•úr>Å¡Ël'),
+('ËJâŸÂyîû0mÏ`‰®/', 'wp-includes/class-IXR.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '§W=lÂ‘g¨Ø˜I∆Û Î'),
+('ËÚuU¿Œ§˝6¥†2¶Y', 'wp-content/plugins/asgard/screenshot-1.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '…Ó©\ZÇca˘Ì0ec-s'),
+('ËÚáÚQÀoµH*πÇ¿(Ô', 'wp-content/plugins/wordfence/images/sort_asc.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ',∏ªIß≈+∆æ†Í˙=Ä¸'),
+('È"¢”[Q	ÿ√¬', 'wp-content/plugins/wordfence/js/admin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'hÖá¿µ◊Ù∞‘ÁDˆà'),
+('ÈFŒj!YÈ{.J=,µÆ', 'wp-admin/images/stars.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '[¨‡ôê><ık≤{“Ï(ë'),
+('È]˜W/>Ô}<8Ë VF„', 'wp-admin/includes/theme.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'à¯êùUYcK[¯€H∆	*'),
+('È^.ójT}˘<ﬁåIæô', 'wp-admin/js/accordion.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '~!–Ç‚¿8nˆ˛eqÁà '),
+('ÈìºW€[uÆHê3\ZX∑', 'wp-content/themes/twentytwelve/content-page.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ó2d¨®’g∞t∫Cc'),
+('Èú'' ≠∆#sà˛ﬂæU|', 'wp-includes/js/mediaelement/loading.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'v≥&Ù‘B"oÓ!eïæı'),
+('È†ª¿yN<é†Ä9Äo\Z<', 'wp-admin/js/xfn.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'f≤'' (Ù.∞J9\r^'),
+('È™ m¨Mt®Ü€W≥B', 'wp-admin/images/align-left.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\\˝y0œ˙d˜ZÚo.hû‘'),
+('ÈªwÅ^Ñ¿®¡Œ∑“l‹z', 'wp-content/plugins/better-wp-security/modules/free/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('È‘ﬁ‚tì˛òZ—O''É \n', 'wp-includes/js/thickbox/macFFBgHack.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'í»∞gÔÜ≠◊Wí,/u¥'),
+('È÷ÁŸˆV,E@ÜXÇöêy', 'wp-includes/SimplePie/Cache/File.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '£=ª@Ï¬ú∆B[	S—'),
+('Í&˛(¨yfì\r‹–*KcA', 'wp-content/themes/twentyfourteen/page.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'M©;DjRÔ?©˙Å'),
+('Í4 ◊Á∫2ë)A.;4—', 'wp-includes/js/customize-preview.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '„2à ∂*ﬂœQ`b´eg¥'),
+('Íç•≤´2jEbgÿàW≤x€', 'wp-includes/css/editor-rtl.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'nâµ˝q“—∏»ΩÄ5;-Œ'),
+('ÍØ«áæ∆€4ÀìT`°k', 'wp-includes/js/wp-pointer.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '6èò|dMpX\0ó‰Äf…êÇ'),
+('Î-nÍ$.ˇ#g%ƒ}›˜', 'wp-content/plugins/wordfence/lib/Diff/Renderer/Html/SideBySide.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'p¥˛ÄuQ¯Ñ¨: Ã*'),
+('Î0ûÅäRJ≥{yÌÀ£˜Ô', 'wp-includes/general-template.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˘û˜ÉYR™±)J¥‰F°'),
+('ÎF Û8«+≤)–ÿr›PË', 'wp-admin/images/no.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '»kød…$˘ü‹üV7¿ã'),
+('ÎO”ø˙;§=\\Jºzy', 'wp-includes/js/tinymce/plugins/wpgallery/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ü€Ò\rº‰pùyá-’Œ"Ê'),
+('Î≠∑\rÁ!z}MLùKÅE', 'wp-includes/ms-files.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ']ºy√Ø˛<—r ‘LÎF|'),
+('Î≤‘S⁄∞póèGM«Ø®lÌ', 'wp-includes/css/media-views.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°Ìëñ‰ü–3øÒW7À”ìÔ'),
+('Î»ƒ◊ÆFÓÍpﬁs•ÿ4£', 'wp-content/plugins/wordfence/images/back_enabled.jpg', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°°Ò¯]»˜£î“Hé√'),
+('Î›vA¿dsΩÉóµÆKµ]', 'wp-admin/post.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ò~Põ	“„ñˆ©∂Ï…’B'),
+('Î„YC‡ﬁoÉoR‘‰∫ûî', 'wp-includes/capabilities.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Wl˘ßì¥eºeº:Iu\\qπ'),
+('Ï8∑⁄ßô∫s}Ô˜’∂‡Ni', 'wp-includes/class-phpmailer.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'BqO7WóÿvaÓüòi4c'),
+('Ï?ÿ‘ﬁ˝∑hõ±ê“Œ;', 'wp-includes/js/quicktags.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'u¢∑÷bπ\\ƒ9ÕÇ⁄Ís'),
+('ÏPÿ∑˙åÊÇáÃ∫∆¥$@ÿ', 'wp-includes/SimplePie/HTTP/Parser.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'W%«–˚4ﬂ6ê•è6	'),
+('ÏdíÑÁ†Ü\ZfπU˚%œ', 'wp-content/plugins/better-wp-security/modules/free/strong-passwords/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('Ï∏É˙v»€6‡ö;ò~è', 'wp-includes/js/tinymce/utils/mctabs.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'üx$éû\nd™Û,‚PôÀ'),
+('ÏªàxSææ]íDù´´	', 'wp-includes/js/jquery/ui/jquery.ui.effect-scale.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Q|I∏k\\B"ÇN3œó¶m'),
+('Ï¿-x«(≈E∂oIÑ=›', 'wp-includes/class-wp-customize-section.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'qÂºÚÙ0^‡∏sk≈m\0Û\r'),
+('Ì\Zpr5>†ˆ#Eùˆ¥ƒï', 'wp-content/themes/twentyfourteen/inc/template-tags.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '®+Ûs!ÛU\r3rHRö±'),
+('Ì''cÓ˝òÌt^&7∏Ün!', 'wp-content/uploads/2014/10/cropped-header.jpg', 0, '∏ô\\5+û…z+1˙«¿', '∏ô\\5+û…z+1˙«¿'),
+('Ì]öß@É\nó´>ƒ∫ÓYn', 'wp-admin/admin-post.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\Z®/`‡ ¡˜j9ªx∆„'),
+('Ìlå™≠Òò\n´Ÿ¢÷R¬$', 'wp-includes/js/jquery/ui/jquery.ui.progressbar.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'h·Êw£? Z¿G¶®QfÆÚ'),
+('Ì∞QR"Ê√@3™ˆv‡S', 'wp-admin/js/link.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Üu‹–5œ≥tˆ{¸øzå'),
+('Ì◊˝∑t≥Œã^≤)ô<6,', 'wp-content/plugins/better-wp-security/modules/free/four-oh-four/setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ãh^*¨Î~	Âg¶+Á!t'),
+('ÌÈ\Zaò]]„AâÍ''hé§Ä', 'wp-admin/network/settings.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '·ˆÖèE¶NP‹‡I@äf['),
+('ÌÒ≤É=√˙c‰ŸáúÊ˝', 'wp-admin/includes/upgrade.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‡3-&j\0?Iî†<Áæ)'),
+('Ì˘ÎeCòæÑDi!◊Á', 'wp-admin/css/colors/coffee/colors.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/·{™nŒ`º·#‘áÙÂ(Á'),
+('ÓâïfŸ%uﬂP˚ ÒÑ', 'wp-includes/js/mce-view.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '''G)?äµB˝yª©á€I'),
+('ÓR^aÔyè\\∏©aM]Ì¶©', 'wp-content/plugins/better-wp-security/modules/free/ban-users/setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Jî¨£	cπ’ßìﬁÕµr'),
+('Ó–qÅ·ﬂ5H»Ô‰Øï\näp', 'wp-content/themes/twentytwelve/archive.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'g«yÿì¬qrˇqöÍ'),
+('Ôó™∫úLÖkÉ3µôZE', 'wp-content/plugins/better-wp-security/modules/free/strong-passwords/class-itsec-strong-passwords.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'AGı•“¥2ßÜFŸ6…'),
+('Ôãù[±≠ãUïÆÙ', 'wp-content/uploads/2014/10/header-300x92.jpg', 0, 'p+≥>3ì|Üu¨ÕÀlTY''', 'p+≥>3ì|Üu¨ÕÀlTY'''),
+('Ô"Ú/∆¨Œ∫ƒt∆zıöä;', 'wp-content/themes/twentythirteen/style.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '(≈ªvºn!\0∏›Xô¿'),
+('Ô;L·tâ◊¨C∞Éêî…£', 'wp-content/plugins/wordfence/tmp/.htaccess', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∑I†z~“i∂,LûˇË'),
+('ÔD=J«Ö/	6ﬁÉaÖ', 'wp-includes/js/swfupload/plugins/swfupload.cookies.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•~¿\r⁄à›k\\ 7Ã¥’œ'),
+('ÔY^~5~ë®püG-äåä', 'wp-includes/js/customize-views.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∏Í_±\Z€%c›πâ‡ë—'),
+('Ô¿˚PÜâa`XuÓ•°', 'wp-admin/css/color-picker-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ˇ”J˚D	â6¸+Á6&Ä‡Ã'),
+('Ô—X=U°pfpæÄ¡Z', 'wp-includes/taxonomy.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Œ|y@HK§πœÔó¸5ø'),
+('Ôﬁåt+È\\ı+∆XaÜZU', 'wp-content/plugins/wordfence/lib/wfScan.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Œ±v‡‰Ä&‹˝⁄]…'),
+('Ô„Ø©Ë	''ØÊ∂ﬁ®ã˜V', 'wp-includes/images/smilies/icon_biggrin.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ûØ≈ÛPPø=yÛçàøùÜ'),
+('ÔÔ6Xá‘™4Ò„[_áù=t', 'wp-content/plugins/wordfence/lib/wfScanEngine.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '&BH¨ﬂ''‹¶Ï''Ód´'),
+('ÔˇÄ…9á r¿M‘ßƒË', 'wp-includes/js/customize-preview-widgets.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '«Q~ªµÍ£6¬aπõÅ'),
+('$üƒ´•Ià^˝ì3∑î—', 'wp-admin/menu-header.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ﬁøî˙a&‹|OJ£˜∑`'''),
+('ß÷ãê:Üû Ë∞9È.Î', 'wp-content/themes/GeekHub/functions.php', 0, '¯è?‘%‡m	uØ≈x¨TH', '¯è?‘%‡m	uØ≈x¨TH'),
+('∂!A¥™˛\r⁄ñ\r>Œ', 'wp-content/themes/twentyfourteen/content-featured-post.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '`√ÃX∞''†gT\\d)ÿ'),
+('–∑&ßL€Ω¬®ù„VNä', 'wp-includes/css/buttons.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'R‹ÉÄ2ÈÑ†<z¶`»`«'),
+('’£m“Ïp¬¸È©ç˜9\n', 'wp-content/themes/twentyfourteen/inc/featured-content.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '4}§∂Äæ2[:˚≠Ãt“∑'),
+('ˆ¥¯¸ï¯6$[£™ÆO¿', 'wp-admin/css/customize-widgets.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\ZvÀoªÓ¢÷“˜w©¶å9P'),
+('Ò¯Âìrp.uÖ3zxÄ', 'wp-admin/includes/class-ftp.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'yü+π‹\0Â∆|Õá˘lÚÉ'),
+('Ò7s˛\\]‘}àAA˘we1∑', 'wp-admin/tools.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'p—∆3Í)qªÜ\0—∑àI='),
+('ÒZ/•º˚{LtÂ’ÆF$Ä', 'wp-admin/js/svg-painter.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'á‹˚Èê/ß|ƒ©àúÇz¸'),
+('Ò~∞;ôIúv®S∆Y±¶?∑', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/txt.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\r¶k€?öùŒrÊBº%'),
+('Òà‰>õ÷î)ﬂÀ=U˘', 'wp-content/themes/twentythirteen/inc/custom-header.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'êıeßRΩŸa_!™Rw'),
+('Ú?≤‚E_œ)äx⁄Ö$ûù', 'wp-admin/includes/deprecated.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'õv„“°%¶Ω¨Z¸ \ræ‚'),
+('Úm5©''˝ıoWÇ"\Zõw»∂', 'wp-content/plugins/better-wp-security/modules/free/core/setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Î∑ìÛ+≈hÊ∆¬Íı'),
+('ÚpoÇç¥X0%˜¢«ÌœÎ', 'wp-includes/css/editor-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '”|§ŒéPªêni1.f_'),
+('Úñ›’jKÈ&∑ÖÌ÷Y', 'wp-content/plugins/akismet/class.akismet-admin.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÜRLªµ≤Íã˜d£\\ÏoL'),
+('Ú∞ñ¸M¬Ÿ¶M∆/`º', 'wp-includes/js/swfupload/handlers.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≤–O€ÖºÛﬂ≤ò} '),
+('Ú±†≠¸≤B…R‘zááY', 'wp-includes/js/jquery/jquery.table-hotkeys.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÂoÅgoù∑øì~i¶I	˙'),
+('Ú∂?{o_±∞µ''ªn÷', 'wp-admin/images/resize-2x.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ı·e?â&h.È≈\n∫ô'),
+('Ú¬Ã_f¬†$¡O<o', 'wp-admin/js/common.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '$Â¡%{Ygyó¶˜_≈'),
+('Ú⁄wŒ+"+˙$„¨^∏', 'wp-content/plugins/wordfence/lib/wfLog.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ærx•oŸ<ÓÏ€!†«ﬁá'),
+('Û„_ÈÉíKtMQ√˜bÆ', '.gitignore.save', 0, 'I√’¢¥»ïX˚`¨∏=è', 'I√’¢¥»ïX˚`¨∏=è'),
+('Û#\\˙∑‚®/ávXR', 'wp-admin/js/theme.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•“Ò˘s+ä~á;N¬	'),
+('ÛKç#Ú∏∂$˙œÓ“€≠', 'wp-content/uploads/2014/10/cropped-cropped-header-1038x240.jpg', 0, 'ª4˚QèKLxi%∂d†˛E∫', 'ª4˚QèKLxi%∂d†˛E∫'),
+('ÛlFëÆæ‹cÎíï“L¡Ä¯', 'wp-admin/js/iris.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'tPN7ˆÿ°ã°åÇº'),
+('Ûäÿ†]‘fïàPÙ¢ÜÉ', 'wp-content/plugins/wordfence/lib/wfLockedOut.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '›€W—±‘XÒ≤e D£¿ö'),
+('ÛãwˇGÍ$ƒe¡ëﬂQ', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/folder_open.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ø0ÿùi›ﬂΩé_ÄZú@'),
+('Û¥"KPûÌ-,&*„b\n;', 'wp-content/plugins/better-wp-security/modules/free/file-change/filetree/images/music.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ω"D¨(*Z⁄H∞◊ú¨≈î&'),
+('ÛˇV¨ìk9€¥ÓsøªÄ÷ø', 'wp-admin/css/customize-controls-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '	€æâ¡ƒ¸ñéf¡;Ú\nƒ'),
+('ÙÇé;Í¢^©∏¥8cÑ', 'wp-includes/css/buttons.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '√i⁄¶á{î><˝Xır)Ωa'),
+('ÙJ''#âÇrNÑ0a\r»', 'wp-includes/images/crystal/audio.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'k1SπPÀ}à∞yEâ#e'),
+('ÙY¥™RâYi/µ∑l@HX”', 'wp-includes/js/media-grid.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÿc—ÊÈô¬ê”‹Ã'),
+('Ù†∆ƒ£ªÒ0ø4á\\ﬁ', 'wp-content/themes/twentythirteen/js/theme-customizer.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '#œ˛úÆ#e:°3êÆΩ‘EÅ'),
+('Ù≠jÂ8˙ú»ƒè√\Z¨±Û', 'wp-includes/js/wp-backbone.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˝´¶S∫ÚY€|≥◊§◊j)p'),
+('ÙÀΩ,“Å‘§a“:1ï|', 'wp-content/plugins/better-wp-security/modules/free/file-change/class-itsec-file-change-log.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Õèò¨Ÿ±G‰¡t±s¿X'),
+('ÙÈ«œΩ7T?Ö·òõ', 'wp-content/themes/twentytwelve/tag.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≤òmÓFÈÁ∏d,S¿¡G'),
+('ı-"DÌù  πD≤5a–/', 'wp-includes/cron.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '`*Ó\r€‹ΩÌ MÛ–'),
+('ıA4e¯Í«{π^öÅÜ“Z', 'wp-includes/js/wpdialog.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'rË9_‘M@9\0úSñàè¶∫'),
+('ıF§Î\Z¡ìÁÆC¸Ï1ÆP', 'wp-content/plugins/wordfence/lib/wfDict.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '*êÓ6AttÎÊ#√'),
+('ıuÙÅNê‚É.A_Ÿ_œ', 'wp-includes/js/media-editor.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'd˙∂ß-ëù?s«qÔD^'),
+('ı∏e~Qå8ÉÓåÃF', 'wp-content/themes/twentythirteen/sidebar.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'n∂ŒKÉ+MÊH%^g≤'),
+('ı•Ü¬ÿﬁ>+‹ûL[Óm', 'wp-includes/js/tinymce/skins/lightgray/img/anchor.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '´”a5qÄ‹»ë_4¯@'),
+('ı•€˝(Î≈¯%û#Ä9yn', 'wp-admin/css/forms.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '°òk! É¯Bß£îgWÙ'),
+('ıÊÿı£y†¯\0∫"¨ÓQ', 'wp-admin/user/menu.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•)„”¬ªÜgπÃEœpÓ'),
+('ˆÄ~°ë‰‚ª‚rÑCõû', 'wp-admin/link-parse-opml.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '†9)!¨_nó4k!ö{Ò÷'),
+('ˆV9¥‘K±·ƒgoX±π7”', 'wp-admin/images/align-left-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'iÖ8±OπÉöÏ–^ó∆c'),
+('ˆ}«⁄›óŒ§xÀD±ÎY', 'wp-content/plugins/better-wp-security/modules/free/backup/img/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '•Î:#JÒ>J¯wÔrxâK'),
+('ˆ®£í¬˛H©S!;¯ Ûñ', 'wp-admin/js/user-profile.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'b»Âˆn‡Fﬁ(°Øüì'),
+('ˆ ÌÜ+¢ö«q…pW£√', 'wp-includes/update.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∞õèPN›M¿9ÀiÏ—É°'),
+('ˆ”„≠`◊&X<ƒaQüVh\\', 'wp-admin/user/profile.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ôãç/ˆ2¯Änﬂ>„xZ›“'),
+('ˆÌú®vÛeúıO–ÙÜ6', 'wp-content/themes/twentytwelve/content-aside.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'úlílH∆µOØÙ`˚∆Ÿ'),
+('ˆ˝Âç¿Pq-≥tÛπ@l ', 'wp-includes/images/wlw/wp-icon.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '1	é öâ7w3Kèô*'),
+('˜ @Ô;Ä˙*œ¡|®∞', 'wp-includes/Text/Diff/Engine/string.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '^Óñx@πRµ∆ô=ª˙”'),
+('¯2∫ÆXôßkõ!ìpd/', 'wp-content/themes/twentythirteen/genericons/README.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'I#''yµ£F§@π¿«d"'),
+('¯@®“ÍsB0<Ä{l∂3ü—', 'wp-includes/wlwmanifest.xml', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ﬂ‘ê∂ÛÉÍ¢i^àñ'),
+('¯D@£—&4bÍMvöÓ›±', 'wp-content/themes/twentytwelve/content-none.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '†3©{”¬cÿ∞ƒ–ö·Æ'),
+('¯QªÏ¡|Rœ.˛Q#¸t∑', 'wp-content/plugins/better-wp-security/core/content/system.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '–´èπ»$ÙÖ±/è˚&W'),
+('¯kÊﬁ∫îe<FÍ⁄4', 'wp-admin/js/revisions.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\\ˇ\nºã≥)„jtBÄµcÈ⁄'),
+('¯¬6K1˝˛õ(Óˆ›}/AX', 'wp-admin/network/user-new.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Ú@»,lÏ~JƒﬁÒw''z©'),
+('˘ÅH˚Mzª@ıAÈÜÈ', 'wp-admin/css/press-this-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'U\Z>ùœòT•≈¸™˛qlb'),
+('˘Ñ…±%õπa{Zºj	%ø', 'wp-includes/class-wp-editor.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˚J%9‹U|>Ú ^≠ôJñ'),
+('˘áÜÛIô:4P˙U“Ÿ¿', 'wp-includes/SimplePie/Cache/Memcache.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ˆùJU≤°Ö1SQ´Ñ?∂'),
+('˘ä=]˙C¶%8¬X|ú@', 'wp-content/plugins/better-wp-security/modules/free/ipcheck/setup.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '–ﬂckp¶∫Ù÷g6\Z\n'),
+('˘¢ç∏pˆl4[≤˛∞eõ€˚', 'wp-admin/js/inline-edit-tax.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˚ ÓdÜô2Q≤4]gëp'),
+('˘©ÄXiU1`é≤]ÇìÎì', 'wp-content/plugins/wordfence/js/perf.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'uQ˜" wF˜‹·R@p'),
+('˘˜ùÈ\r‡˙°ÿ<ËZg©"´', 'wp-content/themes/GeekHub/index1.php~', 0, '‘åŸè\0≤ÈÄ	òÏ¯B~', '‘åŸè\0≤ÈÄ	òÏ¯B~'),
+('˙Rúﬁ=˙›*…dÚ’nê', 'wp-admin/includes/media.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '”“¿BüOﬂ¥\nê,6€xÇ'),
+('˙fÜ)r {`º^t»€∂ç', 'wp-content/plugins/better-wp-security/core/img/green-check16.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'xjØ5ŸÕ≥m˝î}¨Mö'),
+('˙-^gˇàÃ∫@\0/˜ìÜ', 'wp-content/index.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'gD,VÎß=\\∆bP'),
+('˙.’∂ª’ÒZg{⁄=ÒöÃ', 'wp-admin/css/customize-controls.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\nAEë˛W]órÙø;w˛â'),
+('˙DT>;(∞≥Â®—JgÒÑU', 'wp-content/uploads/2014/10/331px-Mutation_and_selection_diagram.svg_-300x271.png', 0, 'ÂÈ8p\0bπ±ZËì-∞Ã', 'ÂÈ8p\0bπ±ZËì-∞Ã'),
+('˙ä≠~Öãa%°Î!ªP', 'wp-includes/js/tinymce/skins/wordpress/images/pagebreak-2x.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '{Œ6ø#UQ:˜ë|>#Î÷'),
+('˙òîÁŸL?@ßö.~OØ', 'wp-admin/css/colors/midnight/colors-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ûå‹≈Ç	1Û2C9ˆÏ0ΩÀ'),
+('˙≥¨ªT\nöàÙ≠e.(º±', 'wp-includes/class-wp-image-editor.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¬ŒÓ\\ﬁ>ÊöﬁO«8ûë'),
+('˙‚ê}á€·≥P√õôP\\©\Z', 'wp-includes/js/tinymce/plugins/wpautoresize/plugin.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', ''';ﬁ\0%«9¬&YÀ®)?Ã'),
+('˙„ÍF&Û“(åpˇ≠', 'wp-content/uploads/2014/10/cropped-header-1024x195.jpg', 0, '?∂\rÃç	{˛ß◊P)EÇAh', '?∂\rÃç	{˛ß◊P)EÇAh'),
+('˙ËRä,ûAß¿˝\ZÒGJ''-', 'wp-includes/default-filters.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¢⁄\Z…¨\Z‚‚≈Í∏ˆ{î'),
+('˙˝ \n\\‘˚…∂.5˙éö', 'wp-includes/images/xit.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '√ˇÕ\nË{\ne‹%S‡ˇ€'),
+('˚DÅœ·Í]Êü|ﬂº™$ô', 'wp-includes/js/mediaelement/wp-mediaelement.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ï¡‹í€RHãk?H≈^@—'),
+('˚Ph‹»≥∑§rV‚', 'wp-admin/css/revisions-rtl.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'H‰Võ\ràÔM«Oü´iI‹£'),
+('¸''Ò˙ôÉÊ≥◊}µêçù0', 'wp-includes/js/tinymce/wp-tinymce.js.gz', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '!Ò\\Îl$^m¿Ì≈vI∫'),
+('¸])ÈÈ	πÉÛ{ó?R}', 'wp-includes/feed-rss.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'µkY≈ÙÌ>∞]DtH/'),
+('¸!3(^õ‹£¢*õLmA C', 'wp-content/themes/twentythirteen/image.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ls¸1Ç:	è‚ÁnÙπwû'),
+('¸0<Ps…Ò◊ûHó—¡22', 'wp-includes/js/jquery/jquery.table-hotkeys.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ßÍ÷î#t˝gP±gÄ•'),
+('¸9(FåRj2πn6]Åä', 'wp-admin/css/colors/light/colors.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'q“û›	ïuwKëY‡l›'),
+('¸gç"ö}_ø7∏Ω¶‹J5', 'wp-includes/js/jcrop/jquery.Jcrop.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'VÃû¢‹/Këxø¨¨í'),
+('¸Ü˝íz≤ü¸Õõè\0kÔ', 'wp-includes/js/jquery/ui/jquery.ui.mouse.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∞XÇÀ ãgí™tÖîæ-'),
+('¸âp∑ä9Ω6√®ÂRÊ', 'wp-admin/css/common.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Xã^\\j…ÆﬁØZç9,¨'),
+('¸òïåµ∆™q•ÊÇ≥ã–', 'wp-includes/js/tinymce/plugins/paste/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∂p“%ë(ö∆ÔπÄô◊'),
+('¸©ÔzÈ0«ËfNÓB÷<', 'wp-content/plugins/asgard/icons/yandex_dns.ico', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÕæOa§Qw™0dÎ\\Ô'),
+('¸ª<lÊa¨Ä,õbX,≥≤', 'wp-admin/images/xit-2x.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≈¯1⁄Ë7π ÚêßÜm‹¶'),
+('¸’≈∑N	\0˘€f\ZT≤ä', 'wp-content/plugins/wordfence/css/diff.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '‰"®âìÙ’y1Ö˜ù4Z∆'),
+('˝!@AÇ;1)SJó»b∑Ã', 'wp-content/plugins/wordfence/css/colorbox.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'êÚÿ\0g/Ø4BE-∏Áˇ—'),
+('˝G˛ù≤!#h‘9	ÑÚ&', 'wp-includes/js/tinymce/plugins/wordpress/plugin.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '™™Z⁄ ÚT∏Ì)Çx"+ñ'),
+('˝KjÚ‚™h∫ëË˘', 'wp-content/plugins/wordfence/images/loading_background.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '¨Ù''È2˚îp\nKãX¥Ï'),
+('˝ü“¶¿ø§$2°bçL•$', 'wp-content/themes/twentyfourteen/sidebar.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ORn·]&dó˚Á˛éúçn'),
+('˝©’''ÊÄB‚ä≠7S¬', 'wp-includes/js/zxcvbn-async.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'óßûñ®≤\0ìV]u#3'),
+('˝¥ˆ◊¯ı)›(§–<Ÿ›', 'wp-includes/js/json2.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ÔAàÀ`ß Ù»°Ë@´'),
+('˝ÕaÑÌ''@TÁëìâı÷ ', 'wp-admin/images/date-button.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Õ;Nè‘xÅÒÑ\ZÖ~Ωó'),
+('˝ÁAπ©d9∫:IoÛä‡L', 'wp-content/plugins/better-wp-security/modules/free/malware/class-ithemes-sync-verb-itsec-perform-homepage-scan.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '&t,Q≠+P≥4≤ÍaY%œ'),
+('˛˝˛Åú)z]!?ª±a¿', 'wp-admin/images/media-button-video.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'ë∆ÃgA.A¨˜Ω∆=,N‡'),
+('˛I"Ìp¢–t Qπ…[Z6x', 'wp-includes/css/admin-bar.min.css', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 't≥)•#≥{Ωr∏'),
+('˛cµ‘wkù(îë¯4ç3√', 'wp-admin/includes/list-table.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'öÇ∫£T8¨‚>˚°_ﬂÇ'),
+('˛Q÷ø6ì»yq‰¢88', 'wp-includes/theme-compat/footer.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '∆ ~C~éMè›È¯µ…='),
+('˛‡¢øwõÒ''¢6)', 'wp-includes/rss-functions.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'g≥∏ª≤‘l]•4j0l=ù'),
+('˛ÔÆÂyÍ¥^íÜ—=>}\r', 'wp-content/uploads/2014/10/header-1024x315.jpg', 0, '6cWßêh-Õ†ƒ4cÿ£', '6cWßêh-Õ†ƒ4cÿ£'),
+('ˇ;`∫$rÁüÀ—$≥û¶=', 'wp-content/plugins/wordfence/images/icons/warning128.png', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'pœG¿I◊t*ˆì∆ Np='),
+('ˇ?∂î#æÍ˛M9\r®', 'wp-content/themes/twentytwelve/page.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '7¯~›U§·öÛ¯Ø•&é}'),
+('ˇLŸÛÍÛêe5x?e=Êà&', 'wp-includes/js/plupload/wp-plupload.min.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '5‰c€∏)¥,KØRi05†'),
+('ˇr¥ªIˇ!ñõ∆', 'wp-content/themes/twentythirteen/content-audio.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '`E£œnB˝ôƒâ´9≥J'),
+('ˇ}_0EôñsóRu÷Ø¶≥', 'wp-content/themes/twentythirteen/genericons/LICENSE.txt', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '≤4ÓMiı¸‰HjÄ˝ØJBc'),
+('ˇá∑÷M~Î^x˘º;á', 'wp-content/plugins/wordfence/lib/unknownFiles.php', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '˛È“·æZª\\2¢2/C$í9'),
+('ˇµS©CRC˛¸l∏≈', 'wp-admin/css/colors/sunrise/colors.scss', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Víá\ZäzÓ	h›˘í=Ï'),
+('ˇƒÍkµÀiÓ–.º•∏\\•ì', 'wp-includes/images/smilies/icon_neutral.gif', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'tEXÇp∏=TäaX◊y'),
+('ˇ‡©ø˘,õÿ‰:\nÈ›∫E', 'wp-content/plugins/better-wp-security/modules/free/away-mode/js/admin-away-mode.js', 1, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '~≈qÖÏMÙ\nﬁ"e`~¿');
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfHits`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfHits` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ctime` double(17,6) unsigned NOT NULL,
+  `IP` int(10) unsigned NOT NULL,
+  `jsRun` tinyint(4) DEFAULT '0',
+  `is404` tinyint(4) NOT NULL,
+  `isGoogle` tinyint(4) NOT NULL,
+  `userID` int(10) unsigned NOT NULL,
+  `newVisit` tinyint(3) unsigned NOT NULL,
+  `URL` text,
+  `referer` text,
+  `UA` text,
+  PRIMARY KEY (`id`),
+  KEY `k1` (`ctime`),
+  KEY `k2` (`IP`,`ctime`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfHoover`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfHoover` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `owner` text,
+  `host` text,
+  `path` text,
+  `hostKey` binary(4) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `k2` (`hostKey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfIssues`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfIssues` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `time` int(10) unsigned NOT NULL,
+  `status` varchar(10) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `severity` tinyint(3) unsigned NOT NULL,
+  `ignoreP` char(32) NOT NULL,
+  `ignoreC` char(32) NOT NULL,
+  `shortMsg` varchar(255) NOT NULL,
+  `longMsg` text,
+  `data` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- –î–∞–º–ø –¥–∞–Ω–Ω—ã—Ö —Ç–∞–±–ª–∏—Ü—ã `wp_wfIssues`
+--
+
+INSERT INTO `wp_wfIssues` (`id`, `time`, `status`, `type`, `severity`, `ignoreP`, `ignoreC`, `shortMsg`, `longMsg`, `data`) VALUES
+(1, 1417345697, 'new', 'easyPassword', 1, 'c4ca4238a0b923820dcc509a6f75849b', 'e5c4630140d440a6dbe44bd244e8fa2d', 'User "admin" with "administrator" access has an easy password.', 'A user with the a role of ''administrator'' has a password that is easy to guess. Please change this password yourself or ask the user to change it.', 'a:6:{s:2:"ID";i:1;s:10:"user_login";s:5:"admin";s:10:"user_email";s:14:"leybal@ukr.net";s:10:"first_name";s:0:"";s:9:"last_name";s:0:"";s:12:"editUserLink";s:59:"http://localhost/wordpress/wp-admin/user-edit.php?user_id=1";}'),
+(2, 1417345698, 'ignoreP', 'easyPassword', 2, 'a87ff679a2f3e71d9181a67b7542122c', '007f7324a268fb235ce1510da9da382b', 'User "subscriber1" with ''subscriber'' access has a very easy password.', 'A user with ''subscriber'' access has a password that is very easy to guess. Please either change it or ask the user to change their password.', 'a:6:{s:2:"ID";i:4;s:10:"user_login";s:11:"subscriber1";s:10:"user_email";s:20:"subscriber1@mail.com";s:10:"first_name";s:0:"";s:9:"last_name";s:0:"";s:12:"editUserLink";s:59:"http://localhost/wordpress/wp-admin/user-edit.php?user_id=4";}'),
+(3, 1417345699, 'new', 'wfUpgrade', 1, 'c877306760e830e9a028548062594c1d', 'c877306760e830e9a028548062594c1d', 'Your WordPress version is out of date', 'WordPress version 4.0.1 is now available. Please upgrade immediately to get the latest security updates from WordPress.', 'a:2:{s:14:"currentVersion";s:3:"4.0";s:10:"newVersion";s:5:"4.0.1";}'),
+(4, 1417345699, 'new', 'wfPluginUpgrade', 1, 'a64839f5c21a272224f532e4a87d43f4', 'a64839f5c21a272224f532e4a87d43f4', 'The Plugin "Akismet" needs an upgrade.', 'You need to upgrade "Akismet" to the newest version to ensure you have any security fixes the developer has released.', 'a:12:{s:4:"Name";s:7:"Akismet";s:9:"PluginURI";s:19:"http://akismet.com/";s:7:"Version";s:5:"3.0.2";s:11:"Description";s:516:"Used by millions, Akismet is quite possibly the best way in the world to <strong>protect your blog from comment and trackback spam</strong>. It keeps your site protected from spam even while you sleep. To get started: 1) Click the &#8220;Activate&#8221; link to the left of this description, 2) <a href="http://akismet.com/get/">Sign up for an Akismet API key</a>, and 3) Go to your Akismet configuration page, and save your API key. <cite>By <a href="http://automattic.com/wordpress-plugins/">Automattic</a>.</cite>";s:6:"Author";s:65:"<a href="http://automattic.com/wordpress-plugins/">Automattic</a>";s:9:"AuthorURI";s:40:"http://automattic.com/wordpress-plugins/";s:10:"TextDomain";s:7:"akismet";s:10:"DomainPath";s:0:"";s:7:"Network";b:0;s:5:"Title";s:41:"<a href="http://akismet.com/">Akismet</a>";s:10:"AuthorName";s:10:"Automattic";s:10:"newVersion";s:5:"3.0.3";}');
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfLeechers`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfLeechers` (
+  `eMin` int(10) unsigned NOT NULL,
+  `IP` int(10) unsigned NOT NULL,
+  `hits` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`eMin`,`IP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfLockedOut`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfLockedOut` (
+  `IP` int(10) unsigned NOT NULL,
+  `blockedTime` bigint(20) NOT NULL,
+  `reason` varchar(255) NOT NULL,
+  `lastAttempt` int(10) unsigned DEFAULT '0',
+  `blockedHits` int(10) unsigned DEFAULT '0',
+  PRIMARY KEY (`IP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfLocs`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfLocs` (
+  `IP` int(10) unsigned NOT NULL,
+  `ctime` int(10) unsigned NOT NULL,
+  `failed` tinyint(3) unsigned NOT NULL,
+  `city` varchar(255) DEFAULT '',
+  `region` varchar(255) DEFAULT '',
+  `countryName` varchar(255) DEFAULT '',
+  `countryCode` char(2) DEFAULT '',
+  `lat` float(10,7) DEFAULT '0.0000000',
+  `lon` float(10,7) DEFAULT '0.0000000',
+  PRIMARY KEY (`IP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfLogins`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfLogins` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ctime` double(17,6) unsigned NOT NULL,
+  `fail` tinyint(3) unsigned NOT NULL,
+  `action` varchar(40) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `userID` int(10) unsigned NOT NULL,
+  `IP` int(10) unsigned NOT NULL,
+  `UA` text,
+  PRIMARY KEY (`id`),
+  KEY `k1` (`IP`,`fail`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfNet404s`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfNet404s` (
+  `sig` binary(16) NOT NULL,
+  `ctime` int(10) unsigned NOT NULL,
+  `URI` varchar(1000) NOT NULL,
+  PRIMARY KEY (`sig`),
+  KEY `k1` (`ctime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfReverseCache`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfReverseCache` (
+  `IP` int(10) unsigned NOT NULL,
+  `host` varchar(255) NOT NULL,
+  `lastUpdate` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`IP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfScanners`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfScanners` (
+  `eMin` int(10) unsigned NOT NULL,
+  `IP` int(10) unsigned NOT NULL,
+  `hits` smallint(5) unsigned NOT NULL,
+  PRIMARY KEY (`eMin`,`IP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfStatus`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfStatus` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `ctime` double(17,6) unsigned NOT NULL,
+  `level` tinyint(3) unsigned NOT NULL,
+  `type` char(5) NOT NULL,
+  `msg` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `k1` (`ctime`),
+  KEY `k2` (`type`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=83 ;
+
+--
+-- –î–∞–º–ø –¥–∞–Ω–Ω—ã—Ö —Ç–∞–±–ª–∏—Ü—ã `wp_wfStatus`
+--
+
+INSERT INTO `wp_wfStatus` (`id`, `ctime`, `level`, `type`, `msg`) VALUES
+(1, 1417345611.904962, 10, 'info', 'SUM_PREP:Preparing a new scan.'),
+(2, 1417345611.934842, 10, 'info', 'SUM_PAIDONLY:Remote scan of public facing site only available to paid members'),
+(3, 1417345613.956080, 10, 'info', 'SUM_PAIDONLY:Check if your site is being Spamvertized is for paid members only'),
+(4, 1417345615.982068, 10, 'info', 'SUM_PAIDONLY:Checking if your IP is generating spam is for paid members only'),
+(5, 1417345618.082382, 10, 'info', 'SUM_START:Scanning your site for the HeartBleed vulnerability'),
+(6, 1417345618.822977, 10, 'info', 'SUM_ENDOK:Scanning your site for the HeartBleed vulnerability'),
+(7, 1417345618.892216, 1, 'info', 'Contacting Wordfence to initiate scan'),
+(8, 1417345619.512544, 2, 'info', 'Getting plugin list from WordPress'),
+(9, 1417345619.547243, 2, 'info', 'Found 5 plugins'),
+(10, 1417345619.609392, 2, 'info', 'Getting theme list from WordPress'),
+(11, 1417345619.937031, 2, 'info', 'Found 4 themes'),
+(12, 1417345620.035662, 10, 'info', 'SUM_START:Fetching core, theme and plugin file signatures from Wordfence'),
+(13, 1417345621.693783, 10, 'info', 'SUM_ENDSUCCESS:Fetching core, theme and plugin file signatures from Wordfence'),
+(14, 1417345621.795047, 10, 'info', 'SUM_START:Fetching list of known malware files from Wordfence'),
+(15, 1417345623.932131, 10, 'info', 'SUM_ENDSUCCESS:Fetching list of known malware files from Wordfence'),
+(16, 1417345624.095744, 10, 'info', 'SUM_START:Comparing core WordPress files against originals in repository'),
+(17, 1417345624.120746, 10, 'info', 'SUM_DISABLED:Skipping theme scan'),
+(18, 1417345624.145856, 10, 'info', 'SUM_DISABLED:Skipping plugin scan'),
+(19, 1417345624.204616, 10, 'info', 'SUM_START:Scanning for known malware files'),
+(20, 1417345627.983329, 2, 'info', 'Analyzed 100 files containing 997.8 KB of data so far'),
+(21, 1417345631.964140, 2, 'info', 'Analyzed 200 files containing 2.15 MB of data so far'),
+(22, 1417345635.725478, 2, 'info', 'Analyzed 300 files containing 4.1 MB of data so far'),
+(23, 1417345640.337205, 2, 'info', 'Analyzed 400 files containing 4.71 MB of data so far'),
+(24, 1417345643.965204, 2, 'info', 'Analyzed 500 files containing 5.66 MB of data so far'),
+(25, 1417345647.293666, 2, 'info', 'Analyzed 600 files containing 6.55 MB of data so far'),
+(26, 1417345651.790969, 2, 'info', 'Analyzed 700 files containing 6.98 MB of data so far'),
+(27, 1417345655.576480, 2, 'info', 'Analyzed 800 files containing 12.67 MB of data so far'),
+(28, 1417345659.490317, 2, 'info', 'Analyzed 900 files containing 14.24 MB of data so far'),
+(29, 1417345663.753900, 2, 'info', 'Analyzed 1000 files containing 16.16 MB of data so far'),
+(30, 1417345668.135083, 2, 'info', 'Analyzed 1100 files containing 19.22 MB of data so far'),
+(31, 1417345672.286732, 2, 'info', 'Analyzed 1200 files containing 21.5 MB of data so far'),
+(32, 1417345675.980303, 2, 'info', 'Analyzed 1300 files containing 22.07 MB of data so far'),
+(33, 1417345680.184125, 2, 'info', 'Analyzed 1400 files containing 23.46 MB of data so far'),
+(34, 1417345685.399716, 2, 'info', 'Analyzed 1500 files containing 24.52 MB of data so far'),
+(35, 1417345688.004151, 2, 'info', 'Analyzed 1571 files containing 28.79 MB of data.'),
+(36, 1417345688.029351, 10, 'info', 'SUM_ENDOK:Comparing core WordPress files against originals in repository'),
+(37, 1417345688.096469, 10, 'info', 'SUM_ENDOK:Scanning for known malware files'),
+(38, 1417345688.405475, 10, 'info', 'SUM_START:Scanning file contents for infections and vulnerabilities'),
+(39, 1417345688.472486, 10, 'info', 'SUM_START:Scanning files for URLs in Google''s Safe Browsing List'),
+(40, 1417345689.112261, 2, 'info', 'Starting scan of file contents'),
+(41, 1417345690.180498, 2, 'info', 'Scanned contents of 13 additional files at 12.71 per second'),
+(42, 1417345691.225881, 2, 'info', 'Scanned contents of 22 additional files at 10.64 per second'),
+(43, 1417345692.082146, 2, 'info', 'Scanned contents of 34 additional files at 11.63 per second'),
+(44, 1417345692.112780, 2, 'info', 'Asking Wordfence to check URL''s against malware list.'),
+(45, 1417345692.146565, 2, 'info', 'Checking 19 host keys against Wordfence scanning servers.'),
+(46, 1417345692.734000, 2, 'info', 'Done host key check.'),
+(47, 1417345692.764056, 2, 'info', 'Checking 3 URLs from 3 sources.'),
+(48, 1417345693.354136, 2, 'info', 'Done URL check.'),
+(49, 1417345693.430774, 2, 'info', 'Done file contents scan'),
+(50, 1417345693.464465, 10, 'info', 'SUM_ENDOK:Scanning file contents for infections and vulnerabilities'),
+(51, 1417345693.531353, 10, 'info', 'SUM_ENDOK:Scanning files for URLs in Google''s Safe Browsing List'),
+(52, 1417345693.631434, 10, 'info', 'SUM_START:Scanning posts for URL''s in Google''s Safe Browsing List'),
+(53, 1417345694.744688, 2, 'info', 'Examining URLs found in posts we scanned for dangerous websites'),
+(54, 1417345694.770131, 2, 'info', 'Checking 27 host keys against Wordfence scanning servers.'),
+(55, 1417345695.375413, 2, 'info', 'Done host key check.'),
+(56, 1417345695.396124, 2, 'info', 'Checking 3 URLs from 3 sources.'),
+(57, 1417345696.036842, 2, 'info', 'Done URL check.'),
+(58, 1417345696.088777, 2, 'info', 'Done examining URls'),
+(59, 1417345696.181610, 10, 'info', 'SUM_ENDOK:Scanning posts for URL''s in Google''s Safe Browsing List'),
+(60, 1417345696.365039, 10, 'info', 'SUM_START:Scanning comments for URL''s in Google''s Safe Browsing List'),
+(61, 1417345696.605068, 2, 'info', 'Checking 1 host keys against Wordfence scanning servers.'),
+(62, 1417345697.210185, 2, 'info', 'Done host key check.'),
+(63, 1417345697.321235, 10, 'info', 'SUM_ENDOK:Scanning comments for URL''s in Google''s Safe Browsing List'),
+(64, 1417345697.790077, 10, 'info', 'SUM_START:Scanning for weak passwords'),
+(65, 1417345697.831949, 2, 'info', 'Starting password strength check on 4 users.'),
+(66, 1417345697.895811, 2, 'info', 'Adding issue User "admin" with "administrator" access has an easy password.'),
+(67, 1417345698.491290, 2, 'info', 'Adding issue User "subscriber1" with ''subscriber'' access has a very easy password.'),
+(68, 1417345698.559138, 10, 'info', 'SUM_ENDBAD:Scanning for weak passwords'),
+(69, 1417345698.659031, 10, 'info', 'SUM_START:Scanning DNS for unauthorized changes'),
+(70, 1417345698.692705, 2, 'info', 'Starting DNS scan for localhost'),
+(71, 1417345698.768475, 2, 'info', 'Scanning DNS A record for localhost'),
+(72, 1417345698.944327, 10, 'info', 'SUM_ENDOK:Scanning DNS for unauthorized changes'),
+(73, 1417345699.035973, 10, 'info', 'SUM_START:Scanning to check available disk space'),
+(74, 1417345699.061111, 2, 'info', 'Total disk space: 31.3480GB -- Free disk space: 22.8573GB'),
+(75, 1417345699.087352, 2, 'info', 'The disk has 23405.86 MB space available'),
+(76, 1417345699.112995, 10, 'info', 'SUM_ENDOK:Scanning to check available disk space'),
+(77, 1417345699.221241, 10, 'info', 'SUM_START:Scanning for old themes, plugins and core files'),
+(78, 1417345699.422507, 10, 'info', 'SUM_ENDBAD:Scanning for old themes, plugins and core files'),
+(79, 1417345699.549180, 1, 'info', '-------------------'),
+(80, 1417345699.581000, 1, 'info', 'Scan Complete. Scanned 1571 files, 5 plugins, 4 themes, 35 pages, 3 comments and 2498 records in 88 seconds.'),
+(81, 1417345699.614549, 10, 'info', 'SUM_FINAL:Scan complete. You have 4 new issues to fix. See below.'),
+(82, 1417345699.781812, 2, 'info', 'Wordfence used 0.22MB of memory for scan. Server peak memory usage was: 3.13MB');
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfThrottleLog`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfThrottleLog` (
+  `IP` int(10) unsigned NOT NULL,
+  `startTime` int(10) unsigned NOT NULL,
+  `endTime` int(10) unsigned NOT NULL,
+  `timesThrottled` int(10) unsigned NOT NULL,
+  `lastReason` varchar(255) NOT NULL,
+  PRIMARY KEY (`IP`),
+  KEY `k2` (`endTime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- –°—Ç—Ä—É–∫—Ç—É—Ä–∞ —Ç–∞–±–ª–∏—Ü—ã `wp_wfVulnScanners`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_wfVulnScanners` (
+  `IP` int(10) unsigned NOT NULL,
+  `ctime` int(10) unsigned NOT NULL,
+  `hits` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`IP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
