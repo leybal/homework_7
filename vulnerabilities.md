@@ -8,4 +8,4 @@ Asgard Security Scanner не удалось установить, по этом�
 6) Your WordPress site is not blocking suspicious looking information in the URL. Click here to block users from trying to execute code that they should not be able to execute.
 7) Your database table prefix should not be wp_.
 
-В плагине CP Multi View Event Calendar используется глобальные переменные (global $wpdb;), обращение к базе данных с помощью стандартных PHP команд.
+В плагине CP Multi View Event Calendar выполняется обращение к базе данных с помощью стандартных PHP команд.
