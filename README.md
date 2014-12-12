@@ -1,1 +1,1 @@
-**3 META fields. Button does not work!**
+**Simple widget. HW_7**

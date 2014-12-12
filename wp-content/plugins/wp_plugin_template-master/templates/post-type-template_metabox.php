@@ -24,4 +24,4 @@
         </td>
     </tr>                
 </table>
-<p><button id="my_button">Call_JS</button></p>
+<!--<p><button id="my_button">Call_JS</button></p>-->

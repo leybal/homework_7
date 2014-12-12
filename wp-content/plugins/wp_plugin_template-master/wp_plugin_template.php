@@ -85,7 +85,7 @@ if(class_exists('WP_Plugin_Template'))
 
 }
 
-add_action( 'admin_footer', 'my_action_javascript' ); // Write our JS below here
+//add_action( 'admin_footer', 'my_action_javascript' ); // Write our JS below here
 
 function my_action_javascript() { ?>
     <script type="text/javascript" >
@@ -120,7 +120,7 @@ function my_action_javascript() { ?>
 }
 
 //add_action( 'wp_ajax_nopriv_my_action', 'my_action_callback' );
-add_action( 'wp_ajax_my_action', 'my_action_callback' );
+//add_action( 'wp_ajax_my_action', 'my_action_callback' );
 
 function my_action_callback() {
     global $wpdb; // this is how you get access to the database
